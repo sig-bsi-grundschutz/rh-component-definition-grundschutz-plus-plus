@@ -17,7 +17,7 @@
     },
     "imports": [
       {
-        "href": "trestle://catalogs/bsi-grundschutz-plus-plus/catalog.json",
+        "href": "trestle://catalogs/grundschutz-plus-plus/catalog.json",
         "include-controls": [
           {
             "with-ids": [
