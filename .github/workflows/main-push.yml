@@ -15,10 +15,10 @@ jobs:
         # GIT_TOKEN (PAT) is used in configured instance repos for private repo access and push auth.
         # Fallback to github.token allows the template repo itself to pass checkout without a secret set.
         token: ${{ secrets.GIT_TOKEN || github.token }}
-    - name: Set up Python 3.11
+    - name: Set up Python 3.14
       uses: actions/setup-python@v7
       with:
-        python-version: 3.11
+        python-version: 3.14
         cache: 'pip'
     - name: Install Trestle
       run: bash scripts/automation/install_trestle.sh
