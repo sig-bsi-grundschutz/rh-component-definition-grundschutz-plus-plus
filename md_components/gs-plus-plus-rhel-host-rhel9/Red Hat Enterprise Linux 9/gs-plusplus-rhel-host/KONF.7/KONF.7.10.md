@@ -3,6 +3,54 @@ x-trestle-global:
   profile:
     title: Grundschutz++ für Red Hat Enterprise Linux Host
     href: trestle://profiles/gs-plusplus-rhel-host/profile.json
+x-trestle-comp-def-rules:
+  Red Hat Enterprise Linux 9:
+    - name: fapolicy_default_deny
+      description: fapolicy default deny
+    - name: grub2_enable_selinux
+      description: grub2 enable selinux
+    - name: package_fapolicyd_installed
+      description: package fapolicyd installed
+    - name: package_libselinux_installed
+      description: package libselinux installed
+    - name: selinux_confinement_of_daemons
+      description: selinux confinement of daemons
+    - name: selinux_not_disabled
+      description: selinux not disabled
+    - name: selinux_policytype
+      description: selinux policytype
+    - name: selinux_state
+      description: selinux state
+    - name: service_fapolicyd_enabled
+      description: service fapolicyd enabled
+x-trestle-rules-params:
+  Red Hat Enterprise Linux 9:
+    - name: var_selinux_policy_name
+      description: var selinux policy name
+      options: targeted,mls
+      rule-id: selinux_policytype
+    - name: var_selinux_state
+      description: var selinux state
+      options: enforcing,disabled,permissive
+      rule-id: selinux_state
+x-trestle-comp-def-rules-param-vals:
+  # You may set new values for rule parameters by adding
+  #
+  # component-values:
+  #   - value 1
+  #   - value 2
+  #
+  # below a section of values:
+  # The values list refers to the values as set by the components, and the component-values are the new values
+  # to be placed in SetParameters of the component definition.
+  #
+  Red Hat Enterprise Linux 9:
+    - name: var_selinux_policy_name
+      values:
+        - targeted
+    - name: var_selinux_state
+      values:
+        - enforcing
 ---
 
 # KONF.7.10 - \[Schutz vor Schadcode\] Einschränkung der Ausführung

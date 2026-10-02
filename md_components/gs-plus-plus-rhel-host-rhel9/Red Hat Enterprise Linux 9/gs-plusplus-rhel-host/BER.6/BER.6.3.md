@@ -3,6 +3,55 @@ x-trestle-global:
   profile:
     title: Grundschutz++ für Red Hat Enterprise Linux Host
     href: trestle://profiles/gs-plusplus-rhel-host/profile.json
+x-trestle-comp-def-rules:
+  Red Hat Enterprise Linux 9:
+    - name: accounts_password_pam_dictcheck
+      description: accounts password pam dictcheck
+    - name: accounts_password_pam_maxrepeat
+      description: accounts password pam maxrepeat
+    - name: accounts_password_pam_maxsequence
+      description: accounts password pam maxsequence
+    - name: accounts_password_pam_pwquality_password_auth
+      description: accounts password pam pwquality password auth
+    - name: accounts_password_pam_pwquality_system_auth
+      description: accounts password pam pwquality system auth
+    - name: package_pam_pwquality_installed
+      description: package pam pwquality installed
+x-trestle-rules-params:
+  Red Hat Enterprise Linux 9:
+    - name: var_password_pam_dictcheck
+      description: var password pam dictcheck
+      options: '1'
+      rule-id: accounts_password_pam_dictcheck
+    - name: var_password_pam_maxrepeat
+      description: var password pam maxrepeat
+      options: '3'
+      rule-id: accounts_password_pam_maxrepeat
+    - name: var_password_pam_maxsequence
+      description: var password pam maxsequence
+      options: '3'
+      rule-id: accounts_password_pam_maxsequence
+x-trestle-comp-def-rules-param-vals:
+  # You may set new values for rule parameters by adding
+  #
+  # component-values:
+  #   - value 1
+  #   - value 2
+  #
+  # below a section of values:
+  # The values list refers to the values as set by the components, and the component-values are the new values
+  # to be placed in SetParameters of the component definition.
+  #
+  Red Hat Enterprise Linux 9:
+    - name: var_password_pam_dictcheck
+      values:
+        - '1'
+    - name: var_password_pam_maxrepeat
+      values:
+        - '3'
+    - name: var_password_pam_maxsequence
+      values:
+        - '3'
 ---
 
 # BER.6.3 - \[Passwortgebrauch\] Trivialpasswörter

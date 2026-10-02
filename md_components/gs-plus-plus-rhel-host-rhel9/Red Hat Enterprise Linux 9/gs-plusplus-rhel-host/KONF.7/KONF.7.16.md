@@ -3,6 +3,45 @@ x-trestle-global:
   profile:
     title: Grundschutz++ für Red Hat Enterprise Linux Host
     href: trestle://profiles/gs-plusplus-rhel-host/profile.json
+x-trestle-comp-def-rules:
+  Red Hat Enterprise Linux 9:
+    - name: grub2_enable_selinux
+      description: grub2 enable selinux
+    - name: grub2_nosmap_argument_absent
+      description: grub2 nosmap argument absent
+    - name: grub2_nosmep_argument_absent
+      description: grub2 nosmep argument absent
+    - name: package_libselinux_installed
+      description: package libselinux installed
+    - name: selinux_not_disabled
+      description: selinux not disabled
+    - name: selinux_state
+      description: selinux state
+    - name: sysctl_kernel_exec_shield
+      description: sysctl kernel exec shield
+    - name: sysctl_kernel_randomize_va_space
+      description: sysctl kernel randomize va space
+x-trestle-rules-params:
+  Red Hat Enterprise Linux 9:
+    - name: var_selinux_state
+      description: var selinux state
+      options: enforcing,disabled,permissive
+      rule-id: selinux_state
+x-trestle-comp-def-rules-param-vals:
+  # You may set new values for rule parameters by adding
+  #
+  # component-values:
+  #   - value 1
+  #   - value 2
+  #
+  # below a section of values:
+  # The values list refers to the values as set by the components, and the component-values are the new values
+  # to be placed in SetParameters of the component definition.
+  #
+  Red Hat Enterprise Linux 9:
+    - name: var_selinux_state
+      values:
+        - enforcing
 ---
 
 # KONF.7.16 - \[Schutz vor Schadcode\] Anti-Exploit

@@ -3,6 +3,33 @@ x-trestle-global:
   profile:
     title: Grundschutz++ für Red Hat Enterprise Linux Host
     href: trestle://profiles/gs-plusplus-rhel-host/profile.json
+x-trestle-comp-def-rules:
+  Red Hat Enterprise Linux 9:
+    - name: account_disable_post_pw_expiration
+      description: account disable post pw expiration
+    - name: account_temp_expire_date
+      description: account temp expire date
+x-trestle-rules-params:
+  Red Hat Enterprise Linux 9:
+    - name: var_account_disable_post_pw_expiration
+      description: var account disable post pw expiration
+      options: 0,180,30,35,40,45,60,90
+      rule-id: account_disable_post_pw_expiration
+x-trestle-comp-def-rules-param-vals:
+  # You may set new values for rule parameters by adding
+  #
+  # component-values:
+  #   - value 1
+  #   - value 2
+  #
+  # below a section of values:
+  # The values list refers to the values as set by the components, and the component-values are the new values
+  # to be placed in SetParameters of the component definition.
+  #
+  Red Hat Enterprise Linux 9:
+    - name: var_account_disable_post_pw_expiration
+      values:
+        - '35'
 ---
 
 # BER.2.5 - \[Identitätsmanagement\] Deaktivierung bei Weggang

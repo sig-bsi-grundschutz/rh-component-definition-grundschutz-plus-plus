@@ -3,6 +3,14 @@ x-trestle-global:
   profile:
     title: Grundschutz++ für Red Hat Enterprise Linux Host
     href: trestle://profiles/gs-plusplus-rhel-host/profile.json
+x-trestle-comp-def-rules:
+  Red Hat Enterprise Linux 9:
+    - name: account_use_centralized_automated_auth
+      description: account use centralized automated auth
+    - name: package_sssd_installed
+      description: package sssd installed
+    - name: service_sssd_enabled
+      description: service sssd enabled
 ---
 
 # BER.3.7 - \[Zugangskonten\] Single-Sign-On

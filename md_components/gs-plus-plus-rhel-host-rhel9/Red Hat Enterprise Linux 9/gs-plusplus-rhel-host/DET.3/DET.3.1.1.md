@@ -3,6 +3,10 @@ x-trestle-global:
   profile:
     title: Grundschutz++ für Red Hat Enterprise Linux Host
     href: trestle://profiles/gs-plusplus-rhel-host/profile.json
+x-trestle-comp-def-rules:
+  Red Hat Enterprise Linux 9:
+    - name: audit_rules_login_events_faillog
+      description: audit rules login events faillog
 ---
 
 # DET.3.1.1 - \[Protokollierung\] Authentifizierungen

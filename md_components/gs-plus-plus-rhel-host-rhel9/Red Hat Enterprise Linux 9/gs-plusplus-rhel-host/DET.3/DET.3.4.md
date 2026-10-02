@@ -5,6 +5,12 @@ x-trestle-global:
   profile:
     title: Grundschutz++ für Red Hat Enterprise Linux Host
     href: trestle://profiles/gs-plusplus-rhel-host/profile.json
+x-trestle-comp-def-rules:
+  Red Hat Enterprise Linux 9:
+    - name: audit_rules_immutable
+      description: audit rules immutable
+    - name: file_permissions_var_log_audit
+      description: file permissions var log audit
 ---
 
 # DET.3.4 - \[Protokollierung\] Speicherkapazität

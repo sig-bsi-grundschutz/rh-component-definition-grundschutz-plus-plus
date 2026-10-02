@@ -3,6 +3,10 @@ x-trestle-global:
   profile:
     title: Grundschutz++ für Red Hat Enterprise Linux Host
     href: trestle://profiles/gs-plusplus-rhel-host/profile.json
+x-trestle-comp-def-rules:
+  Red Hat Enterprise Linux 9:
+    - name: only_allow_specific_certs
+      description: only allow specific certs
 ---
 
 # KONF.2.4.1 - \[Konfiguration von Systemen\] Nicht benötigte Zertifikate

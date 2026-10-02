@@ -3,6 +3,14 @@ x-trestle-global:
   profile:
     title: Grundschutz++ für Red Hat Enterprise Linux Host
     href: trestle://profiles/gs-plusplus-rhel-host/profile.json
+x-trestle-comp-def-rules:
+  Red Hat Enterprise Linux 9:
+    - name: sshd_disable_forwarding
+      description: sshd disable forwarding
+    - name: sshd_disable_tcp_forwarding
+      description: sshd disable tcp forwarding
+    - name: sshd_disable_x11_forwarding
+      description: sshd disable x11 forwarding
 ---
 
 # KONF.4.1.1 - \[Vertrauenswürdige Basisdienste\] Weiterleitung von Anmeldeinformationen

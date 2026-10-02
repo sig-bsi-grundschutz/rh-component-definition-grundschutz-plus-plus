@@ -3,6 +3,16 @@ x-trestle-global:
   profile:
     title: Grundschutz++ für Red Hat Enterprise Linux Host
     href: trestle://profiles/gs-plusplus-rhel-host/profile.json
+x-trestle-comp-def-rules:
+  Red Hat Enterprise Linux 9:
+    - name: ensure_gpgcheck_globally_activated
+      description: ensure gpgcheck globally activated
+    - name: ensure_gpgcheck_local_packages
+      description: ensure gpgcheck local packages
+    - name: ensure_gpgcheck_never_disabled
+      description: ensure gpgcheck never disabled
+    - name: install_endpoint_security_software
+      description: install endpoint security software
 ---
 
 # KONF.7.1 - \[Schutz vor Schadcode\] Echtzeitscanner

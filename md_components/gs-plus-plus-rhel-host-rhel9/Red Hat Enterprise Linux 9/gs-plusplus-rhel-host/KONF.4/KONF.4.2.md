@@ -3,6 +3,33 @@ x-trestle-global:
   profile:
     title: Grundschutz++ für Red Hat Enterprise Linux Host
     href: trestle://profiles/gs-plusplus-rhel-host/profile.json
+x-trestle-comp-def-rules:
+  Red Hat Enterprise Linux 9:
+    - name: network_configure_name_resolution
+      description: network configure name resolution
+    - name: networkmanager_dns_mode
+      description: networkmanager dns mode
+x-trestle-rules-params:
+  Red Hat Enterprise Linux 9:
+    - name: var_networkmanager_dns_mode
+      description: var networkmanager dns mode
+      options: none,default,systemd-resolved
+      rule-id: networkmanager_dns_mode
+x-trestle-comp-def-rules-param-vals:
+  # You may set new values for rule parameters by adding
+  #
+  # component-values:
+  #   - value 1
+  #   - value 2
+  #
+  # below a section of values:
+  # The values list refers to the values as set by the components, and the component-values are the new values
+  # to be placed in SetParameters of the component definition.
+  #
+  Red Hat Enterprise Linux 9:
+    - name: var_networkmanager_dns_mode
+      values:
+        - default
 ---
 
 # KONF.4.2 - \[Vertrauenswürdige Basisdienste\] DNS-Anbindung

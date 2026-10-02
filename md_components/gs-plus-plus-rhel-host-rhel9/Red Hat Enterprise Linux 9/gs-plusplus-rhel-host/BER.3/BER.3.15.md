@@ -3,6 +3,10 @@ x-trestle-global:
   profile:
     title: Grundschutz++ für Red Hat Enterprise Linux Host
     href: trestle://profiles/gs-plusplus-rhel-host/profile.json
+x-trestle-comp-def-rules:
+  Red Hat Enterprise Linux 9:
+    - name: account_use_centralized_automated_auth
+      description: account use centralized automated auth
 ---
 
 # BER.3.15 - \[Zugangskonten\] Zugang löschen nach Fristablauf

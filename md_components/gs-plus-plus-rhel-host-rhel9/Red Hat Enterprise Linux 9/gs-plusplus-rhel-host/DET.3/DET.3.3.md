@@ -5,6 +5,10 @@ x-trestle-global:
   profile:
     title: Grundschutz++ für Red Hat Enterprise Linux Host
     href: trestle://profiles/gs-plusplus-rhel-host/profile.json
+x-trestle-comp-def-rules:
+  Red Hat Enterprise Linux 9:
+    - name: auditd_data_retention_space_left
+      description: auditd data retention space left
 ---
 
 # DET.3.3 - \[Protokollierung\] Filterung nicht benötigter Inhalte

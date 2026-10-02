@@ -3,6 +3,26 @@ x-trestle-global:
   profile:
     title: Grundschutz++ für Red Hat Enterprise Linux Host
     href: trestle://profiles/gs-plusplus-rhel-host/profile.json
+x-trestle-comp-def-rules:
+  Red Hat Enterprise Linux 9:
+    - name: dconf_gnome_disable_automount
+      description: dconf gnome disable automount
+    - name: dconf_gnome_disable_automount_open
+      description: dconf gnome disable automount open
+    - name: dconf_gnome_disable_autorun
+      description: dconf gnome disable autorun
+    - name: kernel_module_usb-storage_disabled
+      description: kernel module usb-storage disabled
+    - name: mount_option_nodev_removable_partitions
+      description: mount option nodev removable partitions
+    - name: mount_option_noexec_removable_partitions
+      description: mount option noexec removable partitions
+    - name: mount_option_nosuid_removable_partitions
+      description: mount option nosuid removable partitions
+    - name: package_autofs_removed
+      description: package autofs removed
+    - name: service_autofs_disabled
+      description: service autofs disabled
 ---
 
 # KONF.3.8 - \[Physischer Schutz\] Einschränkung von Wechselmedien

@@ -3,6 +3,33 @@ x-trestle-global:
   profile:
     title: Grundschutz++ für Red Hat Enterprise Linux Host
     href: trestle://profiles/gs-plusplus-rhel-host/profile.json
+x-trestle-comp-def-rules:
+  Red Hat Enterprise Linux 9:
+    - name: sssd_offline_cred_expiration
+      description: sssd offline cred expiration
+    - name: sudo_require_reauthentication
+      description: sudo require reauthentication
+x-trestle-rules-params:
+  Red Hat Enterprise Linux 9:
+    - name: var_sudo_timestamp_timeout
+      description: var sudo timestamp timeout
+      options: 5,0,1,2,3,15
+      rule-id: sudo_require_reauthentication
+x-trestle-comp-def-rules-param-vals:
+  # You may set new values for rule parameters by adding
+  #
+  # component-values:
+  #   - value 1
+  #   - value 2
+  #
+  # below a section of values:
+  # The values list refers to the values as set by the components, and the component-values are the new values
+  # to be placed in SetParameters of the component definition.
+  #
+  Red Hat Enterprise Linux 9:
+    - name: var_sudo_timestamp_timeout
+      values:
+        - '5'
 ---
 
 # BER.3.20 - \[Zugangskonten\] Zwischenspeicherung von Zugangsdaten

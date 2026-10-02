@@ -3,6 +3,22 @@ x-trestle-global:
   profile:
     title: Grundschutz++ für Red Hat Enterprise Linux Host
     href: trestle://profiles/gs-plusplus-rhel-host/profile.json
+x-trestle-comp-def-rules:
+  Red Hat Enterprise Linux 9:
+    - name: kernel_module_bluetooth_disabled
+      description: kernel module bluetooth disabled
+    - name: kernel_module_firewire-core_disabled
+      description: kernel module firewire-core disabled
+    - name: kernel_module_usb-storage_disabled
+      description: kernel module usb-storage disabled
+    - name: package_usbguard_installed
+      description: package usbguard installed
+    - name: service_bluetooth_disabled
+      description: service bluetooth disabled
+    - name: service_usbguard_enabled
+      description: service usbguard enabled
+    - name: usbguard_generate_policy
+      description: usbguard generate policy
 ---
 
 # KONF.3.7 - \[Physischer Schutz\] Einschränkung angeschlossener Peripherie
