@@ -3,6 +3,26 @@ x-trestle-global:
   profile:
     title: Grundschutz++ für Red Hat Enterprise Linux Host
     href: trestle://profiles/gs-plusplus-rhel-host/profile.json
+x-trestle-comp-def-rules:
+  Red Hat Enterprise Linux 9:
+    - name: aide_build_database
+      description: aide build database
+    - name: aide_periodic_cron_checking
+      description: aide periodic cron checking
+    - name: aide_scan_notification
+      description: aide scan notification
+    - name: fapolicy_default_deny
+      description: fapolicy default deny
+    - name: package_aide_installed
+      description: package aide installed
+    - name: package_audit_installed
+      description: package audit installed
+    - name: package_fapolicyd_installed
+      description: package fapolicyd installed
+    - name: service_auditd_enabled
+      description: service auditd enabled
+    - name: service_fapolicyd_enabled
+      description: service fapolicyd enabled
 ---
 
 # KONF.7.3 - \[Schutz vor Schadcode\] Host-basierte Angriffserkennung

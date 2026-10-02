@@ -3,6 +3,16 @@ x-trestle-global:
   profile:
     title: Grundschutz++ für Red Hat Enterprise Linux Host
     href: trestle://profiles/gs-plusplus-rhel-host/profile.json
+x-trestle-comp-def-rules:
+  Red Hat Enterprise Linux 9:
+    - name: audit_rules_etc_group_open
+      description: audit rules etc group open
+    - name: audit_rules_etc_gshadow_open
+      description: audit rules etc gshadow open
+    - name: audit_rules_etc_passwd_open
+      description: audit rules etc passwd open
+    - name: audit_rules_etc_shadow_open
+      description: audit rules etc shadow open
 ---
 
 # BER.3.4 - \[Zugangskonten\] Protokollierung von Änderungen

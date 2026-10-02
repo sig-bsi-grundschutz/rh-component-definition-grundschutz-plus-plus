@@ -3,6 +3,48 @@ x-trestle-global:
   profile:
     title: Grundschutz++ für Red Hat Enterprise Linux Host
     href: trestle://profiles/gs-plusplus-rhel-host/profile.json
+x-trestle-comp-def-rules:
+  Red Hat Enterprise Linux 9:
+    - name: accounts_no_uid_except_zero
+      description: accounts no uid except zero
+    - name: ensure_pam_wheel_group_empty
+      description: ensure pam wheel group empty
+    - name: sudo_remove_nopasswd
+      description: sudo remove nopasswd
+    - name: sudo_require_authentication
+      description: sudo require authentication
+    - name: sudo_require_reauthentication
+      description: sudo require reauthentication
+    - name: use_pam_wheel_for_su
+      description: use pam wheel for su
+x-trestle-rules-params:
+  Red Hat Enterprise Linux 9:
+    - name: var_pam_wheel_group_for_su
+      description: var pam wheel group for su
+      options: sugroup
+      rule-id: ensure_pam_wheel_group_empty
+    - name: var_sudo_timestamp_timeout
+      description: var sudo timestamp timeout
+      options: 5,0,1,2,3,15
+      rule-id: sudo_require_reauthentication
+x-trestle-comp-def-rules-param-vals:
+  # You may set new values for rule parameters by adding
+  #
+  # component-values:
+  #   - value 1
+  #   - value 2
+  #
+  # below a section of values:
+  # The values list refers to the values as set by the components, and the component-values are the new values
+  # to be placed in SetParameters of the component definition.
+  #
+  Red Hat Enterprise Linux 9:
+    - name: var_pam_wheel_group_for_su
+      values:
+        - sugroup
+    - name: var_sudo_timestamp_timeout
+      values:
+        - '5'
 ---
 
 # BER.4.1 - \[Berechtigungsmanagement\] Prinzip der geringsten Berechtigungen

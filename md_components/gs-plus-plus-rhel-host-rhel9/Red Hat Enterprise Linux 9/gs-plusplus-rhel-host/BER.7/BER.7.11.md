@@ -3,6 +3,22 @@ x-trestle-global:
   profile:
     title: Grundschutz++ für Red Hat Enterprise Linux Host
     href: trestle://profiles/gs-plusplus-rhel-host/profile.json
+x-trestle-comp-def-rules:
+  Red Hat Enterprise Linux 9:
+    - name: aide_build_database
+      description: aide build database
+    - name: aide_periodic_cron_checking
+      description: aide periodic cron checking
+    - name: aide_scan_notification
+      description: aide scan notification
+    - name: file_groupownership_sshd_private_key
+      description: file groupownership sshd private key
+    - name: file_ownership_sshd_private_key
+      description: file ownership sshd private key
+    - name: file_permissions_sshd_private_key
+      description: file permissions sshd private key
+    - name: package_aide_installed
+      description: package aide installed
 ---
 
 # BER.7.11 - \[Schlüsselmanagement\] Integrität

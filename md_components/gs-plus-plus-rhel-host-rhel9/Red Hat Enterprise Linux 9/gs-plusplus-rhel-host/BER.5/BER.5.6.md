@@ -3,6 +3,14 @@ x-trestle-global:
   profile:
     title: Grundschutz++ für Red Hat Enterprise Linux Host
     href: trestle://profiles/gs-plusplus-rhel-host/profile.json
+x-trestle-comp-def-rules:
+  Red Hat Enterprise Linux 9:
+    - name: no_empty_passwords
+      description: no empty passwords
+    - name: no_empty_passwords_etc_shadow
+      description: no empty passwords etc shadow
+    - name: sshd_disable_empty_passwords
+      description: sshd disable empty passwords
 ---
 
 # BER.5.6 - \[Umgang mit Authentisierungsmitteln\] Vorkonfigurierte Authentisierungsmittel von IT-Systemen

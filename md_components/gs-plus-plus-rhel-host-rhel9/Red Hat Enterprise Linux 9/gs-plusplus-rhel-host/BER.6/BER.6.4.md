@@ -3,6 +3,89 @@ x-trestle-global:
   profile:
     title: Grundschutz++ für Red Hat Enterprise Linux Host
     href: trestle://profiles/gs-plusplus-rhel-host/profile.json
+x-trestle-comp-def-rules:
+  Red Hat Enterprise Linux 9:
+    - name: accounts_password_pam_dcredit
+      description: accounts password pam dcredit
+    - name: accounts_password_pam_dictcheck
+      description: accounts password pam dictcheck
+    - name: accounts_password_pam_lcredit
+      description: accounts password pam lcredit
+    - name: accounts_password_pam_minclass
+      description: accounts password pam minclass
+    - name: accounts_password_pam_minlen
+      description: accounts password pam minlen
+    - name: accounts_password_pam_ocredit
+      description: accounts password pam ocredit
+    - name: accounts_password_pam_pwquality_password_auth
+      description: accounts password pam pwquality password auth
+    - name: accounts_password_pam_pwquality_system_auth
+      description: accounts password pam pwquality system auth
+    - name: accounts_password_pam_ucredit
+      description: accounts password pam ucredit
+x-trestle-rules-params:
+  Red Hat Enterprise Linux 9:
+    - name: var_password_pam_dcredit
+      description: var password pam dcredit
+      options: 0,-1,-2
+      rule-id: accounts_password_pam_dcredit
+    - name: var_password_pam_dictcheck
+      description: var password pam dictcheck
+      options: '1'
+      rule-id: accounts_password_pam_dictcheck
+    - name: var_password_pam_lcredit
+      description: var password pam lcredit
+      options: 0,-1,-2
+      rule-id: accounts_password_pam_lcredit
+    - name: var_password_pam_minclass
+      description: var password pam minclass
+      options: 1,2,3,4
+      rule-id: accounts_password_pam_minclass
+    - name: var_password_pam_minlen
+      description: var password pam minlen
+      options: 10,12,14,15,17,18,20,6,7,8
+      rule-id: accounts_password_pam_minlen
+    - name: var_password_pam_ocredit
+      description: var password pam ocredit
+      options: 0,-1,-2
+      rule-id: accounts_password_pam_ocredit
+    - name: var_password_pam_ucredit
+      description: var password pam ucredit
+      options: 0,-1,-2
+      rule-id: accounts_password_pam_ucredit
+x-trestle-comp-def-rules-param-vals:
+  # You may set new values for rule parameters by adding
+  #
+  # component-values:
+  #   - value 1
+  #   - value 2
+  #
+  # below a section of values:
+  # The values list refers to the values as set by the components, and the component-values are the new values
+  # to be placed in SetParameters of the component definition.
+  #
+  Red Hat Enterprise Linux 9:
+    - name: var_password_pam_dcredit
+      values:
+        - '-1'
+    - name: var_password_pam_dictcheck
+      values:
+        - '1'
+    - name: var_password_pam_lcredit
+      values:
+        - '-1'
+    - name: var_password_pam_minclass
+      values:
+        - '3'
+    - name: var_password_pam_minlen
+      values:
+        - '15'
+    - name: var_password_pam_ocredit
+      values:
+        - '-1'
+    - name: var_password_pam_ucredit
+      values:
+        - '-1'
 ---
 
 # BER.6.4 - \[Passwortgebrauch\] Kriterien für die Qualität von Passwörtern

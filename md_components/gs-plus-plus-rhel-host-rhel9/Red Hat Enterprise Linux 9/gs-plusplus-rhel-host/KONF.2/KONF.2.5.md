@@ -5,6 +5,22 @@ x-trestle-global:
   profile:
     title: Grundschutz++ für Red Hat Enterprise Linux Host
     href: trestle://profiles/gs-plusplus-rhel-host/profile.json
+x-trestle-comp-def-rules:
+  Red Hat Enterprise Linux 9:
+    - name: aide_build_database
+      description: aide build database
+    - name: aide_periodic_cron_checking
+      description: aide periodic cron checking
+    - name: aide_scan_notification
+      description: aide scan notification
+    - name: package_aide_installed
+      description: package aide installed
+    - name: rpm_verify_hashes
+      description: rpm verify hashes
+    - name: rpm_verify_ownership
+      description: rpm verify ownership
+    - name: rpm_verify_permissions
+      description: rpm verify permissions
 ---
 
 # KONF.2.5 - \[Konfiguration von Systemen\] Überprüfung der Konfiguration

@@ -3,6 +3,69 @@ x-trestle-global:
   profile:
     title: Grundschutz++ für Red Hat Enterprise Linux Host
     href: trestle://profiles/gs-plusplus-rhel-host/profile.json
+x-trestle-comp-def-rules:
+  Red Hat Enterprise Linux 9:
+    - name: accounts_max_concurrent_login_sessions
+      description: accounts max concurrent login sessions
+    - name: accounts_tmout
+      description: accounts tmout
+    - name: sshd_disable_root_login
+      description: sshd disable root login
+    - name: sshd_set_idle_timeout
+      description: sshd set idle timeout
+    - name: sshd_set_keepalive
+      description: sshd set keepalive
+    - name: sshd_set_max_sessions
+      description: sshd set max sessions
+x-trestle-rules-params:
+  Red Hat Enterprise Linux 9:
+    - name: var_accounts_max_concurrent_login_sessions
+      description: var accounts max concurrent login sessions
+      options: 1,10,15,20,3,5
+      rule-id: accounts_max_concurrent_login_sessions
+    - name: var_accounts_tmout
+      description: var accounts tmout
+      options: 1800,600,900,300
+      rule-id: accounts_tmout
+    - name: sshd_idle_timeout_value
+      description: sshd idle timeout value
+      options: 600,7200,840,900,1800,300,3600
+      rule-id: sshd_set_idle_timeout
+    - name: var_sshd_set_keepalive
+      description: var sshd set keepalive
+      options: 10,3,5,0,1
+      rule-id: sshd_set_keepalive
+    - name: var_sshd_max_sessions
+      description: var sshd max sessions
+      options: 10,4,3,2,1,0
+      rule-id: sshd_set_max_sessions
+x-trestle-comp-def-rules-param-vals:
+  # You may set new values for rule parameters by adding
+  #
+  # component-values:
+  #   - value 1
+  #   - value 2
+  #
+  # below a section of values:
+  # The values list refers to the values as set by the components, and the component-values are the new values
+  # to be placed in SetParameters of the component definition.
+  #
+  Red Hat Enterprise Linux 9:
+    - name: var_accounts_max_concurrent_login_sessions
+      values:
+        - '1'
+    - name: var_accounts_tmout
+      values:
+        - '600'
+    - name: sshd_idle_timeout_value
+      values:
+        - '300'
+    - name: var_sshd_set_keepalive
+      values:
+        - '0'
+    - name: var_sshd_max_sessions
+      values:
+        - '10'
 ---
 
 # KONF.5.2 - \[Authentifizierung\] Keine Mehrfachanmeldung

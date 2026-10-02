@@ -3,6 +3,32 @@ x-trestle-global:
   profile:
     title: Grundschutz++ für Red Hat Enterprise Linux Host
     href: trestle://profiles/gs-plusplus-rhel-host/profile.json
+x-trestle-comp-def-rules:
+  Red Hat Enterprise Linux 9:
+    - name: grub2_init_on_alloc_argument
+      description: grub2 init on alloc argument
+    - name: grub2_page_poison_argument
+      description: grub2 page poison argument
+    - name: grub2_vsyscall_argument
+      description: grub2 vsyscall argument
+    - name: kernel_config_randomize_base
+      description: kernel config randomize base
+    - name: kernel_config_randomize_memory
+      description: kernel config randomize memory
+    - name: kernel_config_slab_freelist_random
+      description: kernel config slab freelist random
+    - name: kernel_config_stackprotector
+      description: kernel config stackprotector
+    - name: kernel_config_stackprotector_strong
+      description: kernel config stackprotector strong
+    - name: kernel_config_strict_kernel_rwx
+      description: kernel config strict kernel rwx
+    - name: sysctl_kernel_exec_shield
+      description: sysctl kernel exec shield
+    - name: sysctl_kernel_kptr_restrict
+      description: sysctl kernel kptr restrict
+    - name: sysctl_kernel_randomize_va_space
+      description: sysctl kernel randomize va space
 ---
 
 # KONF.7.16.1 - \[Schutz vor Schadcode\] Anti-Exploit für den Arbeitsspeicher

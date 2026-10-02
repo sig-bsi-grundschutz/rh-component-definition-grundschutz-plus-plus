@@ -3,6 +3,16 @@ x-trestle-global:
   profile:
     title: Grundschutz++ für Red Hat Enterprise Linux Host
     href: trestle://profiles/gs-plusplus-rhel-host/profile.json
+x-trestle-comp-def-rules:
+  Red Hat Enterprise Linux 9:
+    - name: configured_firewalld_default_deny
+      description: configured firewalld default deny
+    - name: package_firewalld_installed
+      description: package firewalld installed
+    - name: service_firewalld_enabled
+      description: service firewalld enabled
+    - name: set_firewalld_default_zone
+      description: set firewalld default zone
 ---
 
 # KONF.7.15 - \[Schutz vor Schadcode\] Lokale Firewall

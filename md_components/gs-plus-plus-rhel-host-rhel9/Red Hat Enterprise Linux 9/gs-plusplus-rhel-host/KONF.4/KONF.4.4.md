@@ -3,6 +3,24 @@ x-trestle-global:
   profile:
     title: Grundschutz++ für Red Hat Enterprise Linux Host
     href: trestle://profiles/gs-plusplus-rhel-host/profile.json
+x-trestle-comp-def-rules:
+  Red Hat Enterprise Linux 9:
+    - name: service_snmpd_disabled
+      description: service snmpd disabled
+    - name: sshd_disable_forwarding
+      description: sshd disable forwarding
+    - name: sshd_disable_root_login
+      description: sshd disable root login
+    - name: sshd_disable_tcp_forwarding
+      description: sshd disable tcp forwarding
+    - name: sshd_disable_x11_forwarding
+      description: sshd disable x11 forwarding
+    - name: sshd_enable_pam
+      description: sshd enable pam
+    - name: sshd_include_crypto_policy
+      description: sshd include crypto policy
+    - name: sshd_limit_user_access
+      description: sshd limit user access
 ---
 
 # KONF.4.4 - \[Vertrauenswürdige Basisdienste\] Einschränkung von Fernwartungsfunktionen

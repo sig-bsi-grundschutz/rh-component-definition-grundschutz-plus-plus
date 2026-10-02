@@ -3,6 +3,14 @@ x-trestle-global:
   profile:
     title: Grundschutz++ für Red Hat Enterprise Linux Host
     href: trestle://profiles/gs-plusplus-rhel-host/profile.json
+x-trestle-comp-def-rules:
+  Red Hat Enterprise Linux 9:
+    - name: fapolicy_default_deny
+      description: fapolicy default deny
+    - name: package_fapolicyd_installed
+      description: package fapolicyd installed
+    - name: service_fapolicyd_enabled
+      description: service fapolicyd enabled
 ---
 
 # KONF.7.12 - \[Schutz vor Schadcode\] Einschränkung von Skripten

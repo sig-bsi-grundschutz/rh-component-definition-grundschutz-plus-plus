@@ -3,6 +3,10 @@ x-trestle-global:
   profile:
     title: Grundschutz++ für Red Hat Enterprise Linux Host
     href: trestle://profiles/gs-plusplus-rhel-host/profile.json
+x-trestle-comp-def-rules:
+  Red Hat Enterprise Linux 9:
+    - name: sshd_disable_root_login
+      description: sshd disable root login
 ---
 
 # BER.4.7 - \[Berechtigungsmanagement\] IT-System-Zugangskonto

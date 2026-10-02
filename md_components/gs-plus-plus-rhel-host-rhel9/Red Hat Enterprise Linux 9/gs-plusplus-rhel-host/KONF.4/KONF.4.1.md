@@ -3,6 +3,37 @@ x-trestle-global:
   profile:
     title: Grundschutz++ für Red Hat Enterprise Linux Host
     href: trestle://profiles/gs-plusplus-rhel-host/profile.json
+x-trestle-comp-def-rules:
+  Red Hat Enterprise Linux 9:
+    - name: enable_authselect
+      description: enable authselect
+    - name: package_sssd_installed
+      description: package sssd installed
+    - name: service_sssd_enabled
+      description: service sssd enabled
+    - name: sssd_enable_pam_services
+      description: sssd enable pam services
+x-trestle-rules-params:
+  Red Hat Enterprise Linux 9:
+    - name: var_authselect_profile
+      description: var authselect profile
+      options: local,minimal,sssd
+      rule-id: enable_authselect
+x-trestle-comp-def-rules-param-vals:
+  # You may set new values for rule parameters by adding
+  #
+  # component-values:
+  #   - value 1
+  #   - value 2
+  #
+  # below a section of values:
+  # The values list refers to the values as set by the components, and the component-values are the new values
+  # to be placed in SetParameters of the component definition.
+  #
+  Red Hat Enterprise Linux 9:
+    - name: var_authselect_profile
+      values:
+        - sssd
 ---
 
 # KONF.4.1 - \[Vertrauenswürdige Basisdienste\] Anbindung an Verzeichnisdienst

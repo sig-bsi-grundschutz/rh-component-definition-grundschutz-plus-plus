@@ -3,6 +3,14 @@ x-trestle-global:
   profile:
     title: Grundschutz++ für Red Hat Enterprise Linux Host
     href: trestle://profiles/gs-plusplus-rhel-host/profile.json
+x-trestle-comp-def-rules:
+  Red Hat Enterprise Linux 9:
+    - name: account_password_pam_faillock_password_auth
+      description: account password pam faillock password auth
+    - name: account_password_pam_faillock_system_auth
+      description: account password pam faillock system auth
+    - name: accounts_passwords_pam_faillock_silent
+      description: accounts passwords pam faillock silent
 ---
 
 # BER.3.8 - \[Zugangskonten\] Hinweise bei Anmeldefehlern

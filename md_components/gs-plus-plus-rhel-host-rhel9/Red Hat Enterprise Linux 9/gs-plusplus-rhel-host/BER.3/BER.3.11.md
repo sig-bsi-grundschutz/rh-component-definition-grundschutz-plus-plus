@@ -5,6 +5,55 @@ x-trestle-global:
   profile:
     title: Grundschutz++ für Red Hat Enterprise Linux Host
     href: trestle://profiles/gs-plusplus-rhel-host/profile.json
+x-trestle-comp-def-rules:
+  Red Hat Enterprise Linux 9:
+    - name: account_password_pam_faillock_password_auth
+      description: account password pam faillock password auth
+    - name: account_password_pam_faillock_system_auth
+      description: account password pam faillock system auth
+    - name: accounts_passwords_pam_faillock_deny
+      description: accounts passwords pam faillock deny
+    - name: accounts_passwords_pam_faillock_enabled
+      description: accounts passwords pam faillock enabled
+    - name: accounts_passwords_pam_faillock_interval
+      description: accounts passwords pam faillock interval
+    - name: accounts_passwords_pam_faillock_unlock_time
+      description: accounts passwords pam faillock unlock time
+x-trestle-rules-params:
+  Red Hat Enterprise Linux 9:
+    - name: var_accounts_passwords_pam_faillock_deny
+      description: var accounts passwords pam faillock deny
+      options: 10,3,4,5,6,8
+      rule-id: accounts_passwords_pam_faillock_deny
+    - name: var_accounts_passwords_pam_faillock_fail_interval
+      description: var accounts passwords pam faillock fail interval
+      options: 100000000,1800,3600,86400,900
+      rule-id: accounts_passwords_pam_faillock_interval
+    - name: var_accounts_passwords_pam_faillock_unlock_time
+      description: var accounts passwords pam faillock unlock time
+      options: 1800,3600,600,604800,86400,900,300,0
+      rule-id: accounts_passwords_pam_faillock_unlock_time
+x-trestle-comp-def-rules-param-vals:
+  # You may set new values for rule parameters by adding
+  #
+  # component-values:
+  #   - value 1
+  #   - value 2
+  #
+  # below a section of values:
+  # The values list refers to the values as set by the components, and the component-values are the new values
+  # to be placed in SetParameters of the component definition.
+  #
+  Red Hat Enterprise Linux 9:
+    - name: var_accounts_passwords_pam_faillock_deny
+      values:
+        - '3'
+    - name: var_accounts_passwords_pam_faillock_fail_interval
+      values:
+        - '900'
+    - name: var_accounts_passwords_pam_faillock_unlock_time
+      values:
+        - '0'
 ---
 
 # BER.3.11 - \[Zugangskonten\] Anmeldeversuchsgrenze an der Anwendung

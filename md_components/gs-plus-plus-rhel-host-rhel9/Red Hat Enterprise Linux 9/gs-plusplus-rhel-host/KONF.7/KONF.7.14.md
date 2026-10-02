@@ -3,6 +3,12 @@ x-trestle-global:
   profile:
     title: Grundschutz++ für Red Hat Enterprise Linux Host
     href: trestle://profiles/gs-plusplus-rhel-host/profile.json
+x-trestle-comp-def-rules:
+  Red Hat Enterprise Linux 9:
+    - name: kernel_config_module_sig
+      description: kernel config module sig
+    - name: kernel_config_module_sig_all
+      description: kernel config module sig all
 ---
 
 # KONF.7.14 - \[Schutz vor Schadcode\] Code-Signierung im Betriebssystemkern

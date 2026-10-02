@@ -3,6 +3,35 @@ x-trestle-global:
   profile:
     title: Grundschutz++ für Red Hat Enterprise Linux Host
     href: trestle://profiles/gs-plusplus-rhel-host/profile.json
+x-trestle-comp-def-rules:
+  Red Hat Enterprise Linux 9:
+    - name: aide_scan_notification
+      description: aide scan notification
+    - name: rsyslog_remote_loghost
+      description: rsyslog remote loghost
+    - name: service_rsyslog_enabled
+      description: service rsyslog enabled
+x-trestle-rules-params:
+  Red Hat Enterprise Linux 9:
+    - name: rsyslog_remote_loghost_address
+      description: rsyslog remote loghost address
+      options: logcollector
+      rule-id: rsyslog_remote_loghost
+x-trestle-comp-def-rules-param-vals:
+  # You may set new values for rule parameters by adding
+  #
+  # component-values:
+  #   - value 1
+  #   - value 2
+  #
+  # below a section of values:
+  # The values list refers to the values as set by the components, and the component-values are the new values
+  # to be placed in SetParameters of the component definition.
+  #
+  Red Hat Enterprise Linux 9:
+    - name: rsyslog_remote_loghost_address
+      values:
+        - logcollector_placeholder
 ---
 
 # KONF.7.5 - \[Schutz vor Schadcode\] Alarmierung

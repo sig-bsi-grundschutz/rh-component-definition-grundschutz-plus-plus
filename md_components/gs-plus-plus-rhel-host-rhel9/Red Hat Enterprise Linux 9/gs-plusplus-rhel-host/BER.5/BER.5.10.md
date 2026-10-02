@@ -3,6 +3,36 @@ x-trestle-global:
   profile:
     title: Grundschutz++ für Red Hat Enterprise Linux Host
     href: trestle://profiles/gs-plusplus-rhel-host/profile.json
+x-trestle-comp-def-rules:
+  Red Hat Enterprise Linux 9:
+    - name: accounts_password_all_shadowed
+      description: accounts password all shadowed
+    - name: file_groupowner_etc_group
+      description: file groupowner etc group
+    - name: file_groupowner_etc_gshadow
+      description: file groupowner etc gshadow
+    - name: file_groupowner_etc_passwd
+      description: file groupowner etc passwd
+    - name: file_groupowner_etc_shadow
+      description: file groupowner etc shadow
+    - name: file_owner_etc_group
+      description: file owner etc group
+    - name: file_owner_etc_gshadow
+      description: file owner etc gshadow
+    - name: file_owner_etc_passwd
+      description: file owner etc passwd
+    - name: file_owner_etc_shadow
+      description: file owner etc shadow
+    - name: file_permissions_etc_group
+      description: file permissions etc group
+    - name: file_permissions_etc_gshadow
+      description: file permissions etc gshadow
+    - name: file_permissions_etc_passwd
+      description: file permissions etc passwd
+    - name: file_permissions_etc_shadow
+      description: file permissions etc shadow
+    - name: file_permissions_sshd_private_key
+      description: file permissions sshd private key
 ---
 
 # BER.5.10 - \[Umgang mit Authentisierungsmitteln\] Zugriffsbeschränkung pro IT-System

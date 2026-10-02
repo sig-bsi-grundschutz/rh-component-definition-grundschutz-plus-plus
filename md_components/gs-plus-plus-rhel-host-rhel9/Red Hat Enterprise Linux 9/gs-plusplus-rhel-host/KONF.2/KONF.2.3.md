@@ -3,6 +3,12 @@ x-trestle-global:
   profile:
     title: Grundschutz++ für Red Hat Enterprise Linux Host
     href: trestle://profiles/gs-plusplus-rhel-host/profile.json
+x-trestle-comp-def-rules:
+  Red Hat Enterprise Linux 9:
+    - name: ensure_root_password_configured
+      description: ensure root password configured
+    - name: sshd_disable_root_password_login
+      description: sshd disable root password login
 ---
 
 # KONF.2.3 - \[Konfiguration von Systemen\] Änderung von Default-Zugangsdaten

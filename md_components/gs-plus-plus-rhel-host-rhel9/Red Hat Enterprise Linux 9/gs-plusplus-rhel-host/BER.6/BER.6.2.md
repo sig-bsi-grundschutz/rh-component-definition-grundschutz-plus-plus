@@ -3,6 +3,43 @@ x-trestle-global:
   profile:
     title: Grundschutz++ für Red Hat Enterprise Linux Host
     href: trestle://profiles/gs-plusplus-rhel-host/profile.json
+x-trestle-comp-def-rules:
+  Red Hat Enterprise Linux 9:
+    - name: accounts_password_pam_pwhistory_enforce_for_root
+      description: accounts password pam pwhistory enforce for root
+    - name: accounts_password_pam_pwhistory_remember_password_auth
+      description: accounts password pam pwhistory remember password auth
+    - name: accounts_password_pam_pwhistory_remember_system_auth
+      description: accounts password pam pwhistory remember system auth
+x-trestle-rules-params:
+  Red Hat Enterprise Linux 9:
+    - name: var_password_pam_remember
+      description: var password pam remember
+      options: 0,1,2,3,4,5,6,7,8,9,20,24
+      rule-id: accounts_password_pam_pwhistory_remember_system_auth
+    - name: var_password_pam_remember_control_flag
+      description: var password pam remember control flag
+      options: 
+        required,optional,requisite,sufficient,binding,required,requisite,requisite,required
+      rule-id: accounts_password_pam_pwhistory_remember_system_auth
+x-trestle-comp-def-rules-param-vals:
+  # You may set new values for rule parameters by adding
+  #
+  # component-values:
+  #   - value 1
+  #   - value 2
+  #
+  # below a section of values:
+  # The values list refers to the values as set by the components, and the component-values are the new values
+  # to be placed in SetParameters of the component definition.
+  #
+  Red Hat Enterprise Linux 9:
+    - name: var_password_pam_remember
+      values:
+        - '5'
+    - name: var_password_pam_remember_control_flag
+      values:
+        - requisite
 ---
 
 # BER.6.2 - \[Passwortgebrauch\] Blockieren von Passwort Recycling

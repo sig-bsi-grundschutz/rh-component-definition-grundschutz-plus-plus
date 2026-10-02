@@ -5,6 +5,16 @@ x-trestle-global:
   profile:
     title: Grundschutz++ für Red Hat Enterprise Linux Host
     href: trestle://profiles/gs-plusplus-rhel-host/profile.json
+x-trestle-comp-def-rules:
+  Red Hat Enterprise Linux 9:
+    - name: grub2_audit_argument
+      description: grub2 audit argument
+    - name: package_audit_installed
+      description: package audit installed
+    - name: service_auditd_enabled
+      description: service auditd enabled
+    - name: service_systemd-journald_enabled
+      description: service systemd-journald enabled
 ---
 
 # DET.3.1 - \[Protokollierung\] Protokollierung sicherheitsrelevanter Ereignisse

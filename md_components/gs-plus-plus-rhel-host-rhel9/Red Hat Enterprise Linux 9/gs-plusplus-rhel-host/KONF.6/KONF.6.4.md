@@ -3,6 +3,24 @@ x-trestle-global:
   profile:
     title: Grundschutz++ für Red Hat Enterprise Linux Host
     href: trestle://profiles/gs-plusplus-rhel-host/profile.json
+x-trestle-comp-def-rules:
+  Red Hat Enterprise Linux 9:
+    - name: accounts_no_uid_except_zero
+      description: accounts no uid except zero
+    - name: package_sudo_installed
+      description: package sudo installed
+    - name: sshd_disable_root_login
+      description: sshd disable root login
+    - name: sudo_require_authentication
+      description: sudo require authentication
+    - name: sudo_restrict_privilege_elevation_to_authorized
+      description: sudo restrict privilege elevation to authorized
+    - name: sudoers_explicit_command_args
+      description: sudoers explicit command args
+    - name: sudoers_no_command_negation
+      description: sudoers no command negation
+    - name: use_pam_wheel_for_su
+      description: use pam wheel for su
 ---
 
 # KONF.6.4 - \[Rollen und Berechtigungen\] Privilegierte Systemfunktionen

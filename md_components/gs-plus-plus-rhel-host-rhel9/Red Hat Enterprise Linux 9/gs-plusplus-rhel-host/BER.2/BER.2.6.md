@@ -3,6 +3,10 @@ x-trestle-global:
   profile:
     title: Grundschutz++ für Red Hat Enterprise Linux Host
     href: trestle://profiles/gs-plusplus-rhel-host/profile.json
+x-trestle-comp-def-rules:
+  Red Hat Enterprise Linux 9:
+    - name: accounts_authorized_local_users
+      description: accounts authorized local users
 ---
 
 # BER.2.6 - \[Identitätsmanagement\] Löschen nach Fristablauf
