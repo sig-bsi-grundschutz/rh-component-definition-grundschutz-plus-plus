@@ -1,48 +1,123 @@
 # Reference — enrich-component-implementation
 
+## Pipeline (CSV → JSON → markdown → assemble)
+
+Source of truth by concern:
+
+| What | Where | How it lands in the PR |
+|------|--------|-------------------------|
+| Rule ↔ control map + param defaults | `data/{COMPONENT_DEFINITION}.csv` | Edit in Step 4 |
+| `Rule_Id`, component rule props, `set-parameters` | `component-definitions/…/component-definition.json` | `trestle task csv-to-oscal-cd` (merge) |
+| `### Rules:` + rule frontmatter | `md_components/…/{control-id}.md` | `regenerate_components.sh` |
+| Prose + `implementation-status` | markdown → JSON IR | Edit MD, then `assemble_components.sh` |
+
+`csv-to-oscal-cd` loads the **existing** component-definition and merges rule
+add/mod/del and control mappings. Existing IR `description` values are kept;
+only **new** controls get an empty description until assemble.
+
+**Develop CI** (`check_and_update_all.sh`) order when paths change:
+
+1. CSV changed → `csv-to-oscal-cd` + regenerate
+2. JSON changed → regenerate
+3. Markdown changed → assemble
+
+Commit **CSV + MD + JSON** together so CI merge starts from JSON that already
+has prose and rules. Markdown-only or CSV-only commits can leave Rules or prose
+out of sync until a follow-up.
+
+`### Rules:` is **read-only display** (`trestle.common.const.RULES_WARNING`).
+Assemble does **not** write markdown rule bullets into OSCAL.
+
+## CSV rule map
+
+File: `data/gs-plus-plus-rhel-host-rhel9.csv` (see `data/csv-to-oscal-cd.config`).
+
+- Row 1: machine headers (`$$Rule_Id`, `$$Control_Id_List`, `$Parameter_Id`, …)
+- Row 2: human descriptions (do not remove)
+- Row 3+: one row per rule
+
+Important columns:
+
+| Column | Notes |
+|--------|--------|
+| `$$Rule_Id` | CaC rule id (directory name under `linux_os/guide/`) |
+| `$$Rule_Description` | `description` field from the `rule.yml` in ComplianceAsCode Repository |
+| `$$Control_Id_List` | Space-separated control ids (e.g. `BER.2.5 BER.3.9`) |
+| `$Parameter_Id` | CaC var id (`var_…`) |
+| `$Parameter_Description` | Short label (often var id with `_` → spaces) |
+| `$Parameter_Value_Alternatives` | Comma-separated option **values** from `.var` `options` |
+| `$Parameter_Value_Default` | Chosen default → CI `set-parameters` |
+| `$Parameter_Id_1` … `_Default_1` | Second parameter on the same rule |
+
+Constants copied from sibling rows for this artifact:
+
+- Title: `Red Hat Enterprise Linux 9`
+- Type: `software`
+- Profile: `trestle://profiles/gs-plusplus-rhel-host/profile.json`
+- Namespace: `https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd`
+- `$$Profile_Description` must match existing
+  `control-implementation.description` (merge key)
+
+### Parameters from CaC `.var` files
+
+```text
+{CAC_CONTENT_ROOT}/linux_os/guide/**/var_{name}.var
+```
+
+Example `options` → CSV:
+
+```yaml
+options:
+    "0": "0"
+    30: 30
+    35: 35
+    default: 35
+```
+
+→ `$Parameter_Value_Alternatives` = `0,180,30,35,40,45,60,90` (all option
+values, comma-separated; follow existing row style)
+→ `$Parameter_Value_Default` = `35`
+
+Empty parameter columns when the rule has no variables.
+
 ## Implementation status
 
-Evaluate against the **anticipated end state** — as if every strong CCE-backed
-CaC rule from Step 3 (`find-rule`) will be attached on the IR in
-`component-definitions/{COMPONENT_DEFINITION}/component-definition.json` — not
-whether `### Rules:` currently shows them (usually empty at invoke). Apply in
-order; first match wins unless a higher bar clearly fits.
+Evaluate against the **end state after CSV sync** — rules from Step 3 that were
+written into the CSV and merged into JSON. Apply in order; first match wins
+unless a higher bar clearly fits.
 
 ### `implemented`
 
 All must be true:
 
-1. Every **technical** clause in Control Statement is addressed by strong Step 3
-   CaC rules for the target RHEL major.
+1. Every **technical** clause in Control Statement is addressed by strong
+   attached CaC rules for the target RHEL major.
 2. Every **technical** clause in Control guidance is addressed (as far as
    OS-level controls allow).
 3. Those rules have `cce@rhel{N}`.
-4. Covering rule IDs appear in the PR body (suggested CaC rules).
+4. Covering rule IDs appear in CSV / JSON / markdown `### Rules:`.
 5. Prose describes the on-host mechanism — not the requirement, not rule IDs
    ([Implementation prose](#implementation-prose)).
 
 ### `partial`
 
-Step 3 rules / docs cover only **part** of statement/guidance:
+Attached rules / docs cover only **part** of statement/guidance:
 
 - Part of guidance only (e.g. `/etc/passwd` watch, not full IdM lifecycle)
 - Audit lacks a field guidance asks for
 - Product covers mechanism; institution covers process
 - Control has organizational aspects (always at least `partial`)
 
-Default when uncertain. Empty `### Rules:` / JSON does not change this — assume
-strong discoveries will be attached.
+Default when uncertain.
 
 ### `alternative`
 
 Genuinely **different** technical approach than literal statement/guidance
-(same security intent). Not “no rule attached yet.” If a CaC rule targets the
-literal mechanism, use `implemented`/`partial` even if JSON lacks `Rule_Id` yet.
+(same security intent).
 
 ### `planned`
 
-No discovered rule **and** no doc-backed mechanism — not merely empty
-`### Rules:`.
+No attached rule **and** no doc-backed mechanism.
 
 ### `not-applicable`
 
@@ -52,7 +127,7 @@ skip hard partial cases.
 ## Implementation prose
 
 Prose under **What is the solution and how is it implemented?** = how RHEL
-implements the control. CaC/OpenSCAP belong in JSON `Rule_Id`, PR body, and
+implements the control. CaC/OpenSCAP belong in CSV/JSON `Rule_Id`, PR body, and
 coverage matrix — not here.
 
 **DO:**
@@ -93,31 +168,7 @@ Used in Step 3 after `find-rule` returns IDs:
 ```
 
 Directory name = rule ID. Parent aggregates may list split rules in `warnings:` —
-use those as suggestions.
-
-## Rule_Id and parameter values (JSON only)
-
-`### Rules:` is **read-only display** (`trestle.common.const.RULES_WARNING`).
-`trestle author component-assemble` does **not** write markdown rule bullets
-into OSCAL. Source of truth:
-
-| What | Where |
-|------|--------|
-| Attached rules | IR `props` with `"name": "Rule_Id"` |
-| Chosen CaC var values | IR `set-parameters` (`param-id` + `values`) |
-| Var metadata (optional) | `Parameter_Id`, `Parameter_Value_Alternatives` props |
-| Prose / status | markdown → assemble → IR `description` / `implementation-status` |
-
-Empty `x-trestle-param-values:` / `ber.X-prm1:` in markdown frontmatter are
-**catalog control** placeholders (`{{ insert: param, … }}` in the statement),
-not CaC rule variables. Leave them alone.
-
-After JSON `Rule_Id` changes, `regenerate_components.sh` refreshes the markdown
-`### Rules:` list from JSON.
-
-**Develop CI order** (`check_and_update_all.sh`): if JSON changed → regenerate
-(md from JSON); if markdown changed → assemble (JSON from md). Changing both in
-one push without assembling locally first can wipe new prose. See SKILL Step 7.
+prefer the split rules in the CSV.
 
 ## Red Hat documentation sources
 
@@ -157,7 +208,7 @@ from any OSCAL `links` already on the IR.
 
 ```markdown
 ---
-frontmatter: UNCHANGED
+frontmatter: mostly from regenerate (rules/params); do not hand-edit Rule lists
 ---
 
 # Title — UNCHANGED
@@ -174,7 +225,7 @@ ______________________________________________________________________
 
 {EDIT: German prose — technical mechanism only; no CaC rule citations}
 
-### Rules: — UNCHANGED (display from JSON Rule_Id)
+### Rules: — from regenerate (do not hand-edit)
 
 ### Implementation Status: {EDIT: value}
 
