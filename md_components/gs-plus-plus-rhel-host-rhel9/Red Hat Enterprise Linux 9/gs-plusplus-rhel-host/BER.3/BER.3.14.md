@@ -7,9 +7,8 @@ x-trestle-global:
     href: trestle://profiles/gs-plusplus-rhel-host/profile.json
 x-trestle-comp-def-rules:
   Red Hat Enterprise Linux 9:
-    - name: gspp_impl_ber_3_14
-      description: Narrative implementation seed for BER.3.14 (no CaC rule 
-        binding)
+    - name: account_use_centralized_automated_auth
+      description: account use centralized automated auth
 ---
 
 # BER.3.14 - \[Zugangskonten\] Kein Recycling von Zugängen
@@ -30,9 +29,13 @@ ______________________________________________________________________
 
 <!-- Note that the list of rules under ### Rules: is read-only and changes will not be captured after assembly to JSON -->
 
-RHEL erzwingt keine automatische Sperr- oder Karenzfrist für die Wiederverwendung von Zugangskontennamen oder UIDs; nach dem Löschen eines Kontos mit `userdel` kann derselbe Benutzername oder dieselbe UID sofort neu vergeben werden, ohne dass das Betriebssystem dies verhindert. In zentral verwalteten Umgebungen bindet SSSD den Host an Red Hat IdM, Active Directory oder LDAP an; dort erfolgt die Kontovergabe über das Verzeichnis, sodass eine organisatorisch festgelegte Sperrfrist vor Neuvergabe eines Namens dort durchsetzbar ist, statt lokal frei entschieden zu werden. Als Alternative kann ein Konto statt sofortiger Löschung mit `usermod -L` gesperrt oder über `chage -E` mit einem Ablaufdatum versehen werden, um es für die Dauer der Karenzfrist inaktiv, aber unter demselben Namen bzw. derselben UID reserviert zu halten. Dies sollte bei mehr als einem Host mittels einer Konfigurations-Management-Lösung wie Ansible umgesetzt werden. Die eigentliche Durchsetzung der Sperr- oder Karenzfrist — also das Verbot, einen Namen oder eine UID vor Ablauf des festgelegten Zeitraums neu zu vergeben — bleibt jedoch ein organisatorischer Prozess außerhalb der technischen Prüfmöglichkeiten des einzelnen RHEL-Hosts.
+RHEL erzwingt lokal keine automatische Sperr- oder Karenzfrist gegen das Recycling von Zugangskontennamen oder UIDs: Nach `userdel` können Name und UID sofort erneut vergeben werden. Mit SSSD an Red Hat IdM, Active Directory oder LDAP angebundene Hosts beziehen Konten aus dem Verzeichnis; dort lässt sich Wiederverwendung steuern — in IdM etwa über den Lebenszyklus *preserve* (`ipa user-del --preserve`), der den Kontonamen belegt hält, statt ihn dauerhaft freizugeben. Lokal ist die Alternative, Konten nicht zu löschen, sondern mit `usermod -L` zu sperren bzw. über `chage -E` zu befristen und so Name und UID während der Karenzfrist zu reservieren; über mehrere Hosts hinweg gehört das in die zentrale Kontoverwaltung bzw. Konfigurationsautomatisierung. Die institutionelle Frist selbst (90 Tage, ein Jahr, dauerhafte Nichtwiederverwendung) prüft der einzelne RHEL-Host nicht.
 
-Weitere Informationen: [Authentifizierung und Autorisierung](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_authentication_and_authorization_in_rhel/index)
+Weitere Informationen: [Benutzerkonten in IdM verwalten (CLI)](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_idm_users_groups_hosts_and_access_control_rules/managing-user-accounts-using-the-command-line_managing-users-groups-hosts), [Benutzer und Gruppen verwalten](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_basic_system_settings/managing-users-and-groups_configuring-basic-system-settings), [Authentifizierung und Autorisierung (SSSD)](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_authentication_and_authorization_in_rhel/understanding-sssd-and-its-benefits_configuring-authentication-and-authorization-in-rhel)
+
+### Rules:
+
+  - account_use_centralized_automated_auth
 
 ### Implementation Status: alternative
 
