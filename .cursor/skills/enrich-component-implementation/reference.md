@@ -15,6 +15,14 @@ Source of truth by concern:
 add/mod/del and control mappings. Existing IR `description` values are kept;
 only **new** controls get an empty description until assemble.
 
+**Merge config required:** `data/csv-to-oscal-cd.config` must set
+`component-definition = component-definitions/{COMPONENT_DEFINITION}/component-definition.json`.
+Without that key, trestle creates a new CD and regenerates all UUIDs.
+
+**Orphan rule:** a control with markdown but **no** CSV `$$Control_Id_List`
+entry loses its IR on assemble. Every enriched control needs a CaC row or a
+[`gspp_impl_*` narrative seed](#narrative-seeds-non-cac).
+
 **Develop CI** (`check_and_update_all.sh`) order when paths change:
 
 1. CSV changed → `csv-to-oscal-cd` + regenerate
@@ -40,10 +48,10 @@ Important columns:
 
 | Column | Notes |
 |--------|--------|
-| `$$Rule_Id` | CaC rule id (directory name under `linux_os/guide/`) |
-| `$$Rule_Description` | `description` field from the `rule.yml` in ComplianceAsCode Repository |
+| `$$Rule_Id` | CaC rule id (directory under `linux_os/guide/`) **or** `gspp_impl_*` seed |
+| `$$Rule_Description` | From CaC `rule.yml` **or** narrative seed sentence (see below) |
 | `$$Control_Id_List` | Space-separated control ids (e.g. `BER.2.5 BER.3.9`) |
-| `$Parameter_Id` | CaC var id (`var_…`) |
+| `$Parameter_Id` | CaC var id (`var_…`); empty on narrative seeds |
 | `$Parameter_Description` | Short label (often var id with `_` → spaces) |
 | `$Parameter_Value_Alternatives` | Comma-separated option **values** from `.var` `options` |
 | `$Parameter_Value_Default` | Chosen default → CI `set-parameters` |
@@ -52,11 +60,31 @@ Important columns:
 Constants copied from sibling rows for this artifact:
 
 - Title: `Red Hat Enterprise Linux 9`
+- Description: same as sibling data rows (currently `Red Hat Enterprise Linux 9`)
 - Type: `software`
 - Profile: `trestle://profiles/gs-plusplus-rhel-host/profile.json`
 - Namespace: `https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd`
 - `$$Profile_Description` must match existing
   `control-implementation.description` (merge key)
+
+Edit CSV with Python’s `csv` module when possible (quoted fields, UTF-8
+umlauts). Avoid rewriting the whole file by hand.
+
+### Narrative seeds (non-CaC)
+
+When Step 3 finds no attachable CaC rule (`cce@rhel{N}`), still keep the control
+in the CD with one seed row:
+
+| Field | Value |
+|-------|--------|
+| `$$Rule_Id` | `gspp_impl_{control_id}` — dots → `_`, lowercased (`BER.3.14` → `gspp_impl_ber_3_14`) |
+| `$$Rule_Description` | `Narrative implementation seed for {CONTROL_ID} (no CaC rule binding)` |
+| `$$Control_Id_List` | exactly this control (do not share a seed across controls) |
+| Parameter columns | empty |
+
+Seed ids are **not** ComplianceAsCode checks. Do not cite them in German prose.
+When a real CaC rule is later attached, remove the control from the seed row
+(delete the seed row if empty).
 
 ### Parameters from CaC `.var` files
 
@@ -82,42 +110,48 @@ Empty parameter columns when the rule has no variables.
 
 ## Implementation status
 
-Evaluate against the **end state after CSV sync** — rules from Step 3 that were
-written into the CSV and merged into JSON. Apply in order; first match wins
-unless a higher bar clearly fits.
+Evaluate against the **end state after CSV sync** — CaC rules and/or a
+`gspp_impl_*` seed in CSV/JSON. Apply in order; first match wins unless a
+higher bar clearly fits.
 
 ### `implemented`
 
 All must be true:
 
 1. Every **technical** clause in Control Statement is addressed by strong
-   attached CaC rules for the target RHEL major.
+   attached **CaC** rules for the target RHEL major.
 2. Every **technical** clause in Control guidance is addressed (as far as
    OS-level controls allow).
 3. Those rules have `cce@rhel{N}`.
-4. Covering rule IDs appear in CSV / JSON / markdown `### Rules:`.
+4. Covering **CaC** rule IDs appear in CSV / JSON / markdown `### Rules:`.
 5. Prose describes the on-host mechanism — not the requirement, not rule IDs
    ([Implementation prose](#implementation-prose)).
 
+A `gspp_impl_*` seed alone **never** qualifies as `implemented`.
+
 ### `partial`
 
-Attached rules / docs cover only **part** of statement/guidance:
+Attached CaC rules / docs cover only **part** of statement/guidance:
 
 - Part of guidance only (e.g. `/etc/passwd` watch, not full IdM lifecycle)
 - Audit lacks a field guidance asks for
 - Product covers mechanism; institution covers process
 - Control has organizational aspects (always at least `partial`)
 
-Default when uncertain.
+Default when uncertain on Path A. On Path B, prefer `alternative` when the host
+offers a defensible different mechanism; use `partial` when docs cover only
+some aspects and gaps remain.
 
 ### `alternative`
 
 Genuinely **different** technical approach than literal statement/guidance
-(same security intent).
+(same security intent). Common for Path B (narrative seed): e.g. account lock /
+preserve / IdM workflow instead of a literal CaC check.
 
 ### `planned`
 
-No attached rule **and** no doc-backed mechanism.
+No attachable CaC rule, no narrative on-host/org mechanism in docs, and no
+defensible approach yet (seed may still exist so assemble keeps the IR).
 
 ### `not-applicable`
 
@@ -138,8 +172,9 @@ coverage matrix — not here.
 
 > Die Regel `sshd_enable_pam` stellt sicher, dass SSH PAM nutzt.
 
-No inline rule IDs, no „wird durch Regel … geprüft“, no oscap as sentence
-subject. Distill CaC `description`/`rationale` into German on-host behavior.
+No inline rule IDs (CaC or `gspp_impl_*`), no „wird durch Regel … geprüft“, no
+oscap as sentence subject. Distill CaC `description`/`rationale` and/or Red Hat
+docs into German on-host behavior.
 
 ## Coverage matrix
 
@@ -147,7 +182,10 @@ One row per distinct aspect from statement + guidance.
 
 | Guidance aspect | Covered by | Status |
 |-----------------|------------|--------|
-| Short German paraphrase | `rule_id` and/or doc URL | Yes / Partial / No |
+| Short German paraphrase | CaC `rule_id`, doc URL, and/or prose mechanism (Path B) | Yes / Partial / No |
+
+On Path B, put the mechanism / doc URL in **Covered by** — not the seed id as if
+it were a check.
 
 **Example — BER.2.4:**
 
