@@ -1,22 +1,32 @@
 ---
 name: enrich-component-implementation
 description: >-
-  Enrich GS++ trestle component markdown in this repo with German implementation
-  prose from ComplianceAsCode rules and Red Hat documentation, evaluate coverage,
-  set implementation status, and open a PR on a separate branch. Use when
-  authoring or updating implementation answers under md_components/, or when the
-  user asks to document how a GS++ control is implemented with a specific RH Product.
+  Enrich GS++ trestle component markdown with German implementation prose from
+  ComplianceAsCode rules and Red Hat documentation, attach rules via the CSV
+  rule map, sync Rules/parameters into JSON, and open a PR with markdown + CSV +
+  JSON. Use when authoring or updating implementation answers under
+  md_components/, mapping CaC rules into data/*.csv, or documenting how a GS++
+  control is implemented with a specific RH product.
 ---
 
 # Enrich Component Implementation
 
-Turn one or more trestle **component markdown** files into reviewed PRs with honest
-implementation prose, coverage assessment, and optional CaC rule suggestions.
+Turn one or more trestle **component markdown** files into reviewed PRs that
+include:
+
+1. German implementation prose + status in markdown
+2. Suggested CaC rules (and parameters) in `data/{COMPONENT_DEFINITION}.csv`
+3. Synced OSCAL JSON with `Rule_Id`, `set-parameters`, description, and status
 
 This repo is the **component-definition** trestle template instance
 (`config.env` → `COMPONENT_DEFINITION`). Profile scope lives in the sibling
 `rh-profile-grundschutz-plus-plus` repo; catalog in `rh-catalog-grundschutz-plus-plus`
 (vendored here under `catalogs/grundschutz-plus-plus/`).
+
+**Rule source of truth:** `data/gs-plus-plus-rhel-host-rhel9.csv` (path from
+`data/csv-to-oscal-cd.config`). Do **not** hand-edit `Rule_Id` /
+`set-parameters` in JSON, and do **not** edit `### Rules:` in markdown
+(display-only; filled by regenerate from JSON).
 
 **Input:** one of:
 - path under `md_components/{COMPONENT_DEFINITION}/…/{control-id}.md`, or
@@ -24,12 +34,17 @@ This repo is the **component-definition** trestle template instance
   Default artifact = `COMPONENT_DEFINITION` from `config.env`
   (`gs-plus-plus-rhel-host-rhel9`).
 
-**Output:** one branch + commit + PR **per control** (see Git safety). Default
-skill commit is **markdown only** (prose + status). Push/merge target is
-**`develop`** — CI (`dev-push.yml` → `check_and_update_all.sh`) runs
-`trestle author component-assemble` and commits JSON. Attaching `Rule_Id` /
-`set-parameters` is a **JSON** edit (see Step 7 / reference); never via
-`### Rules:` in markdown.
+**Output:** one branch + commit + PR **per control** (see Git safety). Each PR
+must contain, for that control:
+
+| Artifact | Role |
+|----------|------|
+| `data/{COMPONENT_DEFINITION}.csv` | Rule ↔ control map + parameters |
+| `md_components/…/{control-id}.md` | Prose + status (`### Rules:` from sync) |
+| `component-definitions/{COMPONENT_DEFINITION}/component-definition.json` | `Rule_Id`, params, description, status |
+
+Merge target is **`develop`**. CI (`dev-push.yml` → `check_and_update_all.sh`)
+re-runs CSV→JSON and assemble; committing all three keeps prose and rules aligned.
 
 ## Prerequisites
 
@@ -37,18 +52,25 @@ skill commit is **markdown only** (prose + status). Push/merge target is
 |----------|--------------|----------|
 | This repo | workspace root | — |
 | `COMPONENT_DEFINITION` | `config.env` | — |
+| Rule CSV | `data/{COMPONENT_DEFINITION}.csv` | `data/csv-to-oscal-cd.config` |
+| CSV→OSCAL config | `data/csv-to-oscal-cd.config` | — |
 | CaC-content clone | `../CaC-content` | env `CAC_CONTENT_ROOT` |
 | Vendored catalog | `catalogs/grundschutz-plus-plus/catalog.json` | — |
-| Profile (source of applicable controls) | `profiles/gs-plusplus-*` | — |
+| Profile | `profiles/gs-plusplus-*` | — |
 | RHEL major | `9` (from component title *Red Hat Enterprise Linux 9*) | — |
+| Trestle | repo `.venv` (`pip install -r requirements.txt`) | — |
 
-Requires `git`, `gh`, network for push/PR.
+Requires `git`, `gh`, network for push/PR. Activate trestle before sync steps:
+
+```bash
+source .venv/bin/activate   # or: python3 -m pip install -r requirements.txt
+```
 
 ## Git safety
 
 1. Run `git branch --show-current`. **Never commit on that branch.**
 2. Branch from current **`develop`** (or `origin/develop`): `cursor/implement-{control-id}`.
-3. One control per PR unless the user asks for a batch. For a set, repeat Steps 0–7
+3. One control per PR unless the user asks for a batch. For a set, repeat Steps 0–9
    per control, each branch from the **same original `develop` HEAD** (not stacked).
 
 ## Workflow
@@ -57,11 +79,13 @@ Requires `git`, `gh`, network for push/PR.
 - [ ] 0. Resolve target markdown (stop if control not in this repo yet)
 - [ ] 1. Read and parse component markdown
 - [ ] 2. Gather Red Hat documentation
-- [ ] 3. Discover CaC rules (suggestions only, find-rule skill)
-- [ ] 4. Draft German implementation prose
-- [ ] 5. Evaluate coverage → set Implementation Status
-- [ ] 6. Write markdown (preserve protected sections)
-- [ ] 7. Branch, commit, push, open PR → develop
+- [ ] 3. Discover CaC rules (find-rule) + load rule.yml / *.var
+- [ ] 4. Update CSV with rules and parameters for this control
+- [ ] 5. Sync CSV → JSON → markdown Rules (csv-to-oscal-cd + regenerate)
+- [ ] 6. Draft German implementation prose
+- [ ] 7. Evaluate coverage → set Implementation Status
+- [ ] 8. Write markdown (preserve protected sections)
+- [ ] 9. Assemble markdown → JSON; branch, commit CSV+MD+JSON, open PR → develop
 ```
 
 ### Step 0 — Resolve target
@@ -95,15 +119,15 @@ Read the target markdown. Extract:
 - **Control guidance** — `## Control guidance` (read-only)
 - **Current prose** — between HTML comments and `### Rules:` (or `### Implementation Status:` if no Rules heading)
 - **Current status** — `### Implementation Status: {value}`
+- **Current Rules** — `### Rules:` bullets (display from JSON; may already list rules)
 
-At skill invoke time `### Rules:` and JSON `Rule_Id` are **typically empty** — do
-**not** spend a step loading listed rules. CaC research is Step 3 (`find-rule`)
-only. Still note any rare pre-existing `### Rules:` / JSON `Rule_Id` /
-`set-parameters` for the PR body if present; do not edit `### Rules:`.
+Also note existing CSV rows that already list this control in `$$Control_Id_List`
+(Step 4 merges; do not duplicate).
 
-Preserve YAML frontmatter unchanged (`x-trestle-global`; leave any empty
+Preserve YAML frontmatter unchanged except what regenerate rewrites for
+`x-trestle-comp-def-rules` / `x-trestle-rules-params` / param vals. Leave empty
 `x-trestle-param-values` catalog placeholders alone — those are **not** CaC
-rule vars).
+rule vars.
 
 ### Step 2 — Red Hat documentation
 
@@ -142,41 +166,76 @@ If the user denies web search: continue with whatever MCP/RHOKP already gave
 (and later CaC rule text from Step 3 for mechanism research only). Never
 fabricate doc URLs. Record doc source used for the PR body.
 
-### Step 3 — Discover CaC rules (PR suggestions only)
+### Step 3 — Discover CaC rules
 
 1. Read `{CAC_CONTENT_ROOT}/.claude/skills/find-rule/SKILL.md`.
 2. Run it with control statement + guidance; scope `linux_os/guide/` (skip OpenShift).
 3. Keep strong/partial matches with `cce@rhel{N}`.
-4. Load matching `rule.yml` files for research (`title`, `description`,
-   `rationale`, template vars, `ocil` / `fixtext`).
+4. Load matching `rule.yml` files (`title`, `description`, `rationale`, template
+   vars, `ocil` / `fixtext`).
+5. For each rule variable referenced (e.g. `xccdf_value("var_…")`), load the
+   sibling `var_….var` file: `options` keys/values and `default` → CSV parameter
+   columns (see [reference.md](reference.md#csv-rule-map)).
 
-**Do not edit `### Rules:` in markdown** — assemble ignores it.
-List discoveries in the PR under "Suggested CaC rules".
+These discoveries are **attached in Step 4** (CSV), not left as PR-only notes.
+Weak / speculative matches may still be listed under PR "Considered but not
+attached" — do not put them in the CSV.
 
-For rule **variables**, list them in the PR and show the JSON shape to attach
-(not markdown frontmatter):
+### Step 4 — Update CSV
 
-```json
-{
-  "name": "Rule_Id",
-  "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
-  "value": "selinux_state"
-}
+Edit `data/{COMPONENT_DEFINITION}.csv` (UTF-8, preserve the two header rows).
+
+**Row model:** one row per `$$Rule_Id`. `$$Control_Id_List` is a
+**space-separated** list of control IDs sharing that rule.
+
+For each strong/partial rule from Step 3:
+
+1. **Rule already in CSV:** add this control ID to `$$Control_Id_List` if missing.
+   Update parameter columns only when this enrichment chooses a value and the
+   row has none (or the user asked to change the default).
+2. **New rule:** append a row. Copy constants from any existing data row:
+   - `$$Component_Title` = `Red Hat Enterprise Linux 9`
+   - `$$Component_Description` = same long German blurb as sibling rows
+   - `$$Component_Type` = `software`
+   - `$$Profile_Source` = `trestle://profiles/gs-plusplus-rhel-host/profile.json`
+   - `$$Profile_Description` = same as sibling rows (must match
+     `control-implementation.description` for merge)
+   - `$$Namespace` = `https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd`
+   - `$$Rule_Id` = CaC rule directory name
+   - `$$Rule_Description` = `description` element from the rule-file in ComplianceAsCode Repository
+   - `$$Control_Id_List` = this control id (and any others if intentional)
+   - Parameter columns from `.var` when the rule has variables — see
+     [reference.md](reference.md#csv-rule-map). Use `_1` suffix columns for a
+     second parameter on the same rule.
+
+**Do not** remove other controls from an existing row’s `$$Control_Id_List`
+
+Validate with Python `csv` module (quoted fields, commas inside descriptions).
+Do not break the two header rows (`$$…` then human labels).
+
+### Step 5 — Sync CSV → JSON → markdown Rules
+
+`trestle task csv-to-oscal-cd` **merges** into the existing
+`component-definition.json` (adds/mods/deletes rules and control mappings;
+preserves existing IR `description` / status). Then regenerate refreshes
+markdown `### Rules:` and rule frontmatter from JSON.
+
+```bash
+source .venv/bin/activate # or: python3 -m pip install -r requirements.txt
+trestle task csv-to-oscal-cd -c data/csv-to-oscal-cd.config
+./scripts/automation/regenerate_components.sh
 ```
 
-```json
-"set-parameters": [
-  {
-    "param-id": "var_selinux_state",
-    "values": ["enforcing"]
-  }
-]
-```
+Confirm for this control:
 
-Optional companion props on the same IR: `Parameter_Id`,
-`Parameter_Value_Alternatives` (see existing IRs e.g. `BER.2.5`, `KONF.6.1`).
+- JSON IR has `Rule_Id` props (and CI-level `set-parameters` when defaults set)
+- Markdown `### Rules:` lists those rule ids
+- Frontmatter rule/param blocks updated if parameters exist
 
-### Step 4 — Draft implementation prose
+If `validate-controls = on` fails (control not in profile): stop and report —
+do not force the mapping.
+
+### Step 6 — Draft implementation prose
 
 German prose only between the HTML comments and `### Rules:` /
 `### Implementation Status:`.
@@ -192,45 +251,60 @@ German prose only between the HTML comments and `### Rules:` /
 
 Leave both HTML comments intact.
 
-### Step 5 — Implementation status
+### Step 7 — Implementation status
 
 Set `### Implementation Status:` per [status criteria](reference.md#implementation-status).
 
 | Status | When |
 |--------|------|
-| `implemented` | Strong Step 3 CaC rules + docs fully cover technical statement **and** guidance |
+| `implemented` | Strong Step 3 CaC rules (now in CSV/JSON) + docs fully cover technical statement **and** guidance |
 | `partial` | Rules/docs cover some aspects; gaps remain. Always true if the control has organizational aspects |
-| `alternative` | Different technical approach, same intent — not “no rule attached yet” |
+| `alternative` | Different technical approach, same intent |
 | `planned` | No rule and no doc-backed mechanism |
 | `not-applicable` | Organizational-only; no RHEL host hook |
 
-Unsure `implemented` vs `partial` → **`partial`**. Judge anticipated end state
-(as if strong Step 3 rules will be attached in JSON), not empty `### Rules:`.
+Unsure `implemented` vs `partial` → **`partial`**. Judge the end state after
+Steps 4–5 (rules attached), not the pre-enrichment empty Rules list.
 
 Coverage matrix for PR body — [reference.md](reference.md#coverage-matrix).
 
-### Step 6 — Write markdown
+### Step 8 — Write markdown
 
 Edit **only**:
 
 - Prose between comments and Rules/Status
 - `### Implementation Status: {value}`
 
-**Do not change:** frontmatter, title, Control Statement/guidance, `### Rules:`,
-HTML comments, separators.
+**Do not change:** title, Control Statement/guidance, `### Rules:` (already from
+Step 5), HTML comments, separators. Prefer not hand-editing rule frontmatter —
+regenerate owns it.
 
-### Step 7 — Branch, commit, PR
+### Step 9 — Assemble, branch, commit, PR
 
-**Default (prose + status only):**
+Assemble so JSON picks up prose + status **after** Rules/params are already in
+JSON from Step 5:
+
+```bash
+source .venv/bin/activate # or: python3 -m pip install -r requirements.txt
+./scripts/automation/assemble_components.sh
+# optional: python3 -m trestle validate -a
+```
+
+Verify JSON IR for this `control-id`: non-empty `description`,
+`implementation-status` prop, `Rule_Id` props, and expected `set-parameters`.
+
+Then:
 
 ```bash
 git fetch origin
 git checkout -b cursor/implement-{control-id} origin/develop
-git add "md_components/.../{control-id}.md"
-# markdown only — do not stage JSON unless attaching rules (below)
+git add \
+  "data/{COMPONENT_DEFINITION}.csv" \
+  "md_components/.../{control-id}.md" \
+  "component-definitions/{COMPONENT_DEFINITION}/component-definition.json"
 git status --short
 git commit -m "$(cat <<'EOF'
-Enrich {control-id} implementation prose and status.
+Enrich {control-id}: prose, CSV rules, and component JSON.
 
 Assisted-by: Cursor
 EOF
@@ -240,6 +314,7 @@ gh pr create --base develop --title "Enrich {control-id} component implementatio
 ## Summary
 - Updated German implementation prose for `{control-id}`
 - Implementation status: `{status}`
+- Attached CaC rules via `data/{COMPONENT_DEFINITION}.csv` and synced JSON
 
 ## Coverage matrix
 | Guidance aspect | Covered by | Status |
@@ -249,34 +324,29 @@ gh pr create --base develop --title "Enrich {control-id} component implementatio
 ## Documentation sources
 - ...
 
-## Suggested CaC rules
-(not attached — edit JSON `Rule_Id` / `set-parameters`; `### Rules:` is display-only)
+## CaC rules (CSV → JSON)
 - `rule_id` — rationale
-- suggested `set-parameters` (if any): `param-id` = `value`
+- parameters (if any): `param-id` = `value` (alternatives: …)
 
-## Attaching a rule (reviewer, optional)
-1. Prefer merge this markdown PR to `develop` first so CI assembles description/status into JSON.
-2. On a follow-up (or same PR only if you already ran assemble locally — see note): edit
-   `component-definitions/gs-plus-plus-rhel-host-rhel9/component-definition.json`
-   for this `control-id`: add `Rule_Id` props and optional `set-parameters` /
-   `Parameter_Id` / `Parameter_Value_Alternatives`.
-3. **Do not** edit `### Rules:` expecting assemble to pick it up.
-4. **CI hazard:** if the same push changes **both** JSON and markdown, develop CI runs
-   `regenerate_components.sh` *before* assemble and can wipe unsynced markdown prose.
-   Same-PR rule attach: run `./scripts/automation/assemble_components.sh` locally first
-   (prose → JSON), then add `Rule_Id`/`set-parameters` to JSON, commit **both**.
+## Considered but not attached
+- …
 
 ## Gaps / manual verification
 - ...
 
 ## Test plan
-- [ ] Review prose
-- [ ] Confirm implementation status matches coverage
-- [ ] After merge to develop: confirm CI Autoupdate assembled JSON (or locally:
-      `./scripts/automation/assemble_components.sh` then `python3 -m trestle validate -a`)
+- [ ] Review prose (no inline rule IDs)
+- [ ] Confirm CSV `Control_Id_List` / parameters for this control
+- [ ] Confirm markdown `### Rules:` matches attached rules
+- [ ] Confirm JSON IR: description, implementation-status, Rule_Id, set-parameters
+- [ ] After merge to develop: confirm CI Autoupdate did not regress prose/rules
 EOF
 )"
 ```
+
+**Commit all three** (CSV + MD + JSON). Skipping JSON risks CI
+`csv-to-oscal-cd` + regenerate running before assemble has the new prose in
+JSON, which can wipe uncommitted description text from markdown.
 
 Return the PR URL.
 
@@ -296,7 +366,8 @@ Enrich KONF.2.1, KONF.2.2 and DET.3.1.4
 
 ## Additional resources
 
-- [Status criteria, Rule_Id, docs hints](reference.md)
+- [Status criteria, CSV columns, docs hints](reference.md)
 - `config.env` — `COMPONENT_DEFINITION`
+- `data/csv-to-oscal-cd.config` — CSV path and output dir
 - `scripts/automation/assemble_components.sh` / `regenerate_components.sh` / `check_and_update_all.sh`
 - Sibling profile repo: `../rh-profile-grundschutz-plus-plus` (include new controls there first)
