@@ -3,10 +3,11 @@ name: enrich-component-implementation
 description: >-
   Enrich GS++ trestle component markdown with German implementation prose from
   ComplianceAsCode rules and Red Hat documentation, attach rules via the CSV
-  rule map, sync Rules/parameters into JSON, and open a PR with markdown + CSV +
-  JSON. Use when authoring or updating implementation answers under
-  md_components/, mapping CaC rules into data/*.csv, or documenting how a GS++
-  control is implemented with a specific RH product.
+  rule map (or a narrative gspp_impl_* seed when no CaC rule applies), sync
+  Rules/parameters into JSON, and open a PR with markdown + CSV + JSON. Use when
+  authoring or updating implementation answers under md_components/, mapping CaC
+  rules into data/*.csv, enriching controls without CaC coverage, or documenting
+  how a GS++ control is implemented with a specific RH product.
 ---
 
 # Enrich Component Implementation
@@ -15,8 +16,10 @@ Turn one or more trestle **component markdown** files into reviewed PRs that
 include:
 
 1. German implementation prose + status in markdown
-2. Suggested CaC rules (and parameters) in `data/{COMPONENT_DEFINITION}.csv`
-3. Synced OSCAL JSON with `Rule_Id`, `set-parameters`, description, and status
+2. CSV mapping: real CaC rules **or** a narrative `gspp_impl_*` seed when no
+   attachable CaC rule exists (see [Non-CaC controls](#non-cac-controls--narrative-seeds))
+3. Synced OSCAL JSON with `Rule_Id` (CaC or seed), optional `set-parameters`,
+   description, and status
 
 This repo is the **component-definition** trestle template instance
 (`config.env` → `COMPONENT_DEFINITION`). Profile scope lives in the sibling
@@ -27,6 +30,11 @@ This repo is the **component-definition** trestle template instance
 `data/csv-to-oscal-cd.config`). Do **not** hand-edit `Rule_Id` /
 `set-parameters` in JSON, and do **not** edit `### Rules:` in markdown
 (display-only; filled by regenerate from JSON).
+
+**Why CSV always needs a row:** `csv-to-oscal-cd` + assemble only keep an
+implemented-requirement when the control appears in a CSV `$$Control_Id_List`.
+Controls with markdown but no CSV row become orphans and assemble drops their
+prose. For non-CaC controls use a narrative seed row, not a fake CaC id.
 
 **Input:** one of:
 - path under `md_components/{COMPONENT_DEFINITION}/…/{control-id}.md`, or
@@ -39,12 +47,13 @@ must contain, for that control:
 
 | Artifact | Role |
 |----------|------|
-| `data/{COMPONENT_DEFINITION}.csv` | Rule ↔ control map + parameters |
+| `data/{COMPONENT_DEFINITION}.csv` | CaC rule map **or** `gspp_impl_*` seed (+ params if any) |
 | `md_components/…/{control-id}.md` | Prose + status (`### Rules:` from sync) |
 | `component-definitions/{COMPONENT_DEFINITION}/component-definition.json` | `Rule_Id`, params, description, status |
 
 Merge target is **`develop`**. CI (`dev-push.yml` → `check_and_update_all.sh`)
-re-runs CSV→JSON and assemble; committing all three keeps prose and rules aligned.
+re-runs CSV→JSON and assemble; committing CSV + MD + JSON together keeps prose
+and rules aligned.
 
 ## Prerequisites
 
@@ -66,7 +75,9 @@ Requires `git`, `gh`, network for push/PR. Activate trestle before sync steps:
 source .venv/bin/activate   # or: python3 -m pip install -r requirements.txt
 ```
 
-The ressources named in Step 2 — Red Hat documentation shall be available. Check that and verify. if they are not available stop and ask user how to proceed.
+The resources named in Step 2 — Red Hat documentation — shall be available.
+Check and verify before enriching. If they are not available, stop and ask the
+user how to proceed.
 
 ## Git safety
 
@@ -82,13 +93,45 @@ The ressources named in Step 2 — Red Hat documentation shall be available. Che
 - [ ] 1. Read and parse component markdown
 - [ ] 2. Gather Red Hat documentation
 - [ ] 3. Discover CaC rules (find-rule) + load rule.yml / *.var
-- [ ] 4. Update CSV with rules and parameters for this control
+- [ ] 3b. If no attachable CaC rule → choose narrative-seed path (gspp_impl_*)
+- [ ] 4. Update CSV (CaC rows and/or gspp_impl_* seed) for this control
 - [ ] 5. Sync CSV → JSON → markdown Rules (csv-to-oscal-cd + regenerate)
 - [ ] 6. Draft German implementation prose
 - [ ] 7. Evaluate coverage → set Implementation Status
 - [ ] 8. Write markdown (preserve protected sections)
 - [ ] 9. Assemble markdown → JSON; branch, commit CSV+MD+JSON, open PR → develop
 ```
+
+## Non-CaC controls — narrative seeds
+
+Some profile-selected controls have **no** strong/partial ComplianceAsCode rule
+with `cce@rhel{N}`. Still enrich them: docs + honest prose + status. Do **not**
+invent CaC rule ids or force weak matches into the CSV.
+
+**Constraint:** without a CSV row that lists the control, assemble will not keep
+an IR for it. Use a **narrative seed** row instead of a CaC rule:
+
+| Field | Value |
+|-------|--------|
+| `$$Rule_Id` | `gspp_impl_{control_id}` with dots → `_`, lowercased (e.g. `BER.3.14` → `gspp_impl_ber_3_14`) |
+| `$$Rule_Description` | `Narrative implementation seed for {CONTROL_ID} (no CaC rule binding)` |
+| `$$Control_Id_List` | exactly this control id (one seed row per control; do not share) |
+| Parameters | leave empty |
+| Other columns | same constants as sibling data rows (`$$Component_Title`, profile, namespace, …) |
+
+**After Step 3:**
+
+1. **Attachable CaC rules exist** → Path A: Step 4 adds/updates those CaC rows
+   (preferred). If a `gspp_impl_*` seed already exists for the control and you
+   attach a real CaC rule, **remove this control id from the seed row** (delete
+   the seed row if its list becomes empty) so `### Rules:` is not dual-listed.
+2. **No attachable CaC rules** → Path B: ensure a `gspp_impl_*` seed row exists
+   (create if missing). Continue Steps 5–9. `### Rules:` showing `gspp_impl_*`
+   is expected; do not cite that id in prose as if it were a CaC check.
+3. Weak/speculative CaC matches → PR "Considered but not attached" only.
+
+Status when Path B: cannot be `implemented`. Use `alternative`, `partial`,
+`planned`, or `not-applicable` per [reference.md](reference.md#implementation-status).
 
 ### Step 0 — Resolve target
 
@@ -179,9 +222,11 @@ fabricate doc URLs. Record doc source used for the PR body.
    sibling `var_….var` file: `options` keys/values and `default` → CSV parameter
    columns (see [reference.md](reference.md#csv-rule-map)).
 
-These discoveries are **attached in Step 4** (CSV), not left as PR-only notes.
-Weak / speculative matches may still be listed under PR "Considered but not
-attached" — do not put them in the CSV.
+**Path A — attachable matches:** attach in Step 4 (CSV), not as PR-only notes.
+
+**Path B — none attachable:** do not invent CaC ids. Go to narrative seed
+([Non-CaC controls](#non-cac-controls--narrative-seeds)). Still list weak /
+speculative matches under PR "Considered but not attached".
 
 ### Step 4 — Update CSV
 
@@ -190,6 +235,8 @@ Edit `data/{COMPONENT_DEFINITION}.csv` (UTF-8, preserve the two header rows).
 **Row model:** one row per `$$Rule_Id`. `$$Control_Id_List` is a
 **space-separated** list of control IDs sharing that rule.
 
+#### Path A — CaC rules
+
 For each strong/partial rule from Step 3:
 
 1. **Rule already in CSV:** add this control ID to `$$Control_Id_List` if missing.
@@ -197,7 +244,8 @@ For each strong/partial rule from Step 3:
    row has none (or the user asked to change the default).
 2. **New rule:** append a row. Copy constants from any existing data row:
    - `$$Component_Title` = `Red Hat Enterprise Linux 9`
-   - `$$Component_Description` = same long German blurb as sibling rows
+   - `$$Component_Description` = same as sibling data rows (currently
+     `Red Hat Enterprise Linux 9`)
    - `$$Component_Type` = `software`
    - `$$Profile_Source` = `trestle://profiles/gs-plusplus-rhel-host/profile.json`
    - `$$Profile_Description` = same as sibling rows (must match
@@ -210,12 +258,27 @@ For each strong/partial rule from Step 3:
      [reference.md](reference.md#csv-rule-map). Use `_1` suffix columns for a
      second parameter on the same rule.
 
-**Do not** remove other controls from an existing row’s `$$Control_Id_List`
+If replacing a narrative seed with real CaC rules, drop this control from the
+`gspp_impl_*` seed row (delete the seed row when empty).
+
+#### Path B — narrative seed (no CaC rule)
+
+1. If `gspp_impl_{control}` already lists this control → leave CSV as-is for
+   mapping (still proceed to sync if other edits need it).
+2. Else append one seed row per
+   [Non-CaC controls](#non-cac-controls--narrative-seeds).
+
+**Do not** remove other controls from an existing CaC row’s `$$Control_Id_List`.
 
 Validate with Python `csv` module (quoted fields, commas inside descriptions).
-Do not break the two header rows (`$$…` then human labels).
+Do not break the two header rows (`$$…` then human labels). Prefer `csv`
+module edits over hand-rewriting the whole file (preserves UTF-8 umlauts).
 
 ### Step 5 — Sync CSV → JSON → markdown Rules
+
+Ensure `data/csv-to-oscal-cd.config` sets `component-definition =` to the
+existing JSON path so trestle **merges** and preserves UUIDs. Without that key,
+trestle recreates the CD and churns all UUIDs.
 
 `trestle task csv-to-oscal-cd` **merges** into the existing
 `component-definition.json` (adds/mods/deletes rules and control mappings;
@@ -230,8 +293,9 @@ trestle task csv-to-oscal-cd -c data/csv-to-oscal-cd.config
 
 Confirm for this control:
 
-- JSON IR has `Rule_Id` props (and CI-level `set-parameters` when defaults set)
-- Markdown `### Rules:` lists those rule ids
+- JSON IR exists and has `Rule_Id` props (CaC ids and/or `gspp_impl_*`)
+- CI-level `set-parameters` when CaC defaults set
+- Markdown `### Rules:` lists those rule ids (seed id is OK on Path B)
 - Frontmatter rule/param blocks updated if parameters exist
 
 If `validate-controls = on` fails (control not in profile): stop and report —
@@ -259,14 +323,15 @@ Set `### Implementation Status:` per [status criteria](reference.md#implementati
 
 | Status | When |
 |--------|------|
-| `implemented` | Strong Step 3 CaC rules (now in CSV/JSON) + docs fully cover technical statement **and** guidance |
+| `implemented` | Strong Step 3 **CaC** rules (now in CSV/JSON) + docs fully cover technical statement **and** guidance. Not available on Path B (narrative seed only). |
 | `partial` | Rules/docs cover some aspects; gaps remain. Always true if the control has organizational aspects |
-| `alternative` | Different technical approach, same intent |
-| `planned` | No rule and no doc-backed mechanism |
+| `alternative` | Different technical approach, same intent (common on Path B when host offers lock/preserve/IdM instead of a literal check) |
+| `planned` | No CaC rule, no narrative mechanism in docs, and no defensible on-host approach yet |
 | `not-applicable` | Organizational-only; no RHEL host hook |
 
 Unsure `implemented` vs `partial` → **`partial`**. Judge the end state after
-Steps 4–5 (rules attached), not the pre-enrichment empty Rules list.
+Steps 4–5 (CaC rules or seed attached), not the pre-enrichment empty Rules list.
+A `gspp_impl_*` seed alone never justifies `implemented`.
 
 Coverage matrix for PR body — [reference.md](reference.md#coverage-matrix).
 
@@ -293,7 +358,9 @@ source .venv/bin/activate # or: python3 -m pip install -r requirements.txt
 ```
 
 Verify JSON IR for this `control-id`: non-empty `description`,
-`implementation-status` prop, `Rule_Id` props, and expected `set-parameters`.
+`implementation-status` prop, `Rule_Id` props (CaC and/or `gspp_impl_*`), and
+expected `set-parameters` when Path A set defaults. After assemble, confirm
+root/component UUIDs unchanged vs pre-sync (merge config working).
 
 Then:
 
@@ -316,7 +383,8 @@ gh pr create --base develop --title "Enrich {control-id} component implementatio
 ## Summary
 - Updated German implementation prose for `{control-id}`
 - Implementation status: `{status}`
-- Attached CaC rules via `data/{COMPONENT_DEFINITION}.csv` and synced JSON
+- Path A: attached CaC rules via CSV → JSON
+  **or** Path B: narrative seed `gspp_impl_*` (no CaC rule binding)
 
 ## Coverage matrix
 | Guidance aspect | Covered by | Status |
@@ -329,6 +397,10 @@ gh pr create --base develop --title "Enrich {control-id} component implementatio
 ## CaC rules (CSV → JSON)
 - `rule_id` — rationale
 - parameters (if any): `param-id` = `value` (alternatives: …)
+- (Path B) none — seed `gspp_impl_…` only
+
+## Narrative seed (Path B only)
+- `gspp_impl_…` — why no CaC rule; what on-host/org approach prose describes
 
 ## Considered but not attached
 - …
@@ -337,18 +409,24 @@ gh pr create --base develop --title "Enrich {control-id} component implementatio
 - ...
 
 ## Test plan
-- [ ] Review prose (no inline rule IDs)
-- [ ] Confirm CSV `Control_Id_List` / parameters for this control
-- [ ] Confirm markdown `### Rules:` matches attached rules
+- [ ] Review prose (no inline rule IDs; seed id not sold as CaC check)
+- [ ] Confirm CSV `Control_Id_List` / parameters or `gspp_impl_*` seed for this control
+- [ ] Confirm markdown `### Rules:` matches CSV (CaC and/or seed)
 - [ ] Confirm JSON IR: description, implementation-status, Rule_Id, set-parameters
+- [ ] Confirm component-definition UUIDs preserved (merge config present)
 - [ ] After merge to develop: confirm CI Autoupdate did not regress prose/rules
 EOF
 )"
 ```
 
-**Commit all three** (CSV + MD + JSON). Skipping JSON risks CI
-`csv-to-oscal-cd` + regenerate running before assemble has the new prose in
-JSON, which can wipe uncommitted description text from markdown.
+**Commit CSV + MD + JSON** whenever the CSV changed (new CaC row, seed row, or
+`Control_Id_List` edit). Always commit MD + JSON after assemble. Skipping JSON
+risks CI `csv-to-oscal-cd` + regenerate running before assemble has the new
+prose in JSON, which can wipe uncommitted description text from markdown.
+
+Do **not** rewrite JSON with `json.dumps(..., ensure_ascii=True)` — that turns
+German umlauts into `\u00xx` escapes. Prefer trestle assemble/write, or
+`ensure_ascii=False` if a manual JSON edit is unavoidable.
 
 Return the PR URL.
 
@@ -361,6 +439,11 @@ Enrich md_components/gs-plus-plus-rhel-host-rhel9/Red Hat Enterprise Linux 9/gs-
 ```
 Enrich BER.2.4
 ```
+
+```
+Enrich BER.3.14
+```
+(Path B when find-rule has no attachable CaC match: add `gspp_impl_ber_3_14` seed.)
 
 ```
 Enrich KONF.2.1, KONF.2.2 and DET.3.1.4
