@@ -3,6 +3,11 @@ x-trestle-global:
   profile:
     title: Grundschutz++ für Red Hat Enterprise Linux Host
     href: trestle://profiles/gs-plusplus-rhel-host/profile.json
+x-trestle-comp-def-rules:
+  Red Hat Enterprise Linux 9:
+    - name: gspp_impl_konf_3_1
+      description: Narrative implementation seed for KONF.3.1 (no CaC rule 
+        binding)
 ---
 
 # KONF.3.1 - \[Physischer Schutz\] Kryptographischer Hardwarespeicher
