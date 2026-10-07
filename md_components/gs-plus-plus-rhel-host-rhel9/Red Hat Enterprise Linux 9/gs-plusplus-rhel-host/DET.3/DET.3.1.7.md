@@ -3,6 +3,11 @@ x-trestle-global:
   profile:
     title: Grundschutz++ für Red Hat Enterprise Linux Host
     href: trestle://profiles/gs-plusplus-rhel-host/profile.json
+x-trestle-comp-def-rules:
+  Red Hat Enterprise Linux 9:
+    - name: gspp_impl_det_3_1_7
+      description: Narrative implementation seed for DET.3.1.7 (no CaC rule 
+        binding)
 ---
 
 # DET.3.1.7 - \[Protokollierung\] Was, Wann, Wo

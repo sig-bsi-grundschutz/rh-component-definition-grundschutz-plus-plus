@@ -3,6 +3,11 @@ x-trestle-global:
   profile:
     title: Grundschutz++ für Red Hat Enterprise Linux Host
     href: trestle://profiles/gs-plusplus-rhel-host/profile.json
+x-trestle-comp-def-rules:
+  Red Hat Enterprise Linux 9:
+    - name: gspp_impl_ber_5_5
+      description: Narrative implementation seed for BER.5.5 (no CaC rule 
+        binding)
 ---
 
 # BER.5.5 - \[Umgang mit Authentisierungsmitteln\] Deaktivierung einfacher Biometrie auf IT-Systemen
