@@ -66,6 +66,8 @@ Requires `git`, `gh`, network for push/PR. Activate trestle before sync steps:
 source .venv/bin/activate   # or: python3 -m pip install -r requirements.txt
 ```
 
+The ressources named in Step 2 — Red Hat documentation shall be available. Check that and verify. if they are not available stop and ask user how to proceed.
+
 ## Git safety
 
 1. Run `git branch --show-current`. **Never commit on that branch.**
