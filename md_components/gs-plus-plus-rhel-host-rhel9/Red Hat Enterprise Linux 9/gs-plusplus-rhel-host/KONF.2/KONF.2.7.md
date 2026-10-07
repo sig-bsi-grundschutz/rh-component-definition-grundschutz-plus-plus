@@ -3,6 +3,11 @@ x-trestle-global:
   profile:
     title: Grundschutz++ für Red Hat Enterprise Linux Host
     href: trestle://profiles/gs-plusplus-rhel-host/profile.json
+x-trestle-comp-def-rules:
+  Red Hat Enterprise Linux 9:
+    - name: gspp_impl_konf_2_7
+      description: Narrative implementation seed for KONF.2.7 (no CaC rule 
+        binding)
 ---
 
 # KONF.2.7 - \[Konfiguration von Systemen\] Souveräne Werkzeuge

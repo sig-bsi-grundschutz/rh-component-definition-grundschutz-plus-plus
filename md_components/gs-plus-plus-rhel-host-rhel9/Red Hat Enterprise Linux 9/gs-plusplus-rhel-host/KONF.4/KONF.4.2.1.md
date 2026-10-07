@@ -5,6 +5,11 @@ x-trestle-global:
   profile:
     title: Grundschutz++ für Red Hat Enterprise Linux Host
     href: trestle://profiles/gs-plusplus-rhel-host/profile.json
+x-trestle-comp-def-rules:
+  Red Hat Enterprise Linux 9:
+    - name: gspp_impl_konf_4_2_1
+      description: Narrative implementation seed for KONF.4.2.1 (no CaC rule 
+        binding)
 ---
 
 # KONF.4.2.1 - \[Vertrauenswürdige Basisdienste\] DNS-Verschlüsselung

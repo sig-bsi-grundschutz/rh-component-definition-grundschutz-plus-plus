@@ -3,9 +3,9 @@
     "uuid": "4a30fff1-04c2-47c6-b531-51996c11e135",
     "metadata": {
       "title": "Grundschutz++ - Red Hat Enterprise Linux 9",
-      "last-modified": "2026-10-02T07:35:41.592986-04:00",
+      "last-modified": "2026-10-07T19:55:56.034+00:00",
       "version": "0.1.0",
-      "oscal-version": "1.1.3"
+      "oscal-version": "1.2.1"
     },
     "components": [
       {
@@ -3085,6 +3085,498 @@
             "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
             "value": "use pam wheel for su",
             "remarks": "rule_set_207"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "gspp_impl_ber_3_14",
+            "remarks": "rule_set_208"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "Narrative implementation seed for BER.3.14 (no CaC rule binding)",
+            "remarks": "rule_set_208"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "gspp_impl_ber_3_17",
+            "remarks": "rule_set_209"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "Narrative implementation seed for BER.3.17 (no CaC rule binding)",
+            "remarks": "rule_set_209"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "gspp_impl_ber_3_21",
+            "remarks": "rule_set_210"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "Narrative implementation seed for BER.3.21 (no CaC rule binding)",
+            "remarks": "rule_set_210"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "gspp_impl_ber_3_22",
+            "remarks": "rule_set_211"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "Narrative implementation seed for BER.3.22 (no CaC rule binding)",
+            "remarks": "rule_set_211"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "gspp_impl_ber_3_24",
+            "remarks": "rule_set_212"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "Narrative implementation seed for BER.3.24 (no CaC rule binding)",
+            "remarks": "rule_set_212"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "gspp_impl_ber_4_1_1",
+            "remarks": "rule_set_213"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "Narrative implementation seed for BER.4.1.1 (no CaC rule binding)",
+            "remarks": "rule_set_213"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "gspp_impl_ber_4_2",
+            "remarks": "rule_set_214"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "Narrative implementation seed for BER.4.2 (no CaC rule binding)",
+            "remarks": "rule_set_214"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "gspp_impl_ber_4_3",
+            "remarks": "rule_set_215"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "Narrative implementation seed for BER.4.3 (no CaC rule binding)",
+            "remarks": "rule_set_215"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "gspp_impl_ber_4_4_1",
+            "remarks": "rule_set_216"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "Narrative implementation seed for BER.4.4.1 (no CaC rule binding)",
+            "remarks": "rule_set_216"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "gspp_impl_ber_4_8",
+            "remarks": "rule_set_217"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "Narrative implementation seed for BER.4.8 (no CaC rule binding)",
+            "remarks": "rule_set_217"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "gspp_impl_ber_5_5",
+            "remarks": "rule_set_218"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "Narrative implementation seed for BER.5.5 (no CaC rule binding)",
+            "remarks": "rule_set_218"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "gspp_impl_ber_5_9",
+            "remarks": "rule_set_219"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "Narrative implementation seed for BER.5.9 (no CaC rule binding)",
+            "remarks": "rule_set_219"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "gspp_impl_ber_5_14",
+            "remarks": "rule_set_220"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "Narrative implementation seed for BER.5.14 (no CaC rule binding)",
+            "remarks": "rule_set_220"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "gspp_impl_ber_6_5",
+            "remarks": "rule_set_221"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "Narrative implementation seed for BER.6.5 (no CaC rule binding)",
+            "remarks": "rule_set_221"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "gspp_impl_ber_6_6",
+            "remarks": "rule_set_222"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "Narrative implementation seed for BER.6.6 (no CaC rule binding)",
+            "remarks": "rule_set_222"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "gspp_impl_ber_7_4",
+            "remarks": "rule_set_223"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "Narrative implementation seed for BER.7.4 (no CaC rule binding)",
+            "remarks": "rule_set_223"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "gspp_impl_ber_7_5",
+            "remarks": "rule_set_224"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "Narrative implementation seed for BER.7.5 (no CaC rule binding)",
+            "remarks": "rule_set_224"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "gspp_impl_ber_7_9",
+            "remarks": "rule_set_225"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "Narrative implementation seed for BER.7.9 (no CaC rule binding)",
+            "remarks": "rule_set_225"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "gspp_impl_ber_7_10",
+            "remarks": "rule_set_226"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "Narrative implementation seed for BER.7.10 (no CaC rule binding)",
+            "remarks": "rule_set_226"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "gspp_impl_ber_7_12",
+            "remarks": "rule_set_227"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "Narrative implementation seed for BER.7.12 (no CaC rule binding)",
+            "remarks": "rule_set_227"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "gspp_impl_ber_7_13",
+            "remarks": "rule_set_228"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "Narrative implementation seed for BER.7.13 (no CaC rule binding)",
+            "remarks": "rule_set_228"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "gspp_impl_ber_7_14",
+            "remarks": "rule_set_229"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "Narrative implementation seed for BER.7.14 (no CaC rule binding)",
+            "remarks": "rule_set_229"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "gspp_impl_ber_7_15",
+            "remarks": "rule_set_230"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "Narrative implementation seed for BER.7.15 (no CaC rule binding)",
+            "remarks": "rule_set_230"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "gspp_impl_det_3_1_2",
+            "remarks": "rule_set_231"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "Narrative implementation seed for DET.3.1.2 (no CaC rule binding)",
+            "remarks": "rule_set_231"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "gspp_impl_det_3_1_5",
+            "remarks": "rule_set_232"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "Narrative implementation seed for DET.3.1.5 (no CaC rule binding)",
+            "remarks": "rule_set_232"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "gspp_impl_det_3_1_7",
+            "remarks": "rule_set_233"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "Narrative implementation seed for DET.3.1.7 (no CaC rule binding)",
+            "remarks": "rule_set_233"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "gspp_impl_konf_2_1",
+            "remarks": "rule_set_234"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "Narrative implementation seed for KONF.2.1 (no CaC rule binding)",
+            "remarks": "rule_set_234"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "gspp_impl_konf_2_1_1",
+            "remarks": "rule_set_235"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "Narrative implementation seed for KONF.2.1.1 (no CaC rule binding)",
+            "remarks": "rule_set_235"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "gspp_impl_konf_2_2",
+            "remarks": "rule_set_236"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "Narrative implementation seed for KONF.2.2 (no CaC rule binding)",
+            "remarks": "rule_set_236"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "gspp_impl_konf_2_4_2",
+            "remarks": "rule_set_237"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "Narrative implementation seed for KONF.2.4.2 (no CaC rule binding)",
+            "remarks": "rule_set_237"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "gspp_impl_konf_2_5_1",
+            "remarks": "rule_set_238"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "Narrative implementation seed for KONF.2.5.1 (no CaC rule binding)",
+            "remarks": "rule_set_238"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "gspp_impl_konf_2_7",
+            "remarks": "rule_set_239"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "Narrative implementation seed for KONF.2.7 (no CaC rule binding)",
+            "remarks": "rule_set_239"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "gspp_impl_konf_2_8",
+            "remarks": "rule_set_240"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "Narrative implementation seed for KONF.2.8 (no CaC rule binding)",
+            "remarks": "rule_set_240"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "gspp_impl_konf_3_1",
+            "remarks": "rule_set_241"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "Narrative implementation seed for KONF.3.1 (no CaC rule binding)",
+            "remarks": "rule_set_241"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "gspp_impl_konf_4_2_1",
+            "remarks": "rule_set_242"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "Narrative implementation seed for KONF.4.2.1 (no CaC rule binding)",
+            "remarks": "rule_set_242"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "gspp_impl_konf_6_4_1",
+            "remarks": "rule_set_243"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "Narrative implementation seed for KONF.6.4.1 (no CaC rule binding)",
+            "remarks": "rule_set_243"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "gspp_impl_konf_7_4",
+            "remarks": "rule_set_244"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "Narrative implementation seed for KONF.7.4 (no CaC rule binding)",
+            "remarks": "rule_set_244"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "gspp_impl_konf_7_6",
+            "remarks": "rule_set_245"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "Narrative implementation seed for KONF.7.6 (no CaC rule binding)",
+            "remarks": "rule_set_245"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "gspp_impl_konf_7_7",
+            "remarks": "rule_set_246"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "Narrative implementation seed for KONF.7.7 (no CaC rule binding)",
+            "remarks": "rule_set_246"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "gspp_impl_konf_7_8",
+            "remarks": "rule_set_247"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "Narrative implementation seed for KONF.7.8 (no CaC rule binding)",
+            "remarks": "rule_set_247"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "gspp_impl_konf_7_13",
+            "remarks": "rule_set_248"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "Narrative implementation seed for KONF.7.13 (no CaC rule binding)",
+            "remarks": "rule_set_248"
           }
         ],
         "control-implementations": [
@@ -5776,6 +6268,662 @@
                   {
                     "name": "implementation-status",
                     "value": "alternative"
+                  }
+                ]
+              },
+              {
+                "uuid": "4971c87c-abed-410d-9a80-5ae33f71c840",
+                "control-id": "BER.3.14",
+                "description": "RHEL erzwingt keine automatische Sperr- oder Karenzfrist für die Wiederverwendung von Zugangskontennamen oder UIDs; nach dem Löschen eines Kontos mit `userdel` kann derselbe Benutzername oder dieselbe UID sofort neu vergeben werden, ohne dass das Betriebssystem dies verhindert. In zentral verwalteten Umgebungen bindet SSSD den Host an Red Hat IdM, Active Directory oder LDAP an; dort erfolgt die Kontovergabe über das Verzeichnis, sodass eine organisatorisch festgelegte Sperrfrist vor Neuvergabe eines Namens dort durchsetzbar ist, statt lokal frei entschieden zu werden. Als Alternative kann ein Konto statt sofortiger Löschung mit `usermod -L` gesperrt oder über `chage -E` mit einem Ablaufdatum versehen werden, um es für die Dauer der Karenzfrist inaktiv, aber unter demselben Namen bzw. derselben UID reserviert zu halten. Dies sollte bei mehr als einem Host mittels einer Konfigurations-Management-Lösung wie Ansible umgesetzt werden. Die eigentliche Durchsetzung der Sperr- oder Karenzfrist — also das Verbot, einen Namen oder eine UID vor Ablauf des festgelegten Zeitraums neu zu vergeben — bleibt jedoch ein organisatorischer Prozess außerhalb der technischen Prüfmöglichkeiten des einzelnen RHEL-Hosts.\n\nWeitere Informationen: [Authentifizierung und Autorisierung](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_authentication_and_authorization_in_rhel/index)",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "gspp_impl_ber_3_14"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "alternative"
+                  }
+                ]
+              },
+              {
+                "uuid": "70985506-9a03-4690-bd04-e6c676a1e30d",
+                "control-id": "BER.3.17",
+                "description": "Mehr-Faktor-Authentisierung für Zugangskonten – einschließlich unvermeidbarer Gruppenkonten – lässt sich unter RHEL auf zwei Wegen umsetzen. Zum einen kann SSSD (ab RHEL 9.1 über `sssd-idp` und den OAuth-2.0-Device-Authorization-Flow, typischerweise an IdM gekoppelt) die Authentisierung an einen externen OIDC-/OAuth-Identity-Provider delegieren, der MFA – etwa OTP-Apps oder weitere Faktoren – zentral erzwingt; der Host schließt die Anmeldung erst nach erfolgreicher IdP-Prüfung ab. Welche Faktoren und Richtlinien greifen, bestimmt der IdP bzw. die IAM-Konfiguration, nicht das Betriebssystem selbst; ein natives OTP-PAM-Modul ohne IdP-Anbindung stellt RHEL nicht bereit. Zum anderen über SSSD und `authselect select sssd with-smartcard`: PAM verlangt dann zusätzlich zum Passwort eine Smartcard bzw. ein PKI-Zertifikat, wahlweise mit `with-smartcard-required` erzwungen; über Identity Management können einem Konto mehrere Zertifikate bzw. Hardwaretoken zugeordnet werden.\n\nWeitere Informationen: [Smartcard-Authentifizierung mit authselect konfigurieren](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_smart_card_authentication/configuring-smart-cards-using-authselect_managing-smart-card-authentication), [Externe Identity Provider zur Authentisierung an IdM nutzen](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/using_external_red_hat_utilities_with_identity_management/assembly_using-external-identity-providers-to-authenticate-to-idm_using-external-red-hat-utilities-with-idm)",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "gspp_impl_ber_3_17"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "partial"
+                  }
+                ]
+              },
+              {
+                "uuid": "56c8a235-2987-483f-b3a4-4fed8d26df5a",
+                "control-id": "BER.3.21",
+                "description": "Für Kerberos-basierte Dienste verwaltet SSSD im Zusammenspiel mit IdM die zugehörigen Keytabs zentral im Verzeichnis; eine Rotation des Dienstprinzipal-Schlüssels (z.B. via `ipa-getkeytab`) erfolgt IdM-seitig, sodass keine dauerhaften Klartext-Anmeldedaten lokal auf dem Host vorgehalten werden müssen. Für generische Zugangsdaten wie API-Schlüssel oder Datenbank-Anmeldedaten stellt RHEL selbst jedoch keinen Passworttresor bereit. Hilfsweise kann über Red Hat Ansible Automation Platform mittles `ansible-vault` eine entsprechend verschlüsselte Speicherung von Passwörtern, sowie die automatisierte Verteilung und Rotation erfolgen. Die Integration mit vollwertigen Secret-Management-Lösungen wie HashiCorp Vault ist technisch möglich und empfehlenswert.",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "gspp_impl_ber_3_21"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "alternative"
+                  }
+                ]
+              },
+              {
+                "uuid": "12b289c0-4739-49e3-aed6-318904c95946",
+                "control-id": "BER.3.22",
+                "description": "RHEL trennt die Authentifizierung technisch in lokale Konten (`/etc/passwd`/`/etc/shadow`) und zentral über SSSD angebundene Verzeichnisdienste (IdM, Active Directory, LDAP); über `authselect` konfiguriertes PAM/NSS greift bei Ausfall von SSSD automatisch auf die lokale `files`-Quelle zurück, sodass ein lokal angelegtes Notfallkonto (z. B. `root` oder ein dediziertes Break-Glass-Konto, angelegt mit `useradd`/`passwd`) auch dann nutzbar bleibt, wenn die zentrale Authentifizierung nicht erreichbar ist. Mit `chage -E never` bzw. `chage -l` lässt sich sicherstellen, dass ein solches Konto — anders als reguläre temporäre Zugänge — nicht automatisch abläuft. Die sichere Aufbewahrung des Passworts (z. B. Safe, Aufteilung auf mehrere Administrierende) sowie die organisatorische Festlegung, welche Konten als Notfallzugang gelten, bleiben Prozessaufgaben der Organisation. Alternativ kann ein SSH-Key zur Authentifizierung via SSH verwendet werden. Für den Fall, dass der Host netzwerkseitig nicht mehr erreichbar ist und über die Konsole administriert werden muss, ist zwingend ein Passwort erforderlich (technisch ist es möglich, im SingleUser-Mode kein Passwort abzufragen, dies ist jedoch eine unsichere Konfiguration).\n\nWeitere Informationen: [Authentifizierung und Autorisierung konfigurieren](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_authentication_and_authorization_in_rhel/index)",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "gspp_impl_ber_3_22"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "partial"
+                  }
+                ]
+              },
+              {
+                "uuid": "403b6c9e-353b-4ff1-a03f-a6ebca57ad8c",
+                "control-id": "BER.3.24",
+                "description": "RHEL kann über SSSD und `authselect` ein alternatives, PKI-gestütztes Authentifizierungsverfahren mittels Smartcard oder Zertifikat bereitstellen, das eine mit dem primären Anmeldeverfahren vergleichbare Vertrauenswürdigkeit erreicht: `authselect select sssd with-smartcard` aktiviert die Zertifikatsauthentifizierung zusätzlich zum Passwort, während `pam_cert_auth = True` in `/etc/sssd/sssd.conf` PAM anweist, die Karte zu prüfen. Über eine hinterlegte Vertrauensanker-CA, Sperrlisten-/OCSP-Prüfung (`certificate_verification`) sowie Zertifikatszuordnungsregeln (`sssd_certmap.conf`) wird sichergestellt, dass nur gültige, eindeutig einem Konto zugeordnete Zertifikate zur Anmeldung akzeptiert werden. Damit deckt RHEL die technische Kernanforderung eines gleichwertigen Alternativverfahrens ab; die in der Anleitung beispielhaft genannten Wiederherstellungswege bei Verlust des Primärzugangs — persönliche Vorstellung mit Ausweis, Verifikation über eine bestehende Sitzung oder PUK-Rücksetzung der Smartcard selbst — bleiben organisatorische bzw. kartenverwaltungsseitige Prozesse außerhalb der SSSD/PAM-Konfiguration des Hosts.\n\nWeitere Informationen: [Smartcard-Authentifizierung mit authselect konfigurieren](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_smart_card_authentication/configuring-smart-cards-using-authselect_managing-smart-card-authentication)",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "gspp_impl_ber_3_24"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "partial"
+                  }
+                ]
+              },
+              {
+                "uuid": "aa314ed7-e2e6-46ed-b12c-27c036a86601",
+                "control-id": "BER.4.1.1",
+                "description": "Rollenbasierte Berechtigungen bildet RHEL vor allem über Gruppen und zentrale Identity-Dienste ab: lokale Gruppen in `/etc/group`, sudoers-Aliase und gruppenbezogene `sudo`-Regeln bündeln Rechte statt Einzelzuweisungen; mit Red Hat Identity Management (IdM) bzw. SSSD werden Rollen, Host-based Access Control (HBAC) und gruppenbasierte Sudo-Regeln zentral gepflegt und auf den Host angewandt. Ausnahmen (temporäre Spezialrechte) lassen sich über befristete Gruppenmitgliedschaften oder zeitlich begrenzte sudoers-Einträge handhaben, erfordern aber einen geregelten IAM-Prozess. Die reine Betriebssystemkonfiguration erzwingt kein vollständiges Rollenmodell — das muss die Institution in IdM/Verzeichnis und Betriebsprozessen verankern.\n\nWeitere Informationen: [Authentifizierung und Autorisierung](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_authentication_and_authorization_in_rhel/index), [IdM-Benutzer, Gruppen, Hosts und Zugriffskontrollregeln](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_idm_users_groups_hosts_and_access_control_rules/index).",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "gspp_impl_ber_4_1_1"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "partial"
+                  }
+                ]
+              },
+              {
+                "uuid": "379df0d4-be89-41f6-9cd0-feb4a8d507c4",
+                "control-id": "BER.4.2",
+                "description": "Die Autorisierung von Berechtigungszuweisungen ist primär ein IAM-/Organisationsprozess (Führungskraft, Data Owner, Application Owner).",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "gspp_impl_ber_4_2"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "not-applicable"
+                  }
+                ]
+              },
+              {
+                "uuid": "3ba4afad-1c78-457b-8802-07eda7467cee",
+                "control-id": "BER.4.3",
+                "description": "Begründungen für Berechtigungsvergaben werden nicht lokal in RHEL gespeichert: `useradd`/`usermod`/`visudo` erfordern keinen Begründungstext. Die Berechtigungsänderung sollte daher durch einen automatisierten Prozess mit Genehmigungsaufgabe außerhalb von RHEL erfolgen, beispielsweise mittels Red Hat Ansible Automation Platform. Weiterhin sollte die Berechtigung primär in einem zentralen, an den RHEL-Host angebundenen, IAM erfolgen.\n\nWeitere Informationen: [Authentifizierung und Autorisierung](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_authentication_and_authorization_in_rhel/index)",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "gspp_impl_ber_4_3"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "alternative"
+                  }
+                ]
+              },
+              {
+                "uuid": "59ee3d04-617f-4179-b4e3-fc157ce4edd4",
+                "control-id": "BER.4.4.1",
+                "description": "Im Kontext von RHEL-Hosts sollte die Berechtigung primär zentral im Verzeichnisdienst vorgenommen werden, der über sssd angebunden wird. Bei IdM-Anbindung ist das Verzeichnis oft zugleich Dokumentation und Wirkbetrieb — dann entfällt ein separater Abgleich laut Guidance.\n\nWeitere Informationen: [IdM-Benutzer, Gruppen, Hosts und Zugriffskontrollregeln](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_idm_users_groups_hosts_and_access_control_rules/index)",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "gspp_impl_ber_4_4_1"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "alternative"
+                  }
+                ]
+              },
+              {
+                "uuid": "608996f0-6762-4040-8547-6c144a17c43f",
+                "control-id": "BER.4.8",
+                "description": "Den Entzug von Berechtigungen setzt RHEL technisch über Sperren und Mitgliedschaftsänderungen um: lokale Konten mit `usermod -L` / `chage`, Entfernen aus Gruppen und sudoers, Löschen oder Ersetzen von SSH-Autorized-Keys sowie — bei SSSD/IdM — Deaktivieren des Verzeichniskontos, HBAC-Entzug und Gruppenaustritt, worauf der Host bei Ticket-/Cache-Ablauf den Zugang verweigert. Automation (Red Hat Ansible Automation Platform) kann diese Schritte bei Austritt oder Rollenwechsel standardisieren. Der institutionelle Prozess (Trigger aus HR/ITSM, systemübergreifende Vollständigkeit) bleibt außerhalb des einzelnen Hosts; ohne zentralen IdP drohen lokale Restrechte.\n\nWeitere Informationen: [Authentifizierung und Autorisierung](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_authentication_and_authorization_in_rhel/index), [IdM-Benutzer, Gruppen, Hosts und Zugriffskontrollregeln](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_idm_users_groups_hosts_and_access_control_rules/index).",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "gspp_impl_ber_4_8"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "partial"
+                  }
+                ]
+              },
+              {
+                "uuid": "544f6487-57bc-4d0a-9ba8-0075670f17e1",
+                "control-id": "BER.5.5",
+                "description": "Rein biometrische Anmeldung ist auf typischen RHEL-Servern selten; falls `fprintd`/Fingerprint-PAM genutzt wird, steuert `authselect` die Faktoren: Fingerprint kann weggelassen oder nur kombiniert mit Passwort/PIN betrieben werden, statt als alleiniger Faktor. Ohne installierte Biometrie-Stack greift die Anforderung faktisch nicht. Für Host-Umfang „RHEL Server“ ist Biometrie meist irrelevant; wo Client-Images Biometrie erlauben, muss MFA (z. B. Smartcard oder Passwort+Biometrie) erzwungen werden.\n\nWeitere Informationen: [Authentifizierung und Autorisierung](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_authentication_and_authorization_in_rhel/index) (authselect-Profile und Faktoren).",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "gspp_impl_ber_5_5"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "not-applicable"
+                  }
+                ]
+              },
+              {
+                "uuid": "58c98a2b-8bf6-4011-b34f-fe50c37e8fa4",
+                "control-id": "BER.5.9",
+                "description": "Ab RHEL 9.1 kann `sssd-idp` MFA an einen externen OIDC-/OAuth-IdP delegieren. Dies sollte die präferierte Konfiguration sein. Ein generisches OTP-PAM ohne IdP liefert RHEL nicht mit. Mehr-Faktor-Authentisierung für weitreichende Rechte (root/sudo, kritische Hosts) lässt sich unter RHEL analog zu anderen MFA-Kontrollen umsetzen: SSSD mit `authselect select sssd with-smartcard` (optional `with-smartcard-required`) verlangt Zertifikat/Smartcard zusätzlich zum oder statt des Passworts;\n\nWeitere Informationen: [Smartcard-Authentifizierung mit authselect konfigurieren](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_smart_card_authentication/configuring-smart-cards-using-authselect_managing-smart-card-authentication), [Externe Identity Provider zur Authentisierung an IdM nutzen](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/using_external_red_hat_utilities_with_identity_management/assembly_using-external-identity-providers-to-authenticate-to-idm_using-external-red-hat-utilities-with-idm).",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "gspp_impl_ber_5_9"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "alternative"
+                  }
+                ]
+              },
+              {
+                "uuid": "b30e7dcc-89c8-4546-aa8c-a25d36c2e7aa",
+                "control-id": "BER.5.14",
+                "description": "Kompromittierte Authentisierungsmittel lassen sich auf RHEL technisch sperren oder ersetzen: lokale Konten mit `usermod -L`, Passwortreset, Entfernen von Einträgen in `authorized_keys`, Widerruf von Zertifikaten/Smartcards in IdM bzw. CRL/OCSP, sowie Deaktivieren des IdM-/AD-Kontos über SSSD. Automation (Red Hat Ansible Automation Platform) kann diese Schritte standardisieren. Erkennung (Leak-Meldung, Phishing, Anomalie) und die Entscheidung zur Sperrung sind Prozessaufgaben; das OS liefert die Durchsetzungsmittel, kein eingebautes Leak-Monitoring.\n\nWeitere Informationen: [Authentifizierung und Autorisierung](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_authentication_and_authorization_in_rhel/index), [Smart-Card-Authentifizierung verwalten](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_smart_card_authentication/index).",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "gspp_impl_ber_5_14"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "partial"
+                  }
+                ]
+              },
+              {
+                "uuid": "50e02ab1-ff01-4685-ba1d-6a534f3c03cf",
+                "control-id": "BER.6.5",
+                "description": "Grundsätzlich sollte ein RHEL-Host an zentrale Identity-Provider/Verzeichnisdienste angebunden sein und an dieser Stelle die Einstellungen zum Passwort-Alter durchgesetzt sein. Für lokale Konten auf RHEL-Hosts bedeutet dies, dass `PASS_MAX_DAYS` in `/etc/login.defs` nicht oder auf einen unrealistisch hohen Wert gesetzt sind.\n\nWeitere Informationen: [Authentifizierung und Autorisierung](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_authentication_and_authorization_in_rhel/index).",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "gspp_impl_ber_6_5"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "not-applicable"
+                  }
+                ]
+              },
+              {
+                "uuid": "7e883146-77e8-4582-a209-628eb4ea1266",
+                "control-id": "BER.6.6",
+                "description": "Automatisiertes Credential-Leak-Monitoring (Darknet/Breach-Checker) ist kein Bestandteil von RHEL. Der Host liefert stattdessen die Voraussetzung für Missbrauchs- und Anmeldeüberwachung: auditd und Journal protokollieren Authentisierungsereignisse, sudo-Nutzung und Änderungen an Kontodaten; Logs können an ein zentrales SIEM weitergeleitet werden. Kompromittierungsindikatoren aus externen Leak-Diensten müssen IAM/SOC anbinden und dann Sperrung oder Reset (vgl. BER.5.14) auslösen. Damit wird die Anforderung auf dem Host entsprechend unterstützt.\n\nWeitere Informationen: [Audit-Aufzeichnungen konfigurieren](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html-single/security_hardening/assembly_configuring-audit-records_security-hardening), [Authentifizierung und Autorisierung](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_authentication_and_authorization_in_rhel/index).",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "gspp_impl_ber_6_6"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "partial"
+                  }
+                ]
+              },
+              {
+                "uuid": "581853b4-a997-4e51-8ce0-6595a0888690",
+                "control-id": "BER.7.4",
+                "description": "Schlüssel sollten auf dem Zielsystem (RHEL-Host) erzeugt werden, sofern die lokale verwendbaren Entropie-Quellen ausreichend sind; dedizierte Offline-Erzeugung auf Hardware Security Modules/TPM oder isolierten Administrationshosts ist organisatorisch festzulegen. RHEL erzwingt die Gleichwertigkeit des Erzeugungssystems nicht automatisch — die Institution wählt Erzeugungsort und Schutzniveau.\n\nWeitere Informationen: [Systemweite kryptografische Richtlinien](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/using-the-system-wide-cryptographic-policies_security-hardening), [Sicherheitshärtung](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/index).",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "gspp_impl_ber_7_4"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "alternative"
+                  }
+                ]
+              },
+              {
+                "uuid": "7cd81a6e-4714-42f3-b055-b9ed882d21aa",
+                "control-id": "BER.7.5",
+                "description": "Für kryptografische Schlüsselerzeugung nutzt RHEL den Kernel-CSPRNG über `/dev/urandom`. Optional ergänzt `rngd` (Hardware-RNG) die Entropiequelle auf Systemen mit True Random Number Generators (physischen Entropie-Quellen). OpenSSH kann über `SSH_USE_STRONG_RNG` zusätzliche Entropiebytes von Hardware-RNGs anfordern. Die Aktivierung von Hardware-Entropie-Quellen auf Systemen, die diese nicht zur Verfügung haben, kann zu einem Stalling/Hängen von abhängigen Prozessen führen, da die entsprechende Entropie nicht geliefert wird. Die Auswahl und Dokumentation der Qualitätskriterien (z. B. nach BSI TR-02102-1) sowie die Bewertung virtualisierter Entropiequellen obliegen der Institution; RHEL liefert die technische Basis, nicht die policy-seitige Kriterienfestlegung.\n\nWeitere Informationen: [Systemweite kryptografische Richtlinien](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/using-the-system-wide-cryptographic-policies_security-hardening), [Sicherheitshärtung](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/index).",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "gspp_impl_ber_7_5"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "partial"
+                  }
+                ]
+              },
+              {
+                "uuid": "6368b7a1-f868-4ae6-a681-b1f5261bb642",
+                "control-id": "BER.7.9",
+                "description": "Für X.509-Zertifikate erzwingen OpenSSL, NSS und GnuTLS bei der Nutzung die im Zertifikat hinterlegte Zweckbindung (Key Usage, Extended Key Usage): Ein nur für Signatur ausgestelltes Zertifikat wird für TLS-Verschlüsselung abgelehnt. SSH-Host- und Benutzerschlüssel kennen keine vergleichbare X.509-Erweiterung — Zweckbindung wird hier über Organisationsprozess (getrennte Schlüsselpaare, `authorized_keys`-Einschränkungen) abgebildet. Ein zentrales „Verzeichnis öffentlicher Schlüssel\" (BER.7.3) ist auf RHEL-Host-Ebene nicht existent.\n\nWeitere Informationen: [Systemweite kryptografische Richtlinien](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/using-the-system-wide-cryptographic-policies_security-hardening), [Sicherheitshärtung](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/index).",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "gspp_impl_ber_7_9"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "partial"
+                  }
+                ]
+              },
+              {
+                "uuid": "8e48b3ed-5fce-409c-a0fd-88e46a1ba02f",
+                "control-id": "BER.7.10",
+                "description": "X.509-basierte Schlüssel und Zertifikate lehnt der TLS-/PKI-Stack nach Ablauf der Gültigkeitszeit automatisch ab: OpenSSL, NSS und GnuTLS prüfen `notAfter` bei jedem Handshake; abgelaufene Server- oder Clientzertifikate können weder signieren noch verschlüsseln. Für dateibasierte Schlüssel (SSH, GPG) ohne eingebaute Ablaufzeit ist die Deaktivierung nach Nutzungsende organisatorisch und durch Entfernen aus `authorized_keys` beispielsweise automatisiert via Ansible oder einer Secret-Management Lösung, Neugenerierung oder Widerruf umzusetzen — RHEL erzwingt keinen universellen Ablaufmechanismus für Rohschlüsseldateien.\n\nWeitere Informationen: [Systemweite kryptografische Richtlinien](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/using-the-system-wide-cryptographic-policies_security-hardening), [Sicherheitshärtung](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/index).",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "gspp_impl_ber_7_10"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "partial"
+                  }
+                ]
+              },
+              {
+                "uuid": "26ea8297-4123-4e09-b05b-9fd883db9995",
+                "control-id": "BER.7.12",
+                "description": "Vor jeder TLS-Nutzung validiert RHEL die Authentizität öffentlicher Schlüssel über Zertifikatskettenprüfung gegen den System-Trust-Store (`/etc/pki/ca-trust/`); unbekannte oder nicht signierte Zertifikate werden abgelehnt, sofern nicht explizit konfiguriert. SSH prüft Hostschlüssel über `known_hosts` bzw. erstmalige Fingerprint-Bestätigung. Für Anwendungen außerhalb TLS/SSH liegt die Authentizitätsprüfung beim Anwender oder der Institution.\n\nWeitere Informationen: [Authentifizierung und Autorisierung](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_authentication_and_authorization_in_rhel/index).",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "gspp_impl_ber_7_12"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "implemented"
+                  }
+                ]
+              },
+              {
+                "uuid": "4b913209-d6ac-4769-b96f-085aaab942fd",
+                "control-id": "BER.7.13",
+                "description": "Die Gültigkeitsprüfung (Nutzungszeit und Widerrufsstatus) erfolgt bei X.509-Zertifikaten automatisch durch den TLS-Stack. Abgelaufene oder widerrufene Zertifikate werden vor Nutzung abgewiesen; CRL-Caches können lokal hinterlegt werden. SSH-Rohschlüssel ohne eingebettete Gültigkeits- oder Widerrufsinformation erfordern organisatorisches Lifecycle-Management; RHEL bietet hier keinen generischen Widerrufsmechanismus.\n\nWeitere Informationen: [Authentifizierung und Autorisierung](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_authentication_and_authorization_in_rhel/index).",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "gspp_impl_ber_7_13"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "partial"
+                  }
+                ]
+              },
+              {
+                "uuid": "22c4d171-f773-48a2-8ea0-093214a6210c",
+                "control-id": "BER.7.14",
+                "description": "RHEL stellt Werkzeuge zur proaktiven Ablaufüberwachung bereit: `certmonger` kann im Zusammenspiel mit Red Hat IdM Zertifikate überwachen und vor Ablauf erneuern; `openssl x509 -checkend` oder Skripte in `cron`/`systemd`-Timern eignen sich für regelmäßige Prüfungen. Schwellwert, Intervall und Eskalation sind institutionell festzulegen und operativ umzusetzen (z. B. Monitoring-Alert bei Restlaufzeit < 30 Tage). Generell empfiehlt sich die implementierung von automatisierten Protokollen wie ACME, die in Kombination mit entsprechenden Scripten eine automatisierte Erneuerung von Schlüsseln/Zertifikaten erlauben.\n\nWeitere Informationen: [Sicherheitshärtung](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/index).",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "gspp_impl_ber_7_14"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "partial"
+                  }
+                ]
+              },
+              {
+                "uuid": "9c76c9c8-abd7-4fe5-acf0-9c1c3dea763c",
+                "control-id": "BER.7.15",
+                "description": "Die Außerbetriebnahme geheimer Schlüssel ist primär organisatorischer Prozess; technisch unterstützt RHEL sichere Löschung und Rotation: Schlüsseldateien können entfernt, `authorized_keys`-Einträge widerrufen und Dienste neu gestartet werden; flüchtige Schlüssel in Prozessspeicher enden mit der Sitzung. Skalierbare Umsetzung ist per Ansible/AAP automatisierbar (Entfernen von Dateien, Neukonfiguration von Diensten). Verfahren und Nachweis obliegen der Institution.\n\nWeitere Informationen: [Sicherheitshärtung](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/index).",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "gspp_impl_ber_7_15"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "not-applicable"
+                  }
+                ]
+              },
+              {
+                "uuid": "9dc08e5b-2544-42db-abc9-94ffafb41f56",
+                "control-id": "DET.3.1.2",
+                "description": "RHEL stellt konfigurierbare Audit-Regeln (einschließlich privilegierter Befehle und Syscall-Auditing) über auditd bereit; Regelsätze wählt die Institution. Siehe Sicherheitshärtung und OpenSCAP-Inhalte für Beispiele.",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "gspp_impl_det_3_1_2"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "partial"
+                  }
+                ]
+              },
+              {
+                "uuid": "c1abb337-c786-45b0-a7bb-5fd7d0ca7ae4",
+                "control-id": "DET.3.1.5",
+                "description": "Red Hat Enterprise Linux enthält Performance Co-Pilot (`pcp`). Diese Werkzeug kann verschiedene Performance-Metriken sammeln und mittles `pmlogger` weiterleiten, zentralisieren und beispielsweise mittels Grafana visualisieren. Das Paket `pcp-pmda-netcheck` stellt hierfür Netzwerk-Prüfungen bereit. Diese können als Indikatoren für eine Störung der Netzerreichbarkeit oder Überlastung genutzt werden. Alternative Lösungen sind mittels Monitoring-Lösungen von 3rd-Parties marktverfügbar.\n\nWeitere Informationen: [Edge Network Monitoring](https://www.redhat.com/en/blog/lets-monitor-edge-computing-networks-rhel), [Performace Co-Pilot](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/10/html/monitoring_and_managing_system_status_and_performance/configuring-performance-co-pilot#installing-and-enabling-pcp)",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "gspp_impl_det_3_1_5"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "planned"
+                  }
+                ]
+              },
+              {
+                "uuid": "a5a0e31c-2f43-42a2-937e-88adabec290a",
+                "control-id": "DET.3.1.7",
+                "description": "RHEL unterstützt die Protokollierung von Zeitpunkt, Quelle und Zielobjekt sicherheitsrelevanter Ereignisse über auditd und Journal, sofern entsprechend konfiguriert.",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "gspp_impl_det_3_1_7"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "partial"
+                  }
+                ]
+              },
+              {
+                "uuid": "3757a061-0744-435d-b5ec-0762e3377d7e",
+                "control-id": "KONF.2.1",
+                "description": "RHEL liefert die technischen Bausteine, aus denen eine Institution eine Grundkonfiguration ableiten und reproduzierbar ausrollen kann: Anaconda/Kickstart und Image Builder-Blueprints erzeugen definierte Installationszustände, chronyd steuert Zeitsynchronisation, NetworkManager/SSSD/realmd binden DNS- und Verzeichnisdienste ein, und scap-security-guide stellt vorgefertigte Härtungsprofile (z. B. BSI, CIS) bereit, die per OpenSCAP oder Ansible auf ein System angewendet werden. Red Hat Insights (im verbundenen Umgebungen) oder Red Hat Satellite (in disconnected / air-gapped Umgebungen) vergleicht mittels OpenSCAP laufende Systeme gegen bekannte Best-Practice- und Compliance-Regelsätze und aggregiert Abweichungen. Welche Einstellungen konkret als verbindliche Referenz gelten, welches Benchmark (BSI, CIS) zugrunde gelegt wird und wie die Freigabe der Grundkonfiguration organisatorisch erfolgt, legt die Institution jedoch selbst fest; RHEL erzwingt keine bestimmte Baseline.",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "gspp_impl_konf_2_1"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "partial"
+                  }
+                ]
+              },
+              {
+                "uuid": "75c75936-944b-4a31-9338-a7db9652d142",
+                "control-id": "KONF.2.1.1",
+                "description": "RHEL selbst führt keine automatische Versionierung von /etc, doch die dortigen Konfigurationsartefakte sind textbasiert und lassen sich in ein Versionsverwaltungssystem wie Git integrieren, etwa über etckeeper-artige Ansätze oder als Teil eines Ansible-Konfiguration-Ansatzes, dessen Rollen und Inventar den Systemzustand deklarativ beschreiben.\n\nKickstart-Dateien und Image Builder-Blueprints selbst sind versionierbare Artefakte, aus denen reproduzierbare Installationen abgeleitet werden können; RPM-Paketverwaltung (dnf history, RPM-Transaktionshistorie) protokolliert zusätzlich Paketänderungen mit Rollback-Möglichkeit. Für Geheimnisse, die nicht im Klartext versioniert werden sollen, kann Ansible Vault oder eine externe Geheimnisverwaltung (z. B. HashiCorp Vault) eingesetzt werden. Die Einrichtung eines fortlaufenden, mit Rücksetzpunkten versehenen Versionsprozesses samt Änderungsfreigabe ist jedoch ein organisatorischer Schritt, den die Institution etablieren und betreiben muss.",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "gspp_impl_konf_2_1_1"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "partial"
+                  }
+                ]
+              },
+              {
+                "uuid": "90a2b240-58c8-4352-98af-0c152c1ac612",
+                "control-id": "KONF.2.2",
+                "description": "RHEL setzt kryptographische Verfahren zentral über die System-wide Crypto Policies durch (`update-crypto-policies --set <Policy>`): Alle policy-fähigen Bibliotheken und Dienste (OpenSSL, GnuTLS, NSS, OpenSSH, libkrb5 u. a.) übernehmen automatisch dasselbe Regelwerk für TLS-Versionen, Schlüssellängen und Hash-Algorithmen, statt individuell konfiguriert zu werden. Im DEFAULT-Profil sind in RHEL 9 bereits TLS < 1.2, DH/RSA-Schlüssel < 2048 Bit, SHA-1 für Signaturen sowie veraltete Chiffren wie 3DES und RC4 deaktiviert;\nZusätzlich zu den Standard-Profilen bietet RHEL 9 das FUTURE-Profil für Umgebungen mit besonders hohen Sicherheitsanforderungen: Es deaktiviert TLS < 1.3, erhöht die minimale Schlüssellänge auf 3072 Bit für RSA/DH und 256 Bit für ECC, verbietet SHA-1 vollständig (auch für HMAC) und aktiviert ausschließlich moderne Cipher Suites. Das FUTURE-Profil ist besonders relevant für kritische Infrastrukturen, kann jedoch Kompatibilitätsprobleme mit älteren Systemen verursachen. Ebenfalls besteht die Möglichkeit entsprechende die Policies zu customizen (siehe `man update-crypto-policies(8)`) um komplett eigene Policies zu schreiben, oder einzelne Algorithmen aus bestehenden Policies zu entfernen. Welches konkrete Profil (DEFAULT, FUTURE, LEGACY) angemessen ist, hängt von den Anforderungen aus Berechtigung (BER) ab und ist eine Entscheidung der Institution.",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "gspp_impl_konf_2_2"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "partial"
+                  }
+                ]
+              },
+              {
+                "uuid": "f7bfe930-5582-4774-acca-1a4ab96e7fcf",
+                "control-id": "KONF.2.4.2",
+                "description": "Die Cloud-Anbindung auf RHEL ist der insights-client, der als Standardpaket vorinstalliert ist und Systeme über den systemd-Timer `insights-client.timer` periodisch mit Red Hat Lightspeed (vormals Red Hat Insights) auf der Red Hat Hybrid Cloud Console verbindet, sofern die Institution eine entsprechende Registrierung durchführt. In verbundenen Umgebungen deckt Lightspeed dabei sicherheits-, wartungs- und supportrelevante Funktionen ab: kontinuierliches CVE-Scanning mit priorisierter Schwachstellenbewertung und Remediation-Playbooks (Sicherheit), Advisor-Empfehlungen zu Konfigurationsfehlern sowie zentral gesteuertes Patch- und Errata-Management (Wartung), und SCAP-basiertes Compliance-Tracking zusammen mit Systemtelemetrie, die dem Red-Hat-Support eine schnellere Diagnose ermöglicht (Support). Institutionen, die keine direkte Anbindung einzelner Hosts an die externe Hybrid Cloud Console wünschen, können Red Hat Satellite als optionalen Ersatz betreiben: Bei Registrierung an Satellite konfiguriert sich insights-client anhand der lokalen RHSM-Registrierung automatisch auf den Satellite-Hostnamen um und leitet Daten an den selbst betriebenen Satellite-Server statt an Red Hat; ab Satellite 6.18 lässt sich die Advisor-/Schwachstellenanalyse (iop-advisor-engine) zusätzlich vollständig air-gapped ohne jede Internetanbindung betreiben, wobei einzelne Cloud-only-Funktionen wie zentrales Subscription-Tracking entfallen. Wird weder die direkte Lightspeed-Anbindung noch ein Satellite-Betrieb benötigt, lässt sich insights-client über `systemctl mask --now insights-client.timer` bzw. `dnf remove insights-client` deaktivieren oder vollständig entfernen. Die Institution muss dabei abwägen, ob der Verlust der beschriebenen Sicherheits-, Wartungs- und Support-Funktionen durch die gewonnene Reduktion der Angriffsfläche aufgewogen wird.",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "gspp_impl_konf_2_4_2"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "partial"
+                  }
+                ]
+              },
+              {
+                "uuid": "b8e0164f-c4bf-4c93-9b7c-d4464b24df68",
+                "control-id": "KONF.2.5.1",
+                "description": "Für automatisierte Konfigurationsverwaltung stellt RHEL mehrere zusammenspielende Werkzeuge bereit: Ansible führt deklarativ beschriebene Playbooks/Rollen aus und kann bei Abweichungen selbstständig den Soll-Zustand wiederherstellen; OpenSCAP kann mit `oscap xccdf eval --remediate` erkannte Abweichungen von einem scap-security-guide-Profil automatisiert korrigieren, statt sie nur zu melden; Red Hat Ansible Automation Platform, Red Hat Satellite bzw. Red Hat Lightspeed-Remediation-Pläne erlauben eine zentrale, flottenweite Anwendung solcher Korrekturen über viele Hosts hinweg, und Image Builder sorgt dafür, dass neu ausgerollte Systeme bereits im Soll-Zustand starten. Diese Werkzeuge automatisieren die technische Durchsetzung, ersetzen aber nicht die Entscheidung der Institution, welches Werkzeug in welchem Umfang zum Einsatz kommt, wie automatische Korrekturen freigegeben werden und wie mit Abweichungen umgegangen wird, die keine automatische Behebung erlauben.",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "gspp_impl_konf_2_5_1"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "partial"
+                  }
+                ]
+              },
+              {
+                "uuid": "6fd664cf-4614-4f5b-8364-4fbae38f0de0",
+                "control-id": "KONF.2.7",
+                "description": "RHEL selbst ist quelloffen (Upstream in Fedora/CentOS Stream) und bringt bereits eine Reihe lokal betreibbarer, herstellerunabhängiger Werkzeuge mit, die keine externe Cloud-Anbindung benötigen: Ansible für Konfigurationsmanagement, OpenSCAP/scap-security-guide für Compliance-Scans, `dnf`/Reposync und Satellite/Pulp für selbstgehostete Paket-Repositories, sowie Podman für containerisierten Betrieb einzelner Werkzeuge ohne zentralen Daemon. Dadurch lässt sich eine Werkzeugkette für Build, Patch-Management und Monitoring vollständig innerhalb der eigenen Infrastruktur betreiben, ohne dass ein Ausfall oder eine Lizenzänderung eines externen Anbieters die Handlungsfähigkeit einschränkt. Zusätzlich umfassen die Subskriptionen mit der Firma Red Hat ausschließlich Dienstleistungen rund um die Produkte. Das heißt, dass diese nach einer Vertragsauflösung mit Red Hat weiterhin selbstständig eingesetzt und betrieben werden dürfen. Lediglich die Dienstleistungen (Sicherheitspatches, Support, Roadmap-Beeinflussung, etc.) von Seiten Red Hat werden eingestellt.",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "gspp_impl_konf_2_7"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "implemented"
+                  }
+                ]
+              },
+              {
+                "uuid": "9143e55d-fb7f-4a30-8bb0-61fce5e069f6",
+                "control-id": "KONF.2.8",
+                "description": "Im Normalfall wird RHEL über eine SSH-Verbindung und den CLI-Tools verwaltet. RHEL unterstützt mehrere von der primären Fernverwaltung unabhängige Administrationswege: Eine serielle Konsole (`ttyS0`, per Kernel-Parameter und `getty`-Unit aktiviert) sowie die Konsole von Virtualisierungs-Hosts (z. B. `virsh console`) bleiben auch dann erreichbar, wenn Netzwerk-Management-Dienste oder die grafische Oberfläche ausgefallen sind; auf physischer Hardware ergänzen herstellerseitige Out-of-Band-Schnittstellen (IPMI/Redfish, iDRAC/iLO) den Zugriff unabhängig vom Betriebssystemzustand. Zusätzlich besteht die Möglichkeit mit `Cockpit` eine webbasierte, grafische Oberfläche bereitzustellen. Für den Notfall lässt sich zusätzlich ein separates, lokal authentifiziertes Break-Glass-Konto mit eigenem PAM-Pfad einrichten, dessen Zugangsdaten getrennt verwahrt werden. Welche dieser Mechanismen aktiviert, physisch abgesichert und in eine Notfall-Zugriffsrichtlinie überführt werden, entscheidet die Institution.",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "gspp_impl_konf_2_8"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "partial"
+                  }
+                ]
+              },
+              {
+                "uuid": "d7fead25-7090-4f75-9cce-cdb5ca7b24f7",
+                "control-id": "KONF.3.1",
+                "description": "RHEL kann TPM 2.0  als einen kryptographischen Hardwarespeicher einbinden: Schlüssel und Geheimnisse können im Trusted Platform Module erzeugt, gespeichert und nur unter definierten Bedingungen freigegeben werden (z. B. persistente Schlüsselobjekte, versiegelte Geheimnisse an Platform Configuration Registers). Die Werkzeuge `tpm2-tools` und die Bibliothek `tpm2-tss` sind in RHEL 9 enthalten; mit `tpm2-pkcs11` können Anwendungen Schlüssel über eine PKCS#11-Schnittstelle nutzen, ohne dass private Schlüsselmaterial den TPM-Chip verlässt. TPM-Hardware (Firmware- oder Diskreter-Chip) wird von RHEL nicht erzwungen — die Institution muss sie bereitstellen, aktivieren und die Schlüsselverwaltung selbst konfigurieren.\n\nWeitere Informationen:[Sicherheitshärtung](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/index).",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "gspp_impl_konf_3_1"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "planned"
+                  }
+                ]
+              },
+              {
+                "uuid": "a6ae6f8d-e6a6-45a9-b889-a7bad39c234a",
+                "control-id": "KONF.4.2.1",
+                "description": "Ab RHEL 9.6 ist verschlüsseltes DNS (eDNS) als Technology Preview (nicht für die Produktionsumgebung geeignet!) verfügbar: NetworkManager kann über das DNS-Plugin `dnsconfd` einen lokalen Unbound-Resolver betreiben, der Upstream-Anfragen per DNS-over-TLS (DoT) mit TLS kryptographisch schützt; alternativ (ebenfalls als Technology Preview) kann in IdM-Umgebungen DoT zwischen Clients und integriertem DNS per `ipa-client-encrypted-dns` und `--dns-over-tls` aktiviert werden. Standardinstallationen nutzen jedoch unverschlüsselte Resolver-Konfiguration über NetworkManager. Ob DNS genutzt wird und welche DoT-Server vertrauenswürdig sind, legt die Institution fest.\n\nWeitere Informationen: [Technology Previews in RHEL 9.6](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/9.6_release_notes/technology-previews), [Encrypted DNS Setup](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/securing_networks/securing-system-dns-traffic-with-encrypted-dns_securing-networks)",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "gspp_impl_konf_4_2_1"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "planned"
+                  }
+                ]
+              },
+              {
+                "uuid": "445ffceb-94a2-4c75-b47f-0039e52c3695",
+                "control-id": "KONF.6.4.1",
+                "description": "Auf RHEL können Rollen als Berechtigungsgruppe abgebildet werden. Für die jeweiligen Gruppen (`/etc/groups`) können sowohl SELinux Profile als auch entsprechende Berechtigungen auf Dateien, Verzeichnisse oder in `sudo` vergeben werden. Eine zentralisierte Verwaltung auch über mehrere Hosts hinweg bietet hierbei Red Hat IdM. Die Lokalen Gruppen können auch via `sssd` auf Berechtigungsgruppen im zentralen Verzeichnisdienst (IdM, Active Directory, LDAP) verweisen.\n\nWeitere Informationen: [Authentifizierung und Autorisierung](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_authentication_and_authorization_in_rhel/index).",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "gspp_impl_konf_6_4_1"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "not-applicable"
+                  }
+                ]
+              },
+              {
+                "uuid": "fadac5a4-4b04-438b-9ec9-b89127ac79fe",
+                "control-id": "KONF.7.4",
+                "description": "Host-basierte Erkennung von Netzangriffen ist in RHEL nicht als integrierter Dienst enthalten: nftables und firewalld können Logging (`nft log`, rich rules) aktivieren, aber signaturbasierte NIDS erfordert Drittanbieter-Software. Netfilter-Hooks erlauben technische Integration.\n\nWeitere Informationen: [Netzwerke absichern](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/securing_networks/index).",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "gspp_impl_konf_7_4"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "planned"
+                  }
+                ]
+              },
+              {
+                "uuid": "caa3788f-69a3-4c83-948f-f851a63cd249",
+                "control-id": "KONF.7.6",
+                "description": "Für mit den Internet verbundene Systeme wird Red Hat Lightspeed kontinuierlich durch Red Hat mit neuen Signaturen aktualisiert. Da in disconnected/air-gapped Systemen RHEL aktuell (Aug 2026) kein Malware-Scanning bereitstellt, obliegt hier die Implementation der entsprechenden 3rd Party Software.",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "gspp_impl_konf_7_6"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "planned"
+                  }
+                ]
+              },
+              {
+                "uuid": "bd516a88-8fe6-448d-8805-c49ecba3e2c7",
+                "control-id": "KONF.7.7",
+                "description": "Für Red Hat Lightspeed wird die Funktionsfähigkeit der Serverkomponenten kontinuierlich durch Red Hat wahrgenommen (SaaS-Responsibility). Da in disconnected/air-gapped Systemen RHEL aktuell (Aug 2026) kein Malware-Scanning bereitstellt, obliegt hier die Implementation der entsprechenden 3rd Party Software und den dort notwendigen Tools und Prozessen. Regelmäßige Tests mit EICAR-Teststrings sind Aufgabe der Organisation.",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "gspp_impl_konf_7_7"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "planned"
+                  }
+                ]
+              },
+              {
+                "uuid": "8f14ce3c-7f1a-462a-a9ef-cfacc2c73f4f",
+                "control-id": "KONF.7.8",
+                "description": "Beim Einsatz von mehreren Scan-Engines auf einem RHEL Host ist eine gegenseitige negative Beeinflussung der Software zu erwarten.\n\nWeitere Informationen: [Is any virus protection software needed for Red Hat Enterprise Linux?](https://access.redhat.com/solutions/9203)",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "gspp_impl_konf_7_8"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "not-applicable"
+                  }
+                ]
+              },
+              {
+                "uuid": "3d8a0261-e9ec-4314-b3e6-af8bcfd276d4",
+                "control-id": "KONF.7.13",
+                "description": "Für klassische Services erlaubt `systemd` die Filterung erlaubter Kernelcalls (Systemaufrufe) über die Spezifizierung von `SystemCallFilter` in der System-Unit können entweder über allow- oder über deny-listing entsprechende Kernelcalls eingeschränkt werden. Für containerisierte Anwendungen erlaubt `podman` das Aufzeichnen von Systemaufrufen (`sudo podman run --annotation io.containers.trace-syscall=of:/tmp/ls.json fedora:30 ls / > /dev/null`) und Speichern selbiger in einer Datei. Diese kann dann bei nachfolgenden Aufrufen des Containers als Allow-List mitgegeben werden (`sudo podman run --security-opt seccomp=/tmp/ls.json fedora ls -l / > /dev/null`). Für die Definition der SecComp-Profile ist zu berücksichtigen, dass sie den vollständigen Anwendungsfunktionsumfang abbilden müssen und daher während der automatisierten Tests der Anwendung erzeugt werden sollten. Nicht aufgezeichnete - und damit fehlende - Systemcalls können zu Fehlfunktionen der Anwendung um Produktivbetrieb führen. Weiterhin ist das Seccomp-Profil mit der Anwendung über Umgebungen zu transportieren (bspw. als RPM).\n\nWeitere Informationen: [Sicherheitshärtung](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/index), [SystemCallFilter](https://www.freedesktop.org/software/systemd/man/latest/systemd.exec.html), [Podman Seccomp](https://www.redhat.com/en/blog/container-security-seccomp)",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "gspp_impl_konf_7_13"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "not-applicable"
                   }
                 ]
               }
