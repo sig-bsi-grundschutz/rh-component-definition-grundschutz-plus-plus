@@ -5,6 +5,11 @@ x-trestle-global:
   profile:
     title: Grundschutz++ für Red Hat Enterprise Linux Host
     href: trestle://profiles/gs-plusplus-rhel-host/profile.json
+x-trestle-comp-def-rules:
+  Red Hat Enterprise Linux 9:
+    - name: gspp_impl_ber_4_4_1
+      description: Narrative implementation seed for BER.4.4.1 (no CaC rule 
+        binding)
 ---
 
 # BER.4.4.1 - \[Berechtigungsmanagement\] Überprüfung tatsächlicher Berechtigungen
