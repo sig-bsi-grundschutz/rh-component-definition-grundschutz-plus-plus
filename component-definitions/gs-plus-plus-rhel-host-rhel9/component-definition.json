@@ -3,7 +3,7 @@
     "uuid": "4a30fff1-04c2-47c6-b531-51996c11e135",
     "metadata": {
       "title": "Grundschutz++ - Red Hat Enterprise Linux 9",
-      "last-modified": "2026-10-07T20:02:34+00:00",
+      "last-modified": "2026-10-07T20:41:04.147+00:00",
       "version": "0.1.0",
       "oscal-version": "1.2.1"
     },
@@ -3577,6 +3577,18 @@
             "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
             "value": "Narrative implementation seed for KONF.7.13 (no CaC rule binding)",
             "remarks": "rule_set_248"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "gspp_impl_arch_5_2",
+            "remarks": "rule_set_249"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "Narrative implementation seed for ARCH.5.2 (no CaC rule binding)",
+            "remarks": "rule_set_249"
           }
         ],
         "control-implementations": [
@@ -6274,7 +6286,7 @@
               {
                 "uuid": "4971c87c-abed-410d-9a80-5ae33f71c840",
                 "control-id": "BER.3.14",
-                "description": "RHEL erzwingt keine automatische Sperr- oder Karenzfrist für die Wiederverwendung von Zugangskontennamen oder UIDs; nach dem Löschen eines Kontos mit `userdel` kann derselbe Benutzername oder dieselbe UID sofort neu vergeben werden, ohne dass das Betriebssystem dies verhindert. In zentral verwalteten Umgebungen bindet SSSD den Host an Red Hat IdM, Active Directory oder LDAP an; dort erfolgt die Kontovergabe über das Verzeichnis, sodass eine organisatorisch festgelegte Sperrfrist vor Neuvergabe eines Namens dort durchsetzbar ist, statt lokal frei entschieden zu werden. Als Alternative kann ein Konto statt sofortiger Löschung mit `usermod -L` gesperrt oder über `chage -E` mit einem Ablaufdatum versehen werden, um es für die Dauer der Karenzfrist inaktiv, aber unter demselben Namen bzw. derselben UID reserviert zu halten. Dies sollte bei mehr als einem Host mittels einer Konfigurations-Management-Lösung wie Ansible umgesetzt werden. Die eigentliche Durchsetzung der Sperr- oder Karenzfrist — also das Verbot, einen Namen oder eine UID vor Ablauf des festgelegten Zeitraums neu zu vergeben — bleibt jedoch ein organisatorischer Prozess außerhalb der technischen Prüfmöglichkeiten des einzelnen RHEL-Hosts.\n\nWeitere Informationen: [Authentifizierung und Autorisierung](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_authentication_and_authorization_in_rhel/index)",
+                "description": "RHEL erzwingt lokal keine automatische Sperr- oder Karenzfrist gegen das Recycling von Zugangskontennamen oder UIDs: Nach `userdel` können Name und UID sofort erneut vergeben werden. Mit SSSD an Red Hat IdM, Active Directory oder LDAP angebundene Hosts beziehen Konten aus dem Verzeichnis; dort lässt sich Wiederverwendung steuern — in IdM etwa über den Lebenszyklus *preserve* (`ipa user-del --preserve`), der den Kontonamen belegt hält, statt ihn dauerhaft freizugeben. Lokal ist die Alternative, Konten nicht zu löschen, sondern mit `usermod -L` zu sperren bzw. über `chage -E` zu befristen und so Name und UID während der Karenzfrist zu reservieren; über mehrere Hosts hinweg gehört das in die zentrale Kontoverwaltung bzw. Konfigurationsautomatisierung. Die institutionelle Frist selbst (90 Tage, ein Jahr, dauerhafte Nichtwiederverwendung) prüft der einzelne RHEL-Host nicht.\n\nWeitere Informationen: [Benutzerkonten in IdM verwalten (CLI)](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_idm_users_groups_hosts_and_access_control_rules/managing-user-accounts-using-the-command-line_managing-users-groups-hosts), [Benutzer und Gruppen verwalten](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_basic_system_settings/managing-users-and-groups_configuring-basic-system-settings), [Authentifizierung und Autorisierung (SSSD)](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_authentication_and_authorization_in_rhel/understanding-sssd-and-its-benefits_configuring-authentication-and-authorization-in-rhel)",
                 "props": [
                   {
                     "name": "Rule_Id",
@@ -6940,6 +6952,22 @@
                   {
                     "name": "implementation-status",
                     "value": "alternative"
+                  }
+                ]
+              },
+              {
+                "uuid": "467c8fff-d379-4586-83a5-dea821b96438",
+                "control-id": "ARCH.5.2",
+                "description": "Die Anforderung verlangt, dass IT-Systeme keine ungefilterten Verbindungen ins öffentliche Netz aufbauen; auf einem RHEL‑9‑Host unterstützt **firewalld** Zonen, Richtlinien und Dienste, um ein- und ausgehenden sowie weitergeleiteten Verkehr gezielt zu erlauben oder zu verweigern (typisch: restriktive Zone wie `public` oder `drop`, nur explizit freigegebene Dienste). Wo firewalld nicht ausreicht, lassen sich mit **nftables** Ausgangs‑Ketten (`output`) und organisationsspezifische Regeln umsetzen, die direkten Internetzugang einschränken und Verkehr über kontrollierte Pfade (Proxy, Perimeter‑Firewall, geschütztes Transitnetz) erzwingen. RHEL liefert dafür keine feste Vorgabe „kein direkter Internetzugang“; Routing, Adressierung und die Entscheidung, ob der Host selbst als Firewall fungiert, bleiben Teil der Netzarchitektur und Betriebsprozesse der Institution. Weitere Informationen: https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_firewalls_and_packet_filters/using-and-configuring-firewalld_firewall-packet-filters, https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_firewalls_and_packet_filters/getting-started-with-nftables_firewall-packet-filters",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "gspp_impl_arch_5_2"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "partial"
                   }
                 ]
               }
