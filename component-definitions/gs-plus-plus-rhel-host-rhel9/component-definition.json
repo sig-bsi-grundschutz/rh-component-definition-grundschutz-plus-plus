@@ -12,7 +12,7 @@
         "uuid": "cff93f75-af2f-40d3-9f91-8c99477e3f77",
         "type": "software",
         "title": "Red Hat Enterprise Linux 9",
-        "description": "Lokale und zentrale Authentisierung, PAM, SSSD, rollenbasierte Zugriffssteuerung, Schlüssel- und Zertifikatsverwaltung, Audit-Subsystem (auditd), systemd-Journal, Protokollfilterung, Speicherung und Zeitsynchronisation sowie Betriebssystem-Basiskonfiguration, Patch- und Update-Mechanismen, Malware-Schutz, Host-Firewall und Fernwartung auf Red Hat Enterprise Linux.",
+        "description": "Red Hat Enterprise Linux 9",
         "props": [
           {
             "name": "Rule_Id",
@@ -6924,6 +6924,22 @@
                   {
                     "name": "implementation-status",
                     "value": "not-applicable"
+                  }
+                ]
+              },
+              {
+                "uuid": "033b8162-b231-418d-b5cf-8e563b4a756b",
+                "control-id": "BER.3.14",
+                "description": "RHEL erzwingt lokal keine automatische Sperr- oder Karenzfrist gegen das Recycling von Zugangskontennamen oder UIDs: Nach `userdel` können Name und UID sofort erneut vergeben werden. Mit SSSD an Red Hat IdM, Active Directory oder LDAP angebundene Hosts beziehen Konten aus dem Verzeichnis; dort lässt sich Wiederverwendung steuern — in IdM etwa über den Lebenszyklus *preserve* (`ipa user-del --preserve`), der den Kontonamen belegt hält, statt ihn dauerhaft freizugeben. Lokal ist die Alternative, Konten nicht zu löschen, sondern mit `usermod -L` zu sperren bzw. über `chage -E` zu befristen und so Name und UID während der Karenzfrist zu reservieren; über mehrere Hosts hinweg gehört das in die zentrale Kontoverwaltung bzw. Konfigurationsautomatisierung. Die institutionelle Frist selbst (90 Tage, ein Jahr, dauerhafte Nichtwiederverwendung) prüft der einzelne RHEL-Host nicht.\n\nWeitere Informationen: [Benutzerkonten in IdM verwalten (CLI)](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_idm_users_groups_hosts_and_access_control_rules/managing-user-accounts-using-the-command-line_managing-users-groups-hosts), [Benutzer und Gruppen verwalten](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_basic_system_settings/managing-users-and-groups_configuring-basic-system-settings), [Authentifizierung und Autorisierung (SSSD)](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_authentication_and_authorization_in_rhel/understanding-sssd-and-its-benefits_configuring-authentication-and-authorization-in-rhel)",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "account_use_centralized_automated_auth"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "alternative"
                   }
                 ]
               }
