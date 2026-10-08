@@ -55,8 +55,6 @@ ______________________________________________________________________
 
 <!-- Note that the list of rules under ### Rules: is read-only and changes will not be captured after assembly to JSON -->
 
-<!-- Add control implementation description here for control: KONF.14.1 -->
-
 Auf Host-Ebene erzwingt RHEL 9 über die systemweite Crypto Policy (`update-crypto-policies --set <Profil>`) einheitliche Mindestanforderungen für TLS, DTLS und verwandte Bibliotheken (OpenSSL, GnuTLS, NSS, libkrb5): Im Profil DEFAULT sind unter anderem TLS-Versionen unter 1.2, kurze RSA-/DH-Schlüssel und veraltete Chiffren deaktiviert; das Profil FUTURE verschärft die Vorgaben weiter (z. B. TLS 1.3). OpenSSH-Server und -Client beziehen Cipher, MACs und Key-Exchange über dieselbe Policy, sofern `sshd` die Crypto-Policy-Konfiguration einbindet und nicht durch lokale Overrides aus der Systemrichtlinie ausbricht. Damit sind Transportverbindungen der plattformnahen Dienste (z. B. administrative SSH-Zugriffe, TLS-fähige Systemkomponenten) kryptographisch abgesichert, sofern die Institution ein zum Schutzbedarf passendes Policy-Profil wählt (Parameter `konf.14.1-prm1`, abgestimmt mit BSI TR-02102). Anwendungsspezifische Protokolle (Web-Apps, Datenbankreplikation, E-Mail-Relay) konfiguriert die Institution in den jeweiligen Diensten; RHEL stellt dafür keine zentrale „Anwendungs-TLS“-Schaltstelle bereit.
 
 Weitere Informationen: [Systemweite kryptografische Richtlinien](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/using-the-system-wide-cryptographic-policies_security-hardening), [Sicherheitshärtung](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/index)
