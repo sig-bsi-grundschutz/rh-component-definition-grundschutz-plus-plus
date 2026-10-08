@@ -3,7 +3,7 @@
     "uuid": "4a30fff1-04c2-47c6-b531-51996c11e135",
     "metadata": {
       "title": "Grundschutz++ - Red Hat Enterprise Linux 9",
-      "last-modified": "2026-10-08T08:04:38.717+00:00",
+      "last-modified": "2026-10-08T08:04:52.858+00:00",
       "version": "0.1.0",
       "oscal-version": "1.2.1"
     },
@@ -3853,6 +3853,18 @@
             "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
             "value": "Narrative implementation seed for DET.4.15 (no CaC rule binding)",
             "remarks": "rule_set_271"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "gspp_impl_det_4_16",
+            "remarks": "rule_set_272"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "Narrative implementation seed for DET.4.16 (no CaC rule binding)",
+            "remarks": "rule_set_272"
           }
         ],
         "control-implementations": [
@@ -7573,6 +7585,22 @@
                     "name": "Rule_Id",
                     "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
                     "value": "gspp_impl_det_4_15"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "partial"
+                  }
+                ]
+              },
+              {
+                "uuid": "ca4361ee-35f3-4e05-a466-eed8634fd2a4",
+                "control-id": "DET.4.16",
+                "description": "Die Anforderung ist optional (KANN) und zielt auf die für Anwendungen genutzten Server-Dienste; auf RHEL 9 ordnet systemd jeden Dienst in der cgroup-Hierarchie ein, sodass CPU-, Arbeitsspeicher- und I/O-Auslastung pro Unit sichtbar wird (`CPUAccounting=`, `MemoryAccounting=`, `systemctl show`, `systemd-cgtop`). Grenzen und Reaktionen bei Überlast können in Unit-Dateien oder per `systemctl set-property` mit Optionen wie `CPUQuota=` oder `MemoryMax=` gesetzt werden. Performance Co-Pilot (PCP) mit `pmcd` und `pmlogger` erfasst Metriken fortlaufend; mit `pminfo`, `pmstat` oder dienstspezifischen PMDAs lassen sich Kennzahlen für KPI-Baselining und Schwellwertprüfungen auswerten, optional mit `pmie` für Alarme. Welche Metriken im Parameter `det.4.16-prm1` gelten, Baselines, Clientzahlen und Maßnahmen wie Lastverteilung definiert und betreibt die Institution; RHEL stellt die Werkzeuge, erzwingt aber keine anwendungsspezifische Überwachung.\n\nWeitere Informationen: [Ressourcen mit systemd verwalten](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/monitoring_and_managing_system_status_and_performance/assembly_using-systemd-to-manage-resources-used-by-applications_monitoring-and-managing-system-status-and-performance), [Performance Co-Pilot](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/monitoring_and_managing_system_status_and_performance/monitoring-performance-with-performance-co-pilot_monitoring-and-managing-system-status-and-performance)",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "gspp_impl_det_4_16"
                   },
                   {
                     "name": "implementation-status",
