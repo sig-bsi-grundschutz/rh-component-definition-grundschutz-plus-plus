@@ -3,7 +3,7 @@
     "uuid": "4a30fff1-04c2-47c6-b531-51996c11e135",
     "metadata": {
       "title": "Grundschutz++ - Red Hat Enterprise Linux 9",
-      "last-modified": "2026-10-07T21:07:28+00:00",
+      "last-modified": "2026-10-08T08:01:20.073+00:00",
       "version": "0.1.0",
       "oscal-version": "1.2.1"
     },
@@ -6964,6 +6964,32 @@
                     "name": "Rule_Id",
                     "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
                     "value": "gspp_impl_arch_5_2"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "partial"
+                  }
+                ]
+              },
+              {
+                "uuid": "6171e670-d21a-4151-b5a5-4aa57f36f286",
+                "control-id": "ASST.2.3.1",
+                "description": "Auf RHEL kann die Ausführung von Anwendungen technisch an eine Freigabeliste gebunden werden: `fapolicyd` wertet Prozess- und Dateiattribute aus und setzt im Regelwerk eine Deny-by-default- bzw. Permit-by-exception-Policy um, sodass nur explizit erlaubte Programme starten. Die Installation weiterer Software über `dnf` erfordert in der Regel erhöhte Rechte; signierte Pakete aus vertrauenswürdigen Repositories ergänzen die technische Kette. Die in der Anforderung genannte Autorisierung durch eine zuständige Person oder Rolle (Freigabeprozess, Kategorien, Inventar, Cloud- und Standardanwendungen) bleibt organisatorisch zu definieren und in die `fapolicyd`-Regeln bzw. Softwarequellen (z. B. kuratierte Repositories über Red Hat Satellite) zu übersetzen; der Host erzwingt allein nicht den fachlichen Freigabeworkflow.\n\nWeitere Informationen: [Anwendungen mit fapolicyd blockieren und zulassen](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/assembly_blocking-and-allowing-applications-using-fapolicyd_security-hardening), [Sicherheitshärtung](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/index)",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "fapolicy_default_deny"
+                  },
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "package_fapolicyd_installed"
+                  },
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "service_fapolicyd_enabled"
                   },
                   {
                     "name": "implementation-status",
