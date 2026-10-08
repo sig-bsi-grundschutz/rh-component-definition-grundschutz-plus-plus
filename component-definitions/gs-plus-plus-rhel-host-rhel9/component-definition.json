@@ -3,7 +3,7 @@
     "uuid": "4a30fff1-04c2-47c6-b531-51996c11e135",
     "metadata": {
       "title": "Grundschutz++ - Red Hat Enterprise Linux 9",
-      "last-modified": "2026-10-08T11:16:19.006+00:00",
+      "last-modified": "2026-10-08T11:16:45.862+00:00",
       "version": "0.1.0",
       "oscal-version": "1.2.1"
     },
@@ -3757,6 +3757,18 @@
             "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
             "value": "configure dnf-automatic to install available updates automatically",
             "remarks": "rule_set_264"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "install_hids",
+            "remarks": "rule_set_265"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "install intrusion detection software",
+            "remarks": "rule_set_265"
           }
         ],
         "control-implementations": [
@@ -7118,6 +7130,11 @@
                     "value": "account_use_centralized_automated_auth"
                   },
                   {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "gspp_impl_ber_3_14"
+                  },
+                  {
                     "name": "implementation-status",
                     "value": "alternative"
                   }
@@ -7253,6 +7270,11 @@
                     "value": "auditd_audispd_configure_remote_server"
                   },
                   {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "file_ownership_var_log_audit_stig"
+                  },
+                  {
                     "name": "implementation-status",
                     "value": "partial"
                   }
@@ -7329,6 +7351,42 @@
                     "name": "Rule_Id",
                     "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
                     "value": "timer_dnf-automatic_enabled"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "partial"
+                  }
+                ]
+              },
+              {
+                "uuid": "61ae7fe7-dc08-4b9a-beca-93fd5cd96c66",
+                "control-id": "DET.4.2",
+                "description": "RHEL stellt hostbasierte Bausteine zur Erkennung von Angriffsindikatoren bereit, die die Institution über den Profilparameter für den automatisierten Überwachungsmechanismus konkretisiert. Advanced Intrusion Detection Environment (AIDE) erstellt eine Referenzdatenbank kritischer Dateien und vergleicht diese periodisch (Cron oder systemd-Timer); Abweichungen weisen auf unautorisierte Manipulationen hin und können per Benachrichtigung an Betrieb oder SOC eskaliert werden. Damit deckt AIDE Integritätsverletzungen ab, nicht signatur- oder verhaltensbasierte Angriffsmuster im Sinne eines vollständigen HIDS.\n\nZusätzlich bringt die Plattform ein Audit-Subsystem (`auditd`) und SELinux-Mandatory Access Control mit, die Aktivitäten protokollieren bzw. eindämmen und in Verbindung mit institutionellen Audit-Regeln sowie zentraler Auswertung (SIEM, Korrelationsjobs) Anzeichen für Kompromittierung sichtbar machen können. Netzwerkbasierte IDS, dedizierte kommerzielle HIDS-Agenten sowie Auswertung, Schwellwerte und Alarmkategorien liegen in der Verantwortung der Institution.\n\nWeitere Informationen: [Dateiintegrität mit AIDE prüfen](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/assembly_checking-file-integrity-with-aide_security-hardening), [Audit-Aufzeichnungen konfigurieren](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html-single/security_hardening/configuring-audit-records_security-hardening), [Sicherheitshärtung](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/index).",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "install_hids"
+                  },
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "aide_build_database"
+                  },
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "aide_periodic_cron_checking"
+                  },
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "aide_scan_notification"
+                  },
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "package_aide_installed"
                   },
                   {
                     "name": "implementation-status",

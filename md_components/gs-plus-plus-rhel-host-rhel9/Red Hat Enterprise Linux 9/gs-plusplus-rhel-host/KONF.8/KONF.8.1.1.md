@@ -2,7 +2,8 @@
 x-trestle-comp-def-rules:
   Red Hat Enterprise Linux 9:
     - name: dnf-automatic_apply_updates
-      description: configure dnf-automatic to install available updates automatically
+      description: configure dnf-automatic to install available updates 
+        automatically
     - name: dnf-automatic_security_updates_only
       description: configure dnf-automatic to install only security updates
     - name: package_dnf-automatic_installed
@@ -32,8 +33,6 @@ ______________________________________________________________________
 <!-- For implementation status enter one of: implemented, partial, planned, alternative, not-applicable -->
 
 <!-- Note that the list of rules under ### Rules: is read-only and changes will not be captured after assembly to JSON -->
-
-<!-- Add control implementation description here for control: KONF.8.1.1 -->
 
 Auf RHEL 9 installiert das Paket `dnf-automatic` einen Dienst, der verfügbare Updates regelmäßig per DNF prüft und installieren kann. In `/etc/dnf/automatic.conf` wird im Abschnitt `[commands]` `upgrade_type = security` gesetzt, damit nur Sicherheitsupdates berücksichtigt werden, und `apply_updates = yes`, damit diese Updates automatisch eingespielt werden. Der systemd-Timer `dnf-automatic-install.timer` lädt die Konfiguration periodisch und führt die Installation aus; dafür muss eine gültige Red-Hat-Subscription am Host hinterlegt sein. Nach Kernel- oder Bibliotheksupdates können Neustarts oder Dienste-Neuladen nötig bleiben, damit alle Komponenten den neuen Stand nutzen — das betrifft Betriebsprozesse außerhalb der reinen Paketinstallation.
 
