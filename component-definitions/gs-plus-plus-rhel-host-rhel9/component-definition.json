@@ -3,7 +3,7 @@
     "uuid": "4a30fff1-04c2-47c6-b531-51996c11e135",
     "metadata": {
       "title": "Grundschutz++ - Red Hat Enterprise Linux 9",
-      "last-modified": "2026-10-08T11:16:46.827+00:00",
+      "last-modified": "2026-10-08T11:16:47.195+00:00",
       "version": "0.1.0",
       "oscal-version": "1.2.1"
     },
@@ -3853,6 +3853,18 @@
             "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
             "value": "The grub2 boot loader should have a superuser account and password protection enabled to protect boot-time settings.",
             "remarks": "rule_set_272"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "gspp_impl_det_4_10",
+            "remarks": "rule_set_273"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "Narrative implementation seed for DET.4.10 (no CaC rule binding)",
+            "remarks": "rule_set_273"
           }
         ],
         "control-implementations": [
@@ -7543,6 +7555,22 @@
                   {
                     "name": "implementation-status",
                     "value": "partial"
+                  }
+                ]
+              },
+              {
+                "uuid": "0afb2dfb-989f-490c-a858-b2121ff28dd4",
+                "control-id": "DET.4.10",
+                "description": "Red Hat Enterprise Linux 9 liefert kein integriertes Subsystem für hostbasierte Köder (Canary-Dateien, Honeytokens oder täuschende Dienste). Die Anforderung ist optional („KANN“) und beschreibt ein betriebliches Deception-Konzept: Köder platzieren, Zugriffe erkennen, Alarme auslösen und Falschmeldungen vermeiden — das obliegt dem Sicherheitsteam und liegt nicht im Standardumfang des Betriebssystems. Mit **auditd** können Institutionen bei selbst angelegten Köderdateien Zugriffe protokollieren und auswerten; RHEL stellt dafür keine vorgefertigten Köder, keine zentrale Verwaltung und keine SIEM-Anbindung bereit. Spezialisierte Honeypot- oder Deception-Produkte sind separate Beschaffungs- und Betriebsentscheidungen.\n\nWeitere Informationen: https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/auditing-the-system_security-hardening",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "gspp_impl_det_4_10"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "not-applicable"
                   }
                 ]
               }
