@@ -3,7 +3,7 @@
     "uuid": "4a30fff1-04c2-47c6-b531-51996c11e135",
     "metadata": {
       "title": "Grundschutz++ - Red Hat Enterprise Linux 9",
-      "last-modified": "2026-10-08T08:04:08.352+00:00",
+      "last-modified": "2026-10-08T08:04:22.955+00:00",
       "version": "0.1.0",
       "oscal-version": "1.2.1"
     },
@@ -3829,6 +3829,18 @@
             "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
             "value": "Narrative implementation seed for DET.4.9 (no CaC rule binding)",
             "remarks": "rule_set_269"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "gspp_impl_det_4_13",
+            "remarks": "rule_set_270"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "Narrative implementation seed for DET.4.13 (no CaC rule binding)",
+            "remarks": "rule_set_270"
           }
         ],
         "control-implementations": [
@@ -7521,6 +7533,22 @@
                   {
                     "name": "implementation-status",
                     "value": "partial"
+                  }
+                ]
+              },
+              {
+                "uuid": "a05eefc7-26a6-4fc4-a019-12bdd643a083",
+                "control-id": "DET.4.13",
+                "description": "Die Überwachung der Netzerreichbarkeit eines RHEL‑9‑Hosts anhand institutioneller Schwellwerte (z. B. Anzahl fehlgeschlagener Probes in einem Zeitfenster, maximale Antwortzeit) erfolgt in der Regel durch ein **externes** Monitoring-System (Nagios/Icinga, Prometheus mit Alertmanager, Grafana, Red Hat Advanced Cluster Management Observability oder vergleichbare Lösungen), das vom Netz aus Health-Checks gegen den Host ausführt (ICMP, TCP-Ports, HTTP(S)-Probes). RHEL setzt diese Schwellwerte nicht selbst; der Host kann Metriken und Lebenszeichen bereitstellen — etwa über Performance Co-Pilot (`pmcd`, optional Netzwerk-Performance-Domain-Agents) oder einen Prometheus-`node_exporter` — damit das zentrale System Ausfälle und Latenzen bewerten kann. Festlegung der Grenzwerte, Eskalation und Reaktion auf Alarme bleiben organisatorische Aufgaben der Institution.\n\nWeitere Informationen: [Monitoring and managing system status and performance (RHEL 9)](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/monitoring_and_managing_system_status_and_performance/), [Observability (Red Hat Advanced Cluster Management)](https://docs.redhat.com/en/documentation/red_hat_advanced_cluster_management_for_kubernetes/2.11/html/observability/observability)",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "gspp_impl_det_4_13"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "alternative"
                   }
                 ]
               }
