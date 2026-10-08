@@ -3,7 +3,7 @@
     "uuid": "4a30fff1-04c2-47c6-b531-51996c11e135",
     "metadata": {
       "title": "Grundschutz++ - Red Hat Enterprise Linux 9",
-      "last-modified": "2026-10-08T11:16:50.629+00:00",
+      "last-modified": "2026-10-08T11:16:50.996+00:00",
       "version": "0.1.0",
       "oscal-version": "1.2.1"
     },
@@ -3949,6 +3949,18 @@
             "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
             "value": "The grpquota mount option allows for the filesystem to have disk quotas configured.",
             "remarks": "rule_set_280"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "gspp_impl_konf_9_2",
+            "remarks": "rule_set_281"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "Narrative implementation seed for KONF.9.2 (no CaC rule binding)",
+            "remarks": "rule_set_281"
           }
         ],
         "control-implementations": [
@@ -7808,6 +7820,22 @@
                   {
                     "name": "implementation-status",
                     "value": "partial"
+                  }
+                ]
+              },
+              {
+                "uuid": "d7e07f37-2c9d-4f14-94b3-15ed4f3e5347",
+                "control-id": "KONF.9.2",
+                "description": "Auf RHEL 9 steuert **systemd** die Rechenleistung von Diensten, Benutzer-Sessions und Slices über **cgroups v2**; typische Optionen in Unit-Dateien oder per `systemctl set-property` sind `CPUQuota=` (prozentualer CPU-Deckel), `CPUWeight=` (relative Gewichtung) und `AllowedCPUs=` (Kernbindung). Die im Profilparameter `konf.9.2-prm1` festgelegten Schwellwerte setzt die Institution optional pro Workload um, statt eine globale Standard-Obergrenze für den gesamten Host zu erzwingen. Indirekte Begrenzungen in Anwendungen (z. B. Request- oder Token-Limits) liegen außerhalb des Betriebssystems und erfordern zusätzliche Konfiguration der jeweiligen Software. Weitere Informationen: https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/monitoring_and_managing_system_status_and_performance/allocating-system-resources-using-systemd",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "gspp_impl_konf_9_2"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "alternative"
                   }
                 ]
               }
