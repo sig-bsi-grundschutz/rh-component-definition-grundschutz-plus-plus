@@ -3,7 +3,7 @@
     "uuid": "4a30fff1-04c2-47c6-b531-51996c11e135",
     "metadata": {
       "title": "Grundschutz++ - Red Hat Enterprise Linux 9",
-      "last-modified": "2026-10-08T08:05:36.921+00:00",
+      "last-modified": "2026-10-08T08:05:51.904+00:00",
       "version": "0.1.0",
       "oscal-version": "1.2.1"
     },
@@ -3877,6 +3877,30 @@
             "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
             "value": "Narrative implementation seed for DET.5.10.3 (no CaC rule binding)",
             "remarks": "rule_set_273"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "mount_option_home_usrquota",
+            "remarks": "rule_set_274"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "The usrquota mount option allows for the filesystem to have disk quotas configured.",
+            "remarks": "rule_set_274"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "mount_option_home_grpquota",
+            "remarks": "rule_set_275"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "The grpquota mount option allows for the filesystem to have disk quotas configured.",
+            "remarks": "rule_set_275"
           }
         ],
         "control-implementations": [
@@ -7681,6 +7705,27 @@
                     "name": "Rule_Id",
                     "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
                     "value": "gspp_impl_det_5_10_3"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "partial"
+                  }
+                ]
+              },
+              {
+                "uuid": "e4f016cd-3fa4-4391-a1b5-7a2921bd11f7",
+                "control-id": "KONF.9.1",
+                "description": "Auf RHEL 9 werden Speicherkontingente für Nutzer- und Gruppenumgebungen typischerweise auf dem Dateisystem mit dem `quota`-Paket und XFS-Quotas umgesetzt: Für `/home` (oder andere Nutzerdaten-Partitionen) werden beim Mount die Optionen `usrquota` und `grpquota` gesetzt, anschließend `quotacheck` und `edquota` bzw. `xfs_quota` für Soft- und Hard-Limits auf Blöcke und Inodes. So kann der Verbrauch einzelner Konten begrenzt werden, bevor ein vollständiges Befüllen der Partition andere Anwendungen oder Systemdienste beeinträchtigt. Die Leitlinie empfiehlt zusätzlich Warnungen bei hohem Füllstand; das Quota-Subsystem meldet Überschreitungen der Soft-Limits, optional unterstützt der Dienst `quota_nld` Benachrichtigungen. Schreibschutz nur für Administratoren bei voller Platte (z. B. über `tmpfiles`, separate `/var`-Partitionen oder zentrale Speicher) ist betriebsspezifisch zu planen. Konkrete Kontingentwerte, betroffene Mountpoints und Überwachung (z. B. regelmäßiger `xfs_quota report`, Monitoring) legt die Institution fest.\n\nWeitere Informationen: [Speichernutzung auf XFS mit Quotas begrenzen](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_storage_devices_and_file_systems/limiting-storage-space-usage-on-xfs-with-quotas_managing-file-systems), [Dateisysteme verwalten](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_storage_devices_and_file_systems/index)",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "mount_option_home_usrquota"
+                  },
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "mount_option_home_grpquota"
                   },
                   {
                     "name": "implementation-status",
