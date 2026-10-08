@@ -3937,6 +3937,18 @@
             "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
             "value": "Narrative implementation seed for KONF.9.2 (no CaC rule binding)",
             "remarks": "rule_set_282"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "gspp_impl_not_4_2",
+            "remarks": "rule_set_283"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "Narrative implementation seed for NOT.4.2 (no CaC rule binding)",
+            "remarks": "rule_set_283"
           }
         ],
         "control-implementations": [
@@ -7804,6 +7816,22 @@
                     "name": "Rule_Id",
                     "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
                     "value": "configure_crypto_policy"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "partial"
+                  }
+                ]
+              },
+              {
+                "uuid": "6ccf0fb0-cdf3-49f1-aeba-e8a20291e750",
+                "control-id": "NOT.4.2",
+                "description": "Red Hat Enterprise Linux 9 enthält kein standardmäßig aktiviertes, zentral gesteuertes Backup-Produkt und keine feste Vorgabe für die Sicherungsfrequenz — diese legt die Institution im Notfallplan fest (Parameter `not.4.2-prm1`). Für die Datensicherung des Systems stehen Werkzeuge wie `tar`, `rsync`, Snapshots auf LVM oder Dateisystemebene, sowie optional Relax-and-Recover (ReaR) zur Erstellung bootfähiger Rescue-Images und Wiederherstellungsmedien bereit; ReaR muss installiert und in `/etc/rear/local.conf` mit passenden `BACKUP_URL`/`OUTPUT_URL` konfiguriert werden. Konfigurationsdateien, Zertifikate und dokumentierte Anpassungen sollten in den organisatorischen Backup-Umfang einbezogen werden; gleichartige Systeme können über ein Golden Image oder Versionsverwaltung abgedeckt werden. Überwachung, Aufbewahrung, Offsite-Kopien und Restore-Tests sind organisatorisch durchzuführen (z. B. mit Ansible, Satellite oder dedizierten Backup-Lösungen).\n\nWeitere Informationen: [Sichern und Wiederherstellen des Systems](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_basic_system_settings/backing-up-and-restoring-your-system_configuring-basic-system-settings)",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "gspp_impl_not_4_2"
                   },
                   {
                     "name": "implementation-status",
