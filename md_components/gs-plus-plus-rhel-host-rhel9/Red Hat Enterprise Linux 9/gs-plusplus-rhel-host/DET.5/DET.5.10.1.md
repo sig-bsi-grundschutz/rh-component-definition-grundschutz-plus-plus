@@ -31,8 +31,6 @@ ______________________________________________________________________
 
 <!-- Note that the list of rules under ### Rules: is read-only and changes will not be captured after assembly to JSON -->
 
-<!-- Add control implementation description here for control: DET.5.10.1 -->
-
 Für System- und Sicherheitsupdates bezieht RHEL Patches über die mit Subscription Manager verwalteten Repository-Definitionen (typisch `/etc/yum.repos.d/redhat.repo`) von der Red Hat Content Delivery Network oder von einem von der Institution autorisierten internen Spiegel (z. B. Red Hat Satellite). Vor der Installation prüft DNF/RPM die GPG-Signaturen der RPM-Pakete, wenn `gpgcheck=1` global in `/etc/dnf/dnf.conf` gesetzt ist, in keinem aktivierten Repository deaktiviert wird und für lokale Installationen die Paketsignaturprüfung aktiv bleibt. Zusätzliche Repositories und deren Schlüssel müssen organisatorisch freigegeben und in DNF konfiguriert werden; die Prognose der Vertrauenswürdigkeit einer Quelle selbst erfüllt das Betriebssystem nicht.
 
 Weitere Informationen: [Software mit dem DNF-Tool verwalten](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_software_with_the_dnf_tool/index), [Sicherheitshärtung](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/index).
