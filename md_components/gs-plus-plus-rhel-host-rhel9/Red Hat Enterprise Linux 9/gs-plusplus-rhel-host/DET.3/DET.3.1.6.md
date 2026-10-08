@@ -2,7 +2,7 @@
 x-trestle-comp-def-rules:
   Red Hat Enterprise Linux 9:
     - name: gspp_impl_det_3_1_6
-      description: Narrative implementation seed for DET.3.1.6 (no CaC rule 
+      description: Narrative implementation seed for DET.3.1.6 (no CaC rule
         binding)
 x-trestle-param-values:
   det.3.1.6-prm1:
@@ -30,9 +30,11 @@ ______________________________________________________________________
 
 <!-- Note that the list of rules under ### Rules: is read-only and changes will not be captured after assembly to JSON -->
 
-Red Hat Enterprise Linux stellt mit dem Kernel-Audit-Subsystem (`auditd`) und dem systemd-Journal die technische Grundlage bereit, um vom Betriebssystem erzeugte Ereignisse zu protokollieren. Welche systemspezifischen Ereignisse (Parameter `det.3.1.6-prm1`) für ein konkretes System relevant sind und damit erfasst werden sollen, legt die Institution fest; RHEL liefert dafür keine vorgefertigte Ereignisliste.
+Red Hat Enterprise Linux stellt mit dem Kernel-Audit-Subsystem (`auditd`) und dem systemd-Journal die technische Grundlage bereit, um vom Betriebssystem erzeugte Ereignisse zu protokollieren. Welche systemspezifischen Ereignisse für ein konkretes System relevant sind und damit erfasst werden sollen, legt die Institution fest. RHEL liefert für unterschiedliche Frameworks Beispiel-Regeln mit, die als Grundlage für die eigene Definition verwendet werden können.
 
-Für die Umsetzung können Administratoren über `auditctl` sowie persistente Regeln unter `/etc/audit/rules.d/` (Auswertung mit `augenrules`) Syscalls, Dateizugriffe, Prozessstarts oder Konfigurationsänderungen gezielt aufzeichnen; Beispielregeln finden sich unter `/usr/share/audit/sample-rules/`. Ereignisse landen standardmäßig in `/var/log/audit/audit.log` und können optional per `rsyslog` oder Journal-Forwarding an zentrale Log-Infrastruktur weitergegeben werden. Die Auswahl, Pflege und Prüfung der institutionsspezifischen Regelwerke sowie die operative Auswertung bleiben organisatorische Aufgaben.
+Für die Umsetzung können Administratoren über `auditctl` sowie persistente Regeln unter `/etc/audit/rules.d/` (Auswertung mit `augenrules`) Syscalls, Dateizugriffe, Prozessstarts oder Konfigurationsänderungen gezielt aufzeichnen. Beispielregeln (z.B. für Common Criteria Protection Profile for General Purpose Operating Systems)) liegen in `/usr/share/audit/sample-rules`. Ereignisse landen standardmäßig in `/var/log/audit/audit.log` und sollten an die zentrale Log-Infrastruktur (SIEM) weitergegeben werden. Die Auswahl, Pflege und Prüfung der institutionsspezifischen Regelwerke sowie die operative Auswertung bleiben organisatorische Aufgaben.
+
+`auditd` erfasst typischerweise nicht Aktionen wie das Installieren von Paketen, Neustarts oder generische Prozess-Starts. Diese werden allerdings bereits in der Standard-Konfiguration vom Betriebssystem protokolliert und in den entsprechenden Log-Files wie beispielsweise `/var/log/messages` abgelegt.
 
 Weitere Informationen: [Audit-Aufzeichnungen konfigurieren](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html-single/security_hardening/assembly_configuring-audit-records_security-hardening), [Überwachung und Verwaltung von Systemstatus und Performance](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/monitoring_and_managing_system_status_and_performance/index)
 
