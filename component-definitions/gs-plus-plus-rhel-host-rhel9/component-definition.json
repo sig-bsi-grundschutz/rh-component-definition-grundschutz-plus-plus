@@ -3,7 +3,7 @@
     "uuid": "4a30fff1-04c2-47c6-b531-51996c11e135",
     "metadata": {
       "title": "Grundschutz++ - Red Hat Enterprise Linux 9",
-      "last-modified": "2026-10-08T11:16:46.169+00:00",
+      "last-modified": "2026-10-08T11:16:46.486+00:00",
       "version": "0.1.0",
       "oscal-version": "1.2.1"
     },
@@ -3817,6 +3817,18 @@
             "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
             "value": "audit rules usergroup modification pamd",
             "remarks": "rule_set_269"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "gspp_impl_det_4_1",
+            "remarks": "rule_set_270"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "Narrative implementation seed for DET.4.1 (no CaC rule binding)",
+            "remarks": "rule_set_270"
           }
         ],
         "control-implementations": [
@@ -7466,6 +7478,22 @@
                     "name": "Rule_Id",
                     "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
                     "value": "audit_rules_usergroup_modification_pamd"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "partial"
+                  }
+                ]
+              },
+              {
+                "uuid": "f2eafb3c-e153-464e-9896-db4610bd220f",
+                "control-id": "DET.4.1",
+                "description": "Die Überwachung, ob Protokollierung auf einem RHEL-Host noch aktiv ist und in erwarteter Menge anfällt, ist primär Aufgabe der Institution (SIEM, Log-Management, Betriebsüberwachung). RHEL stellt dafür Bausteine bereit: `systemd` verwaltet die Dienste `auditd`, `rsyslog` bzw. `systemd-journald`; deren Zustand lässt sich mit `systemctl` und über Journal-Einträge prüfen. Mit `journalctl` (lokal oder in der Web-Konsole unter Logs) können Administratoren Lücken, Fehler oder ungewöhnlich niedrige Aktivität erkennen; bei zentraler Weiterleitung (z. B. über `rsyslog` oder die Logging-RHEL-Systemrolle) lassen sich Schwellwerte und Alarme auf dem Log-Server oder in der Monitoring-Lösung definieren. Ein einzelner Host liefert keine fertige Erkennung „Logging deaktiviert“ oder „Logvolumen außerhalb Toleranz“ ohne zusätzliche Automatisierung oder zentrale Korrelation.\n\nWeitere Informationen: [Probleme anhand von Logdateien analysieren](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_basic_system_settings/assembly_troubleshooting-problems-using-log-files_configuring-basic-system-settings), [Logging-RHEL-Systemrolle](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/assembly_using-the-logging-system-role_security-hardening), [Audit-Aufzeichnungen konfigurieren](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/assembly_configuring-audit-records_security-hardening)",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "gspp_impl_det_4_1"
                   },
                   {
                     "name": "implementation-status",
