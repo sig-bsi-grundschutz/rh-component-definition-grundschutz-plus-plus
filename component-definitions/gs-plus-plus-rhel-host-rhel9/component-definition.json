@@ -3,7 +3,7 @@
     "uuid": "4a30fff1-04c2-47c6-b531-51996c11e135",
     "metadata": {
       "title": "Grundschutz++ - Red Hat Enterprise Linux 9",
-      "last-modified": "2026-10-08T11:16:48.619+00:00",
+      "last-modified": "2026-10-08T11:16:49.193+00:00",
       "version": "0.1.0",
       "oscal-version": "1.2.1"
     },
@@ -7679,6 +7679,32 @@
                     "name": "Rule_Id",
                     "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
                     "value": "gspp_impl_det_4_16"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "partial"
+                  }
+                ]
+              },
+              {
+                "uuid": "5e678bb9-b3e8-4792-9134-5edca57e2e01",
+                "control-id": "DET.5.10.2",
+                "description": "RHEL stellt für die automatisierte Überwachung des Patchstatus auf dem Host die Paketverwaltung DNF bereit: Metadaten aus den konfigurierten Repositories zeigen verfügbare Sicherheits- und Bugfix-Errata (`dnf check-update`, `dnf updateinfo list security`). Für einen wiederkehrenden, systemgesteuerten Mechanismus ohne automatische Installation dient `dnf-automatic`: Nach Installation des Pakets wird in `/etc/dnf/automatic.conf` `apply_updates` deaktiviert gelassen; der systemd-Timer `dnf-automatic-notifyonly.timer` (oder ein konservativ konfigurierter `dnf-automatic.timer`) prüft periodisch auf Updates und meldet verfügbare Patches (z. B. per E-Mail), ohne Pakete zu installieren — technisch eng verwandt mit der Konfigurationsanforderung KONF.8.1, hier aus Detektionssicht für den lokalen Patchstatus. Ob der Stand den internen Vorgaben entspricht, bewertet die Institution zusätzlich (z. B. Errata-Abgleich, `dnf history`, OpenSCAP-Prüfungen oder zentrale Auswertung über Red Hat Satellite bzw. Red Hat Insights). Kennzahlen wie Mean Time To Patch oder Anteil gepatchter Systeme erfordern aggregierte Auswertung und Prozesse außerhalb des einzelnen Hosts.\n\nWeitere Informationen: [Automatisierung von Software-Updates in RHEL 9](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_software_with_the_dnf_tool/assembly_automating-software-updates-in-rhel-9_managing-software-with-the-dnf-tool), [Installation von Sicherheitsupdates](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_and_monitoring_security_updates/installing-security-updates_managing-and-monitoring-security-updates)",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "security_patches_up_to_date"
+                  },
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "package_dnf-automatic_installed"
+                  },
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "timer_dnf-automatic_enabled"
                   },
                   {
                     "name": "implementation-status",
