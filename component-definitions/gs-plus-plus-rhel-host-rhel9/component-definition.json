@@ -3,7 +3,7 @@
     "uuid": "4a30fff1-04c2-47c6-b531-51996c11e135",
     "metadata": {
       "title": "Grundschutz++ - Red Hat Enterprise Linux 9",
-      "last-modified": "2026-10-08T11:16:49.193+00:00",
+      "last-modified": "2026-10-08T11:16:49.665+00:00",
       "version": "0.1.0",
       "oscal-version": "1.2.1"
     },
@@ -7705,6 +7705,32 @@
                     "name": "Rule_Id",
                     "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
                     "value": "timer_dnf-automatic_enabled"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "partial"
+                  }
+                ]
+              },
+              {
+                "uuid": "db823192-7da1-49d5-8b6a-a73289a9d350",
+                "control-id": "DET.5.10.1",
+                "description": "Für System- und Sicherheitsupdates bezieht RHEL Patches über die mit Subscription Manager verwalteten Repository-Definitionen (typisch `/etc/yum.repos.d/redhat.repo`) von der Red Hat Content Delivery Network oder von einem von der Institution autorisierten internen Spiegel (z. B. Red Hat Satellite). Vor der Installation prüft DNF/RPM die GPG-Signaturen der RPM-Pakete, wenn `gpgcheck=1` global in `/etc/dnf/dnf.conf` gesetzt ist, in keinem aktivierten Repository deaktiviert wird und für lokale Installationen die Paketsignaturprüfung aktiv bleibt. Zusätzliche Repositories und deren Schlüssel müssen organisatorisch freigegeben und in DNF konfiguriert werden; die Prognose der Vertrauenswürdigkeit einer Quelle selbst erfüllt das Betriebssystem nicht.\n\nWeitere Informationen: [Software mit dem DNF-Tool verwalten](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_software_with_the_dnf_tool/index), [Sicherheitshärtung](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/index).",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "ensure_gpgcheck_globally_activated"
+                  },
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "ensure_gpgcheck_local_packages"
+                  },
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "ensure_gpgcheck_never_disabled"
                   },
                   {
                     "name": "implementation-status",
