@@ -3,7 +3,7 @@
     "uuid": "4a30fff1-04c2-47c6-b531-51996c11e135",
     "metadata": {
       "title": "Grundschutz++ - Red Hat Enterprise Linux 9",
-      "last-modified": "2026-10-08T08:02:28.825+00:00",
+      "last-modified": "2026-10-08T08:02:42.646+00:00",
       "version": "0.1.0",
       "oscal-version": "1.2.1"
     },
@@ -3685,6 +3685,30 @@
             "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
             "value": "Narrative implementation seed for DET.3.1.6 (no CaC rule binding)",
             "remarks": "rule_set_257"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "dnf-automatic_apply_updates",
+            "remarks": "rule_set_258"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "configure dnf-automatic to install available updates automatically",
+            "remarks": "rule_set_258"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "dnf-automatic_security_updates_only",
+            "remarks": "rule_set_259"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "configure dnf-automatic to install only security updates",
+            "remarks": "rule_set_259"
           }
         ],
         "control-implementations": [
@@ -7206,6 +7230,37 @@
                     "name": "Rule_Id",
                     "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
                     "value": "gspp_impl_det_3_1_6"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "partial"
+                  }
+                ]
+              },
+              {
+                "uuid": "7ee3d514-2dfc-44e0-a937-bdf84f9eb561",
+                "control-id": "KONF.8.1.1",
+                "description": "Auf RHEL 9 installiert das Paket `dnf-automatic` einen Dienst, der verfügbare Updates regelmäßig per DNF prüft und installieren kann. In `/etc/dnf/automatic.conf` wird im Abschnitt `[commands]` `upgrade_type = security` gesetzt, damit nur Sicherheitsupdates berücksichtigt werden, und `apply_updates = yes`, damit diese Updates automatisch eingespielt werden. Der systemd-Timer `dnf-automatic-install.timer` lädt die Konfiguration periodisch und führt die Installation aus; dafür muss eine gültige Red-Hat-Subscription am Host hinterlegt sein. Nach Kernel- oder Bibliotheksupdates können Neustarts oder Dienste-Neuladen nötig bleiben, damit alle Komponenten den neuen Stand nutzen — das betrifft Betriebsprozesse außerhalb der reinen Paketinstallation.\n\nWeitere Informationen: [Installing security updates automatically (RHEL 9)](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_and_monitoring_security_updates/installing-security-updates_managing-and-monitoring-security-updates)",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "dnf-automatic_apply_updates"
+                  },
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "dnf-automatic_security_updates_only"
+                  },
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "package_dnf-automatic_installed"
+                  },
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "timer_dnf-automatic_enabled"
                   },
                   {
                     "name": "implementation-status",
