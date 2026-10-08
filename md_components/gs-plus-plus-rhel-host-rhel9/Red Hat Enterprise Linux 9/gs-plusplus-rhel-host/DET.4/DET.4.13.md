@@ -30,8 +30,6 @@ ______________________________________________________________________
 
 <!-- Note that the list of rules under ### Rules: is read-only and changes will not be captured after assembly to JSON -->
 
-<!-- Add control implementation description here for control: DET.4.13 -->
-
 Die Überwachung der Netzerreichbarkeit eines RHEL‑9‑Hosts anhand institutioneller Schwellwerte (z. B. Anzahl fehlgeschlagener Probes in einem Zeitfenster, maximale Antwortzeit) erfolgt in der Regel durch ein **externes** Monitoring-System (Nagios/Icinga, Prometheus mit Alertmanager, Grafana, Red Hat Advanced Cluster Management Observability oder vergleichbare Lösungen), das vom Netz aus Health-Checks gegen den Host ausführt (ICMP, TCP-Ports, HTTP(S)-Probes). RHEL setzt diese Schwellwerte nicht selbst; der Host kann Metriken und Lebenszeichen bereitstellen — etwa über Performance Co-Pilot (`pmcd`, optional Netzwerk-Performance-Domain-Agents) oder einen Prometheus-`node_exporter` — damit das zentrale System Ausfälle und Latenzen bewerten kann. Festlegung der Grenzwerte, Eskalation und Reaktion auf Alarme bleiben organisatorische Aufgaben der Institution.
 
 Weitere Informationen: [Monitoring and managing system status and performance (RHEL 9)](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/monitoring_and_managing_system_status_and_performance/), [Observability (Red Hat Advanced Cluster Management)](https://docs.redhat.com/en/documentation/red_hat_advanced_cluster_management_for_kubernetes/2.11/html/observability/observability)
