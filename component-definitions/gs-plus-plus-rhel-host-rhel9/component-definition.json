@@ -3,7 +3,7 @@
     "uuid": "4a30fff1-04c2-47c6-b531-51996c11e135",
     "metadata": {
       "title": "Grundschutz++ - Red Hat Enterprise Linux 9",
-      "last-modified": "2026-10-08T08:01:47.612+00:00",
+      "last-modified": "2026-10-08T09:48:35.493+00:00",
       "version": "0.1.0",
       "oscal-version": "1.2.1"
     },
@@ -3613,6 +3613,66 @@
             "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
             "value": "Narrative implementation seed for BER.7.7 (no CaC rule binding)",
             "remarks": "rule_set_251"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "directory_permissions_var_log_audit",
+            "remarks": "rule_set_252"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "directory permissions var log audit",
+            "remarks": "rule_set_252"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "file_ownership_var_log_audit",
+            "remarks": "rule_set_254"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "file ownership var log audit stig",
+            "remarks": "rule_set_254"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "file_group_ownership_var_log_audit",
+            "remarks": "rule_set_255"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "file group ownership var log audit stig",
+            "remarks": "rule_set_255"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "directory_access_var_log_audit",
+            "remarks": "rule_set_256"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "directory access var log audit",
+            "remarks": "rule_set_256"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "auditd_audispd_configure_remote_server",
+            "remarks": "rule_set_257"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "auditd audispd configure remote server",
+            "remarks": "rule_set_257"
           }
         ],
         "control-implementations": [
@@ -6998,7 +7058,7 @@
               {
                 "uuid": "6171e670-d21a-4151-b5a5-4aa57f36f286",
                 "control-id": "ASST.2.3.1",
-                "description": "Auf RHEL kann die Ausführung von Anwendungen technisch an eine Freigabeliste gebunden werden: `fapolicyd` wertet Prozess- und Dateiattribute aus und setzt im Regelwerk eine Deny-by-default- bzw. Permit-by-exception-Policy um, sodass nur explizit erlaubte Programme starten. Die Installation weiterer Software über `dnf` erfordert in der Regel erhöhte Rechte; signierte Pakete aus vertrauenswürdigen Repositories ergänzen die technische Kette. Die in der Anforderung genannte Autorisierung durch eine zuständige Person oder Rolle (Freigabeprozess, Kategorien, Inventar, Cloud- und Standardanwendungen) bleibt organisatorisch zu definieren und in die `fapolicyd`-Regeln bzw. Softwarequellen (z. B. kuratierte Repositories über Red Hat Satellite) zu übersetzen; der Host erzwingt allein nicht den fachlichen Freigabeworkflow.\n\nWeitere Informationen: [Anwendungen mit fapolicyd blockieren und zulassen](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/assembly_blocking-and-allowing-applications-using-fapolicyd_security-hardening), [Sicherheitshärtung](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/index)",
+                "description": "Auf RHEL kann die Ausführung von Anwendungen technisch an eine Freigabeliste gebunden werden: `fapolicyd` wertet Prozess- und Dateiattribute aus und setzt im Regelwerk eine Deny-by-default- bzw. Permit-by-exception-Policy um, sodass nur explizit erlaubte Programme starten. Die Installation weiterer Software über `dnf` erfordert in der Regel erhöhte Rechte. Signierte Pakete aus vertrauenswürdigen Repositories ergänzen die technische Kette. Die in der Anforderung genannte Autorisierung durch eine zuständige Person oder Rolle (Freigabeprozess, Kategorien, Inventar, Cloud- und Standardanwendungen) bleibt organisatorisch zu definieren und in die `fapolicyd`-Regeln bzw. Softwarequellen (z. B. kuratierte Repositories über Red Hat Satellite) zu übersetzen. Der Host erzwingt allein nicht den fachlichen Freigabeworkflow.\n\nWeitere Informationen: [Anwendungen mit fapolicyd blockieren und zulassen](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/assembly_blocking-and-allowing-applications-using-fapolicyd_security-hardening), [Sicherheitshärtung](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/index)",
                 "props": [
                   {
                     "name": "Rule_Id",
@@ -7024,7 +7084,7 @@
               {
                 "uuid": "b5c03909-0547-4efa-9c8b-2ea608ed9267",
                 "control-id": "DET.3.1.3",
-                "description": "RHEL kann das Anschließen und die Autorisierung von USB-Peripherie über USBGuard steuern und nachvollziehbar machen. Nach Installation und Aktivierung des Dienstes erkennt USBGuard angeschlossene Geräte; eine in `/etc/usbguard/rules.conf` hinterlegte Policy legt fest, welche Geräte zugelassen oder blockiert werden. Nicht autorisierte Anschlüsse werden damit unterbunden, bevor sie das System nutzen können. Für die Protokollierung sollte in `/etc/usbguard/usbguard-daemon.conf` die Audit-Schnittstelle auf Linux Audit (`AuditBackend=LinuxAudit`) gestellt werden, damit Autorisierungsereignisse zentral im Audit-Log landen und auswertbar sind. Andere Peripherieklassen (z. B. einige virtuelle oder nicht-USB-Schnittstellen) sowie zentrale SIEM-Auswertung und organisatorische Freigabeprozesse bleiben Aufgabe der Institution.\n\nWeitere Informationen: [Schutz vor aufdringlichen USB-Geräten](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/protecting-systems-against-intrusive-usb-devices_security-hardening)",
+                "description": "RHEL kann das Anschließen und die Autorisierung von USB-Peripherie über USBGuard steuern und nachvollziehbar machen. Nach Installation und Aktivierung des Dienstes erkennt USBGuard angeschlossene Geräte. Eine in `/etc/usbguard/rules.conf` hinterlegte Policy legt fest, welche Geräte zugelassen oder blockiert werden. Nicht autorisierte Anschlüsse werden damit unterbunden, bevor sie das System nutzen können. Für die Protokollierung sollte in `/etc/usbguard/usbguard-daemon.conf` die Audit-Schnittstelle auf Linux Audit (`AuditBackend=LinuxAudit`) gestellt werden, damit Autorisierungsereignisse zentral im Audit-Log landen, auswertbar sind und von dort an ein zentrales SIEM weitergeleitet werden können. Andere Peripherieklassen (z. B. einige virtuelle oder nicht-USB-Schnittstellen) sowie zentrale SIEM-Auswertung und organisatorische Freigabeprozesse bleiben Aufgabe der Institution.\n\nWeitere Informationen: [Schutz vor aufdringlichen USB-Geräten](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/protecting-systems-against-intrusive-usb-devices_security-hardening)",
                 "props": [
                   {
                     "name": "Rule_Id",
@@ -7061,6 +7121,52 @@
                     "name": "Rule_Id",
                     "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
                     "value": "gspp_impl_ber_7_7"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "partial"
+                  }
+                ]
+              },
+              {
+                "uuid": "87f52353-043b-4b71-8af0-e5175ae752e5",
+                "control-id": "DET.3.5",
+                "description": "Auf RHEL 9 schreibt auditd Audit-Ereignisse standardmäßig unter `/var/log/audit/`; die RHEL-Dokumentation empfiehlt restriktive Datei- und Verzeichnisrechte sowie Eigentümerschaft durch root, damit nur berechtigte Konten Protokolle lesen oder verändern können. Persistente Regeln in `/etc/audit/rules.d/` lassen sich mit einer Finalize-Regel (`-e 2`, Gruppe 90) unveränderlich machen, sodass Audit-Regeln bis zum Neustart nicht ohne Berechtigung angepasst werden können; Zugriffe auf Audit-Konfiguration und -Protokolle können zusätzlich per Audit-Regeln protokolliert werden. Für eine tatsächlich revisionssichere Ablage und zentrale Auswertung können Plugins unter `/etc/audit/plugins.d/` Ereignisse an einen entfernten Log- oder SIEM-Dienst weiterleiten — Transportverschlüsselung, getrennte Schlüsselhaltung, WORM-Speicher oder Hash-Ketten können dann im SIEM realisiert werden.\n\nWeitere Informationen: https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/auditing-the-system_security-hardening",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "directory_permissions_var_log_audit"
+                  },
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "audit_rules_immutable"
+                  },
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "file_permissions_var_log_audit"
+                  },
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "file_ownership_var_log_audit"
+                  },
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "file_group_ownership_var_log_audit"
+                  },
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "directory_access_var_log_audit"
+                  },
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "auditd_audispd_configure_remote_server"
                   },
                   {
                     "name": "implementation-status",
