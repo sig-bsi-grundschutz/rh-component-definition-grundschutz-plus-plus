@@ -3,7 +3,7 @@
     "uuid": "4a30fff1-04c2-47c6-b531-51996c11e135",
     "metadata": {
       "title": "Grundschutz++ - Red Hat Enterprise Linux 9",
-      "last-modified": "2026-10-08T09:48:35.493+00:00",
+      "last-modified": "2026-10-08T11:04:09.254+00:00",
       "version": "0.1.0",
       "oscal-version": "1.2.1"
     },
@@ -3673,6 +3673,54 @@
             "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
             "value": "auditd audispd configure remote server",
             "remarks": "rule_set_257"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "security_patches_up_to_date",
+            "remarks": "rule_set_258"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "ensure software patches installed",
+            "remarks": "rule_set_258"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "package_dnf-automatic_installed",
+            "remarks": "rule_set_259"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "install dnf-automatic package",
+            "remarks": "rule_set_259"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "timer_dnf-automatic_enabled",
+            "remarks": "rule_set_260"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "enable dnf-automatic timer",
+            "remarks": "rule_set_260"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "dnf-automatic_security_updates_only",
+            "remarks": "rule_set_261"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "dnf-automatic security updates only",
+            "remarks": "rule_set_261"
           }
         ],
         "control-implementations": [
@@ -7167,6 +7215,37 @@
                     "name": "Rule_Id",
                     "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
                     "value": "auditd_audispd_configure_remote_server"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "partial"
+                  }
+                ]
+              },
+              {
+                "uuid": "1c80ea39-3a63-4eca-bec7-008cf3b114db",
+                "control-id": "KONF.8.1",
+                "description": "Mit einer gültigen Red-Hat-Subscription stellt DNF über die konfigurierten Repositories Metadaten zu verfügbaren Aktualisierungen bereit; `dnf check-update` und `dnf updateinfo list security` zeigen an, ob Sicherheitskorrekturen für installierte Pakete vorliegen. Für eine wiederkehrende, systemgesteuerte Überwachung mit oder ohne automatischer Installation wird das Paket `dnf-automatic` eingesetzt: In `/etc/dnf/automatic.conf` kann über `apply_updates` bestimmt werden ob nur auf Updates geprüft oder diese auch installiert werden.Mittels der Option `upgrade_type = security` kann die Überwachung auf reine Sicherheits-Updates eingegrenzt werden. Ob der Patchstand den internen Vorgaben entspricht, prüft die Institution zusätzlich periodisch (z. B. über `dnf history`, Errata-Abgleich oder zentrale Werkzeuge wie Red Hat Satellite bzw. Red Hat Insights). Benachrichtigung an Administratoren, Ticket-Workflows und priorisierte Ausroll-Prozesse sind organisatorisch festzulegen.\n\nWeitere Informationen: [Automatisierung von Software-Updates in RHEL 9](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_software_with_the_dnf_tool/assembly_automating-software-updates-in-rhel-9_managing-software-with-the-dnf-tool), [Installation von Sicherheitsupdates](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_and_monitoring_security_updates/installing-security-updates_managing-and-monitoring-security-updates)",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "security_patches_up_to_date"
+                  },
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "package_dnf-automatic_installed"
+                  },
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "timer_dnf-automatic_enabled"
+                  },
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "dnf-automatic_security_updates_only"
                   },
                   {
                     "name": "implementation-status",
