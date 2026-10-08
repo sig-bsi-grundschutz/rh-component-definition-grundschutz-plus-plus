@@ -3,7 +3,7 @@
     "uuid": "4a30fff1-04c2-47c6-b531-51996c11e135",
     "metadata": {
       "title": "Grundschutz++ - Red Hat Enterprise Linux 9",
-      "last-modified": "2026-10-08T11:16:49.665+00:00",
+      "last-modified": "2026-10-08T11:16:50.223+00:00",
       "version": "0.1.0",
       "oscal-version": "1.2.1"
     },
@@ -3913,6 +3913,18 @@
             "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
             "value": "Narrative implementation seed for DET.4.16 (no CaC rule binding)",
             "remarks": "rule_set_277"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "gspp_impl_det_5_10_3",
+            "remarks": "rule_set_278"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "Narrative implementation seed for DET.5.10.3 (no CaC rule binding)",
+            "remarks": "rule_set_278"
           }
         ],
         "control-implementations": [
@@ -7731,6 +7743,22 @@
                     "name": "Rule_Id",
                     "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
                     "value": "ensure_gpgcheck_never_disabled"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "partial"
+                  }
+                ]
+              },
+              {
+                "uuid": "2988c0d5-a04b-46d2-ba58-f1aaae4e69ee",
+                "control-id": "DET.5.10.3",
+                "description": "RHEL stellt kein integriertes Patch- oder Vulnerability-Management für beliebige Anwendungen bereit; der Parameter „det.5.10.3-prm1“ beschreibt die von der Institution gewählte Methode (z. B. PMS, VMS oder Schwachstellen-Scanner) und wird auf dem Host nicht automatisch durchgesetzt. Für containerisierte Anwendungen lassen sich mit Podman und Skopeo Image-Metadaten prüfen, Registry-Zugriffe steuern (`registries.conf`) und aktualisierte Images gezielt beziehen; wiederkehrende Abgleiche können über systemd-Timer oder Konfigurationsautomatisierung angebunden werden. OpenSCAP- und RHSA-OVAL-Inhalte adressieren primär von Red Hat ausgelieferte RPM-Pakete — für Drittanbieter- oder sprachspezifische Anwendungen sind zusätzliche, organisationsweite Prüfdefinitionen und Benachrichtigungsworkflows erforderlich. Auf registrierten Systemen kann Red Hat Lightspeed Hinweise zu Risiken und Empfehlungen liefern, ersetzt aber kein anwendungsspezifisches Patch-Monitoring.\n\nWeitere Informationen: [Sicherheitshärtung — RHSA-OVAL und Drittanbieter-Software](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/scanning-the-system-for-security-compliance-and-vulnerabilities_security-hardening), [Container erstellen, ausführen und verwalten](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/building_running_and_managing_containers/index)",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "gspp_impl_det_5_10_3"
                   },
                   {
                     "name": "implementation-status",
