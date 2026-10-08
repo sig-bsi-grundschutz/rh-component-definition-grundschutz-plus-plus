@@ -37,8 +37,6 @@ ______________________________________________________________________
 
 <!-- Note that the list of rules under ### Rules: is read-only and changes will not be captured after assembly to JSON -->
 
-<!-- Add control implementation description here for control: DET.4.2 -->
-
 RHEL stellt hostbasierte Bausteine zur Erkennung von Angriffsindikatoren bereit, die die Institution über den Profilparameter für den automatisierten Überwachungsmechanismus konkretisiert. Advanced Intrusion Detection Environment (AIDE) erstellt eine Referenzdatenbank kritischer Dateien und vergleicht diese periodisch (Cron oder systemd-Timer); Abweichungen weisen auf unautorisierte Manipulationen hin und können per Benachrichtigung an Betrieb oder SOC eskaliert werden. Damit deckt AIDE Integritätsverletzungen ab, nicht signatur- oder verhaltensbasierte Angriffsmuster im Sinne eines vollständigen HIDS.
 
 Zusätzlich bringt die Plattform ein Audit-Subsystem (`auditd`) und SELinux-Mandatory Access Control mit, die Aktivitäten protokollieren bzw. eindämmen und in Verbindung mit institutionellen Audit-Regeln sowie zentraler Auswertung (SIEM, Korrelationsjobs) Anzeichen für Kompromittierung sichtbar machen können. Netzwerkbasierte IDS, dedizierte kommerzielle HIDS-Agenten sowie Auswertung, Schwellwerte und Alarmkategorien liegen in der Verantwortung der Institution.
