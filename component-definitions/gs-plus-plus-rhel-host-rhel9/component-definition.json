@@ -3,7 +3,7 @@
     "uuid": "4a30fff1-04c2-47c6-b531-51996c11e135",
     "metadata": {
       "title": "Grundschutz++ - Red Hat Enterprise Linux 9",
-      "last-modified": "2026-10-08T08:06:52.970+00:00",
+      "last-modified": "2026-10-08T08:07:08.374+00:00",
       "version": "0.1.0",
       "oscal-version": "1.2.1"
     },
@@ -3913,6 +3913,18 @@
             "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
             "value": "Narrative implementation seed for KONF.9.2 (no CaC rule binding)",
             "remarks": "rule_set_276"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "gspp_impl_not_4_2",
+            "remarks": "rule_set_277"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "Narrative implementation seed for NOT.4.2 (no CaC rule binding)",
+            "remarks": "rule_set_277"
           }
         ],
         "control-implementations": [
@@ -7822,6 +7834,22 @@
                     "name": "Rule_Id",
                     "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
                     "value": "sshd_include_crypto_policy"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "partial"
+                  }
+                ]
+              },
+              {
+                "uuid": "6ccf0fb0-cdf3-49f1-aeba-e8a20291e750",
+                "control-id": "NOT.4.2",
+                "description": "Red Hat Enterprise Linux 9 enthält kein standardmäßig aktiviertes, zentral gesteuertes Backup-Produkt und keine feste Vorgabe für die Sicherungsfrequenz — diese legt die Institution im Notfallplan fest (Parameter `not.4.2-prm1`). Für die Datensicherung des Systems stehen Werkzeuge wie `tar`, `rsync`, Snapshots auf LVM oder Dateisystemebene, sowie optional Relax-and-Recover (ReaR) zur Erstellung bootfähiger Rescue-Images und Wiederherstellungsmedien bereit; ReaR muss installiert und in `/etc/rear/local.conf` mit passenden `BACKUP_URL`/`OUTPUT_URL` konfiguriert werden. Konfigurationsdateien, Zertifikate und dokumentierte Anpassungen sollten in den organisatorischen Backup-Umfang einbezogen werden; gleichartige Systeme können über ein Golden Image oder Versionsverwaltung abgedeckt werden. Überwachung, Aufbewahrung, Offsite-Kopien und Restore-Tests sind organisatorisch durchzuführen (z. B. mit Ansible, Satellite oder dedizierten Backup-Lösungen).\n\nWeitere Informationen: [Sichern und Wiederherstellen des Systems](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_basic_system_settings/backing-up-and-restoring-your-system_configuring-basic-system-settings)",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "gspp_impl_not_4_2"
                   },
                   {
                     "name": "implementation-status",

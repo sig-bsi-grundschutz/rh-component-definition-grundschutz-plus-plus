@@ -53,8 +53,6 @@ ______________________________________________________________________
 
 <!-- Note that the list of rules under ### Rules: is read-only and changes will not be captured after assembly to JSON -->
 
-<!-- Add control implementation description here for control: KONF.14.1.1 -->
-
 Obligatorische Verschlüsselung auf dem Host bedeutet, dass Dienste keine bekannt schwachen oder unverschlüsselten Protokollvarianten mehr anbieten sollen. RHEL setzt dies für policy-fähige TLS-/DTLS-Stacks über die systemweite Crypto Policy um: Im Profil DEFAULT lehnt der System-TLS-Stack bereits Verbindungen mit TLS < 1.2 und viele veraltete Algorithmen ab; das Profil FUTURE geht weiter und erlaubt praktisch nur noch TLS 1.3 und moderne Parameter — geeignet, wenn Downgrade- oder „opportunistische“ Klartext-Fallbacks vermieden werden sollen. OpenSSH nutzt dieselbe Policy für Cipher und Key Exchange, sofern der Server die Crypto-Policy-Include-Datei lädt und keine abweichenden `Ciphers`/`MACs` in `sshd_config` erzwingt. Für obligatorische Verschlüsselung in Anwendungen (z. B. nur TLS, kein HTTP-Klartext) sind Dienstkonfiguration, Reverse-Proxies und Firewall-Regeln organisatorisch festzulegen; RHEL erzwingt das nicht pro Anwendungsinstanz.
 
 Weitere Informationen: [Systemweite kryptografische Richtlinien](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/using-the-system-wide-cryptographic-policies_security-hardening), [Sicherheitshärtung](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/index)
