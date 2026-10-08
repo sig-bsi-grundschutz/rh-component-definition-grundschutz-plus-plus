@@ -3,7 +3,7 @@
     "uuid": "4a30fff1-04c2-47c6-b531-51996c11e135",
     "metadata": {
       "title": "Grundschutz++ - Red Hat Enterprise Linux 9",
-      "last-modified": "2026-10-08T08:01:47.612+00:00",
+      "last-modified": "2026-10-08T08:02:01.917+00:00",
       "version": "0.1.0",
       "oscal-version": "1.2.1"
     },
@@ -3613,6 +3613,30 @@
             "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
             "value": "Narrative implementation seed for BER.7.7 (no CaC rule binding)",
             "remarks": "rule_set_251"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "directory_permissions_var_log_audit",
+            "remarks": "rule_set_252"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "directory permissions var log audit",
+            "remarks": "rule_set_252"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "file_ownership_var_log_audit_stig",
+            "remarks": "rule_set_253"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "file ownership var log audit stig",
+            "remarks": "rule_set_253"
           }
         ],
         "control-implementations": [
@@ -7061,6 +7085,37 @@
                     "name": "Rule_Id",
                     "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
                     "value": "gspp_impl_ber_7_7"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "partial"
+                  }
+                ]
+              },
+              {
+                "uuid": "87f52353-043b-4b71-8af0-e5175ae752e5",
+                "control-id": "DET.3.5",
+                "description": "Auf RHEL 9 schreibt auditd Audit-Ereignisse standardmäßig unter `/var/log/audit/`; die RHEL-Dokumentation empfiehlt restriktive Datei- und Verzeichnisrechte sowie Eigentümerschaft durch root, damit nur berechtigte Konten Protokolle lesen oder verändern können. In `auditd.conf` kann `max_log_file_action` auf `keep_logs` gesetzt werden, damit rotierte Dateien nicht still überschrieben werden. Persistente Regeln in `/etc/audit/rules.d/` lassen sich mit einer Finalize-Regel (`-e 2`, Gruppe 90) unveränderlich machen, sodass Audit-Regeln bis zum Neustart nicht ohne Berechtigung angepasst werden können; Zugriffe auf Audit-Konfiguration und -Protokolle können zusätzlich per Audit-Regeln protokolliert werden. Für zentrale Auswertung können Plugins unter `/etc/audit/plugins.d/` Ereignisse an einen entfernten Log- oder SIEM-Dienst weiterleiten — Transportverschlüsselung, getrennte Schlüsselhaltung, WORM-Speicher oder Hash-Ketten bleiben organisatorisch zu betreiben.\n\nWeitere Informationen: https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/auditing-the-system_security-hardening",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "directory_permissions_var_log_audit"
+                  },
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "file_ownership_var_log_audit_stig"
+                  },
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "audit_rules_immutable"
+                  },
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "file_permissions_var_log_audit"
                   },
                   {
                     "name": "implementation-status",
