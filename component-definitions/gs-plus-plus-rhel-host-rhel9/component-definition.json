@@ -3,7 +3,7 @@
     "uuid": "4a30fff1-04c2-47c6-b531-51996c11e135",
     "metadata": {
       "title": "Grundschutz++ - Red Hat Enterprise Linux 9",
-      "last-modified": "2026-10-08T11:16:11.067+00:00",
+      "last-modified": "2026-10-08T11:39:21+00:00",
       "version": "0.1.0",
       "oscal-version": "1.2.1"
     },
@@ -3721,18 +3721,6 @@
             "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
             "value": "dnf-automatic security updates only",
             "remarks": "rule_set_261"
-          },
-          {
-            "name": "Rule_Id",
-            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
-            "value": "file_ownership_var_log_audit_stig",
-            "remarks": "rule_set_262"
-          },
-          {
-            "name": "Rule_Description",
-            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
-            "value": "file ownership var log audit stig",
-            "remarks": "rule_set_262"
           },
           {
             "name": "Rule_Id",
