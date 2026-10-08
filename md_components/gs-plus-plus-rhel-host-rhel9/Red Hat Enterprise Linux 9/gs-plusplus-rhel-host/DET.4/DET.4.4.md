@@ -33,8 +33,6 @@ ______________________________________________________________________
 
 <!-- Note that the list of rules under ### Rules: is read-only and changes will not be captured after assembly to JSON -->
 
-<!-- Add control implementation description here for control: DET.4.4 -->
-
 RHEL protokolliert mit auditd über persistente Dateiüberwachungsregeln Schreib- und Attributänderungen an zentralen Sicherheitsrichtlinien: unter anderem SELinux-Konfiguration unter `/etc/selinux/`, sudoers-Regeln in `/etc/sudoers` und `/etc/sudoers.d/` sowie PAM-Stack-Dateien in `/etc/pam.d/`. Die Ereignisse stehen in den Audit-Logs zur forensischen Auswertung bereit. Änderungen an weiteren Richtlinien (z. B. SSH- oder Firewall-Konfiguration) sowie das unbemerkte Stoppen von Schutzdiensten erfordern zusätzliche, institutionell festgelegte Regeln, zentrale Sammlung und Alarmierung; reine Host-Härtung deckt EDR-Ausnahmen, Verzeichnisdienst-Gruppen oder NAC nicht ab.
 
 Weitere Informationen: [Auditing the system](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/auditing-the-system_security-hardening)
