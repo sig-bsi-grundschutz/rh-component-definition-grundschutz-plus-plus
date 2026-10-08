@@ -30,8 +30,6 @@ ______________________________________________________________________
 
 <!-- Note that the list of rules under ### Rules: is read-only and changes will not be captured after assembly to JSON -->
 
-<!-- Add control implementation description here for control: KONF.9.2 -->
-
 Auf RHEL 9 steuert **systemd** die Rechenleistung von Diensten, Benutzer-Sessions und Slices über **cgroups v2**; typische Optionen in Unit-Dateien oder per `systemctl set-property` sind `CPUQuota=` (prozentualer CPU-Deckel), `CPUWeight=` (relative Gewichtung) und `AllowedCPUs=` (Kernbindung). Die im Profilparameter `konf.9.2-prm1` festgelegten Schwellwerte setzt die Institution optional pro Workload um, statt eine globale Standard-Obergrenze für den gesamten Host zu erzwingen. Indirekte Begrenzungen in Anwendungen (z. B. Request- oder Token-Limits) liegen außerhalb des Betriebssystems und erfordern zusätzliche Konfiguration der jeweiligen Software. Weitere Informationen: https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/monitoring_and_managing_system_status_and_performance/allocating-system-resources-using-systemd
 
 ### Implementation Status: alternative
