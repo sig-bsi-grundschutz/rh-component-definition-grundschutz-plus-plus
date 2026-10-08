@@ -3,7 +3,7 @@
     "uuid": "4a30fff1-04c2-47c6-b531-51996c11e135",
     "metadata": {
       "title": "Grundschutz++ - Red Hat Enterprise Linux 9",
-      "last-modified": "2026-10-08T11:04:09.254+00:00",
+      "last-modified": "2026-10-08T11:16:11.067+00:00",
       "version": "0.1.0",
       "oscal-version": "1.2.1"
     },
@@ -3721,6 +3721,30 @@
             "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
             "value": "dnf-automatic security updates only",
             "remarks": "rule_set_261"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "file_ownership_var_log_audit_stig",
+            "remarks": "rule_set_262"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "file ownership var log audit stig",
+            "remarks": "rule_set_262"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "gspp_impl_det_3_1_6",
+            "remarks": "rule_set_263"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "Narrative implementation seed for DET.3.1.6 (no CaC rule binding)",
+            "remarks": "rule_set_263"
           }
         ],
         "control-implementations": [
@@ -7246,6 +7270,22 @@
                     "name": "Rule_Id",
                     "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
                     "value": "dnf-automatic_security_updates_only"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "partial"
+                  }
+                ]
+              },
+              {
+                "uuid": "7ce7e8f9-cd6c-46e8-9129-a073c5063331",
+                "control-id": "DET.3.1.6",
+                "description": "Red Hat Enterprise Linux stellt mit dem Kernel-Audit-Subsystem (`auditd`) und dem systemd-Journal die technische Grundlage bereit, um vom Betriebssystem erzeugte Ereignisse zu protokollieren. Welche systemspezifischen Ereignisse (Parameter `det.3.1.6-prm1`) für ein konkretes System relevant sind und damit erfasst werden sollen, legt die Institution fest; RHEL liefert dafür keine vorgefertigte Ereignisliste.\n\nFür die Umsetzung können Administratoren über `auditctl` sowie persistente Regeln unter `/etc/audit/rules.d/` (Auswertung mit `augenrules`) Syscalls, Dateizugriffe, Prozessstarts oder Konfigurationsänderungen gezielt aufzeichnen; Beispielregeln finden sich unter `/usr/share/audit/sample-rules/`. Ereignisse landen standardmäßig in `/var/log/audit/audit.log` und können optional per `rsyslog` oder Journal-Forwarding an zentrale Log-Infrastruktur weitergegeben werden. Die Auswahl, Pflege und Prüfung der institutionsspezifischen Regelwerke sowie die operative Auswertung bleiben organisatorische Aufgaben.\n\nWeitere Informationen: [Audit-Aufzeichnungen konfigurieren](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html-single/security_hardening/assembly_configuring-audit-records_security-hardening), [Überwachung und Verwaltung von Systemstatus und Performance](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/monitoring_and_managing_system_status_and_performance/index)",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "gspp_impl_det_3_1_6"
                   },
                   {
                     "name": "implementation-status",
