@@ -3,7 +3,7 @@
     "uuid": "4a30fff1-04c2-47c6-b531-51996c11e135",
     "metadata": {
       "title": "Grundschutz++ - Red Hat Enterprise Linux 9",
-      "last-modified": "2026-10-08T08:01:34.064+00:00",
+      "last-modified": "2026-10-08T08:01:47.612+00:00",
       "version": "0.1.0",
       "oscal-version": "1.2.1"
     },
@@ -3601,6 +3601,18 @@
             "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
             "value": "Log USBGuard daemon audit events using Linux Audit",
             "remarks": "rule_set_250"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "gspp_impl_ber_7_7",
+            "remarks": "rule_set_251"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "Narrative implementation seed for BER.7.7 (no CaC rule binding)",
+            "remarks": "rule_set_251"
           }
         ],
         "control-implementations": [
@@ -7033,6 +7045,22 @@
                     "name": "Rule_Id",
                     "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
                     "value": "usbguard_generate_policy"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "partial"
+                  }
+                ]
+              },
+              {
+                "uuid": "80badbd8-3b4a-4151-9979-9b3aa3f23394",
+                "control-id": "BER.7.7",
+                "description": "RHEL erzwingt keinen generellen Verbot des Exports oder Transports privater Schlüsseldateien: Schlüssel können lokal mit OpenSSH oder OpenSSL erzeugt und als Dateien kopiert, archiviert oder auf andere Systeme übertragen werden. Entsprechend der Anforderung obliegt die Genehmigung solcher Exporte der Institution (zuständige Person oder Rolle) in Betriebskonzept, Schlüsselmanagement und Prozessen — der Host prüft diese Freigabe nicht automatisch. Technisch unterstützt RHEL das Prinzip „Schlüssel dort erzeugen, wo sie genutzt werden“, indem Werkzeuge zur lokalen Erzeugung und Speicherung unter kontrollierten Pfaden (z. B. Benutzer-`~/.ssh`) bereitstehen und Dateirechte sowie SELinux den Zugriff einschränken. Wo private Schlüssel nicht als exportierbare Dateien vorkommen sollen, können Smartcards oder Hardware-Security-Module über PKCS #11 genutzt werden; der Schlüssel bleibt dann auf dem Token, während nur der öffentliche Teil verteilt wird. Verschlüsselte Backups oder Redundanzszenarien bleiben organisatorisch abzuwägen und sind vom Betriebssystem nicht pauschal verboten oder freigegeben.\n\nWeitere Informationen: [Authentifizierung mit SSH-Schlüsseln auf einer Smartcard](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/assembly_authenticating-by-ssh-keys-stored-on-a-smart-card_security-hardening), [Kryptografische Hardware und PKCS #11](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/assembly_using-hardware-security-modules_security-hardening), [Sicherheitshärtung](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/index).",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "gspp_impl_ber_7_7"
                   },
                   {
                     "name": "implementation-status",
