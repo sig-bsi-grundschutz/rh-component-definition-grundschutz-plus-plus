@@ -28,8 +28,6 @@ ______________________________________________________________________
 
 <!-- Note that the list of rules under ### Rules: is read-only and changes will not be captured after assembly to JSON -->
 
-<!-- Add control implementation description here for control: DET.4.10 -->
-
 Red Hat Enterprise Linux 9 liefert kein integriertes Subsystem für hostbasierte Köder (Canary-Dateien, Honeytokens oder täuschende Dienste). Die Anforderung ist optional („KANN“) und beschreibt ein betriebliches Deception-Konzept: Köder platzieren, Zugriffe erkennen, Alarme auslösen und Falschmeldungen vermeiden — das obliegt dem Sicherheitsteam und liegt nicht im Standardumfang des Betriebssystems. Mit **auditd** können Institutionen bei selbst angelegten Köderdateien Zugriffe protokollieren und auswerten; RHEL stellt dafür keine vorgefertigten Köder, keine zentrale Verwaltung und keine SIEM-Anbindung bereit. Spezialisierte Honeypot- oder Deception-Produkte sind separate Beschaffungs- und Betriebsentscheidungen.
 
 Weitere Informationen: https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/auditing-the-system_security-hardening
