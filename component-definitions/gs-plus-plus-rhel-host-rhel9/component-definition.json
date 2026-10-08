@@ -3,7 +3,7 @@
     "uuid": "4a30fff1-04c2-47c6-b531-51996c11e135",
     "metadata": {
       "title": "Grundschutz++ - Red Hat Enterprise Linux 9",
-      "last-modified": "2026-10-08T15:03:46.111+00:00",
+      "last-modified": "2026-10-08T15:09:57.524+00:00",
       "version": "0.1.0",
       "oscal-version": "1.2.1"
     },
@@ -3757,6 +3757,54 @@
             "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
             "value": "install intrusion detection software",
             "remarks": "rule_set_265"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "audit_rules_mac_modification",
+            "remarks": "rule_set_266"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "audit rules mac modification",
+            "remarks": "rule_set_266"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "audit_rules_sudoers",
+            "remarks": "rule_set_267"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "audit rules sudoers",
+            "remarks": "rule_set_267"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "audit_rules_sudoers_d",
+            "remarks": "rule_set_268"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "audit rules sudoers d",
+            "remarks": "rule_set_268"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "audit_rules_usergroup_modification_pamd",
+            "remarks": "rule_set_269"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "audit rules usergroup modification pamd",
+            "remarks": "rule_set_269"
           }
         ],
         "control-implementations": [
@@ -7365,6 +7413,37 @@
                     "name": "Rule_Id",
                     "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
                     "value": "package_aide_installed"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "partial"
+                  }
+                ]
+              },
+              {
+                "uuid": "3d90c83f-1243-4d95-8edc-abd3a59d6d3b",
+                "control-id": "DET.4.4",
+                "description": "RHEL protokolliert mit auditd über persistente Dateiüberwachungsregeln Schreib- und Attributänderungen an zentralen Sicherheitsrichtlinien: unter anderem SELinux-Konfiguration unter `/etc/selinux/`, sudoers-Regeln in `/etc/sudoers` und `/etc/sudoers.d/` sowie PAM-Stack-Dateien in `/etc/pam.d/`. Die Ereignisse stehen in den Audit-Logs zur forensischen Auswertung bereit. Änderungen an weiteren Richtlinien (z. B. SSH- oder Firewall-Konfiguration) sowie das unbemerkte Stoppen von Schutzdiensten erfordern zusätzliche, institutionell festgelegte Regeln, zentrale Sammlung und Alarmierung; reine Host-Härtung deckt EDR-Ausnahmen, Verzeichnisdienst-Gruppen oder NAC nicht ab.\n\nWeitere Informationen: [Auditing the system](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/auditing-the-system_security-hardening)",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "audit_rules_mac_modification"
+                  },
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "audit_rules_sudoers"
+                  },
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "audit_rules_sudoers_d"
+                  },
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "audit_rules_usergroup_modification_pamd"
                   },
                   {
                     "name": "implementation-status",
