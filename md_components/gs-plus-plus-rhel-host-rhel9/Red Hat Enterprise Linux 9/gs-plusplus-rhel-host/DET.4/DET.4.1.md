@@ -2,7 +2,7 @@
 x-trestle-comp-def-rules:
   Red Hat Enterprise Linux 9:
     - name: gspp_impl_det_4_1
-      description: Narrative implementation seed for DET.4.1 (no CaC rule 
+      description: Narrative implementation seed for DET.4.1 (no CaC rule
         binding)
 x-trestle-global:
   profile:
@@ -30,9 +30,9 @@ ______________________________________________________________________
 
 <!-- Add control implementation description here for control: DET.4.1 -->
 
-Die Überwachung, ob Protokollierung auf einem RHEL-Host noch aktiv ist und in erwarteter Menge anfällt, ist primär Aufgabe der Institution (SIEM, Log-Management, Betriebsüberwachung). RHEL stellt dafür Bausteine bereit: `systemd` verwaltet die Dienste `auditd`, `rsyslog` bzw. `systemd-journald`; deren Zustand lässt sich mit `systemctl` und über Journal-Einträge prüfen. Mit `journalctl` (lokal oder in der Web-Konsole unter Logs) können Administratoren Lücken, Fehler oder ungewöhnlich niedrige Aktivität erkennen; bei zentraler Weiterleitung (z. B. über `rsyslog` oder die Logging-RHEL-Systemrolle) lassen sich Schwellwerte und Alarme auf dem Log-Server oder in der Monitoring-Lösung definieren. Ein einzelner Host liefert keine fertige Erkennung „Logging deaktiviert“ oder „Logvolumen außerhalb Toleranz“ ohne zusätzliche Automatisierung oder zentrale Korrelation.
+ RHEL stellt für die Überwachung der RHEL-seitigen Logging-Komponenten Bausteine bereit: `systemd` verwaltet die Dienste `auditd`, `rsyslog` bzw. `systemd-journald`, deren Zustand lässt sich mit `systemctl` und über Journal-Einträge prüfen. Dies kann als Indikator für eine externe Monitoring-Lösung verwendet werden, in der die Log-Funktionalität überwacht wird. Dies trifft jedoch bei der Anbindung eines zentralen Log-Managements (SIEM) keine Aussage darüber, ob die Daten auch dort anschauen. Dies sollte in der ganzheitlichen Betrachtung berücksichtigt werden. Ein einzelner Host liefert keine fertige Erkennung „Logging deaktiviert“ oder „Logvolumen außerhalb Toleranz“ ohne zusätzliche Automatisierung oder zentrale Korrelation.
 
-Weitere Informationen: [Probleme anhand von Logdateien analysieren](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_basic_system_settings/assembly_troubleshooting-problems-using-log-files_configuring-basic-system-settings), [Logging-RHEL-Systemrolle](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/assembly_using-the-logging-system-role_security-hardening), [Audit-Aufzeichnungen konfigurieren](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/assembly_configuring-audit-records_security-hardening)
+Weitere Informationen: [Logging-RHEL-Systemrolle](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/assembly_using-the-logging-system-role_security-hardening), [Audit-Aufzeichnungen konfigurieren](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/assembly_configuring-audit-records_security-hardening)
 
 ### Implementation Status: partial
 
