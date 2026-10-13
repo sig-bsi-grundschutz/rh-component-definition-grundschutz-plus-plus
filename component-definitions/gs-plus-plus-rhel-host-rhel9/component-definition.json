@@ -3,7 +3,7 @@
     "uuid": "4a30fff1-04c2-47c6-b531-51996c11e135",
     "metadata": {
       "title": "Grundschutz++ - Red Hat Enterprise Linux 9",
-      "last-modified": "2026-10-09T12:48:43.301+00:00",
+      "last-modified": "2026-10-13T11:13:15.606+00:00",
       "version": "0.1.0",
       "oscal-version": "1.2.1"
     },
@@ -3841,18 +3841,6 @@
             "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
             "value": "The grub2 boot loader should have a superuser account and password protection enabled to protect boot-time settings.",
             "remarks": "rule_set_272"
-          },
-          {
-            "name": "Rule_Id",
-            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
-            "value": "gspp_impl_det_4_9",
-            "remarks": "rule_set_273"
-          },
-          {
-            "name": "Rule_Description",
-            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
-            "value": "Narrative implementation seed for DET.4.9 (no CaC rule binding)",
-            "remarks": "rule_set_273"
           }
         ],
         "control-implementations": [
@@ -7539,12 +7527,27 @@
               {
                 "uuid": "290e35b6-cb45-42bc-9af0-05b0f5a051aa",
                 "control-id": "DET.4.9",
-                "description": "Die Anforderung ist optional (KANN) und betrifft vor allem Systeme mit erhöhtem Manipulationsrisiko. RHEL kann bei organisatorischer Freigabe regelmäßige Prüfungen auf unautorisierte Änderungen am Dateisystem mit AIDE (Advanced Intrusion Detection Environment) durchführen: Nach Initialisierung einer Referenzdatenbank vergleicht `aide --check` konfigurierte Pfade mit der Baseline; Abweichungen weisen auf mögliche Manipulationen hin. Die Prüfung lässt sich per Cron oder systemd-Timer planen und die Ergebnisse per E-Mail oder zentrales Monitoring auswerten. Ergänzend kann die Integrity Measurement Architecture (IMA) Integrität einzelner Dateien über Messwerte in erweiterten Attributen absichern. Physische Schutzmaßnahmen wie Gerätesiegel sowie Maßnahmen nach Feststellung einer Manipulation (z. B. Werksreset oder Aussonderung) sind organisatorisch festzulegen und werden vom Betriebssystem nicht automatisch ausgelöst.\n\nWeitere Informationen: [Integritätsprüfung mit AIDE](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/checking-integrity-with-aide_security-hardening)",
+                "description": "RHEL kann regelmäßige Prüfungen auf unautorisierte Änderungen am Dateisystem mit AIDE (Advanced Intrusion Detection Environment) durchführen: Nach Initialisierung einer Referenzdatenbank vergleicht `aide --check` konfigurierte Pfade mit der Baseline. Abweichungen weisen auf mögliche Manipulationen hin. Die Prüfung lässt sich per Cron oder systemd-Timer planen und die Ergebnisse können per E-Mail oder zentrales Monitoring zur späteren Auswertung erfasst werden. Ergänzend kann die Integrity Measurement Architecture (IMA) Integrität einzelner Dateien über Messwerte in erweiterten Attributen absichern. Physische Schutzmaßnahmen wie Gerätesiegel sowie Maßnahmen nach Feststellung einer Manipulation (z. B. Werksreset oder Aussonderung) sind organisatorisch festzulegen und werden vom Betriebssystem nicht adressiert.\n\nWeitere Informationen: [Integritätsprüfung mit AIDE](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/checking-integrity-with-aide_security-hardening)",
                 "props": [
                   {
                     "name": "Rule_Id",
                     "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
-                    "value": "gspp_impl_det_4_9"
+                    "value": "aide_build_database"
+                  },
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "aide_periodic_cron_checking"
+                  },
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "aide_scan_notification"
+                  },
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "package_aide_installed"
                   },
                   {
                     "name": "implementation-status",
