@@ -2,7 +2,7 @@
 x-trestle-comp-def-rules:
   Red Hat Enterprise Linux 9:
     - name: gspp_impl_not_4_2
-      description: Narrative implementation seed for NOT.4.2 (no CaC rule
+      description: Narrative implementation seed for NOT.4.2 (no CaC rule 
         binding)
 x-trestle-param-values:
   not.4.2-prm1:
@@ -29,8 +29,6 @@ ______________________________________________________________________
 <!-- For implementation status enter one of: implemented, partial, planned, alternative, not-applicable -->
 
 <!-- Note that the list of rules under ### Rules: is read-only and changes will not be captured after assembly to JSON -->
-
-<!-- Add control implementation description here for control: NOT.4.2 -->
 
 Für die Sicherung und Wiederherstellung eines RHEL Hosts gibt es mehrere Möglichkeiten. Die klassische Variante ist die Nutzung von REAR (RElax-And-Recover), einem mit RHEL ausgelieferten Backup-Tool, das ein einzelnes Betriebssystem entsprechend der ReaR-Konfiguration sichert. Eine Alternative in diesem Ansatz ist die Verwendung von 3rd Party-Backup-Lösungen, die entweder auf Ebene der Speicherlösung, der Virtualisierungslösung oder des Betriebssystems ausgeführt werden. Eine moderne Alternative bietet der "Infrastructure-as-code" Ansatz, in dem die Systemkonfiguration inklusive aller Konfigurationsdaten in einem Versionskontrollsystem (Git) mittels Ansible-Ressourcen definiert ist und so gleichartige Systeme jederzeit "from Scratch" wiederhergestellt werden können. Dies kann - je nach Implementierung in den Ansible-Playbooks - inklusive der Anwendungen und der dazugehörige Konfiguration erfolgen. Ein Ausgangspunkt hierfür sind die mit RHEL ausgelieferten `system-roles`. Ein dritter Ansatz ist die Nutzung des Image-Modes von RHEL. In diesem Modus wird das Betriebssystem inklusive Konfiguration und zu installierender Anwendungen in einem `Containerfile` definiert und anschließend ausgerollt. Hierdurch entsteht mit jeder Veränderung des Betriebssystems - sei es Konfigurationsänderung oder Update - ein neues System-Image, dass identisch zu Container-Images verteilt und verwaltet wird. Die Notwendigkeit der Sicherung einzelner Systeme entfällt dabei, da diese jederzeit vom Image wiederherstellbar sind. Anwendungsbackups sind in dieser Betrachtung nicht berücksichtigt.
 

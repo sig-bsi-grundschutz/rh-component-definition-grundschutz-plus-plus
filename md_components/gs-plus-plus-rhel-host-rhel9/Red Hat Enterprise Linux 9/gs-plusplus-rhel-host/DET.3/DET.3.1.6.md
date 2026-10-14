@@ -2,7 +2,7 @@
 x-trestle-comp-def-rules:
   Red Hat Enterprise Linux 9:
     - name: gspp_impl_det_3_1_6
-      description: Narrative implementation seed for DET.3.1.6 (no CaC rule
+      description: Narrative implementation seed for DET.3.1.6 (no CaC rule 
         binding)
 x-trestle-param-values:
   det.3.1.6-prm1:

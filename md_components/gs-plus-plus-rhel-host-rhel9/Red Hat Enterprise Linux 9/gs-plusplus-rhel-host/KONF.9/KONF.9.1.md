@@ -2,10 +2,10 @@
 x-trestle-comp-def-rules:
   Red Hat Enterprise Linux 9:
     - name: mount_option_home_usrquota
-      description: The usrquota mount option allows for the filesystem to have
+      description: The usrquota mount option allows for the filesystem to have 
         disk quotas configured.
     - name: mount_option_home_grpquota
-      description: The grpquota mount option allows for the filesystem to have
+      description: The grpquota mount option allows for the filesystem to have 
         disk quotas configured.
 x-trestle-global:
   profile:

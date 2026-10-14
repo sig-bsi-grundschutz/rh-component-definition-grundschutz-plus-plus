@@ -6,10 +6,10 @@ x-trestle-global:
 x-trestle-comp-def-rules:
   Red Hat Enterprise Linux 9:
     - name: grub2_uefi_password
-      description: The grub2 boot loader should have a superuser account and
+      description: The grub2 boot loader should have a superuser account and 
         password protection enabled to protect boot-time settings.
     - name: grub2_uefi_admin_username
-      description: The grub2 boot loader should have a superuser account and
+      description: The grub2 boot loader should have a superuser account and 
         password protection enabled to protect boot-time settings.
 ---
 

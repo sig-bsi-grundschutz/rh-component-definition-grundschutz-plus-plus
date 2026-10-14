@@ -27,8 +27,6 @@ ______________________________________________________________________
 
 <!-- Note that the list of rules under ### Rules: is read-only and changes will not be captured after assembly to JSON -->
 
-<!-- Add control implementation description here for control: KONF.11.8 -->
-
 RHEL kann die verschlüsselte Speicherung (at-rest) für Anwendungen unterstützen, in dem eine verschlüsselte LUKS-Partition mit `cryptsetup`/dm-crypt vom Host verwendet wird.
 
 Weitere Informationen: [Blockgeräte mit LUKS verschlüsseln](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/encrypting-block-devices-using-luks_security-hardening)
