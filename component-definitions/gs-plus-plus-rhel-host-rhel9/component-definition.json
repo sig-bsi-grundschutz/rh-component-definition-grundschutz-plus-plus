@@ -3,7 +3,7 @@
     "uuid": "4a30fff1-04c2-47c6-b531-51996c11e135",
     "metadata": {
       "title": "Grundschutz++ - Red Hat Enterprise Linux 9",
-      "last-modified": "2026-10-14T10:04:21.042+00:00",
+      "last-modified": "2026-10-14T10:39:16+00:00",
       "version": "0.1.0",
       "oscal-version": "1.2.1"
     },
@@ -3877,6 +3877,18 @@
             "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
             "value": "Narrative implementation seed for DET.4.16 (no CaC rule binding)",
             "remarks": "rule_set_275"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "gspp_impl_det_5_10_2",
+            "remarks": "rule_set_276"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "Narrative implementation seed for DET.5.10.2 (no CaC rule binding)",
+            "remarks": "rule_set_276"
           }
         ],
         "control-implementations": [
@@ -7642,22 +7654,12 @@
               {
                 "uuid": "5e678bb9-b3e8-4792-9134-5edca57e2e01",
                 "control-id": "DET.5.10.2",
-                "description": "RHEL stellt für die automatisierte Überwachung des Patchstatus auf dem Host die Paketverwaltung DNF bereit: Metadaten aus den konfigurierten Repositories zeigen verfügbare Sicherheits- und Bugfix-Errata (`dnf check-update`, `dnf updateinfo list security`). Für einen wiederkehrenden, systemgesteuerten Mechanismus ohne automatische Installation dient `dnf-automatic`: Nach Installation des Pakets wird in `/etc/dnf/automatic.conf` `apply_updates` deaktiviert gelassen; der systemd-Timer `dnf-automatic-notifyonly.timer` (oder ein konservativ konfigurierter `dnf-automatic.timer`) prüft periodisch auf Updates und meldet verfügbare Patches (z. B. per E-Mail), ohne Pakete zu installieren — technisch eng verwandt mit der Konfigurationsanforderung KONF.8.1, hier aus Detektionssicht für den lokalen Patchstatus. Ob der Stand den internen Vorgaben entspricht, bewertet die Institution zusätzlich (z. B. Errata-Abgleich, `dnf history`, OpenSCAP-Prüfungen oder zentrale Auswertung über Red Hat Satellite bzw. Red Hat Insights). Kennzahlen wie Mean Time To Patch oder Anteil gepatchter Systeme erfordern aggregierte Auswertung und Prozesse außerhalb des einzelnen Hosts.\n\nWeitere Informationen: [Automatisierung von Software-Updates in RHEL 9](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_software_with_the_dnf_tool/assembly_automating-software-updates-in-rhel-9_managing-software-with-the-dnf-tool), [Installation von Sicherheitsupdates](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_and_monitoring_security_updates/installing-security-updates_managing-and-monitoring-security-updates)",
+                "description": "Für die automatisierte Überwachung des Patchstatus über mehrer RHEL-Hosts hinweg und im Kontext mit Informations-Verbund übergreifendem Schwachstellen-Management kann Red Hat Satellite als zentrale Informationsquelle für RHEL-Systeme dienen. Satellite hält den Patch-Stand registrierter Systeme fortlaufend nach und unterscheidet anwendbare von installierbaren Advisories (Security, Bugfix, Enhancement). Es lassen sich Patchstatus-Berichte für alle angebundenen RHEL-Hosts (regelmäßig) erzeugen und beispielsweise auch als CSV versenden. Eigene Report Templates können Errata-Anzahlen und -Typen je Lifecycle Environment aggregieren und so die notwendige Datenbasis für die Kennzahlen bereitstellen. Durch die Rohdaten lassen sich die Mean-Time-To-Patch und andere Kennwerte errechnen. Sollwerte, Ausnahmeregeln und Schwellen legt die Institution fest. Satellite stellt die fortlaufend aktualisierte Datengrundlage und die Auswertungsfunktionen bereit.\n\nWeitere Informationen: [Using report templates to monitor hosts (Satellite 6.19)](https://docs.redhat.com/en/documentation/red_hat_satellite/6.19/html/managing_hosts/using_report_templates_to_monitor_hosts_managing-hosts), [Patching hosts through errata (Satellite 6.18)](https://docs.redhat.com/en/documentation/red_hat_satellite/6.18/html/managing_hosts/patching-hosts-through-errata)",
                 "props": [
                   {
                     "name": "Rule_Id",
                     "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
-                    "value": "security_patches_up_to_date"
-                  },
-                  {
-                    "name": "Rule_Id",
-                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
-                    "value": "package_dnf-automatic_installed"
-                  },
-                  {
-                    "name": "Rule_Id",
-                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
-                    "value": "timer_dnf-automatic_enabled"
+                    "value": "gspp_impl_det_5_10_2"
                   },
                   {
                     "name": "implementation-status",
