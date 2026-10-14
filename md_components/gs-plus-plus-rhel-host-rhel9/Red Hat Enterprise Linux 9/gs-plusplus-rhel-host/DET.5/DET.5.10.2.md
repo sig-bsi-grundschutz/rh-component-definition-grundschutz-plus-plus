@@ -1,12 +1,9 @@
 ---
 x-trestle-comp-def-rules:
   Red Hat Enterprise Linux 9:
-    - name: security_patches_up_to_date
-      description: ensure software patches installed
-    - name: package_dnf-automatic_installed
-      description: install dnf-automatic package
-    - name: timer_dnf-automatic_enabled
-      description: enable dnf-automatic timer
+    - name: gspp_impl_det_5_10_2
+      description: Narrative implementation seed for DET.5.10.2 (no CaC rule 
+        binding)
 x-trestle-param-values:
   det.5.10.2-prm1:
     values:
@@ -35,11 +32,9 @@ ______________________________________________________________________
 
 <!-- Note that the list of rules under ### Rules: is read-only and changes will not be captured after assembly to JSON -->
 
-<!-- Add control implementation description here for control: DET.5.10.2 -->
+Für die automatisierte Überwachung des Patchstatus über mehrer RHEL-Hosts hinweg und im Kontext mit Informations-Verbund übergreifendem Schwachstellen-Management kann Red Hat Satellite als zentrale Informationsquelle für RHEL-Systeme dienen. Satellite hält den Patch-Stand registrierter Systeme fortlaufend nach und unterscheidet anwendbare von installierbaren Advisories (Security, Bugfix, Enhancement). Es lassen sich Patchstatus-Berichte für alle angebundenen RHEL-Hosts (regelmäßig) erzeugen und beispielsweise auch als CSV versenden. Eigene Report Templates können Errata-Anzahlen und -Typen je Lifecycle Environment aggregieren und so die notwendige Datenbasis für die Kennzahlen bereitstellen. Durch die Rohdaten lassen sich die Mean-Time-To-Patch und andere Kennwerte errechnen. Sollwerte, Ausnahmeregeln und Schwellen legt die Institution fest. Satellite stellt die fortlaufend aktualisierte Datengrundlage und die Auswertungsfunktionen bereit.
 
-RHEL stellt für die automatisierte Überwachung des Patchstatus auf dem Host die Paketverwaltung DNF bereit: Metadaten aus den konfigurierten Repositories zeigen verfügbare Sicherheits- und Bugfix-Errata (`dnf check-update`, `dnf updateinfo list security`). Für einen wiederkehrenden, systemgesteuerten Mechanismus ohne automatische Installation dient `dnf-automatic`: Nach Installation des Pakets wird in `/etc/dnf/automatic.conf` `apply_updates` deaktiviert gelassen; der systemd-Timer `dnf-automatic-notifyonly.timer` (oder ein konservativ konfigurierter `dnf-automatic.timer`) prüft periodisch auf Updates und meldet verfügbare Patches (z. B. per E-Mail), ohne Pakete zu installieren — technisch eng verwandt mit der Konfigurationsanforderung KONF.8.1, hier aus Detektionssicht für den lokalen Patchstatus. Ob der Stand den internen Vorgaben entspricht, bewertet die Institution zusätzlich (z. B. Errata-Abgleich, `dnf history`, OpenSCAP-Prüfungen oder zentrale Auswertung über Red Hat Satellite bzw. Red Hat Insights). Kennzahlen wie Mean Time To Patch oder Anteil gepatchter Systeme erfordern aggregierte Auswertung und Prozesse außerhalb des einzelnen Hosts.
-
-Weitere Informationen: [Automatisierung von Software-Updates in RHEL 9](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_software_with_the_dnf_tool/assembly_automating-software-updates-in-rhel-9_managing-software-with-the-dnf-tool), [Installation von Sicherheitsupdates](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_and_monitoring_security_updates/installing-security-updates_managing-and-monitoring-security-updates)
+Weitere Informationen: [Using report templates to monitor hosts (Satellite 6.19)](https://docs.redhat.com/en/documentation/red_hat_satellite/6.19/html/managing_hosts/using_report_templates_to_monitor_hosts_managing-hosts), [Patching hosts through errata (Satellite 6.18)](https://docs.redhat.com/en/documentation/red_hat_satellite/6.18/html/managing_hosts/patching-hosts-through-errata)
 
 ### Implementation Status: partial
 
