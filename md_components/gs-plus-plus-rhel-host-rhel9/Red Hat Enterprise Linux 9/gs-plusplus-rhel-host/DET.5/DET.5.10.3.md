@@ -2,7 +2,7 @@
 x-trestle-comp-def-rules:
   Red Hat Enterprise Linux 9:
     - name: gspp_impl_det_5_10_3
-      description: Narrative implementation seed for DET.5.10.3 (no CaC rule 
+      description: Narrative implementation seed for DET.5.10.3 (no CaC rule
         binding)
 x-trestle-param-values:
   det.5.10.3-prm1:
@@ -30,9 +30,8 @@ ______________________________________________________________________
 
 <!-- Note that the list of rules under ### Rules: is read-only and changes will not be captured after assembly to JSON -->
 
-RHEL stellt kein integriertes Patch- oder Vulnerability-Management für beliebige Anwendungen bereit; der Parameter „det.5.10.3-prm1“ beschreibt die von der Institution gewählte Methode (z. B. PMS, VMS oder Schwachstellen-Scanner) und wird auf dem Host nicht automatisch durchgesetzt. Für containerisierte Anwendungen lassen sich mit Podman und Skopeo Image-Metadaten prüfen, Registry-Zugriffe steuern (`registries.conf`) und aktualisierte Images gezielt beziehen; wiederkehrende Abgleiche können über systemd-Timer oder Konfigurationsautomatisierung angebunden werden. OpenSCAP- und RHSA-OVAL-Inhalte adressieren primär von Red Hat ausgelieferte RPM-Pakete — für Drittanbieter- oder sprachspezifische Anwendungen sind zusätzliche, organisationsweite Prüfdefinitionen und Benachrichtigungsworkflows erforderlich. Auf registrierten Systemen kann Red Hat Lightspeed Hinweise zu Risiken und Empfehlungen liefern, ersetzt aber kein anwendungsspezifisches Patch-Monitoring.
+Anwendungen können auf unterschiedlichen Wegen installiert werden. Ein Weg über den die Red Hat Enterprise Linux Standard Tools den Prozess der automatisierten Überwachung der Updates unterstützen können ist, wenn die Anwendungen entweder auf durch Red Hat bereitgestellten Paketen basieren (z.B. `apache`, `nginx` oder verschiedene mitgelieferte Libraries, oder als `rpm`-Paket paketiert und bereitgestellt werden. In diesem Falle kann Red Hat Satellite wie in DET.5.10.2 beschrieben zur Verwaltung und Überwachung der Updates verwendet werden. Dies deckt jedoch nur die Teilstrecke "Repository" zu "Host-Systeme" ab, nicht den Weg vom Lieferanten in die Repositories oder bei selbstentwickelten Anwendungen die internen Anwendungsabhängigkeiten und deren Aktualisierung vor der `rpm`-Paketierung.
 
-Weitere Informationen: [Sicherheitshärtung — RHSA-OVAL und Drittanbieter-Software](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/scanning-the-system-for-security-compliance-and-vulnerabilities_security-hardening), [Container erstellen, ausführen und verwalten](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/building_running_and_managing_containers/index)
 
 ### Rules:
 
