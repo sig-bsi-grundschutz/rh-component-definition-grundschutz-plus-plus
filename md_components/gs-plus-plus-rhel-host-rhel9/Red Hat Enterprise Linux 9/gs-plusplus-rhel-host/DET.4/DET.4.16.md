@@ -2,7 +2,7 @@
 x-trestle-comp-def-rules:
   Red Hat Enterprise Linux 9:
     - name: gspp_impl_det_4_16
-      description: Narrative implementation seed for DET.4.16 (no CaC rule 
+      description: Narrative implementation seed for DET.4.16 (no CaC rule
         binding)
 x-trestle-param-values:
   det.4.16-prm1:
@@ -32,9 +32,9 @@ ______________________________________________________________________
 
 <!-- Add control implementation description here for control: DET.4.16 -->
 
-Die Anforderung ist optional (KANN) und zielt auf die für Anwendungen genutzten Server-Dienste; auf RHEL 9 ordnet systemd jeden Dienst in der cgroup-Hierarchie ein, sodass CPU-, Arbeitsspeicher- und I/O-Auslastung pro Unit sichtbar wird (`CPUAccounting=`, `MemoryAccounting=`, `systemctl show`, `systemd-cgtop`). Grenzen und Reaktionen bei Überlast können in Unit-Dateien oder per `systemctl set-property` mit Optionen wie `CPUQuota=` oder `MemoryMax=` gesetzt werden. Performance Co-Pilot (PCP) mit `pmcd` und `pmlogger` erfasst Metriken fortlaufend; mit `pminfo`, `pmstat` oder dienstspezifischen PMDAs lassen sich Kennzahlen für KPI-Baselining und Schwellwertprüfungen auswerten, optional mit `pmie` für Alarme. Welche Metriken im Parameter `det.4.16-prm1` gelten, Baselines, Clientzahlen und Maßnahmen wie Lastverteilung definiert und betreibt die Institution; RHEL stellt die Werkzeuge, erzwingt aber keine anwendungsspezifische Überwachung.
+RHEL stellt Werkzeuge zur Erfassung und Auswertung der Anwendungs-Ressourcenauslastung bereit, sofern diese über Standard-Systemfunktionen gestartet werden. Spezifische Anwendungen können spezifischere Anwendungs-Monitoring-Lösungen erfordern. Sofern das Pattern "Eine Anwendung - Ein Host" eingehalten wird, korreliert die Auslastung des Hosts regelmäßig mit der Last durch die Anwendung, mit der Ausnahme von Host-Prozessen. Mit dem Paket **sysstat** lassen sich CPU, Speicher und Platten-I/O fortlaufend protokollieren (`sadc`/`sar`, ergänzend `iostat` und `mpstat`). Der **Performance Co-Pilot (PCP)** mit `pmlogger` speichert Metriken historisch und unterstützt damit die  zentrale Auswertung. Mit `pminfo`, `pmstat` oder dienstspezifischen PMDAs lassen sich Kennzahlen für KPI-Baselining und Schwellwertprüfungen auswerten. Diese Informationen können durch ein zentrales Monitoring Tool (Nagios, Icinga und andere) aufgenommen oder alternativ über eigene Agenten erfasst werden. Für die kurzfristige Sicht beispielsweise bei Untersuchungen reichen Bordmittel wie `top`, `vmstat` und `df`.  Die automatische Alarmierung bei Schwellwertüberschreitung, KPI-Baselining und Maßnahmen wie Lastverteilung oder Ressourcenbegrenzung erfordern Monitoring-Backends oder Automatisierung außerhalb des RHEL-Hosts. Ebenfalls müssen institutionellen Schwellwerte und Reaktionsmaßnahmen durch  die Organisation festgelegt werden.
 
-Weitere Informationen: [Ressourcen mit systemd verwalten](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/monitoring_and_managing_system_status_and_performance/assembly_using-systemd-to-manage-resources-used-by-applications_monitoring-and-managing-system-status-and-performance), [Performance Co-Pilot](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/monitoring_and_managing_system_status_and_performance/monitoring-performance-with-performance-co-pilot_monitoring-and-managing-system-status-and-performance)
+Weitere Informationen: [Überblick Performance-Monitoring (RHEL 9)](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/monitoring_and_managing_system_status_and_performance/overview-of-performance-monitoring-options), [Metriken in der Web-Konsole (RHEL 9)](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/monitoring_and_managing_system_status_and_performance/using-the-web-console-for-selecting-performance-profiles_monitoring-and-managing-system-status-and-performance), [How to Use SAR to Monitor System Performance in Red Hat Enterprise Linux](https://access.redhat.com/solutions/276533)
 
 ### Implementation Status: partial
 
