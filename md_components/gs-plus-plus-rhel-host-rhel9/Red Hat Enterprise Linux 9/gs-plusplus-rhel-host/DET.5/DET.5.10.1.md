@@ -1,12 +1,9 @@
 ---
 x-trestle-comp-def-rules:
   Red Hat Enterprise Linux 9:
-    - name: ensure_gpgcheck_globally_activated
-      description: ensure gpgcheck globally activated
-    - name: ensure_gpgcheck_local_packages
-      description: ensure gpgcheck local packages
-    - name: ensure_gpgcheck_never_disabled
-      description: ensure gpgcheck never disabled
+    - name: gspp_impl_det_5_10_1
+      description: Narrative implementation seed for DET.5.10.1 (no CaC rule
+        binding)
 x-trestle-global:
   profile:
     title: Grundschutz++ für Red Hat Enterprise Linux Host
@@ -31,11 +28,9 @@ ______________________________________________________________________
 
 <!-- Note that the list of rules under ### Rules: is read-only and changes will not be captured after assembly to JSON -->
 
-<!-- Add control implementation description here for control: DET.5.10.1 -->
+Red Hat Software wird prinzipiell ausschließlich von Red Hat über das von Red Hat betriebene Red Hat Content Delivery Network bereitgestellt. Der Bereitstellungsprozess wird hierbei nach SLSA Level 3 durchgeführt. Für Red Hat Software sollte Red Hat daher grundsätzlich eine vertrauenswürdige Quelle darstellen. Für System- und Sicherheitsupdates bezieht RHEL Patches über die mit Subscription Manager verwalteten Repository-Definitionen (typisch `/etc/yum.repos.d/redhat.repo`) von der Red Hat Content Delivery Network oder von einem von der Institution autorisierten internen Spiegel (z. B. Red Hat Satellite). Für auf RHEL aufsetzende Software können zusätzliche Repositories und deren Schlüssel organisatorisch freigegeben und in DNF konfiguriert werden.
 
-Für System- und Sicherheitsupdates bezieht RHEL Patches über die mit Subscription Manager verwalteten Repository-Definitionen (typisch `/etc/yum.repos.d/redhat.repo`) von der Red Hat Content Delivery Network oder von einem von der Institution autorisierten internen Spiegel (z. B. Red Hat Satellite). Vor der Installation prüft DNF/RPM die GPG-Signaturen der RPM-Pakete, wenn `gpgcheck=1` global in `/etc/dnf/dnf.conf` gesetzt ist, in keinem aktivierten Repository deaktiviert wird und für lokale Installationen die Paketsignaturprüfung aktiv bleibt. Zusätzliche Repositories und deren Schlüssel müssen organisatorisch freigegeben und in DNF konfiguriert werden; die Prognose der Vertrauenswürdigkeit einer Quelle selbst erfüllt das Betriebssystem nicht.
-
-Weitere Informationen: [Software mit dem DNF-Tool verwalten](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_software_with_the_dnf_tool/index), [Sicherheitshärtung](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/index).
+Weitere Informationen: [Software mit dem DNF-Tool verwalten](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_software_with_the_dnf_tool/index), [Sicherheitshärtung](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/index), [SLSA Level 3](https://slsa.dev), [Red Hat Supply Chain Security Assurance](https://access.redhat.com/articles/software%20_supply_chain_security_assurance)
 
 ### Implementation Status: partial
 
