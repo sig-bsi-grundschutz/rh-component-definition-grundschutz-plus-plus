@@ -2,7 +2,7 @@
 x-trestle-comp-def-rules:
   Red Hat Enterprise Linux 9:
     - name: gspp_impl_det_4_13
-      description: Narrative implementation seed for DET.4.13 (no CaC rule
+      description: Narrative implementation seed for DET.4.13 (no CaC rule 
         binding)
 x-trestle-param-values:
   det.4.13-prm1:
@@ -29,8 +29,6 @@ ______________________________________________________________________
 <!-- For implementation status enter one of: implemented, partial, planned, alternative, not-applicable -->
 
 <!-- Note that the list of rules under ### Rules: is read-only and changes will not be captured after assembly to JSON -->
-
-<!-- Add control implementation description here for control: DET.4.13 -->
 
 Die Überwachung der Netzerreichbarkeit eines RHEL‑Hosts erfolgt in der Regel durch ein **externes** Monitoring-System (Nagios/Icinga, Prometheus mit Alertmanager, Grafana oder vergleichbare Lösungen), das vom Netz aus Health-Checks gegen den Host ausführt (ICMP, TCP-Ports, HTTP(S)-Probes). RHEL setzt diese Schwellwerte nicht selbst, da sie Abhängig von der Workload und der Umgebung sein können, in denen der Host betrieben wird. Der Host kann Metriken bereitstellen, etwa über Performance Co-Pilot (`pmcd`, optional Performance Metric Domain Agents (`pmda`)) oder 3rd Party Monitoring Agents, damit das zentrale System Ausfälle und Latenzen bewerten kann. Festlegung der Grenzwerte, Eskalation und Reaktion auf Alarme bleiben organisatorische Aufgaben der Institution.
 

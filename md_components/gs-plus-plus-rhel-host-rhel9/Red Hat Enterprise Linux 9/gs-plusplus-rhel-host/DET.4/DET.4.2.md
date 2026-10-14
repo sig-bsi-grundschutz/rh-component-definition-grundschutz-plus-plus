@@ -37,8 +37,6 @@ ______________________________________________________________________
 
 <!-- Note that the list of rules under ### Rules: is read-only and changes will not be captured after assembly to JSON -->
 
-<!-- Add control implementation description here for control: DET.4.2 -->
-
 RHEL stellt hostbasierte Bausteine zur Erkennung von Angriffsindikatoren bereit, die die Institution über den Profilparameter für den automatisierten Überwachungsmechanismus konkretisiert. Advanced Intrusion Detection Environment (AIDE) erstellt eine Referenzdatenbank kritischer Dateien und vergleicht diese periodisch (Cron oder systemd-Timer); Abweichungen weisen auf unautorisierte Manipulationen hin und können per Benachrichtigung an Betrieb oder SOC eskaliert werden. Damit deckt AIDE Integritätsverletzungen ab, nicht signatur- oder verhaltensbasierte Angriffsmuster im Sinne eines vollständigen HIDS.
 
 Ergänzend kann die Integrity Measurement Architecture (IMA) im Kernel-Integritätssubsystem (zusammen mit dem Extended Verification Module, EVM) Dateiinhalte zur Laufzeit messen und bewerten: IMA-Audit schreibt Messwerte in das Audit-Protokoll; IMA-Measurement speichert Hashes im Kernel und kann bei vorhandenem TPM PCR-Erweiterungen für Remote Attestation liefern (z. B. mit Keylime). IMA-Appraisal vergleicht berechnete Hashes bzw. Signaturen mit Referenzwerten und kann den Zugriff bei Abweichung verweigern. AIDE und IMA adressieren damit denselben Integritätsaspekt (periodisch vs. laufzeitnah), ersetzen aber keine netz- oder verhaltensbasierte Angriffserkennung.

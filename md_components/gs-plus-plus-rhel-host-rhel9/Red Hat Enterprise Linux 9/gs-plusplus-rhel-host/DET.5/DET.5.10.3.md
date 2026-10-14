@@ -2,7 +2,7 @@
 x-trestle-comp-def-rules:
   Red Hat Enterprise Linux 9:
     - name: gspp_impl_det_5_10_3
-      description: Narrative implementation seed for DET.5.10.3 (no CaC rule
+      description: Narrative implementation seed for DET.5.10.3 (no CaC rule 
         binding)
 x-trestle-param-values:
   det.5.10.3-prm1:
@@ -31,7 +31,6 @@ ______________________________________________________________________
 <!-- Note that the list of rules under ### Rules: is read-only and changes will not be captured after assembly to JSON -->
 
 Anwendungen können auf unterschiedlichen Wegen installiert werden. Ein Weg über den die Red Hat Enterprise Linux Standard Tools den Prozess der automatisierten Überwachung der Updates unterstützen können ist, wenn die Anwendungen entweder auf durch Red Hat bereitgestellten Paketen basieren (z.B. `apache`, `nginx` oder verschiedene mitgelieferte Libraries, oder als `rpm`-Paket paketiert und bereitgestellt werden. In diesem Falle kann Red Hat Satellite wie in DET.5.10.2 beschrieben zur Verwaltung und Überwachung der Updates verwendet werden. Dies deckt jedoch nur die Teilstrecke "Repository" zu "Host-Systeme" ab, nicht den Weg vom Lieferanten in die Repositories oder bei selbstentwickelten Anwendungen die internen Anwendungsabhängigkeiten und deren Aktualisierung vor der `rpm`-Paketierung.
-
 
 ### Rules:
 

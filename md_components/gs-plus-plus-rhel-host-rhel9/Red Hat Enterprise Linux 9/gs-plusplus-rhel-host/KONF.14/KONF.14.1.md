@@ -7,7 +7,7 @@ x-trestle-rules-params:
   Red Hat Enterprise Linux 9:
     - name: var_system_crypto_policy
       description: var system crypto policy
-      options:
+      options: 
         DEFAULT,DEFAULT:NO-SHA1,FIPS,FIPS:OSPP,FIPS:STIG,LEGACY,FUTURE,NEXT
       rule-id: configure_crypto_policy
 x-trestle-comp-def-rules-param-vals:
@@ -50,8 +50,6 @@ ______________________________________________________________________
 <!-- For implementation status enter one of: implemented, partial, planned, alternative, not-applicable -->
 
 <!-- Note that the list of rules under ### Rules: is read-only and changes will not be captured after assembly to JSON -->
-
-<!-- Add control implementation description here for control: KONF.14.1 -->
 
 Auf Host-Ebene erzwingt RHEL 9 über die systemweite Crypto Policy (`update-crypto-policies --set <Profil>`) einheitliche Mindestanforderungen für TLS, DTLS und verwandte Bibliotheken (OpenSSL, GnuTLS, NSS, libkrb5): Im Profil DEFAULT sind unter anderem TLS-Versionen unter 1.2, kurze RSA-/DH-Schlüssel und veraltete Chiffren deaktiviert. Das Profil FUTURE verschärft die Vorgaben weiter (z. B. TLS 1.3). Ebenfalls kann ein eigenes, der TR-02102 entsprechendes Profil konfiguriert werden. Sofern Anwendungen so programmiert und bereitgestellt werden, dass sie die mitgelieferten System-Bibliotheken (OpenSSL etc.) nutzen, werden diese ebenfalls der `crypto-policy` folgen. Anwendungsspezifische Protokolle (Web-Apps, Datenbankreplikation, E-Mail-Relay) müssen  in den jeweiligen Diensten konfiguriert werden
 
