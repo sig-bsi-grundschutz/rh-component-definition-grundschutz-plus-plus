@@ -2,7 +2,7 @@
 x-trestle-comp-def-rules:
   Red Hat Enterprise Linux 9:
     - name: gspp_impl_det_4_15
-      description: Narrative implementation seed for DET.4.15 (no CaC rule 
+      description: Narrative implementation seed for DET.4.15 (no CaC rule
         binding)
 x-trestle-param-values:
   det.4.15-prm1:
@@ -32,9 +32,9 @@ ______________________________________________________________________
 
 <!-- Add control implementation description here for control: DET.4.15 -->
 
-RHEL stellt Werkzeuge zur Erfassung und Auswertung der Host-Ressourcenauslastung bereit; die institutionellen Schwellwerte (Parameter „Schwellwerten“) und Reaktionsmaßnahmen legt die Organisation fest. Mit dem Paket **sysstat** lassen sich CPU, Speicher und Platten-I/O fortlaufend protokollieren (`sadc`/`sar`, ergänzend `iostat` und `mpstat`); **Performance Co-Pilot (PCP)** mit `pmlogger` speichert Metriken historisch und unterstützt zentrale Auswertung. In der **RHEL-Web-Konsole** (Paket `cockpit-pcp`, Dienste `pmlogger`/`pmproxy`) sind CPU-, Speicher- und Speicherplatz-Kennzahlen unter „Metrics and history“ einsehbar. Für kurzfristige Sicht reichen Bordmittel wie `top`, `vmstat` und `df`. Automatische Alarmierung bei Schwellwertüberschreitung, KPI-Baselining und Maßnahmen wie Lastverteilung oder Ressourcenbegrenzung (z. B. über cgroups/systemd) erfordern Betriebskonzepte, Monitoring-Backends oder Automatisierung außerhalb einer festen RHEL-Vorgabe.
+RHEL stellt Werkzeuge zur Erfassung und Auswertung der Host-Ressourcenauslastung bereit. Mit dem Paket **sysstat** lassen sich CPU, Speicher und Platten-I/O fortlaufend protokollieren (`sadc`/`sar`, ergänzend `iostat` und `mpstat`). Der **Performance Co-Pilot (PCP)** mit `pmlogger` speichert Metriken historisch und unterstützt damit die  zentrale Auswertung. Diese Informationen können durch ein zentrales Monitoring Tool (Nagios, Icinga und andere) aufgenommen oder alternativ über eigene Agenten erfasst werden. Für die kurzfristige Sicht beispielsweise bei Untersuchungen reichen Bordmittel wie `top`, `vmstat` und `df`.  Die automatische Alarmierung bei Schwellwertüberschreitung, KPI-Baselining und Maßnahmen wie Lastverteilung oder Ressourcenbegrenzung erfordern Monitoring-Backends oder Automatisierung außerhalb des RHEL-Hosts. Ebenfalls müssen institutionellen Schwellwerte und Reaktionsmaßnahmen durch  die Organisation festgelegt werden.
 
-Weitere Informationen: [Überblick Performance-Monitoring (RHEL 9)](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/monitoring_and_managing_system_status_and_performance/overview-of-performance-monitoring-options), [Metriken in der Web-Konsole (RHEL 9)](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/monitoring_and_managing_system_status_and_performance/using-the-web-console-for-selecting-performance-profiles_monitoring-and-managing-system-status-and-performance)
+Weitere Informationen: [Überblick Performance-Monitoring (RHEL 9)](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/monitoring_and_managing_system_status_and_performance/overview-of-performance-monitoring-options), [Metriken in der Web-Konsole (RHEL 9)](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/monitoring_and_managing_system_status_and_performance/using-the-web-console-for-selecting-performance-profiles_monitoring-and-managing-system-status-and-performance), [How to Use SAR to Monitor System Performance in Red Hat Enterprise Linux](https://access.redhat.com/solutions/276533)
 
 ### Implementation Status: partial
 
