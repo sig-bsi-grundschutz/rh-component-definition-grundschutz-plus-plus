@@ -2,7 +2,7 @@
 x-trestle-comp-def-rules:
   Red Hat Enterprise Linux 9:
     - name: gspp_impl_not_4_2
-      description: Narrative implementation seed for NOT.4.2 (no CaC rule 
+      description: Narrative implementation seed for NOT.4.2 (no CaC rule
         binding)
 x-trestle-param-values:
   not.4.2-prm1:
@@ -32,9 +32,9 @@ ______________________________________________________________________
 
 <!-- Add control implementation description here for control: NOT.4.2 -->
 
-Red Hat Enterprise Linux 9 enthält kein standardmäßig aktiviertes, zentral gesteuertes Backup-Produkt und keine feste Vorgabe für die Sicherungsfrequenz — diese legt die Institution im Notfallplan fest (Parameter `not.4.2-prm1`). Für die Datensicherung des Systems stehen Werkzeuge wie `tar`, `rsync`, Snapshots auf LVM oder Dateisystemebene, sowie optional Relax-and-Recover (ReaR) zur Erstellung bootfähiger Rescue-Images und Wiederherstellungsmedien bereit; ReaR muss installiert und in `/etc/rear/local.conf` mit passenden `BACKUP_URL`/`OUTPUT_URL` konfiguriert werden. Konfigurationsdateien, Zertifikate und dokumentierte Anpassungen sollten in den organisatorischen Backup-Umfang einbezogen werden; gleichartige Systeme können über ein Golden Image oder Versionsverwaltung abgedeckt werden. Überwachung, Aufbewahrung, Offsite-Kopien und Restore-Tests sind organisatorisch durchzuführen (z. B. mit Ansible, Satellite oder dedizierten Backup-Lösungen).
+Für die Sicherung und Wiederherstellung eines RHEL Hosts gibt es mehrere Möglichkeiten. Die klassische Variante ist die Nutzung von REAR (RElax-And-Recover), einem mit RHEL ausgelieferten Backup-Tool, das ein einzelnes Betriebssystem entsprechend der ReaR-Konfiguration sichert. Eine Alternative in diesem Ansatz ist die Verwendung von 3rd Party-Backup-Lösungen, die entweder auf Ebene der Speicherlösung, der Virtualisierungslösung oder des Betriebssystems ausgeführt werden. Eine moderne Alternative bietet der "Infrastructure-as-code" Ansatz, in dem die Systemkonfiguration inklusive aller Konfigurationsdaten in einem Versionskontrollsystem (Git) mittels Ansible-Ressourcen definiert ist und so gleichartige Systeme jederzeit "from Scratch" wiederhergestellt werden können. Dies kann - je nach Implementierung in den Ansible-Playbooks - inklusive der Anwendungen und der dazugehörige Konfiguration erfolgen. Ein Ausgangspunkt hierfür sind die mit RHEL ausgelieferten `system-roles`. Ein dritter Ansatz ist die Nutzung des Image-Modes von RHEL. In diesem Modus wird das Betriebssystem inklusive Konfiguration und zu installierender Anwendungen in einem `Containerfile` definiert und anschließend ausgerollt. Hierdurch entsteht mit jeder Veränderung des Betriebssystems - sei es Konfigurationsänderung oder Update - ein neues System-Image, dass identisch zu Container-Images verteilt und verwaltet wird. Die Notwendigkeit der Sicherung einzelner Systeme entfällt dabei, da diese jederzeit vom Image wiederherstellbar sind. Anwendungsbackups sind in dieser Betrachtung nicht berücksichtigt.
 
-Weitere Informationen: [Sichern und Wiederherstellen des Systems](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_basic_system_settings/backing-up-and-restoring-your-system_configuring-basic-system-settings)
+Weitere Informationen: [Sichern und Wiederherstellen mit ReaR](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_basic_system_settings/assembly_recovering-and-restoring-a-system_configuring-basic-system-settings), [RHEL System Roles mit Ansible (Infrastructure-as-Code)](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/automating_system_administration_by_using_rhel_system_roles/index), [Image Mode for RHEL](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/using_image_mode_for_rhel_to_build_deploy_and_manage_operating_systems/introducing-image-mode-for-rhel_using-image-mode-for-rhel-to-build-deploy-and-manage-operating-systems)
 
 ### Implementation Status: partial
 
