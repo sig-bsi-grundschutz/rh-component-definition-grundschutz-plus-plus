@@ -2,10 +2,10 @@
 x-trestle-comp-def-rules:
   Red Hat Enterprise Linux 9:
     - name: mount_option_home_usrquota
-      description: The usrquota mount option allows for the filesystem to have 
+      description: The usrquota mount option allows for the filesystem to have
         disk quotas configured.
     - name: mount_option_home_grpquota
-      description: The grpquota mount option allows for the filesystem to have 
+      description: The grpquota mount option allows for the filesystem to have
         disk quotas configured.
 x-trestle-global:
   profile:
@@ -31,9 +31,9 @@ ______________________________________________________________________
 
 <!-- Note that the list of rules under ### Rules: is read-only and changes will not be captured after assembly to JSON -->
 
-Auf RHEL 9 werden Speicherkontingente für Nutzer- und Gruppenumgebungen typischerweise auf dem Dateisystem mit dem `quota`-Paket und XFS-Quotas umgesetzt: Für `/home` (oder andere Nutzerdaten-Partitionen) werden beim Mount die Optionen `usrquota` und `grpquota` gesetzt, anschließend `quotacheck` und `edquota` bzw. `xfs_quota` für Soft- und Hard-Limits auf Blöcke und Inodes. So kann der Verbrauch einzelner Konten begrenzt werden, bevor ein vollständiges Befüllen der Partition andere Anwendungen oder Systemdienste beeinträchtigt. Die Leitlinie empfiehlt zusätzlich Warnungen bei hohem Füllstand; das Quota-Subsystem meldet Überschreitungen der Soft-Limits, optional unterstützt der Dienst `quota_nld` Benachrichtigungen. Schreibschutz nur für Administratoren bei voller Platte (z. B. über `tmpfiles`, separate `/var`-Partitionen oder zentrale Speicher) ist betriebsspezifisch zu planen. Konkrete Kontingentwerte, betroffene Mountpoints und Überwachung (z. B. regelmäßiger `xfs_quota report`, Monitoring) legt die Institution fest.
+Für die Speicherplatzbegrenzung gibt es auf RHEL Systemen zwei Möglichkeiten. Möglichkeit eins ist die nutzung von quotas, beispielsweise bei Einsatz des `xfs` Dateisystems. Dies ermöglicht für spezifische Pfade (die der Anwendung entsprechend zugeordnet sind), Gruppen (`grpquota`) und Nutzer (`usrquota`)  Soft- und Hard-Quotas zu setzen. Eine Soft-Quota triggert eine entsprechende Warnung, die Hard-Quota verhindert weiteren Schreibzugriff. Sofern Filesysteme eingesetzt werden, die eine Quotierung nicht erlauben, besteht die Möglichkeit entsprechende Partitionen mittels `parted` oder logische Volumes mittels `lvm` zu verwenden. Hierdurch kann das Speichermedium unterhalb des Dateisystems in mehrere Bereiche aufgeteilt werden, wodurch der verfügbare Speicherplatz auf unterschiedliche Anwendungen oder Anwendungsteile aufgeteilt werden kann. Zu berücksichtigen ist bei beiden Methoden, dass beim Erreichen des Füllstandes von 100% die Funktion der Anwendung erheblich eingeschränkt sein, oder sogar Datenverlust auftreten kann. Konkrete Kontingentwerte, betroffene Mountpoints und Überwachung (z. B. regelmäßiger `xfs_quota report`, Monitoring) legt die Institution fest.
 
-Weitere Informationen: [Speichernutzung auf XFS mit Quotas begrenzen](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_storage_devices_and_file_systems/limiting-storage-space-usage-on-xfs-with-quotas_managing-file-systems), [Dateisysteme verwalten](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_storage_devices_and_file_systems/index)
+Weitere Informationen: [Speichernutzung auf XFS mit Quotas begrenzen](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_storage_devices_and_file_systems/limiting-storage-space-usage-on-xfs-with-quotas_managing-file-systems), [Dateisysteme verwalten](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_storage_devices_and_file_systems/index), [Partitionen mit parted verwalten](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_storage_devices/getting-started-with-partitions_managing-storage-devices), [Logische Volumes (LVM) konfigurieren und verwalten](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_and_managing_logical_volumes/index)
 
 ### Rules:
 
