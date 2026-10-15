@@ -5,10 +5,10 @@ x-trestle-global:
     href: trestle://profiles/gs-plusplus-rhel-host/profile.json
 x-trestle-comp-def-rules:
   Red Hat Enterprise Linux 9:
-    - name: account_password_pam_modules_in_authselect_profile
-      description: account password pam modules in authselect profile
-    - name: account_password_pam_unix_enabled
-      description: account password pam unix enabled
+    - name: accounts_password_pam_modules_in_authselect_profile
+      description: accounts password pam modules in authselect profile
+    - name: accounts_password_pam_unix_enabled
+      description: accounts password pam unix enabled
     - name: configure_crypto_policy
       description: configure crypto policy
     - name: dconf_gnome_screensaver_idle_delay
@@ -35,7 +35,7 @@ x-trestle-rules-params:
   Red Hat Enterprise Linux 9:
     - name: var_system_crypto_policy
       description: var system crypto policy
-      options: 
+      options:
         DEFAULT,DEFAULT:NO-SHA1,FIPS,FIPS:OSPP,FIPS:STIG,LEGACY,FUTURE,NEXT
       rule-id: configure_crypto_policy
     - name: inactivity_timeout_value
@@ -103,8 +103,8 @@ Weitere Informationen: [Authentifizierung und Autorisierung](https://docs.redhat
   - enable_authselect
   - sshd_enable_pam
   - sssd_enable_pam_services
-  - account_password_pam_modules_in_authselect_profile
-  - account_password_pam_unix_enabled
+  - accounts_password_pam_modules_in_authselect_profile
+  - accounts_password_pam_unix_enabled
   - gnome_gdm_disable_automatic_login
   - gnome_gdm_disable_unattended_automatic_login
   - dconf_gnome_screensaver_idle_delay

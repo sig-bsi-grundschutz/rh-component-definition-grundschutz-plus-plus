@@ -3,7 +3,7 @@
     "uuid": "4a30fff1-04c2-47c6-b531-51996c11e135",
     "metadata": {
       "title": "Grundschutz++ - Red Hat Enterprise Linux 9",
-      "last-modified": "2026-10-15T07:56:37+00:00",
+      "last-modified": "2026-10-15T08:22:46.372+00:00",
       "version": "0.1.0",
       "oscal-version": "1.2.1"
     },
@@ -67,30 +67,6 @@
             "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
             "value": "account password pam faillock system auth",
             "remarks": "rule_set_002"
-          },
-          {
-            "name": "Rule_Id",
-            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
-            "value": "account_password_pam_modules_in_authselect_profile",
-            "remarks": "rule_set_003"
-          },
-          {
-            "name": "Rule_Description",
-            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
-            "value": "account password pam modules in authselect profile",
-            "remarks": "rule_set_003"
-          },
-          {
-            "name": "Rule_Id",
-            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
-            "value": "account_password_pam_unix_enabled",
-            "remarks": "rule_set_004"
-          },
-          {
-            "name": "Rule_Description",
-            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
-            "value": "account password pam unix enabled",
-            "remarks": "rule_set_004"
           },
           {
             "name": "Rule_Id",
@@ -3925,6 +3901,30 @@
             "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
             "value": "sshd disable host auth",
             "remarks": "rule_set_284"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "accounts_password_pam_modules_in_authselect_profile",
+            "remarks": "rule_set_285"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "account password pam modules in authselect profile",
+            "remarks": "rule_set_285"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "accounts_password_pam_unix_enabled",
+            "remarks": "rule_set_286"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "accounts password pam unix enabled",
+            "remarks": "rule_set_286"
           }
         ],
         "control-implementations": [
@@ -4290,16 +4290,6 @@
                   {
                     "name": "Rule_Id",
                     "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
-                    "value": "account_password_pam_modules_in_authselect_profile"
-                  },
-                  {
-                    "name": "Rule_Id",
-                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
-                    "value": "account_password_pam_unix_enabled"
-                  },
-                  {
-                    "name": "Rule_Id",
-                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
                     "value": "configure_crypto_policy"
                   },
                   {
@@ -4351,6 +4341,16 @@
                     "name": "Rule_Id",
                     "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
                     "value": "sssd_enable_pam_services"
+                  },
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "accounts_password_pam_modules_in_authselect_profile"
+                  },
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "accounts_password_pam_unix_enabled"
                   },
                   {
                     "name": "implementation-status",
