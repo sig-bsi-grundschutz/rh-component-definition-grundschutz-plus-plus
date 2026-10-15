@@ -35,7 +35,7 @@ x-trestle-rules-params:
   Red Hat Enterprise Linux 9:
     - name: var_system_crypto_policy
       description: var system crypto policy
-      options:
+      options: 
         DEFAULT,DEFAULT:NO-SHA1,FIPS,FIPS:OSPP,FIPS:STIG,LEGACY,FUTURE,NEXT
       rule-id: configure_crypto_policy
     - name: inactivity_timeout_value
