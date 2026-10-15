@@ -23,6 +23,8 @@ x-trestle-comp-def-rules:
       description: crypto policy not legacy
     - name: crypto_policy_not_overridden
       description: crypto policy not overridden
+    - name: package_crypto-policies_installed
+      description: package crypto-policies installed
 x-trestle-rules-params:
   Red Hat Enterprise Linux 9:
     - name: var_system_crypto_policy
@@ -80,6 +82,7 @@ Weitere Informationen: [Systemweite kryptografische Richtlinien](https://docs.re
   - configure_ssh_crypto_policy
   - crypto_policy_not_legacy
   - crypto_policy_not_overridden
+  - package_crypto-policies_installed
 
 ### Implementation Status: implemented
 

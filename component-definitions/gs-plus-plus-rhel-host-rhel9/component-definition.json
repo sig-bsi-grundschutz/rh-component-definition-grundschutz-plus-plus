@@ -1919,6 +1919,18 @@
           {
             "name": "Rule_Id",
             "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "package_crypto-policies_installed",
+            "remarks": "rule_set_123"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "package crypto-policies installed",
+            "remarks": "rule_set_123"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
             "value": "package_cryptsetup-luks_installed",
             "remarks": "rule_set_124"
           },
@@ -5295,6 +5307,11 @@
                     "value": "crypto_policy_not_overridden"
                   },
                   {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "package_crypto-policies_installed"
+                  },
+                  {
                     "name": "implementation-status",
                     "value": "implemented"
                   }
@@ -5372,6 +5389,11 @@
                     "value": "crypto_policy_not_overridden"
                   },
                   {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "package_crypto-policies_installed"
+                  },
+                  {
                     "name": "implementation-status",
                     "value": "implemented"
                   }
@@ -5426,6 +5448,11 @@
                     "name": "Rule_Id",
                     "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
                     "value": "crypto_policy_not_overridden"
+                  },
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "package_crypto-policies_installed"
                   },
                   {
                     "name": "implementation-status",
