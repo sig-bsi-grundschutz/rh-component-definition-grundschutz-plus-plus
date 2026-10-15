@@ -3,7 +3,7 @@
     "uuid": "4a30fff1-04c2-47c6-b531-51996c11e135",
     "metadata": {
       "title": "Grundschutz++ - Red Hat Enterprise Linux 9",
-      "last-modified": "2026-10-14T14:46:20+00:00",
+      "last-modified": "2026-10-15T07:36:29.930+00:00",
       "version": "0.1.0",
       "oscal-version": "1.2.1"
     },
@@ -1939,18 +1939,6 @@
             "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
             "value": "package autofs removed",
             "remarks": "rule_set_122"
-          },
-          {
-            "name": "Rule_Id",
-            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
-            "value": "package_crypto_policies_installed",
-            "remarks": "rule_set_123"
-          },
-          {
-            "name": "Rule_Description",
-            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
-            "value": "package crypto policies installed",
-            "remarks": "rule_set_123"
           },
           {
             "name": "Rule_Id",
@@ -5307,11 +5295,6 @@
                     "value": "crypto_policy_not_overridden"
                   },
                   {
-                    "name": "Rule_Id",
-                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
-                    "value": "package_crypto_policies_installed"
-                  },
-                  {
                     "name": "implementation-status",
                     "value": "implemented"
                   }
@@ -5389,11 +5372,6 @@
                     "value": "crypto_policy_not_overridden"
                   },
                   {
-                    "name": "Rule_Id",
-                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
-                    "value": "package_crypto_policies_installed"
-                  },
-                  {
                     "name": "implementation-status",
                     "value": "implemented"
                   }
@@ -5402,7 +5380,7 @@
               {
                 "uuid": "9bb17f1f-cea7-41ef-a991-2fbdc36d3521",
                 "control-id": "BER.7.8",
-                "description": "Bei der operativen Schlüsselnutzung (TLS-Handshakes, SSH-Sitzungen, Kerberos, IPsec) wendet RHEL die systemweite Crypto Policy an: Alle policy-fähigen Bibliotheken und Dienste verwenden dieselben erlaubten Algorithmen und Schlüssellängen, sodass bei Verschlüsselung, Signatur und Authentisierung nur etablierte Verfahren zum Einsatz kommen. OpenSSH bindet die Policy über Crypto-Policy-Drop-ins ein; TLS-Dienste nutzen OpenSSL/GnuTLS-Backends.\n\nWeitere Informationen: [Systemweite kryptografische Richtlinien](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/assembly_using-the-system-wide-cryptographic-policies_security-hardening), [Sicherheitshärtung](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/index).\n\nRules:\n\n- configure_crypto_policy\n- configure_gnutls_tls_crypto_policy\n- configure_kerberos_crypto_policy\n- configure_libreswan_crypto_policy\n- configure_openssl_crypto_policy\n- configure_openssl_tls_crypto_policy\n- configure_ssh_crypto_policy\n- crypto_policy_not_legacy\n- crypto_policy_not_overridden\n- package_crypto_policies_installed",
+                "description": "Bei der operativen Schlüsselnutzung (TLS-Handshakes, SSH-Sitzungen, Kerberos, IPsec) wendet RHEL die systemweite Crypto Policy an: Alle policy-fähigen Bibliotheken und Dienste verwenden dieselben erlaubten Algorithmen und Schlüssellängen, sodass bei Verschlüsselung, Signatur und Authentisierung nur etablierte Verfahren zum Einsatz kommen. OpenSSH bindet die Policy über Crypto-Policy-Drop-ins ein; TLS-Dienste nutzen OpenSSL/GnuTLS-Backends.\n\nWeitere Informationen: [Systemweite kryptografische Richtlinien](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/assembly_using-the-system-wide-cryptographic-policies_security-hardening), [Sicherheitshärtung](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/index).",
                 "props": [
                   {
                     "name": "Rule_Id",
@@ -5448,11 +5426,6 @@
                     "name": "Rule_Id",
                     "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
                     "value": "crypto_policy_not_overridden"
-                  },
-                  {
-                    "name": "Rule_Id",
-                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
-                    "value": "package_crypto_policies_installed"
                   },
                   {
                     "name": "implementation-status",
