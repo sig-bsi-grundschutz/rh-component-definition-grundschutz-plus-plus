@@ -7,7 +7,7 @@ x-trestle-comp-def-rules:
   Red Hat Enterprise Linux 9:
     - name: sshd_disable_empty_passwords
       description: sshd disable empty passwords
-    - name: sshd_disable_host_auth
+    - name: disable_host_auth
       description: sshd disable host auth
     - name: sshd_disable_rhosts
       description: sshd disable rhosts
@@ -43,7 +43,7 @@ Weitere Informationen: [Sicherheitshärtung](https://docs.redhat.com/en/document
 
   - sshd_enable_pam
   - sshd_disable_empty_passwords
-  - sshd_disable_host_auth
+  - disable_host_auth
   - sshd_disable_rhosts
   - sshd_include_crypto_policy
 

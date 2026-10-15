@@ -3,7 +3,7 @@
     "uuid": "4a30fff1-04c2-47c6-b531-51996c11e135",
     "metadata": {
       "title": "Grundschutz++ - Red Hat Enterprise Linux 9",
-      "last-modified": "2026-10-15T07:39:46+00:00",
+      "last-modified": "2026-10-15T07:44:28.977+00:00",
       "version": "0.1.0",
       "oscal-version": "1.2.1"
     },
@@ -2705,18 +2705,6 @@
           {
             "name": "Rule_Id",
             "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
-            "value": "sshd_disable_host_auth",
-            "remarks": "rule_set_183"
-          },
-          {
-            "name": "Rule_Description",
-            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
-            "value": "sshd disable host auth",
-            "remarks": "rule_set_183"
-          },
-          {
-            "name": "Rule_Id",
-            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
             "value": "sshd_disable_rhosts",
             "remarks": "rule_set_184"
           },
@@ -3925,6 +3913,18 @@
             "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
             "value": "Narrative implementation seed for NOT.4.2 (no CaC rule binding)",
             "remarks": "rule_set_283"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "disable_host_auth",
+            "remarks": "rule_set_284"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "sshd disable host auth",
+            "remarks": "rule_set_284"
           }
         ],
         "control-implementations": [
@@ -6497,11 +6497,6 @@
                   {
                     "name": "Rule_Id",
                     "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
-                    "value": "sshd_disable_host_auth"
-                  },
-                  {
-                    "name": "Rule_Id",
-                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
                     "value": "sshd_disable_rhosts"
                   },
                   {
@@ -6513,6 +6508,11 @@
                     "name": "Rule_Id",
                     "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
                     "value": "sshd_include_crypto_policy"
+                  },
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "disable_host_auth"
                   },
                   {
                     "name": "implementation-status",
