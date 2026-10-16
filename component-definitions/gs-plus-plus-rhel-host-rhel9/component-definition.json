@@ -3,7 +3,7 @@
     "uuid": "4a30fff1-04c2-47c6-b531-51996c11e135",
     "metadata": {
       "title": "Grundschutz++ - Red Hat Enterprise Linux 9",
-      "last-modified": "2026-10-16T12:58:56.170+00:00",
+      "last-modified": "2026-10-16T16:11:23.253+00:00",
       "version": "0.1.0",
       "oscal-version": "1.2.1"
     },
@@ -3949,6 +3949,90 @@
             "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
             "value": "ensure redhat gpgkey installed",
             "remarks": "rule_set_287"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "gspp_impl_asst_2_3_2",
+            "remarks": "rule_set_288"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "Narrative implementation seed for ASST.2.3.2 (no CaC rule binding)",
+            "remarks": "rule_set_288"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "no_direct_root_logins",
+            "remarks": "rule_set_289"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "Direct root Logins Not Allowed",
+            "remarks": "rule_set_289"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "gspp_impl_ber_4_5",
+            "remarks": "rule_set_290"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "Narrative implementation seed for BER.4.5 (no CaC rule binding)",
+            "remarks": "rule_set_290"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "audit_rules_privileged_commands",
+            "remarks": "rule_set_291"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "Ensure auditd Collects Information on the Use of Privileged Commands",
+            "remarks": "rule_set_291"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "audit_sudo_log_events",
+            "remarks": "rule_set_292"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "Record Attempts to perform maintenance activities",
+            "remarks": "rule_set_292"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "audit_rules_sysadmin_actions",
+            "remarks": "rule_set_293"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "Ensure auditd Collects System Administrator Actions",
+            "remarks": "rule_set_293"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "audit_rules_networkconfig_modification",
+            "remarks": "rule_set_294"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "Record Events that Modify the System's Network Environment",
+            "remarks": "rule_set_294"
           }
         ],
         "control-implementations": [
@@ -4774,7 +4858,7 @@
                   },
                   {
                     "name": "implementation-status",
-                    "value": "partial"
+                    "value": "implemented"
                   }
                 ]
               },
@@ -7851,6 +7935,162 @@
                   {
                     "name": "implementation-status",
                     "value": "implemented"
+                  }
+                ]
+              },
+              {
+                "uuid": "4f490a48-8659-48ba-9058-c69f20b76e4e",
+                "control-id": "ASST.2.3.2",
+                "description": "Red Hat liefert für einige Produkte \"built-time\" SBOMs aus. Diese können von `https://security.access.redhat.com/data/sbom/v1/spdx/` konsumiert werden, sind signiert und stellen zusätzlich eine Prüfsumme bereit. Sie umfassen auch das RHEL Betriebssystem auf Ebene des Minor-Releases. Auf dem RHEL-Host liefert die RPM-/DNF-Paketdatenbank eine maschinenlesbare Inventarliste installierter Betriebssystem- und Anwendungs-RPMs inklusive Name, Version, Architektur und Herkunft (Repository bzw. Signatur). Über `dnf list --installed`, `rpm -qa` bzw. `dnf repoquery --installed` sowie die Transaktionshistorie (`dnf history`) lässt sich der Host-Softwarestand nachvollziehen und bei Bedarf exportieren. Das entspricht einer hostseitigen Stückliste der installierten RPM-Komponenten, ersetzt aber keine anwendungsbezogene SBOM im Sinne von SPDX/CycloneDX inklusive transitiver Bibliotheksabhängigkeiten aus Build-Artefakten. Formale SBOMs für Applikationen, deren Pflege nach BSI TR-03183-2 und die Korrelation mit Schwachstellen-Advisories bleiben organisatorisch bzw. über Lieferketten-Werkzeuge (z. B. Build-Pipeline, Container-Image-SBOM, Satellite/Insights) zu etablieren.\n\nWeitere Informationen: [Software mit dem DNF-Tool verwalten](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_software_with_the_dnf_tool/index), [DNF-Befehle zum Auflisten von Paketen](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_software_with_the_dnf_tool/assembly_yum-commands-list_managing-software-with-the-dnf-tool), [Blog: Future of Red Hat Security Data](https://www.redhat.com/en/blog/future-red-hat-security-data).",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "gspp_impl_asst_2_3_2"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "alternative"
+                  }
+                ]
+              },
+              {
+                "uuid": "d814cbbf-6571-4f08-9872-03ddaa8f4025",
+                "control-id": "BER.3.6",
+                "description": "Typischerweise sind Accounts, die Zugriff auf einen RHEL-Host haben, bereits Administrative Konten. Die Ausnahme bilden hier RHEL-Clients. Es muss unter RHEL für nicht-administrative Konten sichergestellt sein, dass diese keinerlei `sudo`-Rechte erhalten, weder direkt noch über Gruppenzugehörigkeiten (bspw. `wheel`). Ob zusätzlich getrennte Personalkonten (Alltag vs. Administration) provisioniert werden, steuert die Institution in IdM/AD bzw. im lokalen Benutzerkonzept. Der Host erzwingt die organisatorische Trennung zweier Konten pro Person nicht selbst.\n\nWeitere Informationen: [sudo-Zugriff verwalten](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_basic_system_settings/managing-sudo-access_configuring-basic-system-settings), [Benutzer und Gruppen verwalten](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_basic_system_settings/managing-users-and-groups_configuring-basic-system-settings).",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "no_direct_root_logins"
+                  },
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "package_sudo_installed"
+                  },
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "sudo_restrict_privilege_elevation_to_authorized"
+                  },
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "use_pam_wheel_for_su"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "partial"
+                  }
+                ]
+              },
+              {
+                "uuid": "515de793-a097-4ee3-83fe-000f06a7e89d",
+                "control-id": "BER.4.5",
+                "description": "Bei einer RHEL-Installation ohne grafische Oberfläche (z. B. Minimal Install oder Server; die Anaconda-Standardauswahl ist hingegen „Server with GUI“) gibt `firewalld` in der Standardzone ausschließlich den Service `ssh` (TCP-Port 22) frei — der Zugriff über SSH erfordert Authentifizierung; passwortbasiertes Root-Login per SSH ist standardmäßig deaktiviert. Bei grafischer Oberfläche ist sicherzustellen, dass kein automatischer Login (GDM) aktiviert ist — dies ist jedoch keine Anaconda-Installer-Option, sondern nachträgliche Konfiguration. Während der Installation muss ein Root-Passwort gesetzt werden. Ebenfalls ist die Anlage eines lokalen Benutzerkontos oder die Integration mit einem zentralen IdP (Red Hat IdM, Active Directory, LDAP) möglich.\n\nWeitere Informationen: [System im Installer anpassen](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/interactively_installing_rhel_from_installation_media/customizing-the-system-in-the-installer_rhel-installer)",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "gspp_impl_ber_4_5"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "alternative"
+                  }
+                ]
+              },
+              {
+                "uuid": "c0be770f-3225-4d3e-af2a-8100d0d9bddf",
+                "control-id": "DET.3.1.8",
+                "description": "Mit aktiviertem `auditd` protokolliert RHEL privilegierte Vorgänge auf dem Host: Ausführung setuid-/privilegierter Befehle, sudo-/Wartungsaktionen, Änderungen an SELinux-Policy und Netzwerkkonfiguration sowie weitere Administrator-Ereignisse. Zeitstempel, Akteure (UID/`auid`) und betroffene Objekte erscheinen in den Audit-Aufzeichnungen und unterstützen die Nachvollziehbarkeit von Aktivierung, Deaktivierung oder Umgehung schützender Funktionen. Welche Anwendungsschicht-Funktionen darüber hinaus als „privilegiert“ gelten und zentral korreliert werden, bleibt organisatorisch zu definieren.\n\nWeitere Informationen: [Audit-Aufzeichnungen konfigurieren](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html-single/security_hardening/assembly_configuring-audit-records_security-hardening), [Sicherheitshärtung](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/index).",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "audit_rules_privileged_commands"
+                  },
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "audit_sudo_log_events"
+                  },
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "audit_rules_sysadmin_actions"
+                  },
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "audit_rules_networkconfig_modification"
+                  },
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "service_auditd_enabled"
+                  },
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "audit_rules_mac_modification"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "partial"
+                  }
+                ]
+              },
+              {
+                "uuid": "9a28481a-e672-4dbe-919a-67c9fb6c978e",
+                "control-id": "BER.3.16",
+                "description": "Gruppenkonten im Sinne gemeinsam genutzter interaktiver Logins mehrerer Personen verhindert das Betriebssystem nicht automatisch — das Verbot shared accounts im Regelbetrieb und die Zweckbindung von Dienstkonten (keine interaktive Anmeldung, klare Ownership) sind Provisionierungs- und IdM-/IAM-Vorgaben der Institution. Bei der Nutzung von Service-Accounts wird durch das setzten einer gesperrten Shell (`nologin`/`false`) der Missbrauch des Accounts als interaktives Gruppenkonto unterbunden.\n\nWeitere Informationen: [Benutzer und Gruppen verwalten](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_basic_system_settings/managing-users-and-groups_configuring-basic-system-settings), [Sicherheitshärtung](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/index).",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "account_unique_id"
+                  },
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "accounts_authorized_local_users"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "partial"
+                  }
+                ]
+              },
+              {
+                "uuid": "0204427f-1f7e-4865-8252-345c46ecf60b",
+                "control-id": "DET.5.10",
+                "description": "RHEL bezieht Sicherheits- und Fehlerkorrekturen über die mit Subscription Manager konfigurierten Repositories. Mit `dnf update` bzw. `dnf update --security` und dem Abgleich verfügbarer Errata bleibt der Patchstand aktuell. `dnf-automatic` mit aktiviertem Timer kann Updates periodisch prüfen und optional automatisch einspielen (`apply_updates`). Stufenweiser Roll-Out (One-Many-All, Blue/Green), Testfenster und Risikopriorisierung nach CVSS bzw. Asset-Kritikalität sind Organisationsprozesse (häufig über Satellite, Insights oder manuelles Change-Management) und werden vom einzelnen Host nicht allein erzwungen.\n\nWeitere Informationen: [Automatisierung von Software-Updates in RHEL 9](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_software_with_the_dnf_tool/assembly_automating-software-updates-in-rhel-9_managing-software-with-the-dnf-tool), [Installation von Sicherheitsupdates](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_and_monitoring_security_updates/installing-security-updates_managing-and-monitoring-security-updates).",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "security_patches_up_to_date"
+                  },
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "package_dnf-automatic_installed"
+                  },
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "timer_dnf-automatic_enabled"
+                  },
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "dnf-automatic_apply_updates"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "partial"
                   }
                 ]
               }
