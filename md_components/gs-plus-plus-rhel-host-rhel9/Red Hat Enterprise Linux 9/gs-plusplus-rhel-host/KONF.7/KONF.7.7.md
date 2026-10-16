@@ -32,6 +32,8 @@ ______________________________________________________________________
 
 Für Red Hat Lightspeed wird die Funktionsfähigkeit der Serverkomponenten kontinuierlich durch Red Hat wahrgenommen (SaaS-Responsibility). Da in disconnected/air-gapped Systemen RHEL aktuell (Aug 2026) kein Malware-Scanning bereitstellt, obliegt hier die Implementation der entsprechenden 3rd Party Software und den dort notwendigen Tools und Prozessen. Regelmäßige Tests mit EICAR-Teststrings sind Aufgabe der Organisation.
 
+Weitere Informationen: [Firewalls und Paketfilter](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_firewalls_and_packet_filters/index).
+
 ### Implementation Status: planned
 
 ______________________________________________________________________
