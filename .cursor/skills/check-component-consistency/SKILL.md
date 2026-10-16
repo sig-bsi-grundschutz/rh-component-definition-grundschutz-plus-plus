@@ -35,7 +35,7 @@ Default artifact = `COMPONENT_DEFINITION` from `config.env`
 | Rule ↔ control map | `data/{COMPONENT_DEFINITION}.csv` |
 | `Rule_Id`, params, IR description/status | `component-definitions/…/component-definition.json` |
 | Prose + status display | `md_components/…/{control-id}.md` |
-| `### Rules:` display | Regenerated from JSON (must match CSV) |
+| `### Rules:` display | Regenerated from JSON; CaC ids must match CSV; seed-only display may lag if FM already lists seed |
 
 ## Prerequisites
 
@@ -44,47 +44,72 @@ Default artifact = `COMPONENT_DEFINITION` from `config.env`
 - Load CSV rows whose `$$Control_Id_List` intersects the scope.
 - For rule/JSON checks: grep or jq the matching implemented-requirements in
   `component-definitions/{COMPONENT_DEFINITION}/component-definition.json`.
-- For related-control checks: include **siblings** (same area folder and/or
-  controls sharing a CSV rule row).
+- For related-control checks: primary = same area folder and/or shared CSV
+  rule row; catalog `related` links only when a shared mechanism/theme exists
+  (see Step 0).
 
 Do **not** invent missing controls. Skip empty/placeholder prose with a note.
+
+## Precision (anti false-positive)
+
+Prefer **signal over volume**. Full-repo runs that drown in style/display notes
+fail the skill. Details: [reference.md](reference.md#precision-anti-false-positive).
+
+Hard rules:
+
+1. **SoT first:** CRITICAL only for CSV ↔ JSON rule-map breaks, dual CaC+seed,
+   orphan IR, or MD `### Rules:` that **advertise wrong CaC ids** (or omit CaC
+   ids that CSV/JSON map). Display-only gaps are never CRITICAL.
+2. **Silence = success:** Do **not** emit findings that conclude OK / compatible /
+   justified / usually intentional / no action. Put those under Clean or omit.
+3. **One finding per defect:** Do not double-count the same sync issue as
+   separate FM + Rules + seed findings for one control.
+4. **Batch (`all`):** Cluster by issue class (one finding + control list). Cap
+   style/enrich-convention noise (see Step 5 / reference).
+5. **Before emit:** Drop any finding whose evidence is soft nuance, path-style
+   drift, or “worth a human skim” without a clear conflict.
 
 ## Workflow
 
 ```
-- [ ] 0. Resolve scope (controls + sibling set)
+- [ ] 0. Resolve scope (controls + comparison set)
 - [ ] 1. Rule reference consistency
 - [ ] 2. Intra-control prose: repetition
 - [ ] 3. Intra-control prose: contradiction
 - [ ] 4. Cross-control: related statements
 - [ ] 5. Wording consistency
-- [ ] 6. Emit report (fix only if user asked)
+- [ ] 6. Precision filter, then emit report (fix only if user asked)
 ```
 
 ### Step 0 — Resolve scope
 
 1. Resolve markdown paths under
    `md_components/{COMPONENT_DEFINITION}/**/{control-id}.md`.
-2. Build **sibling set**:
-   - same parent folder (e.g. all `DET.5/*.md`), and
-   - any control that shares a `$$Rule_Id` row in the CSV with a scoped control.
+2. Build **comparison set** (ordered, narrow → wide):
+   - **Primary:** same parent folder (e.g. all `DET.5/*.md`).
+   - **Primary:** controls sharing a `$$Rule_Id` CSV row with a scoped control.
+   - **Secondary (catalog links):** only if the linked control also shares a
+     mechanism/theme with the scoped control (same subsystem: faillock, GPG,
+     AIDE, …). Catalog `related` alone does **not** force a finding.
 3. For each control extract: ID, statement, guidance, prose, status, `### Rules:`
-   bullets, frontmatter rule names (if present).
+   bullets, frontmatter **rule names only** (see Step 1).
 
 ### Step 1 — Rule reference consistency
 
-For each scoped control, verify:
+**Source of truth = CSV ↔ JSON.** Markdown `### Rules:` and frontmatter are
+regenerated display.
 
-| Check | Fail when |
-|-------|-----------|
-| CSV ↔ MD Rules | Control in CSV `Control_Id_List` for rule R, but R missing from `### Rules:` (or reverse) |
-| CSV ↔ JSON | IR `Rule_Id` props ≠ CSV set for that control |
-| Frontmatter ↔ Rules | `x-trestle-comp-def-rules` names ≠ `### Rules:` bullets |
-| Prose cites rule IDs | German prose names CaC ids or `gspp_impl_*` as if they were product features |
-| Dual binding | Control listed on both a CaC row **and** a `gspp_impl_*` seed |
-| Seed naming | Seed id ≠ `gspp_impl_{control}` (dots→`_`, lower) or seed shared across controls |
-| Orphan | Markdown/JSON IR exists but control absent from every CSV `Control_Id_List` |
-| Shared-rule intent | Same rule on unrelated topic areas with no thematic link (flag for review) |
+| Check | Severity / when |
+|-------|-----------------|
+| CSV ↔ JSON `Rule_Id` | **CRITICAL** on any symmetric difference |
+| Dual binding | **CRITICAL** — control on CaC row **and** `gspp_impl_*` seed |
+| Orphan | **CRITICAL** — MD/JSON IR but control absent from every CSV list |
+| Seed naming | **CRITICAL** — id ≠ `gspp_impl_{control}` (dots→`_`, lower) or seed shared |
+| MD Rules vs CSV — **CaC** | **CRITICAL** — CaC ids in CSV/JSON missing from MD, **or** MD lists CaC ids not in CSV/JSON |
+| MD Rules vs CSV — **seed-only** | **NOTE** (batch: one clustered finding) only if FM also lacks the seed; if FM `x-trestle-comp-def-rules` already lists the seed and CSV=JSON → **ignore** missing `### Rules:` heading |
+| Frontmatter vs CSV | Compare **only** `x-trestle-comp-def-rules.*.name`. Never treat `x-trestle-rules-params`, `x-trestle-param-values`, or catalog param keys as rules. If MD Rules already covered the same defect → do not add a second finding |
+| Prose cites rule IDs | **WARNING** — German prose names CaC / `gspp_impl_*` as product features |
+| Shared-rule intent | **Default ignore.** **NOTE** only when same CaC rule is on controls with **no** shared mechanism/theme (likely accidental `Control_Id_List` append) |
 
 Details: [reference.md](reference.md#rule-references).
 
@@ -96,66 +121,71 @@ Within each control’s implementation prose:
 - Boilerplate copied twice (same doc blurb, same mechanism sentence).
 - Status/guidance echoed verbatim into prose without adding host-specific detail.
 
-Across siblings (same area or shared rules):
+Across comparison-set controls:
 
-- Near-identical paragraphs where controls demand **different** obligations
-  (copy-paste smell). Same shared mechanism sentence is OK if each control still
-  states its distinct obligation.
+- **WARNING** only when two controls with **different** statements share nearly
+  identical prose and neither states its distinct obligation (assessor cannot
+  tell them apart).
+- Shared mechanism sentences (Satellite, crypto-policies, faillock) are **OK**
+  when each file still answers its own statement.
 
 Severity: [reference.md](reference.md#repetition).
 
 ### Step 3 — Prose contradiction
 
-Within one control:
+Within one control — flag **only clear conflicts**:
 
 - Claims mechanism X is always on, then says X is optional/absent.
 - Status vs prose mismatch (e.g. `implemented` while prose lists major gaps;
   `not-applicable` while prose describes on-host enforcement).
 - Prose vs control statement: denies a required technical capability the
   statement asks for, without marking `alternative` / `partial` / org gap.
-- Prose vs attached rules: rules imply GPG/PAM/audit check but prose claims
-  “no technical lever” (or reverse).
+- Prose vs attached **CaC** rules: rules imply GPG/PAM/audit check but prose
+  claims “no technical lever” (or reverse). Seed-only Path B: do not treat
+  “no CaC check” as contradiction.
 
-Flag only clear conflicts, not soft nuance. See
+Soft nuance, incomplete coverage already reflected in `partial`/`alternative`,
+and org-vs-host scope framing → **ignore**. See
 [reference.md](reference.md#contradiction).
 
 ### Step 4 — Related controls — divergent statements
 
-For each sibling pair/group that shares topic or rules:
+Compare **primary** pairs first (folder / shared rules). Use catalog-related
+links only as secondary candidates when a shared mechanism exists.
 
 1. Summarize how each describes the **shared mechanism** (e.g. DNF GPG,
    faillock, Satellite, authselect).
-2. Flag when they assert incompatible facts (different defaults, different
-   scope of coverage, one says “fully covered” and sibling says “not available”
-   for the same subsystem).
-3. Flag when related controls use **incompatible status** for the same coverage
-   level without explaining the difference.
-4. Do **not** require identical prose — each control should answer **its**
-   statement; require compatible facts and aligned terminology.
+2. Flag when they assert **incompatible facts** about that same subsystem.
+3. Flag incompatible **status for the same coverage claim** only when statements
+   demand comparable on-host coverage and prose gives no reason for the split.
+4. Different statements → different status/prose is **expected**. Do not flag.
+5. Never emit a finding that only says the pair is compatible / OK.
 
-Examples of related groups: `DET.5.10.*` (patch/source/integrity),
-`BER.3.8`/`BER.3.10`/`BER.3.11` (faillock), `KONF.7.*` (logging/audit siblings).
+Examples of primary groups: `DET.5.10.*`, `BER.3.8`/`BER.3.10`/`BER.3.11`,
+`KONF.7.*` (when sharing rules or the same logging/audit mechanism).
 
 ### Step 5 — Wording consistency
 
-Across scope (and vs enrich conventions):
+Focus on assessor-facing drift that causes confusion. Enrich style nits are
+secondary.
 
-| Topic | Prefer |
-|-------|--------|
-| Product | `RHEL` / `Red Hat Enterprise Linux` used consistently; avoid mixing `yum` for RHEL 9 when prose means DNF (unless docs/history need yum) |
-| Doc footer | `Weitere Informationen:` + markdown links; no invented URLs |
-| Language | German implementation prose; no English-only mechanism dumps unless quoting a config key |
-| Config paths / keys | Same spelling (`gpgcheck`, `/etc/pam.d/system-auth`, …) across siblings |
-| Tone | Match sibling length/register (2–5 sentences typical); no CaC jargon in prose |
-| Status vocabulary | Only: `implemented`, `partial`, `planned`, `alternative`, `not-applicable` |
+| Topic | Flag when |
+|-------|-----------|
+| Status vocabulary | Value outside `implemented` \| `partial` \| `planned` \| `alternative` \| `not-applicable` → **WARNING** |
+| Product / DNF vs yum | Systematic “yum installs…” as primary RHEL 9 verb (paths like `/etc/yum.repos.d/` are **OK**) |
+| Commands in ticks | Plain shell commands that siblings tick — only if systematic; ignore path strings |
+| Config paths / keys | Same concept, conflicting spellings **that change meaning**; `system-auth` vs `/etc/pam.d/system-auth` alone → **ignore** |
+| Language | English-only mechanism dumps (not identifier quotes) → **NOTE**, small scopes only |
+| Doc footer | **Out of scope for `all` / full-repo runs** (enrich convention). Single-control or small group: optional one **NOTE** if prose non-empty and siblings in-scope all have `Weitere Informationen:` |
 
-Report systematic wording drift (same concept, many labels) as **wording**, not
-as contradiction, unless facts conflict.
+Do **not** mass-list missing doc footers. Report systematic concept-label drift
+as **wording**, not contradiction, unless facts conflict.
 
 ### Step 6 — Report
 
-Emit a structured report (markdown). Do **not** edit files unless the user
-explicitly asks to fix findings.
+Run the precision filter ([reference.md](reference.md#precision-anti-false-positive)),
+then emit a structured report. Do **not** edit files unless the user explicitly
+asks to fix findings.
 
 ```markdown
 # Consistency check — {scope}
