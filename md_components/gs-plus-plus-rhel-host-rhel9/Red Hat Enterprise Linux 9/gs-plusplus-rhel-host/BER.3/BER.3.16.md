@@ -29,7 +29,7 @@ ______________________________________________________________________
 
 <!-- Note that the list of rules under ### Rules: is read-only and changes will not be captured after assembly to JSON -->
 
-RHEL weist jedem lokalen Benutzerkonto eine eindeutige UID zu; doppelte UIDs sind im Systemmodell nicht vorgesehen. Über die Beschränkung auf autorisierte, dokumentierte lokale Konten bleiben nur freigegebene Accounts auf dem Host. Gruppenkonten im Sinne gemeinsam genutzter interaktiver Logins mehrerer Personen verhindert das Betriebssystem nicht automatisch — das Verbot shared accounts im Regelbetrieb und die Zweckbindung von Dienstkonten (keine interaktive Anmeldung, klare Ownership) sind Provisionierungs- und IdM-/IAM-Vorgaben der Institution. Technisch unterstützen gesperrte Shells (`nologin`/`false`), fehlende Passwörter und SSSD-/PAM-Richtlinien die Abgrenzung von Service Accounts.
+Gruppenkonten im Sinne gemeinsam genutzter interaktiver Logins mehrerer Personen verhindert das Betriebssystem nicht automatisch — das Verbot shared accounts im Regelbetrieb und die Zweckbindung von Dienstkonten (keine interaktive Anmeldung, klare Ownership) sind Provisionierungs- und IdM-/IAM-Vorgaben der Institution. Bei der Nutzung von Service-Accounts wird durch das setzten einer gesperrten Shell (`nologin`/`false`) der Missbrauch des Accounts als interaktives Gruppenkonto unterbunden.
 
 Weitere Informationen: [Benutzer und Gruppen verwalten](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_basic_system_settings/managing-users-and-groups_configuring-basic-system-settings), [Sicherheitshärtung](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/index).
 
@@ -37,7 +37,6 @@ Weitere Informationen: [Benutzer und Gruppen verwalten](https://docs.redhat.com/
 
   - account_unique_id
   - accounts_authorized_local_users
-
 
 ### Implementation Status: partial
 
