@@ -33,6 +33,7 @@ ______________________________________________________________________
 
 RHEL dokumentiert restriktive Berechtigungen auf Audit-Protokolldateien und optionale unveränderliche Audit-Regeln zum Schutz vor Manipulation; Weiterleitung an einen separaten Log-Host oder SIEM konfiguriert die Institution.
 
+Weitere Informationen: [Systemprüfung (Auditing)](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/auditing-the-system_security-hardening).
 ### Rules:
 
   - file_permissions_var_log_audit
