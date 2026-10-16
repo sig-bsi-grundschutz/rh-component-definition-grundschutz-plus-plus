@@ -1,6 +1,9 @@
 ---
+
 x-trestle-comp-def-rules:
   Red Hat Enterprise Linux 9:
+    - name: install_hids
+      description: install intrusion detection software
     - name: aide_build_database
       description: aide build database
     - name: aide_periodic_cron_checking
@@ -9,8 +12,6 @@ x-trestle-comp-def-rules:
       description: aide scan notification
     - name: package_aide_installed
       description: package aide installed
-    - name: install_hids
-      description: install intrusion detection software
 x-trestle-param-values:
   det.4.2-prm1:
 x-trestle-global:
@@ -18,7 +19,6 @@ x-trestle-global:
     title: Grundschutz++ für Red Hat Enterprise Linux Host
     href: trestle://profiles/gs-plusplus-rhel-host/profile.json
 ---
-
 # DET.4.2 - \[Überwachung von Aktivitäten\] Automatische Angriffserkennung
 
 ## Control Statement
@@ -44,6 +44,14 @@ Ergänzend kann die Integrity Measurement Architecture (IMA) im Kernel-Integrit�
 Zusätzlich bringt die Plattform ein Audit-Subsystem (`auditd`) und SELinux-Mandatory Access Control mit, die Aktivitäten protokollieren bzw. eindämmen und in Verbindung mit institutionellen Audit-Regeln sowie zentraler Auswertung (SIEM, Korrelationsjobs) Anzeichen für Kompromittierung sichtbar machen können. Netzwerkbasierte IDS, dedizierte kommerzielle HIDS-Agenten sowie Auswertung, Schwellwerte und Alarmkategorien liegen in der Verantwortung der Institution.
 
 Weitere Informationen: [Dateiintegrität mit AIDE prüfen](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/assembly_checking-file-integrity-with-aide_security-hardening), [Sicherheit mit dem Kernel-Integritätssubsystem verbessern](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_monitoring_and_updating_the_kernel/enhancing-security-with-the-kernel-integrity-subsystem_assembly_managing-kernel-command-line-parameters-with-uki), [Systemintegrität mit Keylime sicherstellen](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/assembly_ensuring-system-integrity-with-keylime_security-hardening), [Audit-Aufzeichnungen konfigurieren](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html-single/security_hardening/configuring-audit-records_security-hardening), [Sicherheitshärtung](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/index).
+
+### Rules:
+
+  - install_hids
+  - aide_build_database
+  - aide_periodic_cron_checking
+  - aide_scan_notification
+  - package_aide_installed
 
 ### Implementation Status: partial
 
