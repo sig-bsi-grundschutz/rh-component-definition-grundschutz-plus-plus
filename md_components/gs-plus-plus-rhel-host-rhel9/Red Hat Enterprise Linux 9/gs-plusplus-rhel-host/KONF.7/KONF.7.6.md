@@ -30,6 +30,8 @@ ______________________________________________________________________
 
 Für mit den Internet verbundene Systeme wird Red Hat Lightspeed kontinuierlich durch Red Hat mit neuen Signaturen aktualisiert. Da in disconnected/air-gapped Systemen RHEL aktuell (Aug 2026) kein Malware-Scanning bereitstellt, obliegt hier die Implementation der entsprechenden 3rd Party Software.
 
+Weitere Informationen: [Sicherheitshärtung](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/index).
+
 ### Implementation Status: planned
 
 ______________________________________________________________________
