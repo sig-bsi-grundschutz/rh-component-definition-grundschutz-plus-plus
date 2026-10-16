@@ -52,6 +52,7 @@ ______________________________________________________________________
 
 RHEL stellt die technischen Mittel bereit, um eine Identität sofort zu deaktivieren, ohne sie zu löschen: Mit `chage -E <Datum> <Konto>` wird ein Ablaufdatum gesetzt (z.B. das Tagesdatum beim Weggang), wonach das Konto keine Anmeldung mehr zulässt; alternativ sperrt `usermod -L`/`passwd -l` das Passwort sofort. Für befristete Konten lässt sich bereits bei Einrichtung ein Ablaufdatum setzen (`chage` bzw. entsprechende Provisionierung). Zusätzlich können Konten automatisch deaktiviert werden, wenn das Passwort abgelaufen ist und über einen konfigurierten Zeitraum (`INACTIVE` in `/etc/default/useradd` bzw. `chage -I`) nicht erneuert wurde. Über mehrere Hosts hinweg können lokale personalisierte Konten mittels Ansible deaktiviert werden. In zentral über Red Hat IdM oder Active Directory verwalteten Umgebungen wirkt eine Deaktivierung im Verzeichnis über SSSD auf alle angebundenen RHEL-Hosts. Die eigentliche Auslösung — das Erkennen des Weggangs und das Anstoßen der Deaktivierung — bleibt ein organisatorischer HR-/Offboarding-Prozess außerhalb des Hosts.
 
+Weitere Informationen: [Benutzer und Gruppen verwalten](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_basic_system_settings/managing-users-and-groups_configuring-basic-system-settings).
 ### Rules:
 
   - account_temp_expire_date
