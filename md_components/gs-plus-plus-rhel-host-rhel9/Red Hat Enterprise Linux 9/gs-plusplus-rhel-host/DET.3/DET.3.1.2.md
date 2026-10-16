@@ -30,6 +30,8 @@ ______________________________________________________________________
 
 RHEL stellt konfigurierbare Audit-Regeln (einschließlich privilegierter Befehle und Syscall-Auditing) über auditd bereit; Regelsätze wählt die Institution. Siehe Sicherheitshärtung und OpenSCAP-Inhalte für Beispiele.
 
+Weitere Informationen: [Systemprüfung (Auditing)](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/auditing-the-system_security-hardening).
+
 ### Implementation Status: partial
 
 ______________________________________________________________________
