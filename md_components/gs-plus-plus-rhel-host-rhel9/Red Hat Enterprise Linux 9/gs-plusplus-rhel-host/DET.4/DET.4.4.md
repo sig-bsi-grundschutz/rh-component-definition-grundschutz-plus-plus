@@ -1,4 +1,5 @@
 ---
+
 x-trestle-comp-def-rules:
   Red Hat Enterprise Linux 9:
     - name: audit_rules_mac_modification
@@ -14,7 +15,6 @@ x-trestle-global:
     title: Grundschutz++ für Red Hat Enterprise Linux Host
     href: trestle://profiles/gs-plusplus-rhel-host/profile.json
 ---
-
 # DET.4.4 - \[Überwachung von Aktivitäten\] Änderungen an Sicherheitsrichtlinien
 
 ## Control Statement
@@ -36,6 +36,13 @@ ______________________________________________________________________
 RHEL protokolliert mit auditd über persistente Dateiüberwachungsregeln Schreib- und Attributänderungen an zentralen Sicherheitsrichtlinien: unter anderem SELinux-Konfiguration unter `/etc/selinux/`, sudoers-Regeln in `/etc/sudoers` und `/etc/sudoers.d/` sowie PAM-Stack-Dateien in `/etc/pam.d/`. Die Ereignisse stehen in den Audit-Logs zur forensischen Auswertung bereit. Änderungen an weiteren Richtlinien (z. B. SSH- oder Firewall-Konfiguration) sowie das unbemerkte Stoppen von Schutzdiensten erfordern zusätzliche, institutionell festgelegte Regeln, zentrale Sammlung und Alarmierung; reine Host-Härtung deckt EDR-Ausnahmen, Verzeichnisdienst-Gruppen oder NAC nicht ab.
 
 Weitere Informationen: [Auditing the system](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/auditing-the-system_security-hardening)
+
+### Rules:
+
+  - audit_rules_mac_modification
+  - audit_rules_sudoers
+  - audit_rules_sudoers_d
+  - audit_rules_usergroup_modification_pamd
 
 ### Implementation Status: partial
 
