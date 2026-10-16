@@ -3,7 +3,7 @@
     "uuid": "4a30fff1-04c2-47c6-b531-51996c11e135",
     "metadata": {
       "title": "Grundschutz++ - Red Hat Enterprise Linux 9",
-      "last-modified": "2026-10-15T08:35:55+00:00",
+      "last-modified": "2026-10-16T10:47:21.528+00:00",
       "version": "0.1.0",
       "oscal-version": "1.2.1"
     },
@@ -3937,6 +3937,18 @@
             "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
             "value": "accounts password pam unix enabled",
             "remarks": "rule_set_286"
+          },
+          {
+            "name": "Rule_Id",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "ensure_redhat_gpgkey_installed",
+            "remarks": "rule_set_287"
+          },
+          {
+            "name": "Rule_Description",
+            "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+            "value": "ensure redhat gpgkey installed",
+            "remarks": "rule_set_287"
           }
         ],
         "control-implementations": [
@@ -7808,6 +7820,37 @@
                   {
                     "name": "implementation-status",
                     "value": "partial"
+                  }
+                ]
+              },
+              {
+                "uuid": "4f12b29a-a8ec-462a-a92f-91245de6e3c8",
+                "control-id": "DET.5.10.4",
+                "description": "RHEL prüft die Integrität von Patches vor der Installation kryptographisch über DNF/RPM: Pakete aus Repositories und lokale RPMs werden nur installiert, wenn ihre GPG-Signatur zum importierten Red-Hat-Schlüssel (bzw. den für freigegebene Repos konfigurierten Schlüsseln) passt. In der globalen DNF-Konfiguration und je Repository bleibt `gpgcheck` aktiviert; ein Abschalten pro Repo ist nicht vorgesehen. Damit entspricht die automatisierte Installationsroutine dem geforderten Prüfsummen-/Signaturabgleich vor dem Einspielen. Manuelle Abgleiche mit Herstellerseiten für Nicht-RPM-Artefakte bleiben organisatorisch zu regeln, sofern solche Quellen genutzt werden.\n\nWeitere Informationen: [Software mit dem DNF-Tool verwalten](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_software_with_the_dnf_tool/index), [Software management (Considerations in adopting RHEL 9)](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/considerations_in_adopting_rhel_9/assembly_software-management_considerations-in-adopting-rhel-9), [Sicherheitshärtung](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/index)",
+                "props": [
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "ensure_redhat_gpgkey_installed"
+                  },
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "ensure_gpgcheck_globally_activated"
+                  },
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "ensure_gpgcheck_local_packages"
+                  },
+                  {
+                    "name": "Rule_Id",
+                    "ns": "https://oscal-compass.github.io/compliance-trestle/schemas/oscal/cd",
+                    "value": "ensure_gpgcheck_never_disabled"
+                  },
+                  {
+                    "name": "implementation-status",
+                    "value": "implemented"
                   }
                 ]
               }
