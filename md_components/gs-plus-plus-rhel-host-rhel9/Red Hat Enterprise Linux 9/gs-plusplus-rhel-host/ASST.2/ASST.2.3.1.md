@@ -37,6 +37,12 @@ Auf RHEL kann die Ausführung von Anwendungen technisch an eine Freigabeliste ge
 
 Weitere Informationen: [Anwendungen mit fapolicyd blockieren und zulassen](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/assembly_blocking-and-allowing-applications-using-fapolicyd_security-hardening), [Sicherheitshärtung](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/index)
 
+### Rules:
+
+  - fapolicy_default_deny
+  - package_fapolicyd_installed
+  - service_fapolicyd_enabled
+
 ### Implementation Status: partial
 
 ______________________________________________________________________
