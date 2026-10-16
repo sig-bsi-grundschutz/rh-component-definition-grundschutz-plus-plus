@@ -91,6 +91,7 @@ ______________________________________________________________________
 
 RHEL erlaubt das gezielte Deaktivieren nicht benötigter Systemfunktionen auf mehreren Ebenen: Netzwerkdienste werden über systemd dauerhaft gestoppt und maskiert (`systemctl mask --now <dienst>.service`, ggf. inklusive zugehöriger `.socket`-Unit), sodass sie weder manuell noch als Abhängigkeit eines anderen Dienstes erneut starten können. Nicht benötigte Kernel-Module (Dateisysteme, veraltete Netzprotokolle) werden über modprobe-Blacklist-/`install /bin/false`-Konfiguration in `/etc/modprobe.d/` am Laden gehindert. Welche konkreten Dienste, Schnittstellen (z. B. Bluetooth) und Protokolle als "nicht benötigt" gelten, hängt vom Einsatzzweck des Systems ab und ist eine Entscheidung der Institution.
 
+Weitere Informationen: [Sicherheitshärtung](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/index).
 ### Rules:
 
   - service_avahi-daemon_disabled
