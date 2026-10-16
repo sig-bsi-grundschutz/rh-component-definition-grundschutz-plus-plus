@@ -38,10 +38,6 @@ Für die Umsetzung können Administratoren über `auditctl` sowie persistente Re
 
 Weitere Informationen: [Audit-Aufzeichnungen konfigurieren](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html-single/security_hardening/assembly_configuring-audit-records_security-hardening), [Überwachung und Verwaltung von Systemstatus und Performance](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/monitoring_and_managing_system_status_and_performance/index)
 
-### Rules:
-
-  - gspp_impl_det_3_1_6
-
 ### Implementation Status: partial
 
 ______________________________________________________________________
