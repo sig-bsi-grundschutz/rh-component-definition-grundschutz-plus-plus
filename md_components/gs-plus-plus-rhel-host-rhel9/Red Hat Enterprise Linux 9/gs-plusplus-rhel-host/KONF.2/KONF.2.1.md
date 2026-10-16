@@ -30,6 +30,8 @@ ______________________________________________________________________
 
 RHEL liefert die technischen Bausteine, aus denen eine Institution eine Grundkonfiguration ableiten und reproduzierbar ausrollen kann: Anaconda/Kickstart und Image Builder-Blueprints erzeugen definierte Installationszustände, chronyd steuert Zeitsynchronisation, NetworkManager/SSSD/realmd binden DNS- und Verzeichnisdienste ein, und scap-security-guide stellt vorgefertigte Härtungsprofile (z. B. BSI, CIS) bereit, die per OpenSCAP oder Ansible auf ein System angewendet werden. Red Hat Insights (im verbundenen Umgebungen) oder Red Hat Satellite (in disconnected / air-gapped Umgebungen) vergleicht mittels OpenSCAP laufende Systeme gegen bekannte Best-Practice- und Compliance-Regelsätze und aggregiert Abweichungen. Welche Einstellungen konkret als verbindliche Referenz gelten, welches Benchmark (BSI, CIS) zugrunde gelegt wird und wie die Freigabe der Grundkonfiguration organisatorisch erfolgt, legt die Institution jedoch selbst fest; RHEL erzwingt keine bestimmte Baseline.
 
+Weitere Informationen: [Grundlegende Systemeinstellungen konfigurieren](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_basic_system_settings/index).
+
 ### Implementation Status: partial
 
 ______________________________________________________________________
