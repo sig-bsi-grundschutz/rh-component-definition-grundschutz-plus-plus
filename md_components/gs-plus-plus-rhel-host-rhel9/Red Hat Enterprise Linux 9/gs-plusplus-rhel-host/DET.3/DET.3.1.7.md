@@ -30,6 +30,8 @@ ______________________________________________________________________
 
 RHEL unterstützt die Protokollierung von Zeitpunkt, Quelle und Zielobjekt sicherheitsrelevanter Ereignisse über auditd und Journal, sofern entsprechend konfiguriert.
 
+Weitere Informationen: [Systemprüfung (Auditing)](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/auditing-the-system_security-hardening).
+
 ### Implementation Status: partial
 
 ______________________________________________________________________
