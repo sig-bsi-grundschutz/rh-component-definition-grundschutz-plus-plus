@@ -1,21 +1,20 @@
 ---
+
 x-trestle-comp-def-rules:
   Red Hat Enterprise Linux 9:
     - name: dnf-automatic_apply_updates
-      description: configure dnf-automatic to install available updates 
-        automatically
-    - name: dnf-automatic_security_updates_only
-      description: configure dnf-automatic to install only security updates
+      description: configure dnf-automatic to install available updates automatically
     - name: package_dnf-automatic_installed
       description: install dnf-automatic package
     - name: timer_dnf-automatic_enabled
       description: enable dnf-automatic timer
+    - name: dnf-automatic_security_updates_only
+      description: configure dnf-automatic to install only security updates
 x-trestle-global:
   profile:
     title: Grundschutz++ für Red Hat Enterprise Linux Host
     href: trestle://profiles/gs-plusplus-rhel-host/profile.json
 ---
-
 # KONF.8.1.1 - \[Sicherheitsupdates\] Automatische Sicherheitsupdates
 
 ## Control Statement
@@ -39,6 +38,13 @@ Auf RHEL 9 stellt das Paket `dnf-automatic` einen Dienst bereit, der verfügbare
 Live-Patching des Kernels mittels `kpatch` ist ebenfalls möglich, sollte jedoch nur als Übergangslösung bis zum nächsten regulären Patch-Zyklus genutzt werden und nicht als Ersatz.
 
 Weitere Informationen: [Installing security updates automatically (RHEL 9)](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_and_monitoring_security_updates/installing-security-updates_managing-and-monitoring-security-updates) [Live Kernel Patching (RHEL9)](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_monitoring_and_updating_the_kernel/applying-patches-with-kernel-live-patching_assembly_managing-kernel-command-line-parameters-with-uki)
+
+### Rules:
+
+  - dnf-automatic_apply_updates
+  - package_dnf-automatic_installed
+  - timer_dnf-automatic_enabled
+  - dnf-automatic_security_updates_only
 
 ### Implementation Status: partial
 
