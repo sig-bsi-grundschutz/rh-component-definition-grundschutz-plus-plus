@@ -3,8 +3,8 @@
     "uuid": "1b010329-d203-53dc-a668-977177d6d157",
     "metadata": {
       "title": "Grundschutz++ für Red Hat Enterprise Linux Host",
-      "last-modified": "2026-09-21T07:51:31.988+00:00",
-      "version": "0.0.1",
+      "last-modified": "2026-10-16T09:44:10.345+00:00",
+      "version": "0.1.0",
       "oscal-version": "1.2.1",
       "links": [
         {
@@ -93,13 +93,13 @@
               "DET.4.2",
               "DET.4.4",
               "DET.4.9",
-              "DET.4.10",
               "DET.4.13",
               "DET.4.15",
               "DET.4.16",
               "DET.5.10.1",
               "DET.5.10.2",
               "DET.5.10.3",
+              "DET.5.10.4",
               "KONF.2.1",
               "KONF.2.1.1",
               "KONF.2.2",
@@ -153,7 +153,6 @@
               "KONF.9.2",
               "KONF.11.8",
               "KONF.14.1",
-              "KONF.14.1.1",
               "NOT.4.2"
             ]
           }
