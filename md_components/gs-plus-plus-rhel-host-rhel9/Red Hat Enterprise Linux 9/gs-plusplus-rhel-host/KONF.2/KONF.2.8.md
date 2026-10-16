@@ -30,6 +30,8 @@ ______________________________________________________________________
 
 Im Normalfall wird RHEL über eine SSH-Verbindung und den CLI-Tools verwaltet. RHEL unterstützt mehrere von der primären Fernverwaltung unabhängige Administrationswege: Eine serielle Konsole (`ttyS0`, per Kernel-Parameter und `getty`-Unit aktiviert) sowie die Konsole von Virtualisierungs-Hosts (z. B. `virsh console`) bleiben auch dann erreichbar, wenn Netzwerk-Management-Dienste oder die grafische Oberfläche ausgefallen sind; auf physischer Hardware ergänzen herstellerseitige Out-of-Band-Schnittstellen (IPMI/Redfish, iDRAC/iLO) den Zugriff unabhängig vom Betriebssystemzustand. Zusätzlich besteht die Möglichkeit mit `Cockpit` eine webbasierte, grafische Oberfläche bereitzustellen. Für den Notfall lässt sich zusätzlich ein separates, lokal authentifiziertes Break-Glass-Konto mit eigenem PAM-Pfad einrichten, dessen Zugangsdaten getrennt verwahrt werden. Welche dieser Mechanismen aktiviert, physisch abgesichert und in eine Notfall-Zugriffsrichtlinie überführt werden, entscheidet die Institution.
 
+Weitere Informationen: [Grundlegende Systemeinstellungen konfigurieren](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_basic_system_settings/index).
+
 ### Implementation Status: partial
 
 ______________________________________________________________________
