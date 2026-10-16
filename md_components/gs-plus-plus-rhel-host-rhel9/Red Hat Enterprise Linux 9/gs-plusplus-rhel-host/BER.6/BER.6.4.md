@@ -106,7 +106,7 @@ ______________________________________________________________________
 
 <!-- Note that the list of rules under ### Rules: is read-only and changes will not be captured after assembly to JSON -->
 
-Grundsätzlich sollte ein RHEL-Host an zentrale Identity-Provider/Verzeichnisdienste angebunden sein und an dieser Stelle die Passwort-Qualität durchgesetzt sein. Für lokale Accounts blockiert RHEL mit `pam_pwquality` die Trivial- und Wörterbuchpasswörter: über authselect-gesteuerte PAM-Zeilen oder alternativ  über `/etc/security/pwquality.conf` greifen `dictcheck`, Mindestlänge und Zeichenklassen; Passwortänderungen scheitern, wenn das neue Geheimnis Wörterbuchworten oder zu einfachen Mustern entspricht.
+Grundsätzlich sollte ein RHEL-Host an zentrale Identity-Provider/Verzeichnisdienste angebunden sein; dort lassen sich Qualitätskriterien und Lebensdauer zentral vorgeben. Für lokale Accounts setzt RHEL Qualitätsregeln mit `pam_pwquality` um: über authselect-gesteuerte PAM-Zeilen oder `/etc/security/pwquality.conf` greifen Mindestlänge (`minlen`), Mindestanzahl Zeichenklassen (`minclass`) sowie Kreditwerte für Ziffern, Groß-/Kleinbuchstaben und Sonderzeichen (`dcredit`/`ucredit`/`lcredit`/`ocredit`). Die erwartete Nutzungsdauer (Lebensdauer) steuert der Host über `PASS_MAX_DAYS`/`PASS_MIN_DAYS` in `/etc/login.defs` und kontobezogene `chage`-Werte — in Abhängigkeit von Angriffsfläche und begleitenden Maßnahmen (z. B. MFA, faillock). Institutionelle Schwellen (Entropie, TR-02102-Bezug, Differenzierung je Zugang) bleiben organisatorisch festzulegen.
 
 Weitere Informationen: [Authentifizierung und Autorisierung](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_authentication_and_authorization_in_rhel/index).
 
@@ -122,6 +122,6 @@ Weitere Informationen: [Authentifizierung und Autorisierung](https://docs.redhat
   - accounts_password_pam_pwquality_password_auth
   - accounts_password_pam_pwquality_system_auth
 
-### Implementation Status: implemented
+### Implementation Status: partial
 
 ______________________________________________________________________
