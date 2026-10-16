@@ -8,7 +8,7 @@ x-trestle-comp-def-rules:
     - name: timer_dnf-automatic_enabled
       description: enable dnf-automatic timer
     - name: dnf-automatic_apply_updates
-      description: configure dnf-automatic to install available updates 
+      description: configure dnf-automatic to install available updates
         automatically
 x-trestle-global:
   profile:
@@ -34,7 +34,7 @@ ______________________________________________________________________
 
 <!-- Note that the list of rules under ### Rules: is read-only and changes will not be captured after assembly to JSON -->
 
-RHEL bezieht Sicherheits- und Fehlerkorrekturen über die mit Subscription Manager konfigurierten Repositories. Mit `dnf update` bzw. `dnf update --security` und dem Abgleich verfügbarer Errata bleibt der Patchstand aktuell; `dnf-automatic` mit aktiviertem Timer kann Updates periodisch prüfen und optional automatisch einspielen (`apply_updates`). Stufenweise Ausrollung (One-Many-All, Blue/Green), Testfenster und Risikopriorisierung nach CVSS bzw. Asset-Kritikalität sind Organisationsprozesse (häufig über Satellite, Insights oder Change-Management) und werden vom einzelnen Host nicht allein erzwungen.
+RHEL bezieht Sicherheits- und Fehlerkorrekturen über die mit Subscription Manager konfigurierten Repositories. Mit `dnf update` bzw. `dnf update --security` und dem Abgleich verfügbarer Errata bleibt der Patchstand aktuell. `dnf-automatic` mit aktiviertem Timer kann Updates periodisch prüfen und optional automatisch einspielen (`apply_updates`). Stufenweiser Roll-Out (One-Many-All, Blue/Green), Testfenster und Risikopriorisierung nach CVSS bzw. Asset-Kritikalität sind Organisationsprozesse (häufig über Satellite, Insights oder manuelles Change-Management) und werden vom einzelnen Host nicht allein erzwungen.
 
 Weitere Informationen: [Automatisierung von Software-Updates in RHEL 9](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_software_with_the_dnf_tool/assembly_automating-software-updates-in-rhel-9_managing-software-with-the-dnf-tool), [Installation von Sicherheitsupdates](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_and_monitoring_security_updates/installing-security-updates_managing-and-monitoring-security-updates).
 
