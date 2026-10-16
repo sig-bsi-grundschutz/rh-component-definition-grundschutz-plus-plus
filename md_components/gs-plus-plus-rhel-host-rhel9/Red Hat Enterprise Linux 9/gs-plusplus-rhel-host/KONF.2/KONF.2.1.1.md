@@ -32,6 +32,8 @@ RHEL selbst führt keine automatische Versionierung von /etc, doch die dortigen 
 
 Kickstart-Dateien und Image Builder-Blueprints selbst sind versionierbare Artefakte, aus denen reproduzierbare Installationen abgeleitet werden können; RPM-Paketverwaltung (dnf history, RPM-Transaktionshistorie) protokolliert zusätzlich Paketänderungen mit Rollback-Möglichkeit. Für Geheimnisse, die nicht im Klartext versioniert werden sollen, kann Ansible Vault oder eine externe Geheimnisverwaltung (z. B. HashiCorp Vault) eingesetzt werden. Die Einrichtung eines fortlaufenden, mit Rücksetzpunkten versehenen Versionsprozesses samt Änderungsfreigabe ist jedoch ein organisatorischer Schritt, den die Institution etablieren und betreiben muss.
 
+Weitere Informationen: [Grundlegende Systemeinstellungen konfigurieren](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_basic_system_settings/index).
+
 ### Implementation Status: partial
 
 ______________________________________________________________________
