@@ -1,4 +1,5 @@
 ---
+
 x-trestle-comp-def-rules:
   Red Hat Enterprise Linux 9:
     - name: security_patches_up_to_date
@@ -7,12 +8,13 @@ x-trestle-comp-def-rules:
       description: install dnf-automatic package
     - name: timer_dnf-automatic_enabled
       description: enable dnf-automatic timer
+    - name: dnf-automatic_security_updates_only
+      description: configure dnf-automatic to install only security updates
 x-trestle-global:
   profile:
     title: Grundschutz++ für Red Hat Enterprise Linux Host
     href: trestle://profiles/gs-plusplus-rhel-host/profile.json
 ---
-
 # KONF.8.1 - \[Sicherheitsupdates\] Automatische Überprüfung
 
 ## Control Statement
@@ -34,6 +36,13 @@ ______________________________________________________________________
 Mit einer gültigen Red-Hat-Subscription stellt DNF über die konfigurierten Repositories Metadaten zu verfügbaren Aktualisierungen bereit; `dnf check-update` und `dnf updateinfo list security` zeigen an, ob Sicherheitskorrekturen für installierte Pakete vorliegen. Für eine wiederkehrende, systemgesteuerte Überwachung mit oder ohne automatischer Installation wird das Paket `dnf-automatic` eingesetzt: In `/etc/dnf/automatic.conf` kann über `apply_updates` bestimmt werden ob nur auf Updates geprüft oder diese auch installiert werden.Mittels der Option `upgrade_type = security` kann die Überwachung auf reine Sicherheits-Updates eingegrenzt werden. Ob der Patchstand den internen Vorgaben entspricht, prüft die Institution zusätzlich periodisch (z. B. über `dnf history`, Errata-Abgleich oder zentrale Werkzeuge wie Red Hat Satellite bzw. Red Hat Insights). Benachrichtigung an Administratoren, Ticket-Workflows und priorisierte Ausroll-Prozesse sind organisatorisch festzulegen.
 
 Weitere Informationen: [Automatisierung von Software-Updates in RHEL 9](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_software_with_the_dnf_tool/assembly_automating-software-updates-in-rhel-9_managing-software-with-the-dnf-tool), [Installation von Sicherheitsupdates](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/managing_and_monitoring_security_updates/installing-security-updates_managing-and-monitoring-security-updates)
+
+### Rules:
+
+  - security_patches_up_to_date
+  - package_dnf-automatic_installed
+  - timer_dnf-automatic_enabled
+  - dnf-automatic_security_updates_only
 
 ### Implementation Status: partial
 
