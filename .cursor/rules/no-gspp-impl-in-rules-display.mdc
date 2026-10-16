@@ -1,0 +1,32 @@
+---
+description: >-
+  Never list gspp_impl_* narrative seeds under markdown ### Rules:; seeds are
+  CSV/JSON helpers only, not assessor-facing CaC rules.
+globs: md_components/**/*.md
+alwaysApply: true
+---
+
+# No `gspp_impl_*` in `### Rules:`
+
+Narrative seeds (`gspp_impl_*`) exist only so CSV → OSCAL keeps an
+implemented-requirement when no ComplianceAsCode rule binds. They are **helpers**,
+not real rules.
+
+## Required
+
+- **Never** put `gspp_impl_*` under markdown `### Rules:`.
+- Seed-only controls: omit the `### Rules:` heading (or leave it empty of
+  bullets). Frontmatter may still list the seed for trestle — that is OK.
+- `### Rules:` lists **CaC rule ids only**.
+- Never cite `gspp_impl_*` in German implementation prose.
+
+## After regenerate
+
+If `regenerate_components.sh` / trestle writes `gspp_impl_*` into `### Rules:`,
+**remove those bullets** (and the heading if nothing CaC remains) before commit.
+
+## Consistency check
+
+Listing `gspp_impl_*` under `### Rules:` is a **CRITICAL** display defect.
+Missing `### Rules:` on a seed-only control (CSV/JSON seed present) is **not**
+a defect.

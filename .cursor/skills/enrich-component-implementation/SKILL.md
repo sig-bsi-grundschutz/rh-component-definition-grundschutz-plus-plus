@@ -126,8 +126,10 @@ an IR for it. Use a **narrative seed** row instead of a CaC rule:
    attach a real CaC rule, **remove this control id from the seed row** (delete
    the seed row if its list becomes empty) so `### Rules:` is not dual-listed.
 2. **No attachable CaC rules** → Path B: ensure a `gspp_impl_*` seed row exists
-   (create if missing). Continue Steps 5–9. `### Rules:` showing `gspp_impl_*`
-   is expected; do not cite that id in prose as if it were a CaC check.
+   (create if missing). Continue Steps 5–9. Seed stays in CSV/JSON (and may
+   appear in frontmatter). **Never** list `gspp_impl_*` under markdown
+   `### Rules:` — if regenerate adds it, strip those bullets (drop the Rules
+   heading when no CaC ids remain). Do not cite the seed id in prose.
 3. Weak/speculative CaC matches → PR "Considered but not attached" only.
 
 Status when Path B: cannot be `implemented`. Use `alternative`, `partial`,
@@ -295,7 +297,8 @@ Confirm for this control:
 
 - JSON IR exists and has `Rule_Id` props (CaC ids and/or `gspp_impl_*`)
 - CI-level `set-parameters` when CaC defaults set
-- Markdown `### Rules:` lists those rule ids (seed id is OK on Path B)
+- Markdown `### Rules:` lists **CaC** rule ids only (Path B: no `### Rules:` /
+  no `gspp_impl_*` bullets)
 - Frontmatter rule/param blocks updated if parameters exist
 
 If `validate-controls = on` fails (control not in profile): stop and report —
@@ -411,7 +414,7 @@ gh pr create --base develop --title "Enrich {control-id} component implementatio
 ## Test plan
 - [ ] Review prose (no inline rule IDs; seed id not sold as CaC check)
 - [ ] Confirm CSV `Control_Id_List` / parameters or `gspp_impl_*` seed for this control
-- [ ] Confirm markdown `### Rules:` matches CSV (CaC and/or seed)
+- [ ] Confirm markdown `### Rules:` matches CSV **CaC** ids only (no `gspp_impl_*`)
 - [ ] Confirm JSON IR: description, implementation-status, Rule_Id, set-parameters
 - [ ] Confirm component-definition UUIDs preserved (merge config present)
 - [ ] After merge to develop: confirm CI Autoupdate did not regress prose/rules

@@ -123,7 +123,8 @@ All must be true:
 2. Every **technical** clause in Control guidance is addressed (as far as
    OS-level controls allow).
 3. Those rules have `cce@rhel{N}`.
-4. Covering **CaC** rule IDs appear in CSV / JSON / markdown `### Rules:`.
+4. Covering **CaC** rule IDs appear in CSV / JSON / markdown `### Rules:`
+   (`gspp_impl_*` must **not** appear under `### Rules:`).
 5. Prose describes the on-host mechanism — not the requirement, not rule IDs
    ([Implementation prose](#implementation-prose)).
 
@@ -263,7 +264,11 @@ ______________________________________________________________________
 
 {EDIT: German prose — technical mechanism only; no CaC rule citations}
 
-### Rules: — from regenerate (do not hand-edit)
+### Rules: — from regenerate (CaC only; never `gspp_impl_*`)
+
+Regenerate may write seed ids into `### Rules:`. **Strip them** before commit.
+Path B / seed-only: omit `### Rules:` (frontmatter seed OK). Do not hand-edit
+CaC Rules bullets except to remove illegal `gspp_impl_*` lines.
 
 ### Implementation Status: {EDIT: value}
 
