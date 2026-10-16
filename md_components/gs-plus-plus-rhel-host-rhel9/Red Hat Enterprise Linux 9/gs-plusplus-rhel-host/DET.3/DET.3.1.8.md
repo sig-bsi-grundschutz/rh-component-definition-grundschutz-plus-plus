@@ -6,7 +6,7 @@ x-trestle-comp-def-rules:
     - name: audit_rules_mac_modification
       description: audit rules mac modification
     - name: audit_rules_privileged_commands
-      description: Ensure auditd Collects Information on the Use of Privileged 
+      description: Ensure auditd Collects Information on the Use of Privileged
         Commands
     - name: audit_sudo_log_events
       description: Record Attempts to perform maintenance activities
@@ -38,7 +38,7 @@ ______________________________________________________________________
 
 <!-- Note that the list of rules under ### Rules: is read-only and changes will not be captured after assembly to JSON -->
 
-Mit aktiviertem `auditd` protokolliert RHEL privilegierte Vorgänge auf dem Host: Ausführung setuid-/privilegierter Befehle, sudo-/Wartungsaktionen, Änderungen an SELinux-Policy und Netzwerkkonfiguration sowie weitere Administrator-Ereignisse. Zeitstempel, Akteure (UID/`auid`) und betroffene Objekte erscheinen in den Audit-Aufzeichnungen und unterstützen die Nachvollziehbarkeit von Aktivierung, Deaktivierung oder Umgehung schützender Funktionen. Welche Anwendungsschicht-Funktionen darüber hinaus als „privilegiert“ gelten und zentral korreliert werden, bleibt organisatorisch bzw. über SIEM zu definieren.
+Mit aktiviertem `auditd` protokolliert RHEL privilegierte Vorgänge auf dem Host: Ausführung setuid-/privilegierter Befehle, sudo-/Wartungsaktionen, Änderungen an SELinux-Policy und Netzwerkkonfiguration sowie weitere Administrator-Ereignisse. Zeitstempel, Akteure (UID/`auid`) und betroffene Objekte erscheinen in den Audit-Aufzeichnungen und unterstützen die Nachvollziehbarkeit von Aktivierung, Deaktivierung oder Umgehung schützender Funktionen. Welche Anwendungsschicht-Funktionen darüber hinaus als „privilegiert“ gelten und zentral korreliert werden, bleibt organisatorisch zu definieren.
 
 Weitere Informationen: [Audit-Aufzeichnungen konfigurieren](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html-single/security_hardening/assembly_configuring-audit-records_security-hardening), [Sicherheitshärtung](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/index).
 
