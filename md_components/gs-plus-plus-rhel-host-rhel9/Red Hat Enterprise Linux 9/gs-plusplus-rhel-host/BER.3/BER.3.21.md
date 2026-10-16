@@ -30,6 +30,8 @@ ______________________________________________________________________
 
 Für Kerberos-basierte Dienste verwaltet SSSD im Zusammenspiel mit IdM die zugehörigen Keytabs zentral im Verzeichnis; eine Rotation des Dienstprinzipal-Schlüssels (z.B. via `ipa-getkeytab`) erfolgt IdM-seitig, sodass keine dauerhaften Klartext-Anmeldedaten lokal auf dem Host vorgehalten werden müssen. Für generische Zugangsdaten wie API-Schlüssel oder Datenbank-Anmeldedaten stellt RHEL selbst jedoch keinen Passworttresor bereit. Hilfsweise kann über Red Hat Ansible Automation Platform mittles `ansible-vault` eine entsprechend verschlüsselte Speicherung von Passwörtern, sowie die automatisierte Verteilung und Rotation erfolgen. Die Integration mit vollwertigen Secret-Management-Lösungen wie HashiCorp Vault ist technisch möglich und empfehlenswert.
 
+Weitere Informationen: [Authentifizierung und Autorisierung](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_authentication_and_authorization_in_rhel/index).
+
 ### Implementation Status: alternative
 
 ______________________________________________________________________
