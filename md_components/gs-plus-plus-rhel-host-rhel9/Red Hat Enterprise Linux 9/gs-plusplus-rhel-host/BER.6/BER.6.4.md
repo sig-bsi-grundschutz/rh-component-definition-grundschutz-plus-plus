@@ -122,6 +122,6 @@ Weitere Informationen: [Authentifizierung und Autorisierung](https://docs.redhat
   - accounts_password_pam_pwquality_password_auth
   - accounts_password_pam_pwquality_system_auth
 
-### Implementation Status: partial
+### Implementation Status: implemented
 
 ______________________________________________________________________
