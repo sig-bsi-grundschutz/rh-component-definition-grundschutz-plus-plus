@@ -32,6 +32,8 @@ ______________________________________________________________________
 
 Die Autorisierung von Berechtigungszuweisungen ist primär ein IAM-/Organisationsprozess (Führungskraft, Data Owner, Application Owner).
 
+Weitere Informationen: [Authentifizierung und Autorisierung](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_authentication_and_authorization_in_rhel/index).
+
 ### Implementation Status: not-applicable
 
 ______________________________________________________________________
