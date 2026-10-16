@@ -1,20 +1,26 @@
 ---
+
 x-trestle-comp-def-rules:
   Red Hat Enterprise Linux 9:
+    - name: directory_permissions_var_log_audit
+      description: directory permissions var log audit
     - name: audit_rules_immutable
       description: audit rules immutable
     - name: file_permissions_var_log_audit
       description: file permissions var log audit
-    - name: directory_permissions_var_log_audit
-      description: directory permissions var log audit
-    - name: file_ownership_var_log_audit_stig
+    - name: file_ownership_var_log_audit
       description: file ownership var log audit stig
+    - name: file_group_ownership_var_log_audit
+      description: file group ownership var log audit stig
+    - name: directory_access_var_log_audit
+      description: directory access var log audit
+    - name: auditd_audispd_configure_remote_server
+      description: auditd audispd configure remote server
 x-trestle-global:
   profile:
     title: Grundschutz++ für Red Hat Enterprise Linux Host
     href: trestle://profiles/gs-plusplus-rhel-host/profile.json
 ---
-
 # DET.3.5 - \[Protokollierung\] Revisionssicherheit
 
 ## Control Statement
@@ -36,6 +42,16 @@ ______________________________________________________________________
 Auf RHEL 9 schreibt auditd Audit-Ereignisse standardmäßig unter `/var/log/audit/`; die RHEL-Dokumentation empfiehlt restriktive Datei- und Verzeichnisrechte sowie Eigentümerschaft durch root, damit nur berechtigte Konten Protokolle lesen oder verändern können. Persistente Regeln in `/etc/audit/rules.d/` lassen sich mit einer Finalize-Regel (`-e 2`, Gruppe 90) unveränderlich machen, sodass Audit-Regeln bis zum Neustart nicht ohne Berechtigung angepasst werden können; Zugriffe auf Audit-Konfiguration und -Protokolle können zusätzlich per Audit-Regeln protokolliert werden. Für eine tatsächlich revisionssichere Ablage und zentrale Auswertung können Plugins unter `/etc/audit/plugins.d/` Ereignisse an einen entfernten Log- oder SIEM-Dienst weiterleiten — Transportverschlüsselung, getrennte Schlüsselhaltung, WORM-Speicher oder Hash-Ketten können dann im SIEM realisiert werden.
 
 Weitere Informationen: https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/auditing-the-system_security-hardening
+
+### Rules:
+
+  - directory_permissions_var_log_audit
+  - audit_rules_immutable
+  - file_permissions_var_log_audit
+  - file_ownership_var_log_audit
+  - file_group_ownership_var_log_audit
+  - directory_access_var_log_audit
+  - auditd_audispd_configure_remote_server
 
 ### Implementation Status: partial
 
