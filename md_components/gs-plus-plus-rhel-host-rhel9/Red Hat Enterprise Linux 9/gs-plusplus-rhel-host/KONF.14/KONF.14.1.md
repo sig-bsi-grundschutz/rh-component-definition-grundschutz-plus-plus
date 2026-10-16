@@ -1,4 +1,5 @@
 ---
+
 x-trestle-comp-def-rules:
   Red Hat Enterprise Linux 9:
     - name: configure_crypto_policy
@@ -32,7 +33,6 @@ x-trestle-global:
     title: Grundschutz++ für Red Hat Enterprise Linux Host
     href: trestle://profiles/gs-plusplus-rhel-host/profile.json
 ---
-
 # KONF.14.1 - \[Verteilte Anwendungen\] Verschlüsselung beim Transport
 
 ## Control Statement
@@ -54,6 +54,10 @@ ______________________________________________________________________
 Auf Host-Ebene erzwingt RHEL 9 über die systemweite Crypto Policy (`update-crypto-policies --set <Profil>`) einheitliche Mindestanforderungen für TLS, DTLS und verwandte Bibliotheken (OpenSSL, GnuTLS, NSS, libkrb5): Im Profil DEFAULT sind unter anderem TLS-Versionen unter 1.2, kurze RSA-/DH-Schlüssel und veraltete Chiffren deaktiviert. Das Profil FUTURE verschärft die Vorgaben weiter (z. B. TLS 1.3). Ebenfalls kann ein eigenes, der TR-02102 entsprechendes Profil konfiguriert werden. Sofern Anwendungen so programmiert und bereitgestellt werden, dass sie die mitgelieferten System-Bibliotheken (OpenSSL etc.) nutzen, werden diese ebenfalls der `crypto-policy` folgen. Anwendungsspezifische Protokolle (Web-Apps, Datenbankreplikation, E-Mail-Relay) müssen  in den jeweiligen Diensten konfiguriert werden
 
 Weitere Informationen: [Systemweite kryptografische Richtlinien](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/using-the-system-wide-cryptographic-policies_security-hardening), [Sicherheitshärtung](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/index)
+
+### Rules:
+
+  - configure_crypto_policy
 
 ### Implementation Status: partial
 
