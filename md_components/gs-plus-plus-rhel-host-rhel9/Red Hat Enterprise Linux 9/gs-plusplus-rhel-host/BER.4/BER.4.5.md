@@ -2,7 +2,7 @@
 x-trestle-comp-def-rules:
   Red Hat Enterprise Linux 9:
     - name: gspp_impl_ber_4_5
-      description: Narrative implementation seed for BER.4.5 (no CaC rule 
+      description: Narrative implementation seed for BER.4.5 (no CaC rule
         binding)
 x-trestle-global:
   profile:
@@ -28,10 +28,9 @@ ______________________________________________________________________
 
 <!-- Note that the list of rules under ### Rules: is read-only and changes will not be captured after assembly to JSON -->
 
-Die Anforderung verlangt die Dokumentation von Systemfunktionen, die ohne Authentifizierung erreichbar sind. Auf dem RHEL-Host unterstützen `firewalld` (Zonen, freigegebene Services/Ports) und Abfragen der lauschenden Sockets (`ss -tulpn`, `firewall-cmd --list-all`) die Inventarisierung netzseitig exponierter Einstiegspunkte ohne Login. Authentifizierungsfreie lokale Interfaces (z. B. Cockpit nur nach Login, anonyme NFS-/HTTP-Freigaben, Sperrbildschirm-Inhalte auf Clients) sind je nach installierten Diensten zu erfassen. Die geforderte Übersicht selbst ist ein Pflegeprozess der Institution; der Host liefert die technischen Faktenquellen, erzwingt aber kein Dokumentationsartefakt.
+Bei einer RHEL-Installation ohne grafische Oberfläche (z. B. Minimal Install oder Server; die Anaconda-Standardauswahl ist hingegen „Server with GUI“) gibt `firewalld` in der Standardzone ausschließlich den Service `ssh` (TCP-Port 22) frei — der Zugriff über SSH erfordert Authentifizierung; passwortbasiertes Root-Login per SSH ist standardmäßig deaktiviert. Bei grafischer Oberfläche ist sicherzustellen, dass kein automatischer Login (GDM) aktiviert ist — dies ist jedoch keine Anaconda-Installer-Option, sondern nachträgliche Konfiguration. Während der Installation muss ein Root-Passwort gesetzt werden. Ebenfalls ist die Anlage eines lokalen Benutzerkontos oder die Integration mit einem zentralen IdP (Red Hat IdM, Active Directory, LDAP) möglich.
 
-Weitere Informationen: [Firewalls und Paketfilter konfigurieren](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_firewalls_and_packet_filters/index), [Sicherheitshärtung](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/index).
-
+Weitere Informationen: [System im Installer anpassen](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/interactively_installing_rhel_from_installation_media/customizing-the-system-in-the-installer_rhel-installer)
 
 ### Implementation Status: alternative
 
