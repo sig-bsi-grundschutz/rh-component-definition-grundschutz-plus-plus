@@ -33,6 +33,6 @@ RHEL verwaltet als vertrauenswürdig eingestufte Zertifizierungsstellen zentral 
 
   - only_allow_specific_certs
 
-### Implementation Status: operational
+### Implementation Status: partial
 
 ______________________________________________________________________
