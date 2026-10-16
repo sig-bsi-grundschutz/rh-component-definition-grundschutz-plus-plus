@@ -4,7 +4,7 @@
 
 | Level | Use when |
 |-------|----------|
-| **CRITICAL** | CSV↔JSON rule map broken; orphan IR; dual CaC+seed; MD advertises wrong/missing **CaC** rule ids; clear factual contradiction that would mislead an assessor |
+| **CRITICAL** | CSV↔JSON rule map broken; orphan IR; dual CaC+seed; MD advertises wrong/missing **CaC** rule ids; MD `### Rules:` lists `gspp_impl_*`; clear factual contradiction that would mislead an assessor |
 | **WARNING** | Related controls disagree on a **shared** mechanism; status vs prose mismatch; heavy copy-paste across distinct obligations; invalid status token; prose cites CaC rule ids |
 | **NOTE** | Mild intra-control repetition; seed display gap when FM also missing seed; rare accidental shared-rule; small-scope enrich-style nits |
 
@@ -17,8 +17,8 @@ Lessons from full-repo audits that produced noise:
 
 | Noise pattern | Correct handling |
 |---------------|------------------|
-| Missing `### Rules:` on **seed-only** controls while FM lists `gspp_impl_*` and CSV=JSON | **Ignore** (display incomplete; SoT intact) |
-| Missing `### Rules:` on seed-only and FM also empty | One clustered **NOTE** in batch — not CRITICAL/WARNING |
+| Missing `### Rules:` on **seed-only** controls while CSV/JSON have `gspp_impl_*` | **Ignore** (correct — seeds must not appear under Rules) |
+| `### Rules:` bullet is `gspp_impl_*` | **CRITICAL** — strip seed from Rules display |
 | Missing/stale `### Rules:` when CSV/JSON have **CaC** ids | **CRITICAL** (assessor-facing binding wrong) |
 | Frontmatter “rules” parsed from params / param-values | **Bug** — only `x-trestle-comp-def-rules.*.name` |
 | Separate CRITICAL for FM and MD for same sync defect | Merge into **one** finding per control |
@@ -58,8 +58,9 @@ Build sets for control `C`:
 |------------|--------|
 | CSV ≠ JSON | **CRITICAL** always |
 | CSV/JSON contain CaC id(s); MD missing them or lists extra CaC ids | **CRITICAL** |
-| CSV/JSON are seed-only; FM lists seed; MD has no `### Rules:` | **Ignore** |
-| CSV/JSON seed-only; FM and MD both omit seed | Clustered **NOTE** |
+| CSV/JSON are seed-only; MD has no `### Rules:` (FM may list seed) | **Ignore** — correct |
+| MD `### Rules:` contains any `gspp_impl_*` | **CRITICAL** — remove; seeds are not real rules |
+| CSV/JSON seed-only; FM also omits seed | Clustered **NOTE** (regenerate/FM gap only) |
 | FM names ≠ CSV but MD Rules already match CSV | Prefer single MD/CSV finding; FM is regenerate collateral |
 | FM parser includes param ids | Invalid — re-parse; do not file |
 
@@ -80,7 +81,8 @@ Config keys (`gpgcheck`), package names, and paths are fine.
 | Id = `gspp_impl_` + control with `.` → `_`, lower | Typo / wrong control → **CRITICAL** |
 | After real CaC attach, seed row gone for that control | Dual listing → **CRITICAL** |
 
-Missing MD `### Rules:` bullet for a seed is **not** a seed-naming failure.
+Missing MD `### Rules:` bullet for a seed is **correct**. A seed **under**
+`### Rules:` is a display defect — remove it.
 
 ### Shared rules across controls
 
@@ -263,4 +265,4 @@ primary related group when drift would confuse an assessor.
 - Translating prose language unless user asks.
 - Full-repo doc-footer completeness sweeps (`Weitere Informationen:`).
 - “Compatible related group” write-ups with no defect.
-- Seed-only missing `### Rules:` when frontmatter already lists the seed.
+- Seed-only controls without `### Rules:` (correct — do not invent seed bullets).

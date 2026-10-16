@@ -35,7 +35,7 @@ Default artifact = `COMPONENT_DEFINITION` from `config.env`
 | Rule ↔ control map | `data/{COMPONENT_DEFINITION}.csv` |
 | `Rule_Id`, params, IR description/status | `component-definitions/…/component-definition.json` |
 | Prose + status display | `md_components/…/{control-id}.md` |
-| `### Rules:` display | Regenerated from JSON; CaC ids must match CSV; seed-only display may lag if FM already lists seed |
+| `### Rules:` display | **CaC ids only** — must match CSV/JSON CaC set. Never list `gspp_impl_*` seeds here |
 
 ## Prerequisites
 
@@ -106,7 +106,8 @@ regenerated display.
 | Orphan | **CRITICAL** — MD/JSON IR but control absent from every CSV list |
 | Seed naming | **CRITICAL** — id ≠ `gspp_impl_{control}` (dots→`_`, lower) or seed shared |
 | MD Rules vs CSV — **CaC** | **CRITICAL** — CaC ids in CSV/JSON missing from MD, **or** MD lists CaC ids not in CSV/JSON |
-| MD Rules vs CSV — **seed-only** | **NOTE** (batch: one clustered finding) only if FM also lacks the seed; if FM `x-trestle-comp-def-rules` already lists the seed and CSV=JSON → **ignore** missing `### Rules:` heading |
+| MD `### Rules:` lists `gspp_impl_*` | **CRITICAL** — seeds are helpers only; never assessor-facing Rules bullets |
+| MD Rules vs CSV — **seed-only** | **Ignore** missing `### Rules:` (expected). FM may list the seed; CSV=JSON must still hold the seed |
 | Frontmatter vs CSV | Compare **only** `x-trestle-comp-def-rules.*.name`. Never treat `x-trestle-rules-params`, `x-trestle-param-values`, or catalog param keys as rules. If MD Rules already covered the same defect → do not add a second finding |
 | Prose cites rule IDs | **WARNING** — German prose names CaC / `gspp_impl_*` as product features |
 | Shared-rule intent | **Default ignore.** **NOTE** only when same CaC rule is on controls with **no** shared mechanism/theme (likely accidental `Control_Id_List` append) |
