@@ -1,0 +1,40 @@
+---
+x-trestle-global:
+  profile:
+    title: Grundschutz++ für Red Hat Enterprise Linux Host
+    href: trestle://profiles/gs-plusplus-rhel-host/profile.json
+x-trestle-comp-def-rules:
+  Red Hat Enterprise Linux 9:
+    - name: account_unique_id
+      description: account unique id
+---
+
+# BER.2.1 - \[Identitätsmanagement\] Person-Identität
+
+## Control Statement
+
+Berechtigung SOLLTE eine eindeutige Identität zu genau einer natürlichen Person oder einem IT-System zuweisen.
+
+## Control guidance
+
+Hier wird eine Identität ("muellera") genau einer natürlichen Person ("Andrea Müller") zugewiesen, oder einem IT-System ("pc02348" zu "pc02348.our.domain").
+
+______________________________________________________________________
+
+## What is the solution and how is it implemented?
+
+<!-- For implementation status enter one of: implemented, partial, planned, alternative, not-applicable -->
+
+<!-- Note that the list of rules under ### Rules: is read-only and changes will not be captured after assembly to JSON -->
+
+RHEL erzwingt beim Anlegen eines Kontos keine technische Eindeutigkeit von Benutzer-IDs (UIDs); zwei Konten können versehentlich dieselbe UID erhalten. Über Compliance-Scans (z. B. OpenSCAP) lässt sich prüfen, ob mehrere interaktive Konten dieselbe UID verwenden, und Duplikate als Fund zur manuellen Behebung melden. Für IT-Systeme empfiehlt sich, als Identität den vollqualifizierten Hostnamen (FQDN, z.B. `pc02348.our.domain`) zu setzen (`hostnamectl set-hostname`), damit das System eindeutig benannt und im DNS auflösbar ist. Hash-Fingerprints beim Verbindungsaufbau mittels SSH bieten eine zusätzliche eindeutige Identifikationsmöglichkeit. Diese können beispielsweise zusätzlich in Red Hat IdM oder einem DNS gespeichert werden, um ein Identifikationsmerkmal in einem Drittsystem zu speichern. In zentral verwalteten Umgebungen bindet SSSD den Host zusätzlich an Red Hat IdM, Active Directory oder LDAP an; die Identität stammt dann direkt aus dem Verzeichnisdatensatz der Person bzw. des IT-Systems, statt lokal frei vergeben zu werden. Die eigentliche Zuordnung eines Kontonamens zu einer bestimmten natürlichen Person (Namenskonvention, Personalprozess) bleibt jedoch ein organisatorischer Vorgang außerhalb der technischen Prüfmöglichkeiten des Hosts.
+
+Weitere Informationen: [Benutzer und Gruppen verwalten](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_basic_system_settings/managing-users-and-groups_configuring-basic-system-settings).
+
+### Rules:
+
+  - account_unique_id
+
+### Implementation Status: partial
+
+______________________________________________________________________

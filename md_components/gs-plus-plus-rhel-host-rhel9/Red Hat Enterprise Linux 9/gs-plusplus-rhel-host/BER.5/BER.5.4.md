@@ -1,0 +1,76 @@
+---
+x-trestle-param-values:
+  ber.5.4-prm1:
+x-trestle-global:
+  profile:
+    title: Grundschutz++ für Red Hat Enterprise Linux Host
+    href: trestle://profiles/gs-plusplus-rhel-host/profile.json
+x-trestle-comp-def-rules:
+  Red Hat Enterprise Linux 9:
+    - name: configure_crypto_policy
+      description: configure crypto policy
+    - name: configure_kerberos_crypto_policy
+      description: configure kerberos crypto policy
+    - name: configure_openssl_crypto_policy
+      description: configure openssl crypto policy
+    - name: configure_ssh_crypto_policy
+      description: configure ssh crypto policy
+    - name: sshd_include_crypto_policy
+      description: sshd include crypto policy
+x-trestle-rules-params:
+  Red Hat Enterprise Linux 9:
+    - name: var_system_crypto_policy
+      description: var system crypto policy
+      options: 
+        DEFAULT,DEFAULT:NO-SHA1,FIPS,FIPS:OSPP,FIPS:STIG,LEGACY,FUTURE,NEXT
+      rule-id: configure_crypto_policy
+x-trestle-comp-def-rules-param-vals:
+  # You may set new values for rule parameters by adding
+  #
+  # component-values:
+  #   - value 1
+  #   - value 2
+  #
+  # below a section of values:
+  # The values list refers to the values as set by the components, and the component-values are the new values
+  # to be placed in SetParameters of the component definition.
+  #
+  Red Hat Enterprise Linux 9:
+    - name: var_system_crypto_policy
+      values:
+        - DEFAULT
+---
+
+# BER.5.4 - \[Umgang mit Authentisierungsmitteln\] Nur etablierte Kryptographie
+
+## Control Statement
+
+Berechtigung SOLLTE bei kryptografischen Authentifizierungsmitteln die ausschließliche Verwendung etablierter kryptografischer Algorithmen nach {{ insert: param, ber.5.4-prm1 }} verankern.
+
+## Control guidance
+
+Kryptografische Authentifizierungsmittel sind Authentisierungsnachweise, deren Sicherheit wesentlich auf kryptografischen Verfahren beruht, etwa Passwort-Hashing, Zertifikate, Schlüsselpaare, Smartcards, Hardware-Token, Passkeys/FIDO2-Authentifikatoren, signaturbasierte API-Zugänge oder SSH-Schlüssel (engl. cryptographic authenticators). Etablierte kryptografische Algorithmen sind mathematisch fundierte Verschlüsselungsverfahren und Protokolle, die in der aktuellen Praxis nicht mit vertretbarem Aufwand gebrochen werden können, beispielsweise für Signaturen, Message Authentication Codes, Hashfunktionen, Schlüsselableitung oder authentisierte Verschlüsselung. Sie basieren auf mathematisch schwer lösbaren Problemen, bieten Resistenz gegen bekannte kryptanalytische Angriffe, unterstützen ausreichend große Schlüssellängen und wurden von Experten gründlich geprüft und analysiert. Aktuelle etablierte Algorithmen sind in BSI TR-02102 zu finden. Für weitere Details zur Implementierung siehe Detailspezifikation kryptografischer Abläufe und Mechanismen des BSI.
+
+______________________________________________________________________
+
+## What is the solution and how is it implemented?
+
+<!-- For implementation status enter one of: implemented, partial, planned, alternative, not-applicable -->
+
+<!-- Note that the list of rules under ### Rules: is read-only and changes will not be captured after assembly to JSON -->
+
+Für den Authentisierungspfad erzwingt RHEL etablierte kryptografische Algorithmen über systemweite Crypto Policies (`update-crypto-policies`): Stufen wie `DEFAULT`, `FUTURE` oder `FIPS` vereinheitlichen TLS, SSH, Kerberos und OpenSSL und entfernen schwache Verfahren aus den Protokollen, über die sich Nutzende und Dienste authentisieren. OpenSSH übernimmt die Policy über Crypto-Policy-Drop-ins (`sshd` inkludiert die Policy), sodass Hostschlüssel-Aushandlung und Session-Algorithmen derselben Stufe folgen. Eigene Policy-Profile (z. B. an BSI TR-02102 angelehnt) sind möglich, müssen aber strikt getestet werden, um fehlerhafte oder schwächende Konfigurationen zu vermeiden.
+
+Weitere Informationen: [Systemweite kryptografische Richtlinien](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/using-the-system-wide-cryptographic-policies_security-hardening), [Sicherheitshärtung](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/index).
+
+### Rules:
+
+  - configure_crypto_policy
+  - configure_ssh_crypto_policy
+  - sshd_include_crypto_policy
+  - configure_openssl_crypto_policy
+  - configure_kerberos_crypto_policy
+
+### Implementation Status: implemented
+
+______________________________________________________________________

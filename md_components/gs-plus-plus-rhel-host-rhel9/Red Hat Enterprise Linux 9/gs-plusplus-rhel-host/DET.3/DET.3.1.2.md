@@ -1,0 +1,37 @@
+---
+x-trestle-global:
+  profile:
+    title: Grundschutz++ für Red Hat Enterprise Linux Host
+    href: trestle://profiles/gs-plusplus-rhel-host/profile.json
+x-trestle-comp-def-rules:
+  Red Hat Enterprise Linux 9:
+    - name: gspp_impl_det_3_1_2
+      description: Narrative implementation seed for DET.3.1.2 (no CaC rule 
+        binding)
+---
+
+# DET.3.1.2 - \[Protokollierung\] Ausgeführte Kommandozeilenbefehle
+
+## Control Statement
+
+Detektion für IT-Systeme SOLLTE ausgeführte Kommandozeilenbefehle protokollieren.
+
+## Control guidance
+
+Angreifer nutzen Kommandozeilenfunktionen wie Bash oder Windows PowerShell, um mit Bordmitteln schädliche Befehle auszuführen. Hier sind vor allem Living-off-the-Land-Binaries (LOLBins) und Nutzlasten (Malware Payloads) zu nennen.
+
+______________________________________________________________________
+
+## What is the solution and how is it implemented?
+
+<!-- For implementation status enter one of: implemented, partial, planned, alternative, not-applicable -->
+
+<!-- Note that the list of rules under ### Rules: is read-only and changes will not be captured after assembly to JSON -->
+
+RHEL stellt konfigurierbare Audit-Regeln (einschließlich privilegierter Befehle und Syscall-Auditing) über auditd bereit; Regelsätze wählt die Institution. Siehe Sicherheitshärtung und OpenSCAP-Inhalte für Beispiele.
+
+Weitere Informationen: [Systemprüfung (Auditing)](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/auditing-the-system_security-hardening).
+
+### Implementation Status: partial
+
+______________________________________________________________________
