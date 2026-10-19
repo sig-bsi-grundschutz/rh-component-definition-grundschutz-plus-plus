@@ -30,6 +30,7 @@ ______________________________________________________________________
 RHEL erfasst Systemfehler über das systemd-Journal und das Audit-Subsystem; Aufbewahrung und zentrale Sammlung legt die Institution fest.
 
 Weitere Informationen: [Systemprüfung (Auditing)](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/auditing-the-system_security-hardening).
+
 ### Rules:
 
   - audit_rules_var_log_journal

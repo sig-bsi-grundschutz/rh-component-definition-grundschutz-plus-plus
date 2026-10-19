@@ -1,5 +1,4 @@
 ---
-
 x-trestle-comp-def-rules:
   Red Hat Enterprise Linux 9:
     - name: install_hids
@@ -19,6 +18,7 @@ x-trestle-global:
     title: Grundschutz++ für Red Hat Enterprise Linux Host
     href: trestle://profiles/gs-plusplus-rhel-host/profile.json
 ---
+
 # DET.4.2 - \[Überwachung von Aktivitäten\] Automatische Angriffserkennung
 
 ## Control Statement

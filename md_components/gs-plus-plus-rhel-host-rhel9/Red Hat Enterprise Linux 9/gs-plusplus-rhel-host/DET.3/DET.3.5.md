@@ -1,5 +1,4 @@
 ---
-
 x-trestle-comp-def-rules:
   Red Hat Enterprise Linux 9:
     - name: directory_permissions_var_log_audit
@@ -21,6 +20,7 @@ x-trestle-global:
     title: Grundschutz++ für Red Hat Enterprise Linux Host
     href: trestle://profiles/gs-plusplus-rhel-host/profile.json
 ---
+
 # DET.3.5 - \[Protokollierung\] Revisionssicherheit
 
 ## Control Statement

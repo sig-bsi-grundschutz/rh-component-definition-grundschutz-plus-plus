@@ -52,6 +52,7 @@ ______________________________________________________________________
 RHEL beschränkt technisch, wer Identitäten anlegen, ändern oder löschen kann: Die Konten- und Berechtigungsdatenbanken `/etc/passwd`, `/etc/shadow`, `/etc/group` und `/etc/gshadow` sind ausschließlich für `root` beschreibbar, sodass reguläre Nutzende sie nicht direkt manipulieren können. Werkzeuge wie `useradd`, `usermod` und `userdel` erfordern root-Rechte bzw. eine explizite `sudo`-Freigabe, wodurch die Einrichtung, Änderung und Löschung von Identitäten auf privilegierte Administrationswege begrenzt bleibt. Die organisatorische Ausgestaltung, wer diese privilegierten Rechte erhält (z.B. Vier-Augen-Prinzip, Genehmigungsworkflow zwischen Personalmanagement und Administration), bleibt Aufgabe der Institution. Ebenfalls ist es empfehlenswert in großen Umgebungen einen zentralen Identity-Provider (Red Hat IdM, Active Directory oder ander LDAP-Server) zu verwenden, und diese lediglich an die RHEL Server anzubinden. Dies ermöglicht zusätzlich die Anwendung zentraler Prozesse über verschiedene Systeme (Netzwerk-Devices, Linux, Windows, ...) hinweg.
 
 Weitere Informationen: [Benutzer und Gruppen verwalten](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_basic_system_settings/managing-users-and-groups_configuring-basic-system-settings).
+
 ### Rules:
 
   - file_permissions_etc_passwd

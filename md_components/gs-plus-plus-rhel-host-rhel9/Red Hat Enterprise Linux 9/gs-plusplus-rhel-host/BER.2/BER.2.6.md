@@ -30,6 +30,7 @@ ______________________________________________________________________
 Auf einzelnen RHEL-Hosts entfernt `userdel` (bei Bedarf mit `-r` für das Heimatverzeichnis) eine nicht mehr benötigte Identität vollständig aus `/etc/passwd`, `/etc/shadow`, `/etc/group` und `/etc/gshadow`; Für zentral verwaltete Umgebungen empfiehlt sich, die Identität einmalig in Red Hat IdM oder einem anderen Verzeichnisdienst (Active Directory, LDAP) zu deprovisionieren und die Löschung über die Red Hat Ansible Automation Platform (AAP) mit einer entsprechenden Rolle/Playbook automatisiert und auditierbar auf alle angebundenen RHEL-Hosts der Flotte auszurollen, statt jeden Host manuell per `userdel` zu bearbeiten. Die Bestimmung der gesetzlichen Löschfrist selbst sowie ein forensisch belastbares Löschen der zugehörigen Daten (verifizierbares Überschreiben, kryptografisches Löschen von Datenträgern, Bereinigung von Datensicherungen) sind organisatorische bzw. Storage-/Backup-Ebene und liegen außerhalb der Kontenverwaltung des Hosts.
 
 Weitere Informationen: [Benutzer und Gruppen verwalten](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_basic_system_settings/managing-users-and-groups_configuring-basic-system-settings).
+
 ### Rules:
 
   - accounts_authorized_local_users

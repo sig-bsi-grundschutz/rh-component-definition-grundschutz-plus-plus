@@ -6,7 +6,7 @@ x-trestle-comp-def-rules:
     - name: audit_rules_mac_modification
       description: audit rules mac modification
     - name: audit_rules_privileged_commands
-      description: Ensure auditd Collects Information on the Use of Privileged
+      description: Ensure auditd Collects Information on the Use of Privileged 
         Commands
     - name: audit_sudo_log_events
       description: Record Attempts to perform maintenance activities
@@ -50,7 +50,6 @@ Weitere Informationen: [Audit-Aufzeichnungen konfigurieren](https://docs.redhat.
   - audit_rules_networkconfig_modification
   - service_auditd_enabled
   - audit_rules_mac_modification
-
 
 ### Implementation Status: partial
 

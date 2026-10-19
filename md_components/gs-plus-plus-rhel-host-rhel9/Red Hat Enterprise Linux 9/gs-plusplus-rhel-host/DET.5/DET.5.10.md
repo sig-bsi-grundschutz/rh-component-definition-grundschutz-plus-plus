@@ -8,7 +8,7 @@ x-trestle-comp-def-rules:
     - name: timer_dnf-automatic_enabled
       description: enable dnf-automatic timer
     - name: dnf-automatic_apply_updates
-      description: configure dnf-automatic to install available updates
+      description: configure dnf-automatic to install available updates 
         automatically
 x-trestle-global:
   profile:
@@ -44,7 +44,6 @@ Weitere Informationen: [Automatisierung von Software-Updates in RHEL 9](https://
   - package_dnf-automatic_installed
   - timer_dnf-automatic_enabled
   - dnf-automatic_apply_updates
-
 
 ### Implementation Status: partial
 

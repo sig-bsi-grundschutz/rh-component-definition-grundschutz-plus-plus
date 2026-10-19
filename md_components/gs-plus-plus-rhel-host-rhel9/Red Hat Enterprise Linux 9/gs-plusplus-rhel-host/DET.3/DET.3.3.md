@@ -32,6 +32,7 @@ ______________________________________________________________________
 auditd unterstützt Aktionen bei vollem Datenträger und Schwellwerte für freien Speicherplatz, wie in der RHEL-Dokumentation beschrieben; Partitionierung und Archivierung verbleiben bei der Institution.
 
 Weitere Informationen: [Systemprüfung (Auditing)](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/auditing-the-system_security-hardening).
+
 ### Rules:
 
   - auditd_data_retention_space_left

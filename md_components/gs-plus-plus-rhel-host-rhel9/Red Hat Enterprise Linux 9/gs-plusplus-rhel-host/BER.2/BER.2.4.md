@@ -30,6 +30,7 @@ ______________________________________________________________________
 Änderungen an identitätsrelevanten Dateien können mit auditd-Regeln erfasst werden; Identitätslebenszyklus und IAM-Prozesse verbleiben in der Verantwortung der Institution (PAM, SSSD, Verzeichnisintegration).
 
 Weitere Informationen: [Authentifizierung und Autorisierung](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_authentication_and_authorization_in_rhel/index).
+
 ### Rules:
 
   - audit_rules_usergroup_modification_passwd

@@ -1,5 +1,4 @@
 ---
-
 x-trestle-comp-def-rules:
   Red Hat Enterprise Linux 9:
     - name: encrypt_partitions
@@ -9,6 +8,7 @@ x-trestle-global:
     title: Grundschutz++ für Red Hat Enterprise Linux Host
     href: trestle://profiles/gs-plusplus-rhel-host/profile.json
 ---
+
 # KONF.11.8 - \[Vertrauensbeziehungen\] Verschlüsselung schützenswerter Daten (at-rest)
 
 ## Control Statement

@@ -2,7 +2,7 @@
 x-trestle-comp-def-rules:
   Red Hat Enterprise Linux 9:
     - name: gspp_impl_asst_2_3_2
-      description: Narrative implementation seed for ASST.2.3.2 (no CaC rule
+      description: Narrative implementation seed for ASST.2.3.2 (no CaC rule 
         binding)
 x-trestle-global:
   profile:

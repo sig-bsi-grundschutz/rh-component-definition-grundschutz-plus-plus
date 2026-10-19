@@ -1,9 +1,9 @@
 ---
-
 x-trestle-comp-def-rules:
   Red Hat Enterprise Linux 9:
     - name: dnf-automatic_apply_updates
-      description: configure dnf-automatic to install available updates automatically
+      description: configure dnf-automatic to install available updates 
+        automatically
     - name: package_dnf-automatic_installed
       description: install dnf-automatic package
     - name: timer_dnf-automatic_enabled
@@ -15,6 +15,7 @@ x-trestle-global:
     title: Grundschutz++ für Red Hat Enterprise Linux Host
     href: trestle://profiles/gs-plusplus-rhel-host/profile.json
 ---
+
 # KONF.8.1.1 - \[Sicherheitsupdates\] Automatische Sicherheitsupdates
 
 ## Control Statement

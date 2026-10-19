@@ -2,7 +2,7 @@
 x-trestle-comp-def-rules:
   Red Hat Enterprise Linux 9:
     - name: gspp_impl_ber_4_5
-      description: Narrative implementation seed for BER.4.5 (no CaC rule
+      description: Narrative implementation seed for BER.4.5 (no CaC rule 
         binding)
 x-trestle-global:
   profile:

@@ -1,5 +1,4 @@
 ---
-
 x-trestle-comp-def-rules:
   Red Hat Enterprise Linux 9:
     - name: configure_crypto_policy
@@ -33,6 +32,7 @@ x-trestle-global:
     title: Grundschutz++ für Red Hat Enterprise Linux Host
     href: trestle://profiles/gs-plusplus-rhel-host/profile.json
 ---
+
 # KONF.14.1 - \[Verteilte Anwendungen\] Verschlüsselung beim Transport
 
 ## Control Statement

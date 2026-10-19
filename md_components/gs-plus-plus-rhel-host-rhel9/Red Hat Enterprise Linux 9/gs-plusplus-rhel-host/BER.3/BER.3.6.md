@@ -44,7 +44,6 @@ Weitere Informationen: [sudo-Zugriff verwalten](https://docs.redhat.com/en/docum
   - sudo_restrict_privilege_elevation_to_authorized
   - use_pam_wheel_for_su
 
-
 ### Implementation Status: partial
 
 ______________________________________________________________________

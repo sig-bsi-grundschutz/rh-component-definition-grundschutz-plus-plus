@@ -1,5 +1,4 @@
 ---
-
 x-trestle-global:
   profile:
     title: Grundschutz++ für Red Hat Enterprise Linux Host
@@ -7,10 +6,13 @@ x-trestle-global:
 x-trestle-comp-def-rules:
   Red Hat Enterprise Linux 9:
     - name: grub2_uefi_password
-      description: The grub2 boot loader should have a superuser account and password protection enabled to protect boot-time settings.
+      description: The grub2 boot loader should have a superuser account and 
+        password protection enabled to protect boot-time settings.
     - name: grub2_uefi_admin_username
-      description: The grub2 boot loader should have a superuser account and password protection enabled to protect boot-time settings.
+      description: The grub2 boot loader should have a superuser account and 
+        password protection enabled to protect boot-time settings.
 ---
+
 # KONF.5.1.1 - \[Authentifizierung\] Authentifizierung an der Firmware
 
 ## Control Statement

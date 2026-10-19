@@ -2,7 +2,8 @@
 x-trestle-comp-def-rules:
   Red Hat Enterprise Linux 9:
     - name: gspp_impl_konf_9_1
-      description: Narrative implementation seed for KONF.9.1 (no CaC rule binding)
+      description: Narrative implementation seed for KONF.9.1 (no CaC rule 
+        binding)
 x-trestle-global:
   profile:
     title: Grundschutz++ für Red Hat Enterprise Linux Host

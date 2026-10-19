@@ -30,6 +30,7 @@ ______________________________________________________________________
 RHEL auditd kann Erfolg und Fehlschlag von Authentisierungen protokollieren, wenn Audit-Regeln gemäß Produktdokumentation und scap-security-guide-Baselines konfiguriert sind.
 
 Weitere Informationen: [Systemprüfung (Auditing)](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/security_hardening/auditing-the-system_security-hardening).
+
 ### Rules:
 
   - audit_rules_login_events_faillog
